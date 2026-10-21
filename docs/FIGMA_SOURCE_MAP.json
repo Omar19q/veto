@@ -1,0 +1,11 @@
+{
+  "CategoryCard": "lib/widgets/ride_category_card.dart",
+  "SafetyCode": "lib/widgets/trip_safety_code.dart",
+  "TripPromise": "lib/widgets/trip_promise_panel.dart",
+  "CategoryCatalog": "lib/services/ride_categories.dart",
+  "CustomerBooking": "lib/presentation/trip_booking_screen/trip_booking_screen.dart",
+  "CaptainEligibility": "lib/presentation/categories/captain_categories_screen.dart",
+  "AdminControl": "lib/presentation/categories/admin_categories_screen.dart",
+  "Figma_status": "Starter MCP quota blocked; no V3 write published",
+  "Figma_existing_file": "https://www.figma.com/design/wyAPBW8hh7Kz5Th8x6M4CB"
+}

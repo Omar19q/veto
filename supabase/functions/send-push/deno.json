@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "lib": [
+      "deno.window",
+      "dom",
+      "es2022"
+    ]
+  },
+  "nodeModulesDir": "auto",
+  "imports": {
+    "jose": "npm:jose@5.10.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }
+}

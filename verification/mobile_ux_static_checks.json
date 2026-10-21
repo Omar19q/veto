@@ -1,0 +1,17 @@
+{
+  "type": "static_source_and_asset_validation_not_flutter_build",
+  "checks": {
+    "original_project_structure": true,
+    "gps_radius_200": true,
+    "pickup_confirm_has_notes": true,
+    "destination_search_default": true,
+    "no_intermediate_service_stage": true,
+    "financial_services_unmodified": true,
+    "original_env_untouched": true,
+    "audio_veto_offer_v2.wav": true,
+    "audio_veto_chat_v2.wav": true,
+    "audio_veto_notification_v2.wav": true,
+    "audio_veto_success_new.wav": true,
+    "no_flutter_binary": true
+  }
+}

@@ -1,0 +1,38 @@
+# Deployment configuration matches the current Production gateway settings.
+# Deploy individual reviewed functions only; secrets are supplied by Supabase.
+
+[functions.create-captain]
+verify_jwt = false
+
+[functions.get-route]
+verify_jwt = false
+
+[functions.admin-code-login]
+verify_jwt = true
+
+[functions.captain-code-login]
+verify_jwt = true
+
+[functions.send-push]
+verify_jwt = false
+
+[functions.merchant-code-login]
+verify_jwt = true
+
+[functions.route-price-quote]
+verify_jwt = true
+
+[functions.post-trip-checkin]
+verify_jwt = false
+
+[functions.staff-code-login]
+verify_jwt = false
+
+[functions.captain-application-login]
+verify_jwt = false
+
+[functions.rotate-captain-credentials]
+verify_jwt = true
+
+[functions.product-geocoding]
+verify_jwt = true

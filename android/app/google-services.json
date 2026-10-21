@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647317447970",
+    "project_id": "veto-sanya",
+    "storage_bucket": "veto-sanya.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647317447970:android:dade72175a1339913f317b",
+        "android_client_info": {
+          "package_name": "com.example.vetosanya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGD2AcoA-V67ZKjiEDebdL-TWRJv8WgaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647317447970:android:894ebb0311216c853f317b",
+        "android_client_info": {
+          "package_name": "com.vetosanya.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGD2AcoA-V67ZKjiEDebdL-TWRJv8WgaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

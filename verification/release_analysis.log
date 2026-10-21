@@ -1,0 +1,755 @@
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.77 (1.3.78 available)
+  app_links 7.2.1 (7.2.2 available)
+  app_links_linux 1.0.3 (1.0.4 available)
+  app_links_web 1.0.4 (1.0.5 available)
+  archive 4.0.9 (4.5.2 available)
+  cached_network_image 3.4.1 (4.0.4 available)
+  cached_network_image_platform_interface 4.1.1 (5.0.3 available)
+  cached_network_image_web 1.3.1 (2.0.3 available)
+  connectivity_plus 6.1.5 (7.3.2 available)
+  cross_file 0.3.5+5 (0.4.0 available)
+  dbus 0.7.15 (0.8.0 available)
+  equatable 2.1.0 (3.0.0 available)
+  file_selector_macos 0.9.5+1 (0.9.5+2 available)
+  firebase_core 4.15.0 (5.0.0 available)
+  firebase_core_web 3.12.0 (4.0.0 available)
+  firebase_messaging 16.7.0 (17.0.0 available)
+  firebase_messaging_platform_interface 4.10.0 (4.11.0 available)
+  firebase_messaging_web 4.2.5 (4.3.0 available)
+  fl_chart 0.65.0 (1.2.0 available)
+  flutter_lints 5.0.0 (6.0.0 available)
+  flutter_local_notifications 20.1.0 (22.3.2 available)
+  flutter_local_notifications_linux 7.0.0 (8.0.2 available)
+  flutter_local_notifications_platform_interface 10.0.0 (12.2.0 available)
+  flutter_local_notifications_windows 2.0.1 (3.1.1 available)
+  fluttertoast 8.2.14 (10.0.2 available)
+  geolocator 13.0.4 (14.1.2 available)
+  geolocator_android 4.6.2 (5.2.1 available)
+  geolocator_apple 2.3.14 (2.4.2 available)
+  geolocator_platform_interface 4.4.0 (4.4.1 available)
+  go_router 14.8.1 (18.1.0 available)
+  google_fonts 6.3.3 (9.0.0 available)
+  gotrue 2.27.2 (2.27.3 available)
+  image 4.8.0 (4.12.0 available)
+  image_picker 1.2.3 (1.2.4 available)
+  image_picker_ios 0.8.13+9 (0.8.13+12 available)
+  image_picker_platform_interface 2.11.1 (2.11.2 available)
+  jni_flutter 1.0.3 (1.0.4+1 available)
+  lints 5.1.1 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  nm 0.5.0 (0.6.0 available)
+  onesignal_flutter 5.7.0 (5.7.1 available)
+  pdf 3.12.0 (3.13.1 available)
+  printing 5.14.3 (5.15.1 available)
+  qr 3.0.2 (4.0.0 available)
+  realtime_client 2.13.0 (2.13.2 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  shared_preferences_android 2.4.28 (2.5.1 available)
+  shared_preferences_foundation 2.5.7 (2.6.0 available)
+  showcaseview 5.0.2 (5.1.0 available)
+  sizer 2.0.15 (3.1.3 available)
+  sqflite 2.4.4+1 (2.4.4+2 available)
+  sqflite_android 2.4.4 (2.4.4+1 available)
+  sqflite_common 2.5.13+1 (2.5.14 available)
+  sqflite_darwin 2.4.4 (2.4.4+1 available)
+  supabase 2.16.2 (2.16.5 available)
+  supabase_flutter 2.18.0 (2.18.3 available)
+  synchronized 3.4.2 (3.5.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  timezone 0.10.1 (0.11.2 available)
+  vector_graphics 1.2.3 (1.2.4 available)
+  vector_graphics_compiler 1.3.0 (1.3.2 available)
+  vm_service 15.3.0 (15.4.0 available)
+  xml 6.6.1 (7.1.0 available)
+Got dependencies!
+63 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing source...                                             
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\address_suggestion_history.dart:41:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\address_suggestion_history.dart:58:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\customer_saved_addresses.dart:34:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\customer_saved_addresses.dart:42:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\customer_saved_addresses.dart:83:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\customer_saved_addresses.dart:123:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\addresses\customer_saved_addresses.dart:161:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_address_suggestions.dart:42:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_address_suggestions.dart:53:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_address_suggestions.dart:178:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_address_suggestions.dart:229:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_address_suggestions.dart:242:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:65:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:73:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:236:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:240:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:307:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_alerts_screen.dart:314:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_banners_panel.dart:39:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_banners_panel.dart:66:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_banners_panel.dart:337:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_banners_panel.dart:354:11 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_banners_panel.dart:424:17 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_buildings_panel.dart:213:20 - curly_braces_in_flow_control_structures
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\presentation\admin\admin_buildings_panel.dart:423:39 - unnecessary_brace_in_string_interps
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_captain_actions_v10.dart:147:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_captain_form.dart:138:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_captain_form.dart:620:23 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_captain_intake_v19.dart:153:20 - curly_braces_in_flow_control_structures
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_captain_rewards_panel.dart:353:3 - prefer_const_constructors_in_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_captain_rewards_panel.dart:421:25 - curly_braces_in_flow_control_structures
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_captain_rewards_panel.dart:561:49 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_captain_rewards_panel.dart:562:13 - deprecated_member_use
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_captain_rewards_panel.dart:565:53 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_captain_rewards_panel.dart:566:13 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_city_catalog_v37.dart:134:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_city_catalog_v37.dart:255:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_city_catalog_v37.dart:289:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_city_catalog_v37.dart:362:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customer_frames_v29.dart:32:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customer_frames_v29.dart:79:41 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_customer_frames_v29.dart:109:51 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customer_loyalty_hub_v38.dart:174:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customer_wallet_history_v46.dart:66:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customers_panel.dart:435:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_customers_panel.dart:588:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:107:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:126:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:156:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:273:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:289:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:293:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:319:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:350:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:361:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:384:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:959:30 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:1006:84 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:1008:85 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:1010:50 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1015:40 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:1015:61 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_dashboard_screen.dart:1028:38 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1147:7 - curly_braces_in_flow_control_structures
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_dashboard_screen.dart:1424:3 - prefer_const_constructors_in_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1463:7 - curly_braces_in_flow_control_structures
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_dashboard_screen.dart:1827:3 - prefer_const_constructors_in_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1838:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1883:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1919:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:1924:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:2255:35 - curly_braces_in_flow_control_structures
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_dashboard_screen.dart:2447:3 - prefer_const_constructors_in_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:2537:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:2570:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_dashboard_screen.dart:2657:9 - curly_braces_in_flow_control_structures
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_dashboard_screen.dart:2944:3 - prefer_const_constructors_in_immutables
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_debt_invoices_v17.dart:92:20 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_famous_places_panel.dart:564:25 - deprecated_member_use
+   info - Constructors in '@immutable' classes should be declared as 'const'. Try adding 'const' to the constructor declaration - lib\presentation\admin\admin_famous_places_panel.dart:932:3 - prefer_const_constructors_in_immutables
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_famous_places_panel.dart:977:45 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_health_v10.dart:46:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_health_v10.dart:49:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_hot_zones_v35.dart:56:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_hot_zones_v35.dart:61:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_incidents_v10.dart:43:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_incidents_v10.dart:140:21 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_incidents_v10.dart:145:21 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_incidents_v10.dart:179:21 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_karizma_panel.dart:326:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_karizma_panel.dart:368:34 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_live_operations_v10.dart:71:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_live_operations_v10.dart:77:9 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_market_promos_panel.dart:53:17 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_market_promos_panel.dart:288:15 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_market_promos_panel.dart:306:15 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_notifications_panel.dart:253:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_operations_center.dart:54:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_overview_v9.dart:43:34 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_overview_v9.dart:78:7 - curly_braces_in_flow_control_structures
+   info - Use interpolation to compose strings and values. Try using string interpolation to build the composite string - lib\presentation\admin\admin_overview_v9.dart:234:123 - prefer_interpolation_to_compose_strings
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_engine_v10.dart:44:9 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_engine_v10.dart:62:36 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_engine_v10.dart:123:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_engine_v10.dart:129:25 - curly_braces_in_flow_control_structures
+warning - A value for optional parameter 'key' isn't ever given. Try removing the unused parameter - lib\presentation\admin\admin_pricing_panel.dart:86:39 - unused_element_parameter
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:70:22 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:79:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:127:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:142:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:173:20 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_pricing_zones_screen.dart:193:9 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:255:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:260:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:581:31 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_pricing_zones_screen.dart:581:52 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:588:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:608:19 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_pricing_zones_screen.dart:678:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_promo_panel.dart:31:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_promo_panel.dart:108:36 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_promo_panel.dart:114:31 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_promo_panel.dart:331:43 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_reports_panel.dart:47:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_reports_panel.dart:61:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_reports_panel.dart:67:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\presentation\admin\admin_supermarket_panel.dart:953:54 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1129:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1135:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1161:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1291:11 - curly_braces_in_flow_control_structures
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_supermarket_panel.dart:1297:9 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1307:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1360:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1522:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_supermarket_panel.dart:1641:9 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\admin\admin_team_linking_v58.dart:46:13 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_team_linking_v58.dart:71:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_team_linking_v58.dart:73:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_team_linking_v58.dart:104:49 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:86:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:95:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:592:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:594:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:850:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_topup_panel.dart:963:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:120:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:170:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:183:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:281:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:285:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:291:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:326:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:593:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_details_screen.dart:595:35 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_rules_v9.dart:49:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_rules_v9.dart:74:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_trip_rules_v9.dart:80:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\admin_wallet_panel.dart:32:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\staff_management_v16.dart:39:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\staff_management_v16.dart:46:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\staff_management_v16.dart:212:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\verification_desk_v22.dart:81:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\verification_desk_v22.dart:130:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\verification_desk_v22.dart:149:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\verification_desk_v22.dart:164:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\admin\verification_desk_v22.dart:200:9 - curly_braces_in_flow_control_structures
+   info - The import of 'dart:ui' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive - lib\presentation\captain_dashboard_screen\captain_ban_screen.dart:3:8 - unnecessary_import
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_ban_screen.dart:113:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:60:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:79:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:112:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:196:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:202:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:206:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:222:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:520:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:547:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:554:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:556:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:574:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:578:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:602:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:617:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:627:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:654:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:661:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:748:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:770:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:835:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:839:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:865:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:894:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:900:13 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:930:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:932:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:934:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:936:13 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:939:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1018:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1021:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1045:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1079:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1157:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1163:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1168:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1205:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1222:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1231:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1233:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1235:15 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1255:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1257:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1281:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1499:13 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1542:7 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1542:13 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1560:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:1566:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:2485:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:2536:15 - use_build_context_synchronously
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:2667:22 - unnecessary_const
+warning - The declaration '_header' isn't referenced. Try removing the declaration of '_header' - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:2688:10 - unused_element
+warning - The declaration '_openOfferDetailsV10' isn't referenced. Try removing the declaration of '_openOfferDetailsV10' - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:2989:16 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3001:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3006:13 - curly_braces_in_flow_control_structures
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3157:28 - unnecessary_const
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3189:22 - unnecessary_const
+warning - The value of the local variable 'customerGender' isn't used. Try removing the variable or using it - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3305:11 - unused_local_variable
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3374:22 - unnecessary_const
+warning - The declaration '_customerAvatar' isn't referenced. Try removing the declaration of '_customerAvatar' - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3469:10 - unused_element
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3532:26 - unnecessary_const
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3589:20 - unnecessary_const
+warning - The declaration '_actionTile' isn't referenced. Try removing the declaration of '_actionTile' - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3714:10 - unused_element
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3740:22 - unnecessary_const
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_dashboard_screen.dart:3811:20 - unnecessary_const
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_demand_map_screen.dart:63:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_demand_map_screen.dart:72:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_demand_map_screen.dart:361:33 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:125:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:275:42 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:321:18 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:557:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:577:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:578:15 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:603:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:606:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:613:11 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:619:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:625:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:628:13 - use_build_context_synchronously
+warning - The value of the local variable 'gender' isn't used. Try removing the variable or using it - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:719:11 - unused_local_variable
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:1081:47 - deprecated_member_use
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:1279:57 - deprecated_member_use
+   info - Unnecessary 'const' keyword. Try removing the keyword - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:1353:28 - unnecessary_const
+warning - The declaration '_avatar' isn't referenced. Try removing the declaration of '_avatar' - lib\presentation\captain_dashboard_screen\captain_live_trip_screen.dart:1374:10 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:61:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:76:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:102:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:601:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:745:30 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:746:34 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:792:7 - curly_braces_in_flow_control_structures
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\captain_dashboard_screen\captain_market_order_screen.dart:926:61 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\widgets\captain_home_map_v30.dart:217:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\widgets\captain_route_preview_v45.dart:51:52 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\captain_dashboard_screen\widgets\captain_route_preview_v45.dart:53:55 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:32:9 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:219:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:267:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:417:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:438:11 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\admin_categories_screen.dart:627:41 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\categories\captain_categories_screen.dart:31:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:143:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:181:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:212:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:239:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:258:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\customer_loyalty_panel_v29.dart:287:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\partner_portal_v39.dart:80:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\partner_portal_v39.dart:104:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\partner_portal_v39.dart:147:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\customer\partner_portal_v39.dart:147:30 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\customer\partner_portal_v39.dart:148:34 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\customer\partner_portal_v39.dart:421:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\feedback\feedback_screen.dart:85:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\feedback\feedback_screen.dart:88:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\feedback\feedback_screen.dart:94:7 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\feedback\feedback_screen.dart:98:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\feedback\feedback_screen.dart:101:13 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_game_screen.dart:103:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_game_screen.dart:114:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_game_screen.dart:222:23 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_game_screen.dart:224:23 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:38:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:91:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:106:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:107:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:143:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\game\driving_road_painter.dart:148:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\admin_badge_activation_screen.dart:36:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\admin_badge_activation_screen.dart:49:20 - curly_braces_in_flow_control_structures
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\growth\admin_badge_activation_screen.dart:225:11 - deprecated_member_use
+   info - Use the null-aware operator '?.' rather than an explicit 'null' comparison. Try using '?.' - lib\presentation\growth\admin_growth_screen.dart:23:12 - prefer_null_aware_operators
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\admin_growth_screen.dart:393:76 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\booking_performance_screen.dart:43:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\captain_code_capacity_screen.dart:42:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:61:54 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:215:22 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:334:18 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:495:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:813:30 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:819:30 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:835:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\growth_screens.dart:856:38 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\monitor_status_screen.dart:42:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\growth\owner_growth_campaign_wizard_v66.dart:137:20 - curly_braces_in_flow_control_structures
+warning - The value of the field '_growthFlags' isn't used. Try removing the field, or using it - lib\presentation\home_screen\home_screen.dart:42:24 - unused_field
+warning - The value of the field '_growthFlagsError' isn't used. Try removing the field, or using it - lib\presentation\home_screen\home_screen.dart:43:8 - unused_field
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:82:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:327:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:344:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:361:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:372:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:438:13 - curly_braces_in_flow_control_structures
+warning - The declaration '_showQuickNameSheet' isn't referenced. Try removing the declaration of '_showQuickNameSheet' - lib\presentation\home_screen\home_screen.dart:677:16 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:691:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:745:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:832:52 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\home_screen.dart:855:69 - curly_braces_in_flow_control_structures
+warning - The declaration '_locationMessage' isn't referenced. Try removing the declaration of '_locationMessage' - lib\presentation\home_screen\home_screen.dart:1022:10 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_earned_savings_banner_v67.dart:47:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_earned_savings_banner_v67.dart:53:66 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_earned_savings_banner_v67.dart:81:42 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_places_widget.dart:56:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_promo_widget.dart:28:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\home_promo_widget.dart:36:7 - curly_braces_in_flow_control_structures
+warning - The value of the field '_saved' isn't used. Try removing the field, or using it - lib\presentation\home_screen\widgets\product_home_panel.dart:35:28 - unused_field
+warning - The value of the field '_recent' isn't used. Try removing the field, or using it - lib\presentation\home_screen\widgets\product_home_panel.dart:35:41 - unused_field
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\home_screen\widgets\product_home_panel.dart:98:9 - curly_braces_in_flow_control_structures
+warning - The declaration '_rememberPickup' isn't referenced. Try removing the declaration of '_rememberPickup' - lib\presentation\home_screen\widgets\product_home_panel.dart:123:16 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:74:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:113:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:132:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:135:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:162:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:165:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:247:21 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:533:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\karizma\karizma_screen.dart:540:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:51:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:104:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:173:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:382:19 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:401:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:837:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:868:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:894:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:904:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\merchant\merchant_dashboard_screen.dart:1119:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\notifications\customer_notifications_screen.dart:48:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\notifications\customer_notifications_screen.dart:70:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\notifications\customer_notifications_screen.dart:77:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\notifications\customer_notifications_screen.dart:89:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\notifications\customer_notifications_screen.dart:103:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\onboarding\onboarding_screen.dart:70:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\settings\product_settings_screen.dart:19:9 - curly_braces_in_flow_control_structures
+   info - The import of 'dart:typed_data' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/services.dart'. Try removing the import directive - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:5:8 - unnecessary_import
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:214:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:219:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:223:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:226:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:443:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:455:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:506:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:537:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:567:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:579:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:670:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\captain_registration_screen.dart:735:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:93:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:116:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:127:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:155:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:158:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:161:9 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:246:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:282:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:285:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:290:9 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\sign_up_login_screen.dart:316:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\widgets\auth_otp_step_widget.dart:100:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\widgets\auth_otp_step_widget.dart:160:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\widgets\auth_otp_step_widget.dart:206:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\sign_up_login_screen\widgets\auth_otp_step_widget.dart:210:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\live_trip_screen.dart:96:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\live_trip_screen.dart:111:17 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\live_trip_screen.dart:174:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\live_trip_screen.dart:1328:20 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\live_trip_screen.dart:1331:18 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:208:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:213:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:235:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:237:13 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:244:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:266:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:268:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:273:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:275:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:284:16 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:494:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:497:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:514:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:776:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:834:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:842:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:850:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:904:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:915:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:947:27 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:968:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:980:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:995:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1249:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1288:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1354:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1360:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1370:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1378:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1389:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1458:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1923:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1943:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1979:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:1993:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2028:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2067:15 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2071:31 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2345:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2354:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2475:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2481:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2508:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2540:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:2603:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_booking_screen.dart:3379:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\trip_chat_screen.dart:65:7 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:170:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:172:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:174:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:176:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:177:16 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:204:20 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:216:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:218:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:220:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:222:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:224:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:225:13 - use_build_context_synchronously
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:264:17 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_building_suggestion_dialog.dart:283:27 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_destination_sheet_widget.dart:220:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_destination_sheet_widget.dart:232:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_destination_sheet_widget.dart:238:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_fare_sheet_widget.dart:201:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_fare_sheet_widget.dart:906:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_favorites_widget.dart:80:19 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_favorites_widget.dart:178:28 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_favorites_widget.dart:187:26 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_favorites_widget.dart:190:26 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\booking_pickup_sheet_widget.dart:254:9 - curly_braces_in_flow_control_structures
+warning - The declaration '_hasExactBuildingMatch' isn't referenced. Try removing the declaration of '_hasExactBuildingMatch' - lib\presentation\trip_booking_screen\widgets\booking_pickup_sheet_widget.dart:315:12 - unused_element
+warning - The declaration '_pickupOption' isn't referenced. Try removing the declaration of '_pickupOption' - lib\presentation\trip_booking_screen\widgets\booking_pickup_sheet_widget.dart:684:10 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\extra_requests_field.dart:179:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\product_searching_view.dart:125:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\smooth_live_trip_map.dart:136:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\trip_booking_screen\widgets\trip_rating_sheet_v10.dart:165:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:119:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:128:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:160:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:258:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:316:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_checkout_screen.dart:382:9 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:1044:7 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_checkout_screen.dart:1077:29 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_checkout_screen.dart:1087:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_checkout_screen.dart:1091:20 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_checkout_screen.dart:1301:33 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_history_screen.dart:50:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_history_screen.dart:98:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_history_screen.dart:121:11 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:122:13 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:130:20 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:156:7 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_history_screen.dart:162:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:162:30 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:166:21 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:168:21 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\vito_market_history_screen.dart:169:21 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:54:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:89:9 - curly_braces_in_flow_control_structures
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:252:55 - deprecated_member_use
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:290:64 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:395:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:558:7 - curly_braces_in_flow_control_structures
+   info - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\vito_market\vito_market_order_tracking_screen.dart:763:61 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_products_screen.dart:70:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_products_screen.dart:91:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_products_screen.dart:101:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_products_screen.dart:131:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\vito_market_screen.dart:44:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\widgets\market_order_chat_sheet.dart:94:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\vito_market\widgets\market_order_chat_sheet.dart:121:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\widgets\market_order_chat_sheet.dart:140:30 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\vito_market\widgets\market_order_chat_sheet.dart:141:34 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\wallet\wallet_topup_screen.dart:80:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\wallet\wallet_topup_screen.dart:93:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\presentation\wallet\wallet_topup_screen.dart:121:7 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\presentation\wallet\wallet_topup_screen.dart:181:14 - use_build_context_synchronously
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\wallet\wallet_topup_screen.dart:494:15 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre. Try replacing the use of the deprecated member with the replacement - lib\presentation\wallet\wallet_topup_screen.dart:495:15 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:114:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:151:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:191:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:195:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:212:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:218:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:710:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:724:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:732:9 - curly_braces_in_flow_control_structures
+warning - The declaration '_date' isn't referenced. Try removing the declaration of '_date' - lib\routes\app_routes.dart:767:10 - unused_element
+warning - The declaration '_money' isn't referenced. Try removing the declaration of '_money' - lib\routes\app_routes.dart:774:10 - unused_element
+warning - The declaration '_customerInvoiceLine' isn't referenced. Try removing the declaration of '_customerInvoiceLine' - lib\routes\app_routes.dart:790:10 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1116:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1145:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1170:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1173:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1444:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1454:9 - curly_braces_in_flow_control_structures
+warning - The value of the field '_customerPhone' isn't used. Try removing the field, or using it - lib\routes\app_routes.dart:1473:10 - unused_field
+warning - The value of the field '_gender' isn't used. Try removing the field, or using it - lib\routes\app_routes.dart:1476:10 - unused_field
+warning - The value of the field '_uploadingPhoto' isn't used. Try removing the field, or using it - lib\routes\app_routes.dart:1478:8 - unused_field
+warning - The value of the field '_isEditingName' isn't used. Try removing the field, or using it - lib\routes\app_routes.dart:1479:8 - unused_field
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1518:9 - curly_braces_in_flow_control_structures
+warning - The declaration '_saveName' isn't referenced. Try removing the declaration of '_saveName' - lib\routes\app_routes.dart:1525:16 - unused_element
+warning - The declaration '_pickProfilePhoto' isn't referenced. Try removing the declaration of '_pickProfilePhoto' - lib\routes\app_routes.dart:1548:16 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:1576:9 - curly_braces_in_flow_control_structures
+warning - The declaration '_saveGender' isn't referenced. Try removing the declaration of '_saveGender' - lib\routes\app_routes.dart:1586:16 - unused_element
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:2198:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\routes\app_routes.dart:2280:23 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\accepted_trip_navigation_coordinator.dart:24:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\address_suggestion_service.dart:29:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\address_suggestion_service.dart:39:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\admin_directory_pager_v15.dart:19:9 - curly_braces_in_flow_control_structures
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\services\admin_environment_support.dart:28:53 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\services\admin_environment_support.dart:33:69 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\services\admin_environment_support.dart:37:70 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\services\admin_environment_support.dart:39:38 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation. Try removing the braces - lib\services\admin_environment_support.dart:42:50 - unnecessary_brace_in_string_interps
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\booking_address_seed.dart:29:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\booking_address_seed.dart:50:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\booking_performance.dart:49:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\captain_background_worker.dart:61:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\captain_ban_guard.dart:81:9 - curly_braces_in_flow_control_structures
+   info - The import of 'dart:typed_data' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/services.dart'. Try removing the import directive - lib\services\growth_badge_pdf.dart:1:8 - unnecessary_import
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_install_referral.dart:9:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_install_referral.dart:12:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_install_referral.dart:23:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_install_referral.dart:26:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_service.dart:121:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\growth_service.dart:206:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\hybrid_place_search_service.dart:40:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\hybrid_place_search_service.dart:101:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\hybrid_place_search_service.dart:132:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\hybrid_place_search_service.dart:141:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\location_upload_gate_v15.dart:11:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\openfreemap_style_service.dart:49:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\openfreemap_style_service.dart:59:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\openfreemap_style_service.dart:61:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\openfreemap_style_service.dart:67:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\phone_identity.dart:43:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\place_search_service.dart:81:15 - curly_braces_in_flow_control_structures
+warning - The value of the field '_authEvents' isn't used. Try removing the field, or using it - lib\services\post_trip_checkin_onesignal_v26.dart:20:34 - unused_field
+   info - Parameters ''lat' and 'lng'' could be super parameters. Trying converting ''lat' and 'lng'' to super parameters - lib\services\product_geocoding_service.dart:8:3 - use_super_parameters
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:28:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:41:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:64:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:85:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:95:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_geocoding_service.dart:117:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_preferences.dart:31:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_preferences.dart:76:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_preferences.dart:89:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_route_geometry.dart:16:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_route_geometry.dart:29:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\product_route_geometry.dart:32:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\push_notification_service.dart:151:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\push_notification_service.dart:201:17 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\push_notification_service.dart:246:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\secure_draft_store.dart:48:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\secure_draft_store.dart:70:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\staff_access_v16.dart:70:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:120:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:1155:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:1162:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:1638:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:2157:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:2178:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:2192:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:2255:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:3823:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\supabase_service.dart:3841:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_chat_inbox.dart:92:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_data_v10.dart:53:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_data_v10.dart:64:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_data_v10.dart:66:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_data_v10.dart:68:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_realtime_v10.dart:111:15 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_realtime_v10.dart:117:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_realtime_v10.dart:119:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_realtime_v10.dart:187:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\trip_realtime_v10.dart:189:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\zone_pricing_service.dart:144:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\services\zone_pricing_service.dart:148:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\booking_city_places_v39.dart:68:55 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\booking_city_places_v39.dart:99:60 - curly_braces_in_flow_control_structures
+   info - Constructors for public widgets should have a named 'key' parameter. Try adding a named parameter to the constructor - lib\widgets\captain_combo_introduction.dart:51:9 - use_key_in_widget_constructors
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\captain_combo_introduction.dart:184:29 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\captain_photo_v16.dart:30:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\customer_drawer.dart:33:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext - lib\widgets\customer_drawer.dart:153:31 - use_build_context_synchronously
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\customer_map_home.dart:142:19 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\extra_purchase_limit.dart:21:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\extra_purchase_limit.dart:25:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\extra_purchase_limit.dart:27:5 - curly_braces_in_flow_control_structures
+warning - The value of the field '_pointSnapshot' isn't used. Try removing the field, or using it - lib\widgets\openfreemap_surface.dart:44:16 - unused_field
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\openfreemap_surface.dart:98:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\openfreemap_surface.dart:209:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\openfreemap_surface.dart:211:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\trip_promise_panel.dart:40:13 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\trip_promise_panel.dart:131:31 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\trip_safety_code.dart:38:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\trip_safety_code.dart:169:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\v37_suggest_address_button.dart:153:20 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\v37_suggest_address_button.dart:259:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - lib\widgets\wave_dispatch_status.dart:24:9 - curly_braces_in_flow_control_structures
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\ban_countdown_test.dart:2:8 - avoid_relative_lib_imports
+   info - 'anonKey' is deprecated and shouldn't be used. Use publishableKey instead. anonKey will be removed in a future major version. Try replacing the use of the deprecated member with the replacement - test\booking_quote_recovery_product_test.dart:60:60 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\customer_badge_product_test.dart:34:11 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\customer_badge_product_test.dart:55:5 - curly_braces_in_flow_control_structures
+   info - 'anonKey' is deprecated and shouldn't be used. Use publishableKey instead. anonKey will be removed in a future major version. Try replacing the use of the deprecated member with the replacement - test\customer_navigation_test.dart:19:64 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\customer_profile_product_test.dart:28:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\customer_profile_product_test.dart:73:5 - curly_braces_in_flow_control_structures
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\location_upload_gate_v15_test.dart:2:8 - avoid_relative_lib_imports
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\market_checkout_product_test.dart:64:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\market_checkout_product_test.dart:98:5 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\news_product_test.dart:64:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\pickup_building_dialog_product_test.dart:166:9 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\product_home_widgets_test.dart:32:37 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_category_layout_test.dart:20:47 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_category_layout_test.dart:20:77 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_category_layout_test.dart:20:113 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:24:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:27:7 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:36:7 - curly_braces_in_flow_control_structures
+   info - 'anonKey' is deprecated and shouldn't be used. Use publishableKey instead. anonKey will be removed in a future major version. Try replacing the use of the deprecated member with the replacement - test\v3_control_screens_test.dart:71:7 - deprecated_member_use
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:83:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:90:5 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:91:7 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:92:9 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:93:11 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:144:19 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:153:19 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:179:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - test\v3_control_screens_test.dart:239:13 - curly_braces_in_flow_control_structures
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\v3_draft_choice_test.dart:2:8 - avoid_relative_lib_imports
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\v9_admin_pricing_test.dart:19:5 - curly_braces_in_flow_control_structures
+   info - 'anonKey' is deprecated and shouldn't be used. Use publishableKey instead. anonKey will be removed in a future major version. Try replacing the use of the deprecated member with the replacement - test\veto2_drawer_test.dart:15:7 - deprecated_member_use
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\veto2_drawer_test.dart:26:5 - curly_braces_in_flow_control_structures
+   info - Statements in a for should be enclosed in a block. Try wrapping the statement in a block - test\veto2_drawer_test.dart:27:7 - curly_braces_in_flow_control_structures
+   info - 'anonKey' is deprecated and shouldn't be used. Use publishableKey instead. anonKey will be removed in a future major version. Try replacing the use of the deprecated member with the replacement - test\veto2_game_widget_test.dart:18:7 - deprecated_member_use
+   info - Can't use a relative path to import a library in 'lib'. Try fixing the relative path or changing the import to a 'package:' import - test\visual_onboarding_test.dart:4:8 - avoid_relative_lib_imports
+
+683 issues found. (ran in 7.0s)

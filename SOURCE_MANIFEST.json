@@ -1,0 +1,3331 @@
+{
+  "version": "3.0.0+32",
+  "baseline_zip_sha256": "db08b728906a66c0a7aa2a71db760c062ad85467d26dac593a40f0b670561d94",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 68,
+      "sha256": "d8fb0de4792538f93822b2c0d235604921299d5e54a3d6ec7a6cb34536e8bf1e"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 750,
+      "sha256": "b3645a3de36cf37d7216e8bc1476dbb52df35a4793727b8e1bd31990a6cf9ff8"
+    },
+    {
+      "path": ".vscode/launch.json",
+      "bytes": 517,
+      "sha256": "55a38a130dedc278d2124e9ccb222c48d39e171b13a698d172c121c8e2bc936c"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "bytes": 95,
+      "sha256": "25a3dee4a538c10027117cf0448e837219eb4e736607a188b444ebfd80ce041a"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "bytes": 1533,
+      "sha256": "8db439a00b1df0771d959d7e2e376a2da6ee21305abfb3f45a70ee30e1dc101d"
+    },
+    {
+      "path": "android/.gitignore",
+      "bytes": 267,
+      "sha256": "c9af75dbc2c8aa867476a09426c80b178c4aeed8b9393ae48503eedfa3273d71"
+    },
+    {
+      "path": "android/app/build.gradle.kts",
+      "bytes": 3173,
+      "sha256": "2f5530532c6369fc5928772dcd2f64474173a7878aa4eed79cc406416c0e6f6f"
+    },
+    {
+      "path": "android/app/google-services.json",
+      "bytes": 1183,
+      "sha256": "f288ee6207cf4e45f97bb493396a3352465be9620824615bb32b3f629151ad59"
+    },
+    {
+      "path": "android/app/proguard-rules.pro",
+      "bytes": 461,
+      "sha256": "3412ce513c3861e38227db2e29f2ca33446f09f405d657857a5f21510ad20c8b"
+    },
+    {
+      "path": "android/app/src/debug/AndroidManifest.xml",
+      "bytes": 385,
+      "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "bytes": 3274,
+      "sha256": "677efaf8bbe75ceb082a7b8cd1f194cba5aeeaada93b40eaa19c4c3beb046452"
+    },
+    {
+      "path": "android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java",
+      "bytes": 5779,
+      "sha256": "f0ce223a99703996adbbc0186b5725d432bcbec75c1358e02ea39cd45324a893"
+    },
+    {
+      "path": "android/app/src/main/kotlin/com/vetosanya/app/MainActivity.kt",
+      "bytes": 3394,
+      "sha256": "f5653d0c95228af9a347409e42b4d7430e5be26bbb1fab6d8b4715c514c41c83"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_bg_service_small.xml",
+      "bytes": 980,
+      "sha256": "3ff6d53ab74c8c97d046294a97f1d1d7ce98c7d5fa8b8c3b42f71dc2aa24762a"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_stat_veto.xml",
+      "bytes": 980,
+      "sha256": "3ff6d53ab74c8c97d046294a97f1d1d7ce98c7d5fa8b8c3b42f71dc2aa24762a"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/launch_background.xml",
+      "bytes": 446,
+      "sha256": "2df60e2cfbee873ce2858088cf003e6b93498f2f568476da437610467ea1a9d7"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/veto_sanya_foreground.xml",
+      "bytes": 1973,
+      "sha256": "c25e229d198b0d776753b8616d38aef7d95629c413ed2236d5072982a06baf2d"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/veto_sanya_monochrome.xml",
+      "bytes": 982,
+      "sha256": "ff1a2fdd5ee8942e4a220d7091a827663d426bbfe1442246b808af2fe435ff6e"
+    },
+    {
+      "path": "android/app/src/main/res/drawable-v21/launch_background.xml",
+      "bytes": 450,
+      "sha256": "dca312ec77de83e43ef70a825c299b51451247286c29167d62f19165750b8793"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+      "bytes": 343,
+      "sha256": "b9d9cbc81d7abe698ca763fed612ba2dfa2851f8f27d4c44842c525cdfdff683"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+      "bytes": 343,
+      "sha256": "b9d9cbc81d7abe698ca763fed612ba2dfa2851f8f27d4c44842c525cdfdff683"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "bytes": 4066,
+      "sha256": "ba87385abc1d94f5a1b2cc04b8fc1fee196af1dac7888b3c1d34457b3cba878f"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png",
+      "bytes": 4066,
+      "sha256": "ba87385abc1d94f5a1b2cc04b8fc1fee196af1dac7888b3c1d34457b3cba878f"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "bytes": 2514,
+      "sha256": "3d3ad8cd4da916499df93abad2cb2428e4875ff2d4c9cb8758b8e5d5e970bd94"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png",
+      "bytes": 2514,
+      "sha256": "3d3ad8cd4da916499df93abad2cb2428e4875ff2d4c9cb8758b8e5d5e970bd94"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "bytes": 5735,
+      "sha256": "604e87f508b439104689b0d88aef4029290af9db0e7b3f8e81945a959c53bb8b"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png",
+      "bytes": 5735,
+      "sha256": "604e87f508b439104689b0d88aef4029290af9db0e7b3f8e81945a959c53bb8b"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "bytes": 9071,
+      "sha256": "2d318f55e6b56391e2f71dc0b64cc7261a59cd70d36c6b76b68c9122a7aece96"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png",
+      "bytes": 9071,
+      "sha256": "2d318f55e6b56391e2f71dc0b64cc7261a59cd70d36c6b76b68c9122a7aece96"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "bytes": 12637,
+      "sha256": "9b5f5ff752386195f660ed99e5a56265d64a0084f852801eaa557c5bb56de7d8"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png",
+      "bytes": 12637,
+      "sha256": "9b5f5ff752386195f660ed99e5a56265d64a0084f852801eaa557c5bb56de7d8"
+    },
+    {
+      "path": "android/app/src/main/res/raw/veto_chat.wav",
+      "bytes": 30032,
+      "sha256": "802ab3b59cac6b6bd1622f8277cdadd036e2f2163ba8afcb11956fbc455e3e5e"
+    },
+    {
+      "path": "android/app/src/main/res/raw/veto_market_order.wav",
+      "bytes": 1323044,
+      "sha256": "08c61d622e13460aafd7a3875585a921561874fb855706fc950624d096a5cd8e"
+    },
+    {
+      "path": "android/app/src/main/res/raw/veto_offer.wav",
+      "bytes": 33560,
+      "sha256": "c8577668a7760128795cdba210b41e0986c2b3d0adc679e417d49289a9183ddd"
+    },
+    {
+      "path": "android/app/src/main/res/raw/veto_verification.wav",
+      "bytes": 441044,
+      "sha256": "3f213b2c90449426a66fd60c794bd9a4de65db3461204044935ff87ae7d9ae37"
+    },
+    {
+      "path": "android/app/src/main/res/values/colors.xml",
+      "bytes": 168,
+      "sha256": "2026937ad9093ff26e615a936cef7474a620b6b935dcf707e480512922604193"
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "bytes": 997,
+      "sha256": "65e3d5a3467f89792b459e54bb6d6a040dd853dd7f6011e5bc7e4f5f4fc80c05"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/styles.xml",
+      "bytes": 996,
+      "sha256": "45cf80cfda7ad4d10420ae6d65a94bdfcf60e2132d5ac642d4edc112f28452c1"
+    },
+    {
+      "path": "android/app/src/profile/AndroidManifest.xml",
+      "bytes": 385,
+      "sha256": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "bytes": 495,
+      "sha256": "e349de4b9ac830033878ff3be325b55fbc23da354a72b768beec9c182681b4b9"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 53636,
+      "sha256": "16caeaf66d57a0d1d2087fef6a97efa62de8da69afa5b908f40db35afc4342da"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 206,
+      "sha256": "1220fdd333a881e47441de07b23f9dd1ebd35459730543ae429cf249847d91bf"
+    },
+    {
+      "path": "android/gradle.properties",
+      "bytes": 454,
+      "sha256": "65d2a23b141224f0259477061502095ce0e1f1b34ccdb5d35bf6febcede5f3dd"
+    },
+    {
+      "path": "android/gradlew",
+      "bytes": 4971,
+      "sha256": "ec56c02543666d92d9ac5ae7fcc48f88ce4de0deb8b7f9b39928ca46f68c1b2b"
+    },
+    {
+      "path": "android/gradlew.bat",
+      "bytes": 2404,
+      "sha256": "c13c6e91b9a517783976de213d46398c661ea9e17651376d7301e839eaedcc62"
+    },
+    {
+      "path": "android/key.properties.example",
+      "bytes": 367,
+      "sha256": "65cabb9ffda9254126ae795003a965a663d7df8461d8d464909fd99ae5ac067c"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "bytes": 935,
+      "sha256": "67540d30a6f0d219c467d421ccd19bd61d6d5834d23747a918af940bff47cf81"
+    },
+    {
+      "path": "android/upload_certificate.pem",
+      "bytes": 986,
+      "sha256": "1bcd0680293a3e7448f4401e4839e6eff16ca7f9342afd0c87175bc0d9e6f3c9"
+    },
+    {
+      "path": "assets/fonts/Cairo.ttf",
+      "bytes": 599548,
+      "sha256": "667c987182391c91f4e57a2f455b1794fb5e3ee6ca4ef3383e86bb690fa9c964"
+    },
+    {
+      "path": "assets/fonts/IBM-Plex-OFL.txt",
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "path": "assets/fonts/IBMPlexSansArabic-Bold.ttf",
+      "bytes": 246992,
+      "sha256": "691e0c891a38637ae6bbdb69700f8042cb0724a137bee615068ffdb92244f61f"
+    },
+    {
+      "path": "assets/fonts/IBMPlexSansArabic-Medium.ttf",
+      "bytes": 242100,
+      "sha256": "b8363ab9f733dfa4f8e96b8b2102c24b5cf4110fb96d1d3d9a9412f6fb49cf74"
+    },
+    {
+      "path": "assets/fonts/IBMPlexSansArabic-Regular.ttf",
+      "bytes": 235924,
+      "sha256": "6f611412270a132bbac838da9259d4c68569b4175f3b3b8fa3fa36a30b56dab9"
+    },
+    {
+      "path": "assets/fonts/IBMPlexSansArabic-SemiBold.ttf",
+      "bytes": 244616,
+      "sha256": "597bd5502e5997be4414e4c9c88834b30ff3784250c84f20bce2b20e53ebd467"
+    },
+    {
+      "path": "assets/fonts/Inter-OFL.txt",
+      "bytes": 4377,
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    {
+      "path": "assets/fonts/Inter-Variable.ttf",
+      "bytes": 876576,
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "bytes": 4473,
+      "sha256": "a4554e1799d42e1405924b61eb0e0722ae1623b1f1f07f995348f96c496362a9"
+    },
+    {
+      "path": "assets/icons/v3_active_trip.svg",
+      "bytes": 262,
+      "sha256": "ee84a2529f5bf6c44c1169dec32a45289bc6767dadff2a0402797046b0b02f4d"
+    },
+    {
+      "path": "assets/icons/v3_admin_pricing.svg",
+      "bytes": 276,
+      "sha256": "c184a74ece1351a9c982ccbf22e749cfbd9f5e29e474aff1e3a77a661be001e1"
+    },
+    {
+      "path": "assets/icons/v3_admin_service_toggle.svg",
+      "bytes": 284,
+      "sha256": "3978ca401bb35350d9e124f89ac8c5f6a9265cd45040f9978896c3ab6ffbf5f3"
+    },
+    {
+      "path": "assets/icons/v3_air_conditioning.svg",
+      "bytes": 268,
+      "sha256": "c6f6e2c445adf9f0a8585cedbd932dfbdb31064fdbc231dc8a378df47e6f290b"
+    },
+    {
+      "path": "assets/icons/v3_baggage_help.svg",
+      "bytes": 252,
+      "sha256": "b1a835a74bdbc115ad7272311c4dfdef628d1c4fc3aaf65ab2042f16577838cb"
+    },
+    {
+      "path": "assets/icons/v3_building_number.svg",
+      "bytes": 270,
+      "sha256": "79bab13063fee6bd94440251e1d5568046f7470e3976c5939673f8f4a897b912"
+    },
+    {
+      "path": "assets/icons/v3_captain_eligibility.svg",
+      "bytes": 282,
+      "sha256": "9bfe2765a9c9fdbba264224b56826a8baf6ac5fee534597204298cc5a4e2e1e9"
+    },
+    {
+      "path": "assets/icons/v3_captain_verified.svg",
+      "bytes": 291,
+      "sha256": "40ee3a549505effef6d2d161b43281de58092d0ee0a992de487f56456115a3f7"
+    },
+    {
+      "path": "assets/icons/v3_cash_payment.svg",
+      "bytes": 278,
+      "sha256": "67da560c08405cdadc8f9b1aa9633455bc8d9cafc677d877dfd3b700f9db969c"
+    },
+    {
+      "path": "assets/icons/v3_category_disabled.svg",
+      "bytes": 258,
+      "sha256": "385ec6fb1b8644fb703a557288e7be74dcfd28966ced3315008a362ca5bc0990"
+    },
+    {
+      "path": "assets/icons/v3_category_enabled.svg",
+      "bytes": 261,
+      "sha256": "0d946fcf6352aa2b18969d3849d899102c1c22600d2086176103987f9328d108"
+    },
+    {
+      "path": "assets/icons/v3_category_inheritance.svg",
+      "bytes": 274,
+      "sha256": "5f247b0e774e8d520a93cd0e8501fb3563cf30ee69719a466e40b8fd22aee9f7"
+    },
+    {
+      "path": "assets/icons/v3_child_accompanied.svg",
+      "bytes": 316,
+      "sha256": "c07fc3f222838c7183f3f39336067d612a0aefca02eee81a71830abc7890604f"
+    },
+    {
+      "path": "assets/icons/v3_child_seat.svg",
+      "bytes": 267,
+      "sha256": "488eb76f20e3c5c49655a04a61d2de76124b267b7166987ec55da079fde29856"
+    },
+    {
+      "path": "assets/icons/v3_city_selection.svg",
+      "bytes": 268,
+      "sha256": "2d60dcad0c87c571506cf7dd617bbbbde75b645beb267e57bfe5d24a9b9eb600"
+    },
+    {
+      "path": "assets/icons/v3_comfort.svg",
+      "bytes": 261,
+      "sha256": "952f7c4c472fdaad494f74ab65549b785f80a0c5ca2358b089ab8fd6818c3e12"
+    },
+    {
+      "path": "assets/icons/v3_delivery_parcel.svg",
+      "bytes": 268,
+      "sha256": "e13febb9acc6a8c9bec916d9796f8c1d290b92119297ac1269dcc340c507748f"
+    },
+    {
+      "path": "assets/icons/v3_destination.svg",
+      "bytes": 228,
+      "sha256": "9c0db1eb9dc979cf7b5d4e96255ceddb95ec98134ec758c5b47a5fa9d50463b7"
+    },
+    {
+      "path": "assets/icons/v3_discount.svg",
+      "bytes": 275,
+      "sha256": "88e8853fb88bb83e932c3ab746d1026e29b45dffc81930c49d3a2fb5526867c2"
+    },
+    {
+      "path": "assets/icons/v3_economy.svg",
+      "bytes": 271,
+      "sha256": "b76d7c0dc7474efec0fd9820b7884d6d9a535e5fbf66d2485329e9ceb86697e1"
+    },
+    {
+      "path": "assets/icons/v3_eta.svg",
+      "bytes": 259,
+      "sha256": "d198a24873f994c2aa4b3d932b2dcb74d8cbc29cff413ac3043575ce63b4d91c"
+    },
+    {
+      "path": "assets/icons/v3_fare.svg",
+      "bytes": 274,
+      "sha256": "ddd75b34ecbefc23c4a9a9af75f2f1e5bac88540a7965d90d77f228d45983b00"
+    },
+    {
+      "path": "assets/icons/v3_gps.svg",
+      "bytes": 316,
+      "sha256": "c674cddd5361f3fef0aa9d98b3af38f4fedfa4b222f892930293b1bb3e914023"
+    },
+    {
+      "path": "assets/icons/v3_ladies.svg",
+      "bytes": 260,
+      "sha256": "fa3e3dd099393bb91b908ecc4d648b3c9dfb7bd1649e259655a9ffca361acbf1"
+    },
+    {
+      "path": "assets/icons/v3_ladies_shield.svg",
+      "bytes": 299,
+      "sha256": "27e57f217097b9c21b92105e5dd5053ab0801c91a1165f2bc337cf5248b67fc4"
+    },
+    {
+      "path": "assets/icons/v3_map_selection.svg",
+      "bytes": 261,
+      "sha256": "ff020c4494908e681107000800427088b76af09801835e2a7aa9f1e3e54ad96a"
+    },
+    {
+      "path": "assets/icons/v3_market.svg",
+      "bytes": 257,
+      "sha256": "259071ec42674546124351977a2e85b401b935975537f4db0fa6371fac81f32e"
+    },
+    {
+      "path": "assets/icons/v3_motorcycle.svg",
+      "bytes": 311,
+      "sha256": "c95e6ed9b1d8f702934c046d0b50e5e993ef04ff86667a518f803379559b7550"
+    },
+    {
+      "path": "assets/icons/v3_no_music.svg",
+      "bytes": 281,
+      "sha256": "7c580e3814f9f6ce93ad4d8c11e8ef5121e51fbf87786702fa4962171d9cebf2"
+    },
+    {
+      "path": "assets/icons/v3_notifications.svg",
+      "bytes": 252,
+      "sha256": "f9dec89f2e92ad0818bce5f7e603f4c4ee13090eb864e91d0729312558aa3703"
+    },
+    {
+      "path": "assets/icons/v3_parcel.svg",
+      "bytes": 268,
+      "sha256": "e13febb9acc6a8c9bec916d9796f8c1d290b92119297ac1269dcc340c507748f"
+    },
+    {
+      "path": "assets/icons/v3_pickup.svg",
+      "bytes": 290,
+      "sha256": "af27c3c87ba25d59508f848bec4807584148922866b9a10849d31e71bb8765ad"
+    },
+    {
+      "path": "assets/icons/v3_premium.svg",
+      "bytes": 267,
+      "sha256": "2d819544130f9d60288181a006c7a8d04cd8877a490a65754c17b5663a2fe587"
+    },
+    {
+      "path": "assets/icons/v3_quiet_ride.svg",
+      "bytes": 277,
+      "sha256": "b0ffca8b20cf9d44b0164b0a0c0902110c9432126dd5483ab45a4f4ba2164959"
+    },
+    {
+      "path": "assets/icons/v3_ride_completed.svg",
+      "bytes": 258,
+      "sha256": "d90d30852769ec5486feba41da817595c0c3afb5c2c32975984edcad7a828c7f"
+    },
+    {
+      "path": "assets/icons/v3_safety_code.svg",
+      "bytes": 282,
+      "sha256": "bf713640a4e0a87878bfc880090d31f14e0838a6af141b0d2a9017de4f896db7"
+    },
+    {
+      "path": "assets/icons/v3_saved_addresses.svg",
+      "bytes": 231,
+      "sha256": "11dea14f4d728a1824b3fc8d0b6dd90213ed2a978699d47bc377287f99291ecf"
+    },
+    {
+      "path": "assets/icons/v3_search.svg",
+      "bytes": 258,
+      "sha256": "557aec0add8bf3a92bbec517f638866ecd7c575b261911b1fe6b23197bd33b39"
+    },
+    {
+      "path": "assets/icons/v3_wallet.svg",
+      "bytes": 262,
+      "sha256": "e4e2e02a8ccf6311885f4356e6381f45bbdd0ba32255cfba1b24a353a0101260"
+    },
+    {
+      "path": "assets/icons/veto_car.svg",
+      "bytes": 376,
+      "sha256": "a0b431a19cee9a93254c55c93432ea2865d2df904203374f09807113f353c6e5"
+    },
+    {
+      "path": "assets/icons/veto_market.svg",
+      "bytes": 302,
+      "sha256": "3160ee6ec4eed9286eaacfdd9b5d114ffe5f150dd55009d4300f38771aa5563d"
+    },
+    {
+      "path": "assets/icons/veto_motorcycle.svg",
+      "bytes": 364,
+      "sha256": "c4934c046e92e73a3f8599c7cf6b39a4789fb8f2dcf631ee764261b3bb94d3f9"
+    },
+    {
+      "path": "assets/icons/veto_package.svg",
+      "bytes": 325,
+      "sha256": "4707974024ee5a7d41cef8e40914df340f8bbef0c63e4562d2ac3d4f3c472a97"
+    },
+    {
+      "path": "assets/images/img_app_logo.svg",
+      "bytes": 1214,
+      "sha256": "63d6435533aba77e8a7d80812fd0d5c58777dbe9e95adf583b28e63b3374f986"
+    },
+    {
+      "path": "assets/images/no-image.jpg",
+      "bytes": 20735,
+      "sha256": "11011ce05a033d158c97f29efceac3d578328de8ec1ef1149343575d2e655260"
+    },
+    {
+      "path": "assets/images/sad_face.svg",
+      "bytes": 834,
+      "sha256": "1dcce6f551fc184f321e2a3456708f36a7f95d8ea07a6bf73d091e13a371db48"
+    },
+    {
+      "path": "assets/images/v16_document_guide.svg",
+      "bytes": 701,
+      "sha256": "36b1b6a2b5ace03a5b1884c22ca0274404d4472afdd173954119ea566b833d07"
+    },
+    {
+      "path": "assets/images/v16_portrait_guide.svg",
+      "bytes": 676,
+      "sha256": "d489683f8c03b8a6bd4b7261bef481966b811ae77efecf6b1e74312cc2072a23"
+    },
+    {
+      "path": "assets/images/veto_badge_premium_master.png",
+      "bytes": 1652664,
+      "sha256": "bb82691cd723c849fff5565c9548fbff888ae7d7d62eb264a7a6523ffbd39efa"
+    },
+    {
+      "path": "assets/images/veto_sanya_app_icon.png",
+      "bytes": 84542,
+      "sha256": "b76e83d03c465abe0179eee3cd191e9e17b8e4be761ece4e0ee08e1f4903fd6a"
+    },
+    {
+      "path": "assets/images/veto_sanya_logo_mark.svg",
+      "bytes": 1214,
+      "sha256": "63d6435533aba77e8a7d80812fd0d5c58777dbe9e95adf583b28e63b3374f986"
+    },
+    {
+      "path": "assets/images/wallet_topup_cairo.webp",
+      "bytes": 1368822,
+      "sha256": "5f7fa1c2d458ced33693f6f91e26c2f4c0774bcb916b274ff76538c5086cf2b4"
+    },
+    {
+      "path": "assets/onboarding/captain.svg",
+      "bytes": 1332,
+      "sha256": "fdb511ff044fe41fa1e579a1fbfe2d5f2d73763cbf14c4d6316bfa635218d35c"
+    },
+    {
+      "path": "assets/onboarding/ride.svg",
+      "bytes": 1507,
+      "sha256": "6c3e338c7bf6a8f7d72181a5a12d13ceb0bb7e175c68c3166ef203bc6c353206"
+    },
+    {
+      "path": "assets/onboarding/tracking.svg",
+      "bytes": 1311,
+      "sha256": "ca1e87cce370097b2642d31b7b9fe60678a3f322fe1b3b28563db0aa6a4eb490"
+    },
+    {
+      "path": "assets/onboarding/wallet.svg",
+      "bytes": 1299,
+      "sha256": "9b9478d1a1f98286b79af8f403f57ae9a5445401ead82be56b3f1aac4dc42a6e"
+    },
+    {
+      "path": "assets/sounds/driving_crash.wav",
+      "bytes": 5804,
+      "sha256": "c1a97225d91ab0312f8dc4c8fbed31bb2181d04ba85598b5af3af86504161d2d"
+    },
+    {
+      "path": "assets/sounds/driving_dodge.wav",
+      "bytes": 2604,
+      "sha256": "8fcc6401c7e04b7e740523e21d1cc5cd30131aea003c632e1f7c51ce403788f0"
+    },
+    {
+      "path": "assets/sounds/driving_level.wav",
+      "bytes": 4524,
+      "sha256": "5e7b80fbdf5132b87a1b290eb0ffa176554ce3757abcdf6369b7584cce6784d0"
+    },
+    {
+      "path": "assets/sounds/driving_move.wav",
+      "bytes": 1484,
+      "sha256": "6d71daf00a589ccb00af9a23b88e8ab88a6e05f0fbd4cd2c200dac6938e152aa"
+    },
+    {
+      "path": "assets/sounds/driving_start.wav",
+      "bytes": 4524,
+      "sha256": "1436ea7a16ce99fec19243775e344d3ec2abcb67cbf1f151f318f57d34e72023"
+    },
+    {
+      "path": "assets/sounds/veto_chat.wav",
+      "bytes": 30032,
+      "sha256": "802ab3b59cac6b6bd1622f8277cdadd036e2f2163ba8afcb11956fbc455e3e5e"
+    },
+    {
+      "path": "assets/sounds/veto_chat_v2.wav",
+      "bytes": 17804,
+      "sha256": "3bd2d62b632954e1e7420975eb93fbf951553d0b0ac6378c1d93caf2c641a46f"
+    },
+    {
+      "path": "assets/sounds/veto_intro_chime.wav",
+      "bytes": 46790,
+      "sha256": "7b3900e4f205a8096dca9d88ff1b8c42f6f57f2c7dc24d5e0ce2abdcd9c4364c"
+    },
+    {
+      "path": "assets/sounds/veto_market_order.wav",
+      "bytes": 1323044,
+      "sha256": "08c61d622e13460aafd7a3875585a921561874fb855706fc950624d096a5cd8e"
+    },
+    {
+      "path": "assets/sounds/veto_notification_v2.wav",
+      "bytes": 21644,
+      "sha256": "08c16ce938a09383ba538164008cb8949a66ae1e3536b89dce88bdd4a19a4a61"
+    },
+    {
+      "path": "assets/sounds/veto_offer.wav",
+      "bytes": 33560,
+      "sha256": "c8577668a7760128795cdba210b41e0986c2b3d0adc679e417d49289a9183ddd"
+    },
+    {
+      "path": "assets/sounds/veto_offer_v2.wav",
+      "bytes": 40844,
+      "sha256": "4ecef67cc468888a0a704e645abb5bda3edf8d0454bfc0c40f75dbd777367725"
+    },
+    {
+      "path": "assets/sounds/veto_success_new.wav",
+      "bytes": 34604,
+      "sha256": "225b07229678674a267b3a9d86016ffd18afb56cf7e0d9d2d348f840bcc2e511"
+    },
+    {
+      "path": "assets/sounds/veto_verification_5s.wav",
+      "bytes": 441044,
+      "sha256": "3f213b2c90449426a66fd60c794bd9a4de65db3461204044935ff87ae7d9ae37"
+    },
+    {
+      "path": "assets/vehicles/veto_comfort.webp",
+      "bytes": 18526,
+      "sha256": "8393bc0dd20baaff1350ec8208a08f2aabadbacc16919ff96807e5ae1b280bdd"
+    },
+    {
+      "path": "assets/vehicles/veto_economy.webp",
+      "bytes": 19768,
+      "sha256": "1fad5f571e790b733ede1f2262c3b22bb1485ed1d855349257ba756d945d56f4"
+    },
+    {
+      "path": "assets/vehicles/veto_ladies.webp",
+      "bytes": 18600,
+      "sha256": "16e6ed1c3fd87ca3cc3dddf1bcb50f9f44d29cf7cbd1a63573480bbe29b5da68"
+    },
+    {
+      "path": "assets/vehicles/veto_market.webp",
+      "bytes": 31426,
+      "sha256": "b2eb3247ab48c00a444e209000f72d4e0cd910d17900b028facbcf0a6061d256"
+    },
+    {
+      "path": "assets/vehicles/veto_moto.webp",
+      "bytes": 31720,
+      "sha256": "2939eec791633a0a820e0abefe32d39d961f9187071ab10dc56468839c20c777"
+    },
+    {
+      "path": "assets/vehicles/veto_parcel.webp",
+      "bytes": 19454,
+      "sha256": "aff90f7c923cdb9a790c184c9e344798beca79189eb75dc0c0ec613d6238e4b6"
+    },
+    {
+      "path": "assets/vehicles/veto_premium.webp",
+      "bytes": 20076,
+      "sha256": "a5973a5f532eeeab6493cdc16e42d151b7a6900eb82aeecb0498c8d634165fe9"
+    },
+    {
+      "path": "devtools_options.yaml",
+      "bytes": 187,
+      "sha256": "99119330d774616e9e8f151014c3b3cf90a5e858fe4b8e459544eeda2acbc0e8"
+    },
+    {
+      "path": "docs/CHANGED_FILES_V3.json",
+      "bytes": 12020,
+      "sha256": "3852038f5427def4ec4d21f39f30fed3d4d51dc9bc5efc4884fef01ba7630f6f"
+    },
+    {
+      "path": "docs/FIGMA_SOURCE_MAP.json",
+      "bytes": 636,
+      "sha256": "ee574241061679ca5ddb11102ec0bb899088fd247b70b9a94659dda2e9f0866d"
+    },
+    {
+      "path": "docs/STAGING_ONLY_PROPOSED_PRICES.sql",
+      "bytes": 473,
+      "sha256": "a9ac49e372d2022d0ac7ab0643a0d37126681a00827336df163d16904fc4d069"
+    },
+    {
+      "path": "docs/VETO_3_APPLICATION_MAP.md",
+      "bytes": 4079,
+      "sha256": "710bc5d303ff7cccb633b7dcd2b4c22e3ab38cab5d390e1da926b6a1b44aeb3b"
+    },
+    {
+      "path": "docs/VETO_3_ROLLOUT.md",
+      "bytes": 6240,
+      "sha256": "b73869b6476baf74c2e3606be40f552a75f1a6d0d7851372dca29b77a4ec33f2"
+    },
+    {
+      "path": "docs/VETO_3_TEST_REPORT.md",
+      "bytes": 8793,
+      "sha256": "8f371b0ddda1da9b3f9d4e93c1e28cd6e14726c71e143a587c3f2cb01533b561"
+    },
+    {
+      "path": "env.example.json",
+      "bytes": 318,
+      "sha256": "c0f40aa4fa07a16179a5800b02d09c5a9d5d791d802bf472282a10cf502989bc"
+    },
+    {
+      "path": "env.json",
+      "bytes": 470,
+      "sha256": "62c99e86682efbda16d1662c5f0c7d1a2a8852fdfa31d1017010b83e6cdf6c56"
+    },
+    {
+      "path": "ios/.gitignore",
+      "bytes": 603,
+      "sha256": "e85b4db8ba6ed14708e5f7d3c60336e5a3067ce11329b84aa8ba5d98603ee253"
+    },
+    {
+      "path": "ios/Flutter/AppFrameworkInfo.plist",
+      "bytes": 800,
+      "sha256": "88e403d33087654522431733ad261741f836f92c94a50ee792820b4f1ed89716"
+    },
+    {
+      "path": "ios/Flutter/Debug.xcconfig",
+      "bytes": 31,
+      "sha256": "c0d1da54718e75f2028962b689258ecc741abf7cdaed50483aa5225264d0a7d7"
+    },
+    {
+      "path": "ios/Flutter/ephemeral/flutter_lldb_helper.py",
+      "bytes": 1276,
+      "sha256": "05cfe3977fdee593efad2049a4f62d374e55c69cedc8aabeee5566b37acb8384"
+    },
+    {
+      "path": "ios/Flutter/ephemeral/flutter_lldbinit",
+      "bytes": 108,
+      "sha256": "eaec5f5268e3a5024d9703046f4097701107d574d0de7a2d8d81f0bf4644a333"
+    },
+    {
+      "path": "ios/Flutter/ephemeral/flutter_native_integration.env",
+      "bytes": 635,
+      "sha256": "d771d48ff1d46a67d1b2f1e2d450712904cc1a1e3ab8fd3ea179e6b3078c2e45"
+    },
+    {
+      "path": "ios/Flutter/flutter_export_environment.sh",
+      "bytes": 824,
+      "sha256": "95afcc68901759b5952e1e2e9c230dd518301758537d090af12f49c088b7843d"
+    },
+    {
+      "path": "ios/Flutter/Generated.xcconfig",
+      "bytes": 785,
+      "sha256": "8f1614f216ca30d403be5210f1823e76c4e91a16a07f8e2ff63af5023cbc67e0"
+    },
+    {
+      "path": "ios/Flutter/Release.xcconfig",
+      "bytes": 31,
+      "sha256": "c0d1da54718e75f2028962b689258ecc741abf7cdaed50483aa5225264d0a7d7"
+    },
+    {
+      "path": "ios/Podfile",
+      "bytes": 1432,
+      "sha256": "4523b4eb154c9257e87dea8251e008d5982d9b7c3fcdba12d8cd26e1556355c7"
+    },
+    {
+      "path": "ios/Runner/AppDelegate.swift",
+      "bytes": 404,
+      "sha256": "13e99dab5435148efc15d9177ba505da3d24859a6ba663767510622fdf7a97fa"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "bytes": 2641,
+      "sha256": "5f8b941b774bde4496d73347c1f79cbdd786bb76fbdab9ed1f3f0cb78a0fb0d3"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png",
+      "bytes": 78899,
+      "sha256": "8dbf691f8bcee896605baebf1abb564ded5ee03104f6344e738cab80906f2467"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png",
+      "bytes": 738,
+      "sha256": "21225feff8030c1ad0e97dd3ddc714c2b9370645471ebc8289a3ed5682bf3f15"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png",
+      "bytes": 1778,
+      "sha256": "77ede6fd8f5b69d4ce883c844a4baeaf0de12d42d1f53c19d698b4bf9aa47d43"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png",
+      "bytes": 2875,
+      "sha256": "c1ee032c2215a523c43d6c912c0d710775f1df04a36dbefddeb680cbf84bed46"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png",
+      "bytes": 1177,
+      "sha256": "091037d3aa409b92c6ddef55dfccb225c3e33e10af8406515d21abc56c986baf"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png",
+      "bytes": 2893,
+      "sha256": "f8678e6ad5abf829cfad337560463537ea2ce15ecb88314a03e37df1200f5cf2"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png",
+      "bytes": 4865,
+      "sha256": "e3ea1f3ab735392c9fbc02df66bdbbca49195f5b6af767cbae660e2e802b2d7d"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png",
+      "bytes": 1778,
+      "sha256": "77ede6fd8f5b69d4ce883c844a4baeaf0de12d42d1f53c19d698b4bf9aa47d43"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png",
+      "bytes": 4281,
+      "sha256": "81f90aac42baba0b72c2316b6b369a34b46bb3bff2186d6e89e965144593794d"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png",
+      "bytes": 7174,
+      "sha256": "39a5d74bde0c850346c9c5f9c7b255cc0516cc3b9389dca4e646ab68270d7b02"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png",
+      "bytes": 7174,
+      "sha256": "39a5d74bde0c850346c9c5f9c7b255cc0516cc3b9389dca4e646ab68270d7b02"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png",
+      "bytes": 11944,
+      "sha256": "9884fc6eb062a9393f6fd019a2ddf2b75981839eaec80caf7a8a6fb53006f4b1"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png",
+      "bytes": 4064,
+      "sha256": "e6fb594075fafdc16fff10fe3903f6d20164e1aa7b1b5b9e451f683cef07240d"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png",
+      "bytes": 9776,
+      "sha256": "647ce020a6fb9dc4a5b5775dbb64899a5264a3e7a327ec2fd6506bf174f90f94"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png",
+      "bytes": 10630,
+      "sha256": "f05976d9419ea648ec8d98225a44492694826867bb13d2e6721d8db35b1227da"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json",
+      "bytes": 414,
+      "sha256": "fbd112a9f3b541a1d811f71ac8e4fe68b6176687d973a5f4d99b7aa4a722e94e"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png",
+      "bytes": 68,
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png",
+      "bytes": 68,
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    {
+      "path": "ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png",
+      "bytes": 68,
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    {
+      "path": "ios/Runner/Base.lproj/LaunchScreen.storyboard",
+      "bytes": 2414,
+      "sha256": "bc3644fbb251ff1e18de25a4932c927850ae1a025be3dd1447940429633fe4b2"
+    },
+    {
+      "path": "ios/Runner/Base.lproj/Main.storyboard",
+      "bytes": 1631,
+      "sha256": "dcea4686c02065e56217fd19fcfb73d7509b41872e7486126149d47a18559363"
+    },
+    {
+      "path": "ios/Runner/GeneratedPluginRegistrant.h",
+      "bytes": 378,
+      "sha256": "a5f88cc6415d2e639d2cb549348b84e02a7fdd0261603b0063abef6fa11f075a"
+    },
+    {
+      "path": "ios/Runner/GeneratedPluginRegistrant.m",
+      "bytes": 4681,
+      "sha256": "51cb4c9346253afa5801b150a8e844413e1f09bfa8359d078a415c69e6318a2e"
+    },
+    {
+      "path": "ios/Runner/Info.plist",
+      "bytes": 2199,
+      "sha256": "c37fad9b3a15309c2b1eb8cafb088076a2489030e578bcb9b2c2fe28a05d2d57"
+    },
+    {
+      "path": "ios/Runner/Runner-Bridging-Header.h",
+      "bytes": 39,
+      "sha256": "efe657d8b27f7f8595a0d416bffb33fe7d93bd2869d81f7353b556c439d7a1a7"
+    },
+    {
+      "path": "ios/Runner/Runner.entitlements",
+      "bytes": 256,
+      "sha256": "182aa5f6a873db79a215cd1d8cb86a4b86381c488966a974ccb0d2cac0ce7bd8"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.pbxproj",
+      "bytes": 24426,
+      "sha256": "7c77dda7b3f2a14ac3d0edb54e1aeda4580a2472d96467d95c45e3403750062d"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "bytes": 142,
+      "sha256": "ac28b35c2b940210bec0fff8e424b07fd0efe9112ab178a10533583f251a386c"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+      "bytes": 246,
+      "sha256": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+      "bytes": 234,
+      "sha256": "dd64c0308ab2971c456871b990b24a008bdc3ece09833e8dbe9675e33a496e74"
+    },
+    {
+      "path": "ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme",
+      "bytes": 3934,
+      "sha256": "570c49fd61c67330efb75097018d1b0df0c68d03667631105a5acf5621112b1b"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/contents.xcworkspacedata",
+      "bytes": 159,
+      "sha256": "706a4c812f2a1e220e6785c27580020d58048e2ae4d30d1280f3c43344ce6b38"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist",
+      "bytes": 246,
+      "sha256": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30"
+    },
+    {
+      "path": "ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings",
+      "bytes": 234,
+      "sha256": "dd64c0308ab2971c456871b990b24a008bdc3ece09833e8dbe9675e33a496e74"
+    },
+    {
+      "path": "ios/RunnerTests/RunnerTests.swift",
+      "bytes": 297,
+      "sha256": "c0e04141287eb7f9c9f3d31cf5be8cb626a9ea71351206c9121578e8b8f480c3"
+    },
+    {
+      "path": "l10n.yaml",
+      "bytes": 120,
+      "sha256": "44487da8b1036ea3e9706beea4058c41386ebc4bccc6a59583c7b3633e1c5afe"
+    },
+    {
+      "path": "lib/core/app_export.dart",
+      "bytes": 319,
+      "sha256": "9b299c9305794ca5f946774ef4e861b815602e3e5583d6f696bb23f61461ac3c"
+    },
+    {
+      "path": "lib/l10n/app_ar.arb",
+      "bytes": 155516,
+      "sha256": "90336c2c9c51e2c71ffa9b2b5d7d0b3688780ba3a04eb009f9bd801c65e610ba"
+    },
+    {
+      "path": "lib/l10n/app_en.arb",
+      "bytes": 126468,
+      "sha256": "ee6bae302641df778a956e11fcf9c4b70968ed0eb64348b3b2546a8eb359a51b"
+    },
+    {
+      "path": "lib/l10n/app_localizations.dart",
+      "bytes": 350364,
+      "sha256": "935c7c88d7deb83916c80f72416aa62628eb9429058855cbc02913e0cf760dd2"
+    },
+    {
+      "path": "lib/l10n/app_localizations_ar.dart",
+      "bytes": 193776,
+      "sha256": "1d1c1db165874e8e1c35f9618eeb9db768ab8a2255ebf2959a303be9be366555"
+    },
+    {
+      "path": "lib/l10n/app_localizations_en.dart",
+      "bytes": 165567,
+      "sha256": "b74f4527446f71758ad14c2d126dbf26af24b0461fc82a28538cf9f547868110"
+    },
+    {
+      "path": "lib/l10n/strings.dart",
+      "bytes": 257,
+      "sha256": "111cbd0d9b53d225eb3e74e8142328b7d668fc7631d36f37fb5e2b6c132f865f"
+    },
+    {
+      "path": "lib/main.dart",
+      "bytes": 6620,
+      "sha256": "3b713b8de0da1d49afe3b7f79fcfe9d4936a3d44cff3f4b972e9abc34ae8cd48"
+    },
+    {
+      "path": "lib/presentation/addresses/address_suggestion_history.dart",
+      "bytes": 3498,
+      "sha256": "258e87860518e6b6a044e64bf5cb401453834c2c338d2bf419fcdfbb566f8be2"
+    },
+    {
+      "path": "lib/presentation/addresses/customer_saved_addresses.dart",
+      "bytes": 6250,
+      "sha256": "817851decc0048d633bb96363deac974015cb9c2ff89261a86c9abbdfc7a57ac"
+    },
+    {
+      "path": "lib/presentation/admin/admin_address_suggestions.dart",
+      "bytes": 15090,
+      "sha256": "1d628ffce90a12808ffa7be42e6dbd3aeb6d17b761a139e638ed6ce049db6335"
+    },
+    {
+      "path": "lib/presentation/admin/admin_alerts_screen.dart",
+      "bytes": 14829,
+      "sha256": "3216a321a120155ddf5e9f649fb55d7462a87aaad2e88f5493346d0dd87f5e13"
+    },
+    {
+      "path": "lib/presentation/admin/admin_audit_log_panel.dart",
+      "bytes": 6638,
+      "sha256": "51ea1f8f03e417fbfd0592182c23be3848ea1bfac78f4bc89120808bbd8d0e14"
+    },
+    {
+      "path": "lib/presentation/admin/admin_banners_panel.dart",
+      "bytes": 19201,
+      "sha256": "2f6fcf0331ebcc49973119a021819791056269b81ba16cbb72fab04252ecbab9"
+    },
+    {
+      "path": "lib/presentation/admin/admin_behavior_robot_v58.dart",
+      "bytes": 3826,
+      "sha256": "2eab0f9908850d358f07d912eb10a6bcc3607fa833fd72fb0f10f06f06d18906"
+    },
+    {
+      "path": "lib/presentation/admin/admin_buildings_panel.dart",
+      "bytes": 50565,
+      "sha256": "846282d4d81e07e9993c45b09287fa43d0420c5273cf527d3e2a82f828afdc1f"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_actions_v10.dart",
+      "bytes": 5990,
+      "sha256": "f7df1fa4879531f677c68bc6e814e51eaae4016fb2e7dd9fb3af6110603904a4"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_applications_panel.dart",
+      "bytes": 18730,
+      "sha256": "5ffb3c2a84c7be7e12427ee818fcb6c117c50156be6adcd928ce5ba9dba49064"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_form.dart",
+      "bytes": 44050,
+      "sha256": "a9b095040080e1247a391e1f8ce9dd12b187e3a8c3d66a96a2143ede13941fbf"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_intake_v19.dart",
+      "bytes": 11938,
+      "sha256": "76bebb4532858776d5242c0a9d6850629e34d2a6ecf2ddaca453536b836c3b7c"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_recovery_v58.dart",
+      "bytes": 10439,
+      "sha256": "b48f756ca4997592f987e865e4abec503960b5d4e82ffa794a19e594903aa98a"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captain_rewards_panel.dart",
+      "bytes": 33584,
+      "sha256": "13508c0035362a80c1008ac5c0d63a64eafeb81970b9c1585dceb95517315575"
+    },
+    {
+      "path": "lib/presentation/admin/admin_captains_live_map_panel.dart",
+      "bytes": 16386,
+      "sha256": "3b03ffd96417a9d53ee09d6fddb933be7cc7036d6fffa9aeea6b22da4b94af82"
+    },
+    {
+      "path": "lib/presentation/admin/admin_city_boundary_picker_v44.dart",
+      "bytes": 5216,
+      "sha256": "f376c71ecffc8aa6ca42ae00aa9076fdeedb658c4ca226a2496c08daa50de659"
+    },
+    {
+      "path": "lib/presentation/admin/admin_city_catalog_v37.dart",
+      "bytes": 30656,
+      "sha256": "02ff2b056b8c7d222b75e194b32b954267e1a089f5f9c448f5bfa31bb76d8d8c"
+    },
+    {
+      "path": "lib/presentation/admin/admin_customer_frames_v29.dart",
+      "bytes": 9974,
+      "sha256": "bd5548300f3ec625069ad81222c391c66a6ef2d35c35872f2a4155b3af389a2e"
+    },
+    {
+      "path": "lib/presentation/admin/admin_customer_loyalty_hub_v38.dart",
+      "bytes": 11925,
+      "sha256": "21a38efc77125ff8cb4388e84145566c42fedc4803284863ff9ab5976e125265"
+    },
+    {
+      "path": "lib/presentation/admin/admin_customer_wallet_history_v46.dart",
+      "bytes": 5445,
+      "sha256": "c4f7e7771ad57ccb30d0312bc6c025715fe6c791561814bafe9f7da81c6c2c01"
+    },
+    {
+      "path": "lib/presentation/admin/admin_customers_panel.dart",
+      "bytes": 32070,
+      "sha256": "ec36c5088fa2c15249ba9ab27cb72f6bf65dc3492d8074b604f6bb910fde9249"
+    },
+    {
+      "path": "lib/presentation/admin/admin_dashboard_screen.dart",
+      "bytes": 121556,
+      "sha256": "b8cd85c57d652f5d06e5a90afd39989f1bf04c3bd7a3491ca2a4f690e128ba1d"
+    },
+    {
+      "path": "lib/presentation/admin/admin_debt_invoices_v17.dart",
+      "bytes": 7160,
+      "sha256": "bbca8750df968fdea569dd319a7b0ce261e1a89151cac192526699cd4ec7cf54"
+    },
+    {
+      "path": "lib/presentation/admin/admin_famous_places_panel.dart",
+      "bytes": 40826,
+      "sha256": "602773aca6b89ee0b6e56b4fa0684bff643ee6f6a77b9c0796a3890100ecb15f"
+    },
+    {
+      "path": "lib/presentation/admin/admin_feedback_panel.dart",
+      "bytes": 6555,
+      "sha256": "a739f447a941288c5f11bcb8acdaeeaaa698a0746a3aaf63414072029ebe53c3"
+    },
+    {
+      "path": "lib/presentation/admin/admin_health_v10.dart",
+      "bytes": 4442,
+      "sha256": "9313c8b6b6e2d839b8855a20772caa95fb38bdc0086039acb34f54afa621fce8"
+    },
+    {
+      "path": "lib/presentation/admin/admin_hot_zones_v35.dart",
+      "bytes": 6545,
+      "sha256": "3d48b052232dfd2ec301b2e2e2d30e2b3330dd4491ac324cc49383698f1209cd"
+    },
+    {
+      "path": "lib/presentation/admin/admin_incidents_v10.dart",
+      "bytes": 10476,
+      "sha256": "1dda738635267a20e5fea3a4073e33f4fbbcb197b871c4d4c5fe1edc860dced1"
+    },
+    {
+      "path": "lib/presentation/admin/admin_karizma_panel.dart",
+      "bytes": 25726,
+      "sha256": "4de3b0a46e4af862c432ecc47fb3dc2d68589335d3e68ca8a057db7c6bc76ffa"
+    },
+    {
+      "path": "lib/presentation/admin/admin_live_operations_v10.dart",
+      "bytes": 9936,
+      "sha256": "9a8f6a1e5b1568bf559fcf71eb5a305971d368906aa321c1812fe6e6ed58a6d3"
+    },
+    {
+      "path": "lib/presentation/admin/admin_location_hub_v38.dart",
+      "bytes": 1923,
+      "sha256": "33ea98baecd7b2f5fb25c32405c2e4c9eb4ad7b58ed8f4b76532224c9821e92f"
+    },
+    {
+      "path": "lib/presentation/admin/admin_login_screen.dart",
+      "bytes": 13392,
+      "sha256": "5daeadc882facdfe20e7cb4c47c7f1f36b1719c65fece9bbd6194dbffd1b0daa"
+    },
+    {
+      "path": "lib/presentation/admin/admin_market_operations_panel.dart",
+      "bytes": 422,
+      "sha256": "8f613818ae386017f5b725f23e322913eee5fed2a88d7b8b38e4fb285840b0d6"
+    },
+    {
+      "path": "lib/presentation/admin/admin_market_promos_panel.dart",
+      "bytes": 13161,
+      "sha256": "cee29e331655139288d9cb4a62ad2c8cbc11f1f755658167d54b6fb31cba255a"
+    },
+    {
+      "path": "lib/presentation/admin/admin_marketing_partners_v39.dart",
+      "bytes": 20528,
+      "sha256": "7f9afd61bfa868e9f70005873099ccc5cc99687bdbb60c84b94447e2256831f1"
+    },
+    {
+      "path": "lib/presentation/admin/admin_notifications_panel.dart",
+      "bytes": 17325,
+      "sha256": "3c7c38788b802739e0bbb8314ea714578ab32020f7498d0f6fb03e9cbc7a5f70"
+    },
+    {
+      "path": "lib/presentation/admin/admin_operations_center.dart",
+      "bytes": 13337,
+      "sha256": "ea810e28f8b23f75342ca28ddba8d02472839999029c583b929b5d5cc6a0ec25"
+    },
+    {
+      "path": "lib/presentation/admin/admin_overview_v9.dart",
+      "bytes": 25254,
+      "sha256": "9877c1de7a8be0a27f3ac80ca453e9a3f419185b3079c980c43ab10eda5dc50e"
+    },
+    {
+      "path": "lib/presentation/admin/admin_place_pin_picker_v39.dart",
+      "bytes": 2925,
+      "sha256": "c7a401d9269b7eee92215b64d6e8acd08565e9fa83e81bf6c378552255f2892f"
+    },
+    {
+      "path": "lib/presentation/admin/admin_pricing_engine_v10.dart",
+      "bytes": 5679,
+      "sha256": "3f6e2229907c89d9913b2a7669e6a9ffe0b29c76bc3dbee219f4b8562ea0b330"
+    },
+    {
+      "path": "lib/presentation/admin/admin_pricing_panel.dart",
+      "bytes": 32655,
+      "sha256": "1f97d56cfd701faa456c1b55bda0d283ac3a4c2458b88ecc5decf532e97256f9"
+    },
+    {
+      "path": "lib/presentation/admin/admin_pricing_zones_screen.dart",
+      "bytes": 28650,
+      "sha256": "da6e09a9d52c089350ffbe0885d1737638d4140be4b023487f260c194804287c"
+    },
+    {
+      "path": "lib/presentation/admin/admin_promo_panel.dart",
+      "bytes": 21035,
+      "sha256": "a22a9107bea02726a4abef4c58f001ffd789ead379f8e25407be114a70ef4ce9"
+    },
+    {
+      "path": "lib/presentation/admin/admin_reports_panel.dart",
+      "bytes": 13676,
+      "sha256": "7ee3d0f7a09cd553566012852db90730581c608102630c1775771c721355711c"
+    },
+    {
+      "path": "lib/presentation/admin/admin_supermarket_panel.dart",
+      "bytes": 59729,
+      "sha256": "38553cc606423fd16955a1536823a1cc480e1866900ef5be8f0bf7c8be91e3ec"
+    },
+    {
+      "path": "lib/presentation/admin/admin_team_linking_v58.dart",
+      "bytes": 6794,
+      "sha256": "628f478f1fbb04e5270ba66f81ac42e6ded5425f1b11b93bb3e153c3f5bb722f"
+    },
+    {
+      "path": "lib/presentation/admin/admin_topup_panel.dart",
+      "bytes": 41390,
+      "sha256": "cf1409ba8a5942879e6cc012400a7a687712651f9a8224a64ac6495b91709ff6"
+    },
+    {
+      "path": "lib/presentation/admin/admin_trip_details_screen.dart",
+      "bytes": 31067,
+      "sha256": "6d3104f990b8fdc7ee0a0f4368510e6cc5bacd167ebc077ba64c9f75380cf4c3"
+    },
+    {
+      "path": "lib/presentation/admin/admin_trip_rules_v9.dart",
+      "bytes": 5815,
+      "sha256": "0441a7f5aabe5792027461541ab37d33320bdd4237174f2418837825fe59cb41"
+    },
+    {
+      "path": "lib/presentation/admin/admin_wallet_panel.dart",
+      "bytes": 27044,
+      "sha256": "89b19fdf342373235a2d9c431b443f1f7bc2cb135d53046cf406bba34213b9d7"
+    },
+    {
+      "path": "lib/presentation/admin/legacy_applications_v16.dart",
+      "bytes": 2996,
+      "sha256": "ea882e9bc50a76f08c86c844b965c0f913f302b6db7556aa45b76858ff861dc0"
+    },
+    {
+      "path": "lib/presentation/admin/staff_login_v16.dart",
+      "bytes": 7573,
+      "sha256": "88ac76530fbabcb152d39f851502b7d86d8b22192fce6dd94b6e90ad193b7d61"
+    },
+    {
+      "path": "lib/presentation/admin/staff_management_v16.dart",
+      "bytes": 12880,
+      "sha256": "eb5cbd37b42340d89fc046afe76abcdbbfd90c51f34aa8c46e1f788e80d378ce"
+    },
+    {
+      "path": "lib/presentation/admin/team_chat_screen_v16.dart",
+      "bytes": 26782,
+      "sha256": "578611f64cb49cb316acdaef7dd9bbac7cb56165f8633a2a315eec2721ac031b"
+    },
+    {
+      "path": "lib/presentation/admin/team_entry_v17.dart",
+      "bytes": 2185,
+      "sha256": "01eb7ff3e8ec5c6f86a43f1cdb8f340dccb4d5926a2c3e6471584c9900b3842f"
+    },
+    {
+      "path": "lib/presentation/admin/verification_desk_v22.dart",
+      "bytes": 23063,
+      "sha256": "aefe145881799fa31b86cfb01d92994149ab97ac5ceba275b451b7837cbc5f7c"
+    },
+    {
+      "path": "lib/presentation/admin/verification_shift_editor_v22.dart",
+      "bytes": 5315,
+      "sha256": "52abf284c5be85a4c8c877f4c4901097574bd1502928284e5013ff156de57edb"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_ban_screen.dart",
+      "bytes": 8521,
+      "sha256": "873ea239e55c7a90735b95f887ca0814d9db6f4283b8dbe814caf84aec08ac96"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_dashboard_screen.dart",
+      "bytes": 136691,
+      "sha256": "b1eea4716c705ff2b06c2b0da4f70d16462d187a7bc5b8fc56e9c27b9d7d18c7"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_debt_invoice_v17.dart",
+      "bytes": 5174,
+      "sha256": "b132671d6f1a054d456abf4c1d7eb0581613568af9b01bb936630965799bb307"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_demand_map_screen.dart",
+      "bytes": 16124,
+      "sha256": "aff999a3b673167bbf1e2a973aeedcce847c89831293358b149a3eea019bd416"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_live_trip_screen.dart",
+      "bytes": 54876,
+      "sha256": "c27fc8e661f339b9cd0369047f94c5451e928169f810c0c8e4838c47a834bc6e"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_market_jobs_screen.dart",
+      "bytes": 4508,
+      "sha256": "a7a2e76720c631ead9ec623544fe89d8b7c0858e9801373c7fec7ff81da67990"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/captain_market_order_screen.dart",
+      "bytes": 31770,
+      "sha256": "2c1f61cc3c00ab6892f1a90430295d420084288774adfe62c9c9f318f9cad007"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_active_job_widget.dart",
+      "bytes": 13362,
+      "sha256": "3eca22861b3d371b7981a5f2310d3b9f003c99141111e444d7946622283a17c7"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_customer_rating_v29.dart",
+      "bytes": 11637,
+      "sha256": "9ae8a280d7a1fd479f3220fc9cd59c3ef43404a0fc0eb1715704ec8950418056"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_dashboard_header.dart",
+      "bytes": 5047,
+      "sha256": "412287a96c4e05a2081c619ded4b33d785ccc91535db93a40b1e21d7b7a5cffd"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_earnings_widget.dart",
+      "bytes": 14200,
+      "sha256": "43d9c8f748d33bc869cb7340673f5c708012c929ba83ded1d544aca02b68c08f"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_fare_preview_widget.dart",
+      "bytes": 3647,
+      "sha256": "80fa2ed206eb313a416ec927b28bb9413cd5f55aa340a3ca04a8c5144686a166"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_home_map_v30.dart",
+      "bytes": 29775,
+      "sha256": "61bb5bec047e017a9d5137dbbe3034b3b3fab8ccdc8b577255587a32ae5bab07"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_incoming_offer_widget.dart",
+      "bytes": 13744,
+      "sha256": "ce34affc78e6bb3d9480806732f1a2bbd566c96a3798034b23a0bb8bb771a604"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_more_v32.dart",
+      "bytes": 12546,
+      "sha256": "fb7bd0a560009395676e0cfa7458847910bf383c59652e0078f2d93797e5c16c"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_presence_card.dart",
+      "bytes": 8596,
+      "sha256": "c91e48fc11fa6af580b0502e16c56c09c2946e1717d25027035cc87fc82974dd"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_reward_banner.dart",
+      "bytes": 15051,
+      "sha256": "1b84e139a771b443c68a97c7aa0bcccfc04c96f61a12781f39d63f0d9be34c73"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_route_preview_v45.dart",
+      "bytes": 8048,
+      "sha256": "bb7583aa7169d7e2e76a2f699b5c120140dfa0bbf6d7bcce954db2afe8b35afe"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/captain_toggle_widget.dart",
+      "bytes": 6175,
+      "sha256": "0bc1a47c38bf0b4709c9e04ef30386bc6f83dad7a82e692e86b7d6ab783d2c9e"
+    },
+    {
+      "path": "lib/presentation/captain_dashboard_screen/widgets/change_transfer_widget.dart",
+      "bytes": 3172,
+      "sha256": "1d63e8c22d8b91f0b58a7aae5e1f8d2f02eddc4e4fe50868c686f0d9bb334bfb"
+    },
+    {
+      "path": "lib/presentation/categories/admin_categories_screen.dart",
+      "bytes": 24769,
+      "sha256": "b00d1dc293dbf9e298a534d0d84c89093581130157b3113a67942504ba8b31d0"
+    },
+    {
+      "path": "lib/presentation/categories/captain_categories_screen.dart",
+      "bytes": 3210,
+      "sha256": "7a2ae3dffc73b3b330464f2ce82f6f5ebfc595dbe2b548780556e452c409774d"
+    },
+    {
+      "path": "lib/presentation/customer/customer_loyalty_panel_v29.dart",
+      "bytes": 28575,
+      "sha256": "05f2e0b05a51d39b8b31d28ae0164f7de84942bce39eccd70a46a577c931e13a"
+    },
+    {
+      "path": "lib/presentation/customer/customer_name_editor.dart",
+      "bytes": 1576,
+      "sha256": "9f10b6a566c7985b572990140788a8ad5b7b5774eff41f4aa26beac9634fa26f"
+    },
+    {
+      "path": "lib/presentation/customer/customer_trip_details_v46.dart",
+      "bytes": 16887,
+      "sha256": "d7b44775b0ffa881fda2a79a9cb08c4076da22eaf18165bcf732453d0c0a8446"
+    },
+    {
+      "path": "lib/presentation/customer/partner_portal_v39.dart",
+      "bytes": 17131,
+      "sha256": "7b0a37fb504cc04ec70b5cb67570d89b94e3cf6308e27d9b2e12b097b62b3db2"
+    },
+    {
+      "path": "lib/presentation/feedback/feedback_screen.dart",
+      "bytes": 10659,
+      "sha256": "1d45293f7f67a2b508d63f2550d3dd7a41a988e5535264398ca27e8a435f58ac"
+    },
+    {
+      "path": "lib/presentation/game/driving_engine.dart",
+      "bytes": 3931,
+      "sha256": "81d6721b74c9cc2ff6382493c5c4a0244a523358cda07c43e1c7dc244667a328"
+    },
+    {
+      "path": "lib/presentation/game/driving_game_screen.dart",
+      "bytes": 15774,
+      "sha256": "b49b9e2b72957f6725fc7e22a4a47d1cafdb55924b9e217516fe2649b07cc92f"
+    },
+    {
+      "path": "lib/presentation/game/driving_road_painter.dart",
+      "bytes": 5613,
+      "sha256": "bc38cd873d862046f2ace5da319056ea8b2ff874ede1dc48adf24302657f7c63"
+    },
+    {
+      "path": "lib/presentation/game/driving_store.dart",
+      "bytes": 1189,
+      "sha256": "85dfa3f3287ebb4db06a641b0236f88744980f901f78b57b8a5021063ee7ac85"
+    },
+    {
+      "path": "lib/presentation/growth/admin_badge_activation_screen.dart",
+      "bytes": 20458,
+      "sha256": "f5aafbcda21b9c6171978818ee0c37dfe642328e23d6ef2d8fab896795d29206"
+    },
+    {
+      "path": "lib/presentation/growth/admin_growth_screen.dart",
+      "bytes": 25541,
+      "sha256": "3b7d6986ac7c352a1c1a85dfd491febfeb86e84165524ad45b8fb15e5884b3d9"
+    },
+    {
+      "path": "lib/presentation/growth/booking_performance_screen.dart",
+      "bytes": 6214,
+      "sha256": "e4f0987324dc45a314b4d0c1021d902a73f4b57e19206d3043613ab67fa66f84"
+    },
+    {
+      "path": "lib/presentation/growth/captain_code_capacity_screen.dart",
+      "bytes": 4586,
+      "sha256": "5377734debe1777bf15e35518348dd4b34ce164559366105fb63a0bb25a31bdf"
+    },
+    {
+      "path": "lib/presentation/growth/captain_growth_code_tile.dart",
+      "bytes": 6814,
+      "sha256": "24476cdf5f41224513db27808eceb87e77a51a8cb8455aae8aebf0b3ebe68af8"
+    },
+    {
+      "path": "lib/presentation/growth/growth_badge_placement.dart",
+      "bytes": 3088,
+      "sha256": "5b71f89fd629ba59b7e48789a7874e08786ccefd1604d5ca250e3f8626ca8c6a"
+    },
+    {
+      "path": "lib/presentation/growth/growth_booking_progress.dart",
+      "bytes": 2473,
+      "sha256": "a30cfacf792668eb6b82a89b9bac0a0f64e419a6a284e0a3b48e17c74f33cb1f"
+    },
+    {
+      "path": "lib/presentation/growth/growth_incidents_screen.dart",
+      "bytes": 5259,
+      "sha256": "2f67dd2999278450c0cdcbd07f8cc1da31e13d82c4ae4e3b3b7a9f869c12c5fb"
+    },
+    {
+      "path": "lib/presentation/growth/growth_screens.dart",
+      "bytes": 45556,
+      "sha256": "a8d214a7ce81f4d28cb65bc2b1f07fa973a383fea8c0f6b31315f5c715543a04"
+    },
+    {
+      "path": "lib/presentation/growth/growth_startup.dart",
+      "bytes": 7783,
+      "sha256": "7b9a857d0ed7b9884e08c5e1ec3f85a9ef14a128f7c9c6791ba31e5689467f69"
+    },
+    {
+      "path": "lib/presentation/growth/growth_zero_panel.dart",
+      "bytes": 5554,
+      "sha256": "bc64ce7ac4e7002d2d797c3d9d0b6e685e05c01534591f6b6fe3f038618ac436"
+    },
+    {
+      "path": "lib/presentation/growth/monitor_status_screen.dart",
+      "bytes": 4155,
+      "sha256": "99e6e85e353a050e321ba100c88e906d2c5d981031c8d68e517b1fe761ca612e"
+    },
+    {
+      "path": "lib/presentation/growth/owner_growth_campaign_wizard_v66.dart",
+      "bytes": 10598,
+      "sha256": "56f9177728ad1d2acea62f220687581340858b51c36e3f7b7923054a8cf097f1"
+    },
+    {
+      "path": "lib/presentation/growth/widgets/customer_referral_compact.dart",
+      "bytes": 20123,
+      "sha256": "2e9785eb645f777f9c7a1f804ff45ffa0badaa628d4c7c69d37581f8ff71e552"
+    },
+    {
+      "path": "lib/presentation/home_screen/home_screen.dart",
+      "bytes": 37093,
+      "sha256": "0b2590b6cc098f175acb891b7d211d5134fb8352eb4395be80f1706be0c2d3cb"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_active_trip_widget.dart",
+      "bytes": 6913,
+      "sha256": "cdb5df5d429383a7e71c1fba806a76f706cad1f9bd8164aab70c77774eda7e6d"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_earned_savings_banner_v67.dart",
+      "bytes": 4766,
+      "sha256": "ea8abe531b7f4c425b05e2a171ad3cacf41568196a6a62514ebd597e4acdd53a"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_header_widget.dart",
+      "bytes": 4269,
+      "sha256": "edf472c05df6e9e84b1cc35943a7c168f72ae53a120b9ee366bee887833bbde1"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_hero_widget.dart",
+      "bytes": 6368,
+      "sha256": "81702957b81e3472707ae8bfe8e5d998a204e6b2225220461d00f7b312ad328b"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_name_prompt.dart",
+      "bytes": 7052,
+      "sha256": "82f073782f23f3a99a3a4c2d9c2a45b9cf6a3c49b7072156839b326b58f7ef40"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_places_widget.dart",
+      "bytes": 7201,
+      "sha256": "ca110848c875cb65bcf2ad90495f757a756d9349c7f78011785e54574b01aee8"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_progress_v37.dart",
+      "bytes": 6973,
+      "sha256": "cfff0a3cbba1695acce974529db30c2adca86510b5f5fade346bf6bf985151ef"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_promo_widget.dart",
+      "bytes": 7619,
+      "sha256": "0e2bf5d8bd01ad2820c4f4f462f8134d7981535646f1946555162565381e3153"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_quick_booking_widget.dart",
+      "bytes": 9228,
+      "sha256": "0728e9180d4854c75f6528c5623fb02db9f16442ef777c49408e82eaca63a075"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_route_first_v36.dart",
+      "bytes": 6612,
+      "sha256": "fec0a46f5fe652171546f216e06181332ac2d92b166dc44feedaff6f77f4e150"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_services_widget.dart",
+      "bytes": 8875,
+      "sha256": "88c765a24da84ce5547b001e4339019fca46ebab82a8a462c200a07b1c6bb5cd"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/home_wallet_topup_banner.dart",
+      "bytes": 3347,
+      "sha256": "45ef5d5b8fb2163649fa47dac8cdfb6dc2ebb2b5f0d8ab0b4affd495e59001ff"
+    },
+    {
+      "path": "lib/presentation/home_screen/widgets/product_home_panel.dart",
+      "bytes": 10736,
+      "sha256": "b9f44606ae65300a45e1eb3c8053fb31342c3e5c68279bc8ada27b67cb5c9f9e"
+    },
+    {
+      "path": "lib/presentation/karizma/karizma_screen.dart",
+      "bytes": 25660,
+      "sha256": "375aa385c877ebf28ab374e2497b77f2a6467f9160bdce695d3762ce9a6a60bc"
+    },
+    {
+      "path": "lib/presentation/legal/legal_center_screen.dart",
+      "bytes": 9082,
+      "sha256": "1a5a2d170a2614521f1a667d381e5f215e098118db8bba176d2daa0aab4afc2f"
+    },
+    {
+      "path": "lib/presentation/legal/veto_legal_content.dart",
+      "bytes": 16909,
+      "sha256": "a20145a46f858ef067e3db24c74468dda3db7bda5fc43643ce2614d948ad3c66"
+    },
+    {
+      "path": "lib/presentation/legal/veto_legal_content_en.dart",
+      "bytes": 11588,
+      "sha256": "df41e5795dc58ce788838702501de3c49252fc791ab0a3ba2d5ee6f210bae2b1"
+    },
+    {
+      "path": "lib/presentation/merchant/merchant_dashboard_screen.dart",
+      "bytes": 53183,
+      "sha256": "a2d298df69e49a5b8f2557a6831333e3b3abff0eee8d2af8df1268ca823a9bdd"
+    },
+    {
+      "path": "lib/presentation/notifications/customer_notifications_screen.dart",
+      "bytes": 8451,
+      "sha256": "7cbda07d76977b7ecb1832af3a9341359745fa21de08ef1635bd74f9d48084b8"
+    },
+    {
+      "path": "lib/presentation/onboarding/onboarding_screen.dart",
+      "bytes": 9768,
+      "sha256": "7508c184fe707c5e7d40238f764bc2094db0ac443f987ff8d94bfbedb360b3d1"
+    },
+    {
+      "path": "lib/presentation/settings/product_settings_screen.dart",
+      "bytes": 2853,
+      "sha256": "315e90253399fda545a7ffa7568cd7a326451c23d365d0594c7675cbe8c0429e"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/captain_registration_screen.dart",
+      "bytes": 51757,
+      "sha256": "f47938caacccb8cadb7aeb0c7b5c2f93165f318a914704350fd27f4afcfacebd"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/sign_up_login_screen.dart",
+      "bytes": 14029,
+      "sha256": "b48ede191ea0b98b4c7ab881c24dd140661955c2858e1599342496f572bae8e6"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/widgets/auth_logo_widget.dart",
+      "bytes": 4564,
+      "sha256": "508e43e697bfef1d00cfa31bd40d1ad0af3281b7e66d50f3486e82ae7265e96b"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/widgets/auth_otp_step_widget.dart",
+      "bytes": 27246,
+      "sha256": "73008c7f3e110dd5e286b2a2d925e63e995cc5103f7dfd703aaf5e747a8ae8dd"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/widgets/auth_phone_step_widget.dart",
+      "bytes": 8238,
+      "sha256": "226485b3928a6e4dabc3c04b9230a2d3c984733959628819e9ebf717fbf22f37"
+    },
+    {
+      "path": "lib/presentation/sign_up_login_screen/widgets/captain_application_copy.dart",
+      "bytes": 994,
+      "sha256": "6ea9ea7ae8bc9891e80b95a0f6436f1f41430539d3c032bfdbf7884b749b040d"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/live_trip_screen.dart",
+      "bytes": 43973,
+      "sha256": "b139edf85f55ceac15c26e6ab0245035c9be88c45eeb4aba985078dba75387cb"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/trip_booking_screen.dart",
+      "bytes": 138935,
+      "sha256": "f1dafbcba7887030210abcbc59b86cfa1e936fc441b3cacfaed9dc01c09d09cb"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/trip_chat_screen.dart",
+      "bytes": 20869,
+      "sha256": "ebb9dbc95c203cd89603447aa8f5383f090915318250a37b2b82bb7fc13deae0"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_building_suggestion_dialog.dart",
+      "bytes": 13176,
+      "sha256": "bc4c883191e791a73fa436fb3d8c0a9b26705ef4c78d1f7ce6842965d072c20e"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_captain_offers_widget.dart",
+      "bytes": 13587,
+      "sha256": "91614a3ad08412996c12ea5e857e1c28914f5b7248e41bb48006532c5aab06f6"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_destination_sheet_widget.dart",
+      "bytes": 44702,
+      "sha256": "d142f28b917a771c184730c12ca359f9bd9d8ba865f2d5425505776327f50de5"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_fare_sheet_widget.dart",
+      "bytes": 55076,
+      "sha256": "cdb8529d0763797b60864440a54e7191f9161305e983560420c677c3f7ddcbc7"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_favorites_widget.dart",
+      "bytes": 8571,
+      "sha256": "d0978391acf884141e7b34281fc3d77cbba312e8dd4ae4847c242a0de3af54ca"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_map_widget.dart",
+      "bytes": 7019,
+      "sha256": "e90d1f1610f1ff0e3a2e54832514156c7d921fa1375656667de9a2c4b83bb5a8"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_pickup_sheet_widget.dart",
+      "bytes": 39673,
+      "sha256": "59e10d07334c44cb5973634d7712b52a277330340c684eea1930fe47962f5b42"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_pin_picker_v36.dart",
+      "bytes": 6713,
+      "sha256": "b30e6018b7bfd69bc05df7d16b23c1e02ffd1b0c7c8c8b509588b0fb87871dba"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_radar_widget.dart",
+      "bytes": 14993,
+      "sha256": "e23911c103f08f9fa369a100e883b23e4581ec660f9ae2146a60a52acb53c7fd"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/booking_service_sheet_widget.dart",
+      "bytes": 6175,
+      "sha256": "62894ed105b80256f5da10a0d3824a0c074d3817c8ce76484c5157bb851acb9d"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/captain_profile_card_v11.dart",
+      "bytes": 16281,
+      "sha256": "81317709c43e86a4879cb2e96d29796158ac78194623ab569c79088e099a9f35"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/captain_profile_sheet_v10.dart",
+      "bytes": 3605,
+      "sha256": "389caec06dca9df0fa982d8bed370236503f5f2dfc556904b6d026cdce6281e5"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/extra_requests_field.dart",
+      "bytes": 9291,
+      "sha256": "5d79027c892c7788b41d77e746a8a3a71ce197b6e3692282ee40e69f2c9dac89"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/hadayek_destination_chips.dart",
+      "bytes": 1961,
+      "sha256": "c246b599a3a60a65e0d786695aac60972a383e71c62b1fb7f8f1c6c5a221a850"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/localized_booking_failure.dart",
+      "bytes": 2040,
+      "sha256": "fc2bb5830728eb61c54e8e7184fe6f7011553a849f80e873f00420c8359a61e9"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/localized_cancellation_failure.dart",
+      "bytes": 1226,
+      "sha256": "2ddd9ee481e7cc433db2ac742c4cf0ede3d6ab4dd93adfaf7f99c20a208e3510"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/localized_chat_failure.dart",
+      "bytes": 700,
+      "sha256": "f8b3dcde58b0142e852dffb8f2153cf903e7d6ac706ee039a05e48271347a81d"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/product_searching_view.dart",
+      "bytes": 14350,
+      "sha256": "8fa353e504960cf9360b3663f749be2a4f877c7f853c583693a685d6765f9db1"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/search_price_suggestion_v9.dart",
+      "bytes": 3071,
+      "sha256": "b15febec44957bb4d43ac4ec2ceda2fcce3ca387debdcf28b97f78c4e4479510"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/smooth_live_trip_map.dart",
+      "bytes": 15330,
+      "sha256": "2ebe384650b5c7b14c50aac629d946970ecdc3a5f0d71ce1d9883eea10cda73d"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/trip_quick_replies.dart",
+      "bytes": 2205,
+      "sha256": "a61ccca86c13e7cbebc7ed086c4639898b682620d8013957d1471d3b80f582e2"
+    },
+    {
+      "path": "lib/presentation/trip_booking_screen/widgets/trip_rating_sheet_v10.dart",
+      "bytes": 6768,
+      "sha256": "c83b44fae1874403dcae0a8b067fdd0e9b79b8f37219d0c2a0a2edb6bc692c57"
+    },
+    {
+      "path": "lib/presentation/vito_market/vito_market_checkout_screen.dart",
+      "bytes": 59748,
+      "sha256": "2154bb30bc200e8f6276cd7f99e04e77b3dfc075e16ebe31a26f04380f7d9811"
+    },
+    {
+      "path": "lib/presentation/vito_market/vito_market_history_screen.dart",
+      "bytes": 10323,
+      "sha256": "cd90da6f8a4c41c7ab07d9d3d671296c2eb72cd394c3a803cc3465292fd706d5"
+    },
+    {
+      "path": "lib/presentation/vito_market/vito_market_order_tracking_screen.dart",
+      "bytes": 27216,
+      "sha256": "e95714e49bd8ebba93fdffa003e2bd558845de4b34c357d2c24dda141c8b164e"
+    },
+    {
+      "path": "lib/presentation/vito_market/vito_market_products_screen.dart",
+      "bytes": 39620,
+      "sha256": "eed435d0d325abada4872fb9276e2699509e3edf0aa7d96c0bcdac19d005fa99"
+    },
+    {
+      "path": "lib/presentation/vito_market/vito_market_screen.dart",
+      "bytes": 14591,
+      "sha256": "97b05b7a493b36a17f78044e37f3d8df30466a1771f9e67aae681566d58b1e4a"
+    },
+    {
+      "path": "lib/presentation/vito_market/widgets/market_order_chat_sheet.dart",
+      "bytes": 13240,
+      "sha256": "802747af1da0d7dab7a4d32cdf192eb08133601d33ff3b4e0ead336cbbabe04f"
+    },
+    {
+      "path": "lib/presentation/wallet/wallet_topup_screen.dart",
+      "bytes": 26557,
+      "sha256": "b0f82f32203520645ba65331db65eed49ee23fc13a0735cee056276fe0541cce"
+    },
+    {
+      "path": "lib/routes/app_routes.dart",
+      "bytes": 93942,
+      "sha256": "775b1d958aa37762b9ba1aba029f1bf2a7649657a4137e273c27075e5356f8dd"
+    },
+    {
+      "path": "lib/services/accepted_trip_navigation_coordinator.dart",
+      "bytes": 1141,
+      "sha256": "574fdd8e30befecd0a7bb9b3d45feced762ed4e6ff237ffa055a6f904c6bfe90"
+    },
+    {
+      "path": "lib/services/account_scoped_read_pool.dart",
+      "bytes": 769,
+      "sha256": "8b6a8252442de742df989f1c3ba17fec2490c5bf65ec8f7a9342ccbf74454368"
+    },
+    {
+      "path": "lib/services/address_suggestion_service.dart",
+      "bytes": 1797,
+      "sha256": "fe3c944196584d7de36f5c87618bba608ba7fd8fb9ce4d29bfc25e705d071215"
+    },
+    {
+      "path": "lib/services/admin_directory_pager_v15.dart",
+      "bytes": 3363,
+      "sha256": "4e6edd0e52b9d8d888f9af69e75c6a3c4670eb0be4406429bb57de35e8b19ce9"
+    },
+    {
+      "path": "lib/services/admin_environment_support.dart",
+      "bytes": 4550,
+      "sha256": "2bba755c70729eb648cb5c8b478469f25515715e419ba7c51d976f7be90f2492"
+    },
+    {
+      "path": "lib/services/admin_pulse_hub_v15.dart",
+      "bytes": 2730,
+      "sha256": "076b180ae15e0c405c96cd9191f099c2cd7503349fe2e436ed37a3f7a16cd764"
+    },
+    {
+      "path": "lib/services/app_session_guard.dart",
+      "bytes": 6895,
+      "sha256": "bc06588f8cd57f9092874c13132e45dd27f994d6661941c44dc0bcc46a74d22c"
+    },
+    {
+      "path": "lib/services/app_sound_service.dart",
+      "bytes": 2200,
+      "sha256": "3d1d31fd88a6895df280016e6002026a8be695ece100bf8cc18fc4eec669ed97"
+    },
+    {
+      "path": "lib/services/booking_address_seed.dart",
+      "bytes": 2210,
+      "sha256": "6125b482851459d2584f9f1572ec07ccacbc0be92fc71f7b065dcb666a60dfb6"
+    },
+    {
+      "path": "lib/services/booking_performance.dart",
+      "bytes": 2807,
+      "sha256": "7fe7e23c60a7a6a137dc58ba7454cedc7f70f92ce6f9712a37115d3866617ec4"
+    },
+    {
+      "path": "lib/services/captain_application_v16.dart",
+      "bytes": 7188,
+      "sha256": "b6796650979025c52bc089b2150a49def8f0bfa7e1059f966e36c9ad10316913"
+    },
+    {
+      "path": "lib/services/captain_background_worker.dart",
+      "bytes": 5168,
+      "sha256": "5d998e8304508550b56ef4fbf3c052911b9b641456526afa189beb80a28a247e"
+    },
+    {
+      "path": "lib/services/captain_ban_guard.dart",
+      "bytes": 4313,
+      "sha256": "46b9d27fd59b8189a7b7f9f043730550225f17509d7aa3e2327ba49e6e64b15c"
+    },
+    {
+      "path": "lib/services/captain_location_permission_flow.dart",
+      "bytes": 1795,
+      "sha256": "e9b1c4b2715d8d8541930b8f87842ec26a6cf0609084acf979e827059e97b07e"
+    },
+    {
+      "path": "lib/services/captain_market_assignment_backend.dart",
+      "bytes": 489,
+      "sha256": "e8265bb193d3a3dbc582c210604a644edf4f49258929612eb843e6f405afed17"
+    },
+    {
+      "path": "lib/services/captain_market_backend.dart",
+      "bytes": 1082,
+      "sha256": "b25e7b93530ed11ce3bb2a10508d9406823a4e547412d1068c2341c17b8b52ed"
+    },
+    {
+      "path": "lib/services/captain_tracking_service.dart",
+      "bytes": 8959,
+      "sha256": "4670bdc5a962d05c7e031549787d65706d36a6f1ba262cf5155376199214fcf9"
+    },
+    {
+      "path": "lib/services/customer_city_scope_v38.dart",
+      "bytes": 938,
+      "sha256": "dec57d0946ea1acacd94724fce28a72747a311e14b4dd4ff72b9c38017dca500"
+    },
+    {
+      "path": "lib/services/customer_feedback_backend.dart",
+      "bytes": 501,
+      "sha256": "0b3190c3b7f3d81d7db4134a50b32ab637fb8ab3b1c0d624c9af238efc84ff55"
+    },
+    {
+      "path": "lib/services/customer_location_state.dart",
+      "bytes": 3957,
+      "sha256": "39b1d7bfc241edf2a37ecaf8684b61b50bf4c0d196c2720be46d7e5be262a726"
+    },
+    {
+      "path": "lib/services/customer_payment_preference.dart",
+      "bytes": 698,
+      "sha256": "fae6ae56ca91183604ee4a8d6a05dcbbd9be3773bc9c6014797c7ca8eb59fc07"
+    },
+    {
+      "path": "lib/services/customer_profile_backend.dart",
+      "bytes": 1935,
+      "sha256": "861f541f9344987d684f7ae48c6231959df7763aae5b5ca8011fb0cdd17965e3"
+    },
+    {
+      "path": "lib/services/foreground_refresh_loop.dart",
+      "bytes": 1269,
+      "sha256": "5d88af84386835e3d49785381e805946bd2e84e4ec1722e83ee344677f878cce"
+    },
+    {
+      "path": "lib/services/growth_badge_pdf.dart",
+      "bytes": 12000,
+      "sha256": "e4b9a0eb888c36c7a30ab882bfba23259a1bea07c88032aa00d6956b07bb5f9a"
+    },
+    {
+      "path": "lib/services/growth_install_referral.dart",
+      "bytes": 1342,
+      "sha256": "56bd4ebefdab493587a897228cf5d4b6deb099980e128393cfbf62c0d857c9b0"
+    },
+    {
+      "path": "lib/services/growth_referral_kind.dart",
+      "bytes": 1793,
+      "sha256": "50efa7e91fc6431b3a000df5fae7b9f94f0a8b8133eeb8aefb1213d35d4b1400"
+    },
+    {
+      "path": "lib/services/growth_service.dart",
+      "bytes": 8874,
+      "sha256": "b978267fcbd799c02fb118ff833c4f441a4f7d828f1696d58332bf1019d51392"
+    },
+    {
+      "path": "lib/services/home_read_coordinator.dart",
+      "bytes": 551,
+      "sha256": "4100916e9678353bac42ce746d51332bc3ed36cdce406048b00b6ed656617944"
+    },
+    {
+      "path": "lib/services/hybrid_place_search_service.dart",
+      "bytes": 4770,
+      "sha256": "92e57001f8d4744d449e7e56d07c4e7e8d368b7c40c1ebb7792b8709068ac0c0"
+    },
+    {
+      "path": "lib/services/karizma_backend.dart",
+      "bytes": 1602,
+      "sha256": "a31c4cfa2fbb4ecdc9b9429584ca15c482dac99cfcf761879a3a8396efbfcf0e"
+    },
+    {
+      "path": "lib/services/location_upload_gate_v15.dart",
+      "bytes": 1341,
+      "sha256": "2288cf4127ca2e21f2e28d74dc9c30ffaa7965898b6d841dd42e8636047da6e7"
+    },
+    {
+      "path": "lib/services/map_data_gateway.dart",
+      "bytes": 1407,
+      "sha256": "e6641826fedb8d9a1e84fafa2d3f578456628600cc59aa741738b5ca99bca6f3"
+    },
+    {
+      "path": "lib/services/map_provider_policy.dart",
+      "bytes": 1653,
+      "sha256": "e963bb449ba17d615080957b1392d8917a91d3a6c1c991c4b03b5ed7747dba36"
+    },
+    {
+      "path": "lib/services/market_chat_backend.dart",
+      "bytes": 832,
+      "sha256": "0f7ceceb8053d462d7255abdda345780e9555c1dd858b3b345ef5300e5c541aa"
+    },
+    {
+      "path": "lib/services/market_checkout_backend.dart",
+      "bytes": 2349,
+      "sha256": "cb1199db77da3e1c665073f65e491d662e280b560c20734c30ffdc4b5f734f95"
+    },
+    {
+      "path": "lib/services/market_history_backend.dart",
+      "bytes": 916,
+      "sha256": "5e4e2eadf552056bf26f9b475b70a1cd6ff03ffaae1f1edfcb02949d8a1990ea"
+    },
+    {
+      "path": "lib/services/market_support_service.dart",
+      "bytes": 1509,
+      "sha256": "1c7a44bd4aed990bc950e0e453572e93c2406976e7f5fbe0b887f87fb18899a8"
+    },
+    {
+      "path": "lib/services/market_tracking_backend.dart",
+      "bytes": 1246,
+      "sha256": "eea56f66f5027c4fc942a89687ee044dbb06e3fc0bbea0d7dc7e086fd1bd7850"
+    },
+    {
+      "path": "lib/services/network_guard.dart",
+      "bytes": 9486,
+      "sha256": "e04e7baee1810dd0010795f498e09e562213f219a37dcaebee5984277ed0e4a2"
+    },
+    {
+      "path": "lib/services/openfreemap_style_service.dart",
+      "bytes": 2671,
+      "sha256": "af833bdd27204d13480cfc5d3c4fdc29926ddc10a16f5046b4e2512dfc429393"
+    },
+    {
+      "path": "lib/services/osrm_routing_service.dart",
+      "bytes": 3201,
+      "sha256": "729745c220ab29761b6f2b4f5c36a4e47764aa0b41803d4cfd406087ac66e1b2"
+    },
+    {
+      "path": "lib/services/partner_portal_backend.dart",
+      "bytes": 869,
+      "sha256": "d6ed921eb7c2dcee752b9f43a71bb2b3a969d70ec1c8001c798d0307d77532ae"
+    },
+    {
+      "path": "lib/services/pending_address_draft.dart",
+      "bytes": 2618,
+      "sha256": "df6bc9dbff4c2ddc0e75f7bcb3b62a373c7e4d1107333d202f01b5c40b0fe867"
+    },
+    {
+      "path": "lib/services/phone_identity.dart",
+      "bytes": 1763,
+      "sha256": "d1a2362b4ac2ae2fa3481bac4d267bb177033ab8fe7ef5bf72166802038318e2"
+    },
+    {
+      "path": "lib/services/pickup_building_suggestion_backend.dart",
+      "bytes": 1182,
+      "sha256": "68053b062d0387a85083a96da08c9be2d6e825216084a4043c086ebbbc5334c3"
+    },
+    {
+      "path": "lib/services/place_search_service.dart",
+      "bytes": 3455,
+      "sha256": "af6a7a2c9afc50921a2a2e1119155bcb3aceb710622a8dbb567fd2fcffc97aa1"
+    },
+    {
+      "path": "lib/services/post_trip_checkin_onesignal_v26.dart",
+      "bytes": 2903,
+      "sha256": "bab8fa3388e66dd1e212c3a4e316723226ff2db75e110a82d6ac08fc25a2926c"
+    },
+    {
+      "path": "lib/services/product_geocoding_service.dart",
+      "bytes": 3908,
+      "sha256": "1c9868875e8b788b71fd18aefd525315d58ccd37fb45b64d88ce023b8c3c72fa"
+    },
+    {
+      "path": "lib/services/product_preferences.dart",
+      "bytes": 3471,
+      "sha256": "030752d246f69f30dd0b5b6d13ed5fa67fe129edbf4eac2bfe7e77a99075858a"
+    },
+    {
+      "path": "lib/services/product_route_geometry.dart",
+      "bytes": 1366,
+      "sha256": "439d0a4e8501b3d68fd1559fe8db9e504fe0abcabea1cc93b2a00fdb2c9b5b86"
+    },
+    {
+      "path": "lib/services/product_session_timing.dart",
+      "bytes": 1306,
+      "sha256": "2bfd5612d8b2f4fb7f318e025c0fcd4b0b061349c59bf99c80f475c82d96d5fa"
+    },
+    {
+      "path": "lib/services/push_notification_service.dart",
+      "bytes": 17399,
+      "sha256": "a4ed3a4a16b8e1f301300e19cc2130a3d19f6ce7e3ed54a059ea09b6965f8d9a"
+    },
+    {
+      "path": "lib/services/ride_categories.dart",
+      "bytes": 3919,
+      "sha256": "326d7bca21392a161d588de6be28d5522c463f8b30cff929c1c806e835d355d3"
+    },
+    {
+      "path": "lib/services/route_progress.dart",
+      "bytes": 2776,
+      "sha256": "9200a6c642b8a928a795730f4e1e87f0b65a640fc8ca2e77730218e190717961"
+    },
+    {
+      "path": "lib/services/scale_metrics_v15.dart",
+      "bytes": 1397,
+      "sha256": "d870d24a89629e25a079f9ed23a28b6ac0d28e1df4e3c3f198f42f9872d1adc6"
+    },
+    {
+      "path": "lib/services/search_cancellation_coordinator.dart",
+      "bytes": 3060,
+      "sha256": "a1ce2d2a36f5751c7b0100e2cde099d29458a99899f8c727485854d8b37e688f"
+    },
+    {
+      "path": "lib/services/secure_draft_store.dart",
+      "bytes": 3350,
+      "sha256": "9c1dcc7ced451b3364c9156532051398d29e072b07dfb1c614c7ec191e9ad031"
+    },
+    {
+      "path": "lib/services/staff_access_v16.dart",
+      "bytes": 2753,
+      "sha256": "fa53643822a8841ddeef6359bef98dee8e68ca4c44d77603be6aab311806ac95"
+    },
+    {
+      "path": "lib/services/supabase_service.dart",
+      "bytes": 132989,
+      "sha256": "f35ae966e9618bb85cc26995b76140aa4cb01b5148597d888aa10632e4f47239"
+    },
+    {
+      "path": "lib/services/team_chat_service_v16.dart",
+      "bytes": 5574,
+      "sha256": "feb59bb29822e600ff9f71e6d326ecc6b846f1e61d1b70b8a574c0baca2480f2"
+    },
+    {
+      "path": "lib/services/trip_chat_inbox.dart",
+      "bytes": 6740,
+      "sha256": "e2182f0b10cfba7e0a28cf50534b3930a5afa3739ec2d96f1783a741c6d129a9"
+    },
+    {
+      "path": "lib/services/trip_data_v10.dart",
+      "bytes": 2313,
+      "sha256": "75b891c52a892e700ed615a5ec3445c31bf3155b0010c047dac9a7e96a99921b"
+    },
+    {
+      "path": "lib/services/trip_realtime_v10.dart",
+      "bytes": 6262,
+      "sha256": "0cc64396cf212300fe8f7616c2c57d192762b66af93ff5137ec72ee611ca1d6d"
+    },
+    {
+      "path": "lib/services/veto_mode_v21.dart",
+      "bytes": 1347,
+      "sha256": "5f23af62a778a780abef5c379b6e4b91048cb89daa4a1ac35efc59b9ea8cf553"
+    },
+    {
+      "path": "lib/services/wallet_topup_service.dart",
+      "bytes": 2999,
+      "sha256": "457f15305182a2b9a9a59d502fb71a179a99a1dd4369560f9ccca529ca01054e"
+    },
+    {
+      "path": "lib/services/zone_pricing_service.dart",
+      "bytes": 7975,
+      "sha256": "f32a5346bf713a93f90c2e8e86c7db1c414c92d9516a1b4f9f28b0832e189b57"
+    },
+    {
+      "path": "lib/theme/admin_theme.dart",
+      "bytes": 5431,
+      "sha256": "5e31a21a59e3222ef1c2159a7ed9c8bb6265c23a61c85bd2e8ca1ddbc763f75b"
+    },
+    {
+      "path": "lib/theme/app_theme.dart",
+      "bytes": 11430,
+      "sha256": "e9b0ea4255acbe7df456689b23d382fb128df9e7e1677e4f0997da0141a1c8b4"
+    },
+    {
+      "path": "lib/widgets/admin_copy_button.dart",
+      "bytes": 1115,
+      "sha256": "0470c65c6516e24734e55ca96ca6bd129df4ad1c88c6f92fcf201e1fef7a8a6c"
+    },
+    {
+      "path": "lib/widgets/app_bar_widget.dart",
+      "bytes": 1912,
+      "sha256": "0681e1d3735dbd7e12c067a576d6ef11c4cd3e0a160422cf3e14e22742e6bc19"
+    },
+    {
+      "path": "lib/widgets/app_navigation.dart",
+      "bytes": 11115,
+      "sha256": "5adccd4e940d947f477f188dfb14b395f1306155c739693f4826f5e64afe2de8"
+    },
+    {
+      "path": "lib/widgets/app_scaffold.dart",
+      "bytes": 980,
+      "sha256": "7b94ee32b1f52c593e658dc391f1df799b4df494e3c36bd8d2a24426761327fc"
+    },
+    {
+      "path": "lib/widgets/booking_area_picker_v19.dart",
+      "bytes": 5320,
+      "sha256": "8edb441ed8994247f64eea98744f2fe00c638e5d532bcf410533ff9977c75a98"
+    },
+    {
+      "path": "lib/widgets/booking_city_places_v39.dart",
+      "bytes": 9694,
+      "sha256": "5d2dd6dae1f8a33b25202b5da4aa3301a4fdfde44cf0ac8d2510120ee56a5793"
+    },
+    {
+      "path": "lib/widgets/captain_combo_introduction.dart",
+      "bytes": 8196,
+      "sha256": "d8f304f8fa34bf66e51eed99456953f6fe753e1a20bd98d50a72e1bd12f2d33f"
+    },
+    {
+      "path": "lib/widgets/captain_photo_v16.dart",
+      "bytes": 1619,
+      "sha256": "775e12780eb5063986240cb840293aabc2d810d439af6086362eeec99bb1b042"
+    },
+    {
+      "path": "lib/widgets/city_zone_icons.dart",
+      "bytes": 2511,
+      "sha256": "4f3c81b566eb95116f59a4799071c2e5fcc6c9b5e9b18c64259baa0252a58008"
+    },
+    {
+      "path": "lib/widgets/custom_error_widget.dart",
+      "bytes": 2958,
+      "sha256": "2eebd4a3b5348f172dd4f020fc3482f0730da7628b9019c36fa8b3fdecb6e3de"
+    },
+    {
+      "path": "lib/widgets/custom_icon_widget.dart",
+      "bytes": 478277,
+      "sha256": "ed6447e8e9870034c7e3cc95d5cb7ea4e4f6330d8f1fb9bb82fb41471ffe8c7b"
+    },
+    {
+      "path": "lib/widgets/custom_image_widget.dart",
+      "bytes": 4737,
+      "sha256": "aaf2417269fb89f33406edcf5ee3fb7da275a6729b6febcb9e1e0af7f288a587"
+    },
+    {
+      "path": "lib/widgets/customer_city_selector_v38.dart",
+      "bytes": 5206,
+      "sha256": "91c99022b597500c8ecfd47c3c1dacc3afe3a37ed5daa6fd2e8de7459f0ddb94"
+    },
+    {
+      "path": "lib/widgets/customer_drawer.dart",
+      "bytes": 5479,
+      "sha256": "c2ceecf4feef5d428dc644d0132bb36a7a71403c34f6617dab83befcf7ce4f1c"
+    },
+    {
+      "path": "lib/widgets/customer_identity_v29.dart",
+      "bytes": 9998,
+      "sha256": "135ba1e4261c980f55333eb4abc4046bad3761985249c7b9582676799513a3da"
+    },
+    {
+      "path": "lib/widgets/customer_map_home.dart",
+      "bytes": 7077,
+      "sha256": "1c1d6f581b1c994bd62175508dfed92ab3a3be2c6cbcfb15cc41abff17f309f7"
+    },
+    {
+      "path": "lib/widgets/empty_state_widget.dart",
+      "bytes": 2099,
+      "sha256": "ecc39c48410366d5c65c2384d8984463481d3d27d712feb073e5deb55bebd8af"
+    },
+    {
+      "path": "lib/widgets/extra_purchase_limit.dart",
+      "bytes": 2135,
+      "sha256": "43f32b2a949f8fe13ec2ee3522321b4d6ced853e4944c68f01ab5aefa494bd54"
+    },
+    {
+      "path": "lib/widgets/loading_skeleton_widget.dart",
+      "bytes": 2037,
+      "sha256": "6fe7a3e14f8f3f8907b7a1ce3444bd75819bbc6e8f76c1cedbceb6bf75e8f18d"
+    },
+    {
+      "path": "lib/widgets/openfreemap_surface.dart",
+      "bytes": 7629,
+      "sha256": "cc47522b2b5b765be2f317d3b91bd8f003ee334e413fe14240d46591a711f4f4"
+    },
+    {
+      "path": "lib/widgets/place_category_icons.dart",
+      "bytes": 1488,
+      "sha256": "d384a7e135ec5cb08224a2c7e46e2f9320a2a5489a4e029545beec44a66f84c8"
+    },
+    {
+      "path": "lib/widgets/product_preference_account_bridge.dart",
+      "bytes": 1758,
+      "sha256": "658d09dd4b5b98de261c1510e4dd7e8a767abdad98ff3e45b54aa47878daf89b"
+    },
+    {
+      "path": "lib/widgets/rating_pulse_v10.dart",
+      "bytes": 995,
+      "sha256": "52a99b814e33c00eb2038d50d34e0e53406ce5845f53b917fe2a4f17d36ec17d"
+    },
+    {
+      "path": "lib/widgets/ride_category_card.dart",
+      "bytes": 3659,
+      "sha256": "bf40968d9fc7cf2f61917e50414fa51bcf0ca84cf6a274f6b84a47b10e3c13d0"
+    },
+    {
+      "path": "lib/widgets/ride_preference_label.dart",
+      "bytes": 812,
+      "sha256": "2076124043dd33c8b27e24e308628eccbd41a7522287f423fb044cfb87c8ab52"
+    },
+    {
+      "path": "lib/widgets/status_badge_widget.dart",
+      "bytes": 4194,
+      "sha256": "3e67a2fa0b710880da40c34546e4555bd309c51c1a6cca9a78a215811ebaab3a"
+    },
+    {
+      "path": "lib/widgets/trip_chat_button.dart",
+      "bytes": 1283,
+      "sha256": "e13ecd320c293878283fa28e588be10745caf996960845a2f6584d791264e760"
+    },
+    {
+      "path": "lib/widgets/trip_financial_card_v11.dart",
+      "bytes": 11585,
+      "sha256": "34deed745d576b73a0d0db1f5e9a16d12d7314f39c09db41b6b9816a47f98187"
+    },
+    {
+      "path": "lib/widgets/trip_loading_v10.dart",
+      "bytes": 1466,
+      "sha256": "11f17e7b43bbb3392765bc40c605f04805536f19deedde8dd3143681b0e351fe"
+    },
+    {
+      "path": "lib/widgets/trip_promise_panel.dart",
+      "bytes": 6066,
+      "sha256": "f80d0566fd1c8dee9361af26d3bcd431f5ed96583cc0c141ede05414540f7ca5"
+    },
+    {
+      "path": "lib/widgets/trip_safety_code.dart",
+      "bytes": 6768,
+      "sha256": "ea992c19f9ce881154d4ccd5efdde3a61d5326ee4844ec3e291fa678ea11ea91"
+    },
+    {
+      "path": "lib/widgets/v37_suggest_address_button.dart",
+      "bytes": 13938,
+      "sha256": "23c64995dd71574ad988d28818eaeff1b6ed0560cc32a4c3e87fca3a9b89b6ee"
+    },
+    {
+      "path": "lib/widgets/wave_dispatch_status.dart",
+      "bytes": 2568,
+      "sha256": "bc7be16b55152f73438bed1b5ec4f3e13baf05e917c1363844fb1c2a0042f365"
+    },
+    {
+      "path": "PHASE2_DESIGN/print_samples/car_SYNTHETIC_SAMPLE.pdf",
+      "bytes": 8748,
+      "sha256": "604cb83a2eec6884c8d5df28a949e894b4dce754e0f6ea527789748cdaae3c53"
+    },
+    {
+      "path": "PHASE2_DESIGN/print_samples/motorcycle_SYNTHETIC_SAMPLE.pdf",
+      "bytes": 8737,
+      "sha256": "b31b025c71dd467065e3efc243fb5a98c27927b27792ed1dc86280582eb30567"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/booking_component_320_SYNTHETIC.png",
+      "bytes": 60692,
+      "sha256": "836d0a9df1498d62962b67a6c92695fcec93c23c24833551c8856ce8129eeb9e"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/booking_component_390_SYNTHETIC.png",
+      "bytes": 65478,
+      "sha256": "e51b4127b61b3936e139bbf29332534107ac433e081af48cfb9863894f911c3b"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/booking_component_600_SYNTHETIC.png",
+      "bytes": 93213,
+      "sha256": "955c617b5562f51b91328f1647839eb4e5dbfddb1680eaf0a97c9e0f17df2dcb"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/referrals_320_SYNTHETIC.png",
+      "bytes": 45455,
+      "sha256": "d2e044c8f245010fd5572ddf82056aa1cdc53a807602cd2a325a70971eaea00b"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/referrals_390_SYNTHETIC.png",
+      "bytes": 47253,
+      "sha256": "7c1e76809bdf8b12dafd5bbda3cff6f2f1a505e8f92f860e5e8c3bc6570e49c8"
+    },
+    {
+      "path": "PHASE2_DESIGN/screens/referrals_600_SYNTHETIC.png",
+      "bytes": 58305,
+      "sha256": "b40402db76f149e9b1939b79694f12e9265d4383a91cc47c953bd34790a05199"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/print_a4/car_A4_SAMPLE_10001.pdf",
+      "bytes": 2269576,
+      "sha256": "7d48660f7ae6438a332286570267f42d0e13d0b39821e930d6876a5d708e3a83"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/print_a4/motorcycle_A4_SAMPLE_10001.pdf",
+      "bytes": 13406,
+      "sha256": "c84c005573b3f8c0804d0288456ad3cdf9cfa6a544e48d0c79f3cacca823e462"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/customer_profile_ar_dark_320_SYNTHETIC.png",
+      "bytes": 213889,
+      "sha256": "8f891c897cc14c5591ab05aff0be82e2428c38bed5faecaa04f91c9fd9b1f5ff"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/customer_profile_ar_light_320_SYNTHETIC.png",
+      "bytes": 224966,
+      "sha256": "5c81a39e764ff0f04592147c9d24f132aa21ccc6f264fa9574eafefcf084ef5c"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/customer_profile_en_dark_320_SYNTHETIC.png",
+      "bytes": 220625,
+      "sha256": "5df7bdca178f29575df763a1124c4f2bea46e596bdb9dde79f028fc2cfc4d0b6"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/customer_profile_en_light_320_SYNTHETIC.png",
+      "bytes": 231513,
+      "sha256": "c7acee36e2efc83da591cddc7d423fec33509dc461612911f2d8a0925d8d51c9"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/home_components_ar_dark_SYNTHETIC.png",
+      "bytes": 90473,
+      "sha256": "7ee1caf39f89eea06af2e4c3f9e12b20dc1bf229b144125686e1a558b7e5890b"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/home_components_ar_light_SYNTHETIC.png",
+      "bytes": 44424,
+      "sha256": "590c4323dd73c8daa0d46fd57a3bfb6ce9402b8968d430cb547ece174ac8336d"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/home_components_en_dark_SYNTHETIC.png",
+      "bytes": 92626,
+      "sha256": "c1aa1492d39c6558f63b8a5eb841abeefbb98357ca9b2a70251e6e780b45334f"
+    },
+    {
+      "path": "PRODUCT_UX_DESIGN/screens/home_components_en_light_SYNTHETIC.png",
+      "bytes": 93313,
+      "sha256": "ce194956322289ba324abd25322edfb423c3dba2c6e7aea08d61d5590ba4be82"
+    },
+    {
+      "path": "pubspec.lock",
+      "bytes": 52249,
+      "sha256": "3df4fc2cde082da32515b1cbd4653a60167feab6928c30602a65efeb26379035"
+    },
+    {
+      "path": "pubspec.yaml",
+      "bytes": 2028,
+      "sha256": "217b191ee2f0819cd22e7a5acf27ede997c9e823bb004af1f3846eb77c9629ff"
+    },
+    {
+      "path": "README_MOBILE_UX_REV1.md",
+      "bytes": 4328,
+      "sha256": "40795b209abd499cab8218f1724bc67249b8a512be0f323765f9c932b0ba59de"
+    },
+    {
+      "path": "REFERRAL_UX_V31_README.md",
+      "bytes": 4111,
+      "sha256": "6a33a3d75f94d921477560dccd79be793bcc3392b25aab6236e07f2043cefa72"
+    },
+    {
+      "path": "RUN_FLUTTER.cmd",
+      "bytes": 509,
+      "sha256": "9950da823b04eb85fff2e4828c2fab5dc3bc212db5c326cec150316b3dcf13f5"
+    },
+    {
+      "path": "supabase/config.toml",
+      "bytes": 748,
+      "sha256": "b85457160153e04142188b689bee8b9f8ba4c2b221e9d83a3e1e12ff0710faec"
+    },
+    {
+      "path": "supabase/functions/_shared/login_budget_scale_v15.ts",
+      "bytes": 946,
+      "sha256": "a672b908f90689c9a6e7c49a2ec90a796eb5ad58a78da5127408281f10c20a24"
+    },
+    {
+      "path": "supabase/functions/_shared/product_phone.ts",
+      "bytes": 914,
+      "sha256": "9a8b73bd03d76e92a6af38a2730d3cd521f1ac4878380c2115e23a231ad06a59"
+    },
+    {
+      "path": "supabase/functions/_shared/product_phone_test.ts",
+      "bytes": 1014,
+      "sha256": "afcbbdf66ae294d04701dd24de3894ab817ea841586fe961bc14d8a5f000c0d2"
+    },
+    {
+      "path": "supabase/functions/_shared/product_phone_veto2.ts",
+      "bytes": 778,
+      "sha256": "428eae460142c08bede136da6098b9adbf7db89e98768d0dc9257870d564eed1"
+    },
+    {
+      "path": "supabase/functions/_shared/staff_phone_v16.ts",
+      "bytes": 431,
+      "sha256": "76dd8827e2a77643d41140d2de018c0692ac3caf8b6ec4bd91d73b0001ca4152"
+    },
+    {
+      "path": "supabase/functions/admin-code-login/index.ts",
+      "bytes": 5353,
+      "sha256": "adbb18a3e1285dd4055652e8344304efd934029a1177b4ea70e170f0db96b6ce"
+    },
+    {
+      "path": "supabase/functions/captain-application-login/index.ts",
+      "bytes": 4138,
+      "sha256": "18f2a42adbba684d0719383b4a4787b56467eb9985efbaedc3fe6f864723abfb"
+    },
+    {
+      "path": "supabase/functions/captain-code-login/index.ts",
+      "bytes": 10644,
+      "sha256": "c34163f9d989c4ed7c7859686012428a53fc020b33b7ff6b10824e9e1aae7206"
+    },
+    {
+      "path": "supabase/functions/create-captain/index.ts",
+      "bytes": 10070,
+      "sha256": "c27bd77945cb903eeafe37d624353e9275018486c5506684fb12f1c5367efeb0"
+    },
+    {
+      "path": "supabase/functions/customer-code-login/index.ts",
+      "bytes": 9558,
+      "sha256": "eb5dda38b06ea0faeb129265ba20683e7ada11e5406f8305ae4ab6a49045dd2c"
+    },
+    {
+      "path": "supabase/functions/get-route/index.ts",
+      "bytes": 6032,
+      "sha256": "c31d5fcba70b3e3d4faf01a5cc0f1d2614bcd6cc52046be792d75cbd634fdfd6"
+    },
+    {
+      "path": "supabase/functions/merchant-code-login/deno.json",
+      "bytes": 55,
+      "sha256": "4c57d9f56b3baa94c5430a7e39cee319ccd54f451cef320bada430fb251215aa"
+    },
+    {
+      "path": "supabase/functions/merchant-code-login/index.ts",
+      "bytes": 8855,
+      "sha256": "40e70950fb7935b41a182b80e5b229a47f15842126afd8e42c70cf6c96e7098b"
+    },
+    {
+      "path": "supabase/functions/post-trip-checkin/index.ts",
+      "bytes": 4944,
+      "sha256": "8802ed06f362f9029731ae984607729e4a6741be9a81308d7816196ac3db4f22"
+    },
+    {
+      "path": "supabase/functions/product-geocoding/core.ts",
+      "bytes": 2078,
+      "sha256": "851c38f363582d3df8d879f6712bf034f0b0beb0940f1e9ca7e697e8df1843d9"
+    },
+    {
+      "path": "supabase/functions/product-geocoding/core_test.ts",
+      "bytes": 1478,
+      "sha256": "33febc3528d469867794ca5cc7fc3cfff7dd71d8b09faa8db8da52cb5aa0c583"
+    },
+    {
+      "path": "supabase/functions/product-geocoding/index.ts",
+      "bytes": 3498,
+      "sha256": "5ca7b41a96bbc114487f9d25f89902424dd88fd783aaf7c76955571e66575eb5"
+    },
+    {
+      "path": "supabase/functions/product-international-login/index.ts",
+      "bytes": 10536,
+      "sha256": "ed5af0e7101899599a3366afca2e8ade893093d81ada4438493020226551ac24"
+    },
+    {
+      "path": "supabase/functions/product-phone-request/index.ts",
+      "bytes": 1853,
+      "sha256": "4b1bcbff8d1645763fcef1c1400922ea80f6de6def9d800b310a59574a64ebf5"
+    },
+    {
+      "path": "supabase/functions/rotate-captain-credentials/index.ts",
+      "bytes": 4408,
+      "sha256": "1293c7e6564de344227128db1f92b5273d5d833b3208fe92bcf31f3f0e51b4fe"
+    },
+    {
+      "path": "supabase/functions/route-price-quote/index.ts",
+      "bytes": 10133,
+      "sha256": "c606862a48e19a92b2214c29b8f35ce91ba09bc255a231b45d45d91c7559480b"
+    },
+    {
+      "path": "supabase/functions/route-price-quote-v3/index.ts",
+      "bytes": 8054,
+      "sha256": "b64be4692e5c8fac6477115663263eff9a877ddf5ea3ef3089e57f46c09999e5"
+    },
+    {
+      "path": "supabase/functions/send-push/deno.json",
+      "bytes": 282,
+      "sha256": "e93600a1405a1a8f899fb996ca64bc5126e5e630fa5c653b05b334d4f7e56836"
+    },
+    {
+      "path": "supabase/functions/send-push/index.ts",
+      "bytes": 6661,
+      "sha256": "89511cb4f6eeadd9dff7c3b66d5f1bbb52b324d4c24d09cada58c1b42a79a6a8"
+    },
+    {
+      "path": "supabase/functions/staff-code-login/index.ts",
+      "bytes": 4176,
+      "sha256": "7daaa13433e725af09555c79847e96fdbb6dca56dab4e490d071744a0ba0d851"
+    },
+    {
+      "path": "supabase/migrations/20261019163549_veto2_auth_hardening.sql",
+      "bytes": 2862,
+      "sha256": "a62994e2f29134e8eb974cb3a2ee4de564cf3981aae35ec4a2988e6e83d473d9"
+    },
+    {
+      "path": "supabase/migrations/20261019164433_veto2_verification_request_budget.sql",
+      "bytes": 2095,
+      "sha256": "edba52353ab596048104efdc10bd00e3a7531e36cbd7243fc8230a9a2849454a"
+    },
+    {
+      "path": "supabase/migrations/20261020031213_smart_ride_categories.sql",
+      "bytes": 55502,
+      "sha256": "559763dcf7b9d55d5bcffff53330e0482001ab114be2f7a305c0f816334219a7"
+    },
+    {
+      "path": "test/accepted_trip_navigation_product_test.dart",
+      "bytes": 3536,
+      "sha256": "60beaee39efe92342e6487904e3825aa8fa3e41e9ad8578ae7a669a713bc5f3a"
+    },
+    {
+      "path": "test/account_presentation_preferences_test.dart",
+      "bytes": 2668,
+      "sha256": "ba9a7b127bc65b468b9a01d6403114538ff583523541cfc538a5b96360172014"
+    },
+    {
+      "path": "test/account_scoped_read_pool_test.dart",
+      "bytes": 1677,
+      "sha256": "0c5ff20c4a0ed713270eef9270d7e34677b9cdeaea77cbcbf88256f6d1dac99e"
+    },
+    {
+      "path": "test/ban_countdown_test.dart",
+      "bytes": 634,
+      "sha256": "c2d444fb5635c518838788950ce62be157d62ec8a905727578d12476c5a13b2d"
+    },
+    {
+      "path": "test/booking_fare_product_layout_test.dart",
+      "bytes": 2703,
+      "sha256": "48d868484a04872b7e80d7c570b3c8c2216ed9be49981f80f99aa9142a2cc885"
+    },
+    {
+      "path": "test/booking_performance_test.dart",
+      "bytes": 3133,
+      "sha256": "21218004a00d0f06456430457c6e3693b1103d74219885680e8c3ab29d0ac633"
+    },
+    {
+      "path": "test/booking_quote_recovery_product_test.dart",
+      "bytes": 6070,
+      "sha256": "7cf83470a5c08d2ebbf9ec7b216b3d3bb258e284b3447ff10a8b3c0fd330c398"
+    },
+    {
+      "path": "test/captain_application_v16_test.dart",
+      "bytes": 1624,
+      "sha256": "aa76ee027628bb0c0155204773eb82419f4b92f01546d9b379e9b5729e3de6c9"
+    },
+    {
+      "path": "test/captain_combo_sheet_test.dart",
+      "bytes": 2165,
+      "sha256": "528eb426226baa7b6fc5f645e476c808722ae783999e4176e0b6e4cab3a63433"
+    },
+    {
+      "path": "test/captain_confirmed_gps_readiness_test.dart",
+      "bytes": 1944,
+      "sha256": "652d55b52637cbf9aa533834902c291bccf0de678e0c8b601ac5163be59a63df"
+    },
+    {
+      "path": "test/captain_debt_invoice_product_test.dart",
+      "bytes": 2498,
+      "sha256": "a67556d460785881b4cc0a8312aac97b215d89f18fff0727fecbd599960b7dfb"
+    },
+    {
+      "path": "test/captain_growth_code_tile_test.dart",
+      "bytes": 2593,
+      "sha256": "50e3d11d8ac546d524372af514dfe987bc68696d15320d30965ae0dcf1a05624"
+    },
+    {
+      "path": "test/captain_home_map_product_test.dart",
+      "bytes": 2395,
+      "sha256": "7d7c7e1331f016c56b192b06d9644f8c7a77dc059ac7a5cd8dbb637183d3adc0"
+    },
+    {
+      "path": "test/captain_market_assignment_product_test.dart",
+      "bytes": 3876,
+      "sha256": "97f7c0a3e03ae79cf3a73afef8771fc14497ef811328198df80d9aa24ff2a2f5"
+    },
+    {
+      "path": "test/captain_market_order_product_test.dart",
+      "bytes": 6332,
+      "sha256": "cf8ddb0f935ffbf2d8b32a6b0a3931d35a92e7cb187fed9129d002febee89af6"
+    },
+    {
+      "path": "test/captain_more_product_test.dart",
+      "bytes": 2404,
+      "sha256": "8ae58bceecb8c5d5d630b393503a0bdcdf14e478e3c63ad8f5a0689d62650966"
+    },
+    {
+      "path": "test/captain_passenger_rating_product_test.dart",
+      "bytes": 2285,
+      "sha256": "8f6946105d5dc8d77ba79de5291f1b4d33c6f97dc64bcd2a1ceabdda5ae3ccfa"
+    },
+    {
+      "path": "test/captain_presence_v16_test.dart",
+      "bytes": 3937,
+      "sha256": "38309a6eb8ddc2b1dc7257e1c87e7cf020049d8837010ea3bf9405a566764019"
+    },
+    {
+      "path": "test/captain_registration_product_test.dart",
+      "bytes": 2551,
+      "sha256": "a7bb81a91486f2429ad2a1daa94e78179b2a02b1f055208a55801d4cf6ca0a66"
+    },
+    {
+      "path": "test/captain_registration_v64_validation_test.dart",
+      "bytes": 1346,
+      "sha256": "22ab8e82610191ba78625c54741b24b52f47c11570dddeb72cb5de4bc34fff06"
+    },
+    {
+      "path": "test/captain_ride_components_product_test.dart",
+      "bytes": 2719,
+      "sha256": "68ff0396dfd7ad590c494eed8fc114a70b8b8e1dabd193a9425531da92c0ecbd"
+    },
+    {
+      "path": "test/captain_road_preview_product_test.dart",
+      "bytes": 2112,
+      "sha256": "f4b99b1b0db0ab2f7094cd61bca1abed1f11ae998317ddc7f38873ddaf9fd9e1"
+    },
+    {
+      "path": "test/customer_badge_product_test.dart",
+      "bytes": 3072,
+      "sha256": "622f9600dfc1d92d76ffd60e6f893e3eb24b71337cacf925569dc74a3df723fd"
+    },
+    {
+      "path": "test/customer_captain_rating_product_test.dart",
+      "bytes": 2393,
+      "sha256": "668cc72a664d3c0344c8f3d02e1e544064e7eeedbd6a56ce35060e65b96c2133"
+    },
+    {
+      "path": "test/customer_feedback_product_test.dart",
+      "bytes": 3960,
+      "sha256": "6a8d3910200ef5c24fffbf09bf430c67d9caf12b759eab00e0edef46c06f4fb6"
+    },
+    {
+      "path": "test/customer_location_state_test.dart",
+      "bytes": 1937,
+      "sha256": "1b681d93f2b6b2c0a8fb36b5f68f928fd5f01f27aa4cc8ed2ee7bd4b9ea4333f"
+    },
+    {
+      "path": "test/customer_navigation_test.dart",
+      "bytes": 3261,
+      "sha256": "142cce7f2c4cca3198202e799147c23c51fb9f79a392bc6d52b4f3524dc6385b"
+    },
+    {
+      "path": "test/customer_profile_product_test.dart",
+      "bytes": 6023,
+      "sha256": "90e4bd214ed06e35c746bfae1e8540a9d38554f2ce9a22187189c7f71fb854d9"
+    },
+    {
+      "path": "test/customer_receipt_product_test.dart",
+      "bytes": 2788,
+      "sha256": "8886235194c6032646ce290c1537f43ea334f2debaa29ac384cc952ae1dd8d12"
+    },
+    {
+      "path": "test/customer_ux_rebuild_test.dart",
+      "bytes": 7999,
+      "sha256": "92a4529e1d4af7a6fced047176f42d80ddecae0f264b68b62b0af654d798b169"
+    },
+    {
+      "path": "test/extra_purchase_limit_test.dart",
+      "bytes": 1601,
+      "sha256": "564a0b2a2ac4485ffacba7ed938ece9b60fba60b4689eb71751b3026ef367fb6"
+    },
+    {
+      "path": "test/final_invoice_v16_test.dart",
+      "bytes": 2580,
+      "sha256": "fa71d156844e1289aca4269f395e99fe6c57799e056a713cfea2c832dea826dd"
+    },
+    {
+      "path": "test/financial_receipt_product_test.dart",
+      "bytes": 2345,
+      "sha256": "e08768fb57c99f9d94bf9c70badb3c2a1cc771221aca0febbe2bd4e4a4826726"
+    },
+    {
+      "path": "test/flutter_test_config.dart",
+      "bytes": 490,
+      "sha256": "d2a29b60decc82d6a251da61df66fea72022bc5f0312e7a4f8af2da762bd334d"
+    },
+    {
+      "path": "test/foreground_refresh_loop_test.dart",
+      "bytes": 1756,
+      "sha256": "b0baf9ca1fe7d2d3ec7f4ff87dd33de0e5f93168b23e07ad3e65467009fda079"
+    },
+    {
+      "path": "test/gift_dismissal_ux_test.dart",
+      "bytes": 1394,
+      "sha256": "253106b1e9533fc1c6e2e4c6f7f7b77f2e60059ee12dddd7b710533d393ff527"
+    },
+    {
+      "path": "test/goldens/liquid_customer_navigation.png",
+      "bytes": 10771,
+      "sha256": "841878ce1c2d0574019dbcc9ae74ca9ca0a549341a12d697a8fd406bb95fbfdf"
+    },
+    {
+      "path": "test/goldens/v11_captain_bill.png",
+      "bytes": 19984,
+      "sha256": "dadd1a44fd94991926d008a28df1412da218794ec2599881ce4f466ef9384cda"
+    },
+    {
+      "path": "test/goldens/v11_captain_profile.png",
+      "bytes": 74725,
+      "sha256": "264846d469596baea34c9a8489aa56fad692ff6eceaee3824b9e37a189d74b75"
+    },
+    {
+      "path": "test/goldens/v16_presence.png",
+      "bytes": 183305,
+      "sha256": "c5b646c4559344575b16fba4aa42883d7e8d3d9d471800738c9405946333e295"
+    },
+    {
+      "path": "test/growth_a4_badge_test.dart",
+      "bytes": 1670,
+      "sha256": "c41c874b0a098c3b0f7f922ec147907d990417f421c7f4da15164a2bb38ac631"
+    },
+    {
+      "path": "test/growth_badge_pdf_test.dart",
+      "bytes": 808,
+      "sha256": "efad9af9d06b56bd3dfbe3c711e3033971cd8af47b0351f70f49e4617e2a8b3e"
+    },
+    {
+      "path": "test/growth_design_preview_test.dart",
+      "bytes": 4378,
+      "sha256": "60d61062c08a05f2c807398fb29afc41dc755a22df3c7510f89ccf311e67555e"
+    },
+    {
+      "path": "test/growth_motion_test.dart",
+      "bytes": 5274,
+      "sha256": "53adaea6909fba1655340746b36595c4419a5d8a8d6fd8d38af6d6241754e0b8"
+    },
+    {
+      "path": "test/growth_production_approval_contract_test.dart",
+      "bytes": 493,
+      "sha256": "14a968b81e8129dc8b3cab9fbad65c140848f621caee5f38d0fc0147cd9c0f0b"
+    },
+    {
+      "path": "test/growth_service_test.dart",
+      "bytes": 4010,
+      "sha256": "5089c366b71c3ea9600d09a2867980811fb23707797759f0bbf4750c36a13b01"
+    },
+    {
+      "path": "test/home_loyalty_product_test.dart",
+      "bytes": 3092,
+      "sha256": "33926f04e2320dc1842de3a66caec9a16e66cb9c7ad977f75e4ae76101b30d38"
+    },
+    {
+      "path": "test/home_read_coordinator_test.dart",
+      "bytes": 1199,
+      "sha256": "11b0826d7d3cebde5792d414cffa7878cea75c110784179ec6f4d20089c9b067"
+    },
+    {
+      "path": "test/hybrid_place_search_test.dart",
+      "bytes": 2859,
+      "sha256": "a683d694da5f24923cf08de2d88698917cd8cffc3d202c489a2ec730fda9fcd9"
+    },
+    {
+      "path": "test/legacy_captain_reward_product_test.dart",
+      "bytes": 2411,
+      "sha256": "52c73677be667b40eb12dc56a769baaa89849865e02a1c5674b8ce67e4b04bc7"
+    },
+    {
+      "path": "test/legal_product_test.dart",
+      "bytes": 2420,
+      "sha256": "6c228b5a52b4d164c6a53309bdec59966e02e9b9c0dfd6a008a3e023d54d9fe0"
+    },
+    {
+      "path": "test/live_map_product_test.dart",
+      "bytes": 3242,
+      "sha256": "63fa91b4b1a5e04b8e7d9fab1492bba6915051af03f2cb8fef47144df0d9d8cd"
+    },
+    {
+      "path": "test/localized_booking_failure_test.dart",
+      "bytes": 2141,
+      "sha256": "93001b45d081544dc13eb013fe725f5abf6b67be2e1b71ddff53898a8fc84da6"
+    },
+    {
+      "path": "test/localized_cancellation_failure_test.dart",
+      "bytes": 1504,
+      "sha256": "0b18f96ba721111f6c649aac51f5427346caa4111252c3ce0e6436847ac05223"
+    },
+    {
+      "path": "test/location_upload_gate_v15_test.dart",
+      "bytes": 1058,
+      "sha256": "9ac7fb4608b8452dad6e87b026ebac51d0695225f6073b1410185f7e42207754"
+    },
+    {
+      "path": "test/map_provider_policy_test.dart",
+      "bytes": 1884,
+      "sha256": "8ef4079da1ad23e5bb20d4651972ce1d330d394bdafa0df244235673e3fb4c8d"
+    },
+    {
+      "path": "test/market_chat_product_test.dart",
+      "bytes": 7413,
+      "sha256": "84b1afb9e3b5e7f0acbf00bf6090e4428d9d5eef6e96645094872ea7b47e1492"
+    },
+    {
+      "path": "test/market_checkout_product_test.dart",
+      "bytes": 8456,
+      "sha256": "0e083760dc315ded981c3a22cbb0a10a06c8bc9815168ace8e4e55eb38209a2d"
+    },
+    {
+      "path": "test/market_history_product_test.dart",
+      "bytes": 5211,
+      "sha256": "4d018c457a49c16ec943ef78d1a36bda7487154acc09905fe385b7037ddd6b2d"
+    },
+    {
+      "path": "test/market_products_product_test.dart",
+      "bytes": 3513,
+      "sha256": "a5b77e02fbb8ad5d83b5f04259b13d62b3f5f1a64584c4e6a906d87235143553"
+    },
+    {
+      "path": "test/market_stores_product_test.dart",
+      "bytes": 2615,
+      "sha256": "0baf9fac118d119d30276098ac71f4ace8a609208c2850c88f731ef01f76f39b"
+    },
+    {
+      "path": "test/market_tracking_product_test.dart",
+      "bytes": 4307,
+      "sha256": "a66e53f3f2e53da545fb197b5183575fa828dde84703f8329c20f5596b7460c9"
+    },
+    {
+      "path": "test/monitor_status_screen_test.dart",
+      "bytes": 2576,
+      "sha256": "6533eeeafe89fc4986818803234d3a284f124605040c0ccbbfe370628b0d1cf7"
+    },
+    {
+      "path": "test/news_product_test.dart",
+      "bytes": 5696,
+      "sha256": "4407a21a2159b57787a252377072d2b3b591754b38f294d8becbc7b93cb83184"
+    },
+    {
+      "path": "test/openfreemap_style_test.dart",
+      "bytes": 1835,
+      "sha256": "4576f58f4bda8596366433d754201e85d4c1ea178ccb838d8e6de3fa9010e38e"
+    },
+    {
+      "path": "test/partner_portal_product_test.dart",
+      "bytes": 5345,
+      "sha256": "7012c129d952688630b4f735380f3de65000a131f6574cfe38144ce3f5063abe"
+    },
+    {
+      "path": "test/pending_address_draft_test.dart",
+      "bytes": 2218,
+      "sha256": "63247f27eca6b46e6b212f79ef20c15224999cefbb354c8a5b892b4b55380b56"
+    },
+    {
+      "path": "test/phase2_baseline_contract_test.dart",
+      "bytes": 3451,
+      "sha256": "8e9102707154448eae8a48424a4cd9340c32b61a51bbd8da414715cce2062cf7"
+    },
+    {
+      "path": "test/phase2_home_layout_test.dart",
+      "bytes": 1785,
+      "sha256": "b5fad790e6d151478830e937fb9abd360c66df2969fed131c643ac6a315c0abb"
+    },
+    {
+      "path": "test/phase3_friend_code_test.dart",
+      "bytes": 2298,
+      "sha256": "619b388a382a29b453518a32dbe7a1a9b42cf601f01c27ed289835f5a3c5ad98"
+    },
+    {
+      "path": "test/phase4_referral_codes_test.dart",
+      "bytes": 2062,
+      "sha256": "809eb4064bfae586ad91c28be08162418c1ded3d7f32e79ce986a20a2084c975"
+    },
+    {
+      "path": "test/phase5_welcome_map_test.dart",
+      "bytes": 2296,
+      "sha256": "595426871f7fa8e37137ca064ad949b96e3230485fa2b100c9762a281413fadf"
+    },
+    {
+      "path": "test/phase5_welcome_widget_test.dart",
+      "bytes": 1269,
+      "sha256": "5891ceb0addb98c2223197f2135423f97b6de7792a6b5a799d6909536a312681"
+    },
+    {
+      "path": "test/phone_identity_test.dart",
+      "bytes": 1684,
+      "sha256": "84abb6dda9ba0fbb540338fe5427b7b033724f12b181b0fb7455cf153c203c51"
+    },
+    {
+      "path": "test/pickup_building_dialog_product_test.dart",
+      "bytes": 7824,
+      "sha256": "3048c730bbe3dfdcbf05cc8a07553415026c93db0e6c9ed0386128d279fde7c9"
+    },
+    {
+      "path": "test/product_auth_ui_test.dart",
+      "bytes": 2587,
+      "sha256": "7af8d4ed93f942ce891843b30f9a8d9721fcbd919b94da6a71d890117e1fa0a0"
+    },
+    {
+      "path": "test/product_geocoding_test.dart",
+      "bytes": 3520,
+      "sha256": "40b549d1e4560e8c865d3b8d87bf717e5c7bbc5058ddc14b101188b32de94363"
+    },
+    {
+      "path": "test/product_home_widgets_test.dart",
+      "bytes": 5512,
+      "sha256": "c05482d11cb49764e5c04dd02f9a81eb6233e9ee6b822462ff07e353775b6e38"
+    },
+    {
+      "path": "test/product_preferences_test.dart",
+      "bytes": 3128,
+      "sha256": "d2a1185339d93f6009bbdef04b5499d35072785e259a757ae5b49ae170bfc89d"
+    },
+    {
+      "path": "test/product_search_privacy_test.dart",
+      "bytes": 3846,
+      "sha256": "26f057df8d57109e88770a66926352aac319338fdc8a9c06d58a4111478d53ec"
+    },
+    {
+      "path": "test/product_surface_capture_test.dart",
+      "bytes": 3436,
+      "sha256": "54ddd22f69b8f6ae5bb7de9dc07d47edf8732b0f4e094bd563f25dd3d0f2275b"
+    },
+    {
+      "path": "test/product_typography_extra_booking_test.dart",
+      "bytes": 2950,
+      "sha256": "13b8e62322a36437ea705bbce16c5f713d45c316a19aad490c72fda6097a9947"
+    },
+    {
+      "path": "test/route_progress_test.dart",
+      "bytes": 2432,
+      "sha256": "744d8fd0a3068dd2a4750e3a2879c8f55868310d784ee2fee613e35d3ae7c394"
+    },
+    {
+      "path": "test/scale_metrics_v15_test.dart",
+      "bytes": 827,
+      "sha256": "63823cf67e997f6e354630e0fd74c9dca3de9e8b2e8e8180839c58331a72de75"
+    },
+    {
+      "path": "test/search_cancellation_coordinator_test.dart",
+      "bytes": 3491,
+      "sha256": "1fe5c1f525d2ceedbcda5cbf9d7de5ef9221045d66c0d9980c327b34e3019d5c"
+    },
+    {
+      "path": "test/staff_access_v16_test.dart",
+      "bytes": 1033,
+      "sha256": "7b98f4cf30fe887dea25d05070b7f03637ecc5d0132af3abb6411e66c0f5cac9"
+    },
+    {
+      "path": "test/team_chat_v16_test.dart",
+      "bytes": 923,
+      "sha256": "21bd685204d466b038d7526f123ed20ba4f1b104f284a587072c4bf758388f46"
+    },
+    {
+      "path": "test/v10_trip_experience_test.dart",
+      "bytes": 2723,
+      "sha256": "56bb4c4854915f2be7e5079b6de0ff09ec0dfc3f2f963f876b6c91a8fcb7e7ca"
+    },
+    {
+      "path": "test/v11_financial_ui_test.dart",
+      "bytes": 5645,
+      "sha256": "727cfd71b8d37ad23607c184bae70ef3aa4175de5bbbd2cb2e7c8cfc73e89026"
+    },
+    {
+      "path": "test/v16_presence_visual_test.dart",
+      "bytes": 2595,
+      "sha256": "3ca8147cfd7e1fe0a8e4f8e04d8ae980d10304c3072e03f5b5b297ccced4f1dd"
+    },
+    {
+      "path": "test/v3_backend_regression.sql",
+      "bytes": 18692,
+      "sha256": "4225a8cdf35525947693f3fd05fcfcececdd4a028253874029317ff556cdb612"
+    },
+    {
+      "path": "test/v3_category_layout_test.dart",
+      "bytes": 4169,
+      "sha256": "6c1c542ecb6c043ea3131a1c000972501daa136e586781c642442dc773b4d2c2"
+    },
+    {
+      "path": "test/v3_control_screens_test.dart",
+      "bytes": 11000,
+      "sha256": "295377281b7a477e3f0e2722790dd11b6100ac0636b355b86424887ff058acff"
+    },
+    {
+      "path": "test/v3_draft_choice_test.dart",
+      "bytes": 983,
+      "sha256": "b788ea49481aa615032923a074a19540cb6f1d14ccacd0a935e256501dc817f9"
+    },
+    {
+      "path": "test/v62_welcome_intro_test.dart",
+      "bytes": 2406,
+      "sha256": "030bdbaedac5433934f402666301d5a62e086428b0494db8ff1a83bddf012b6f"
+    },
+    {
+      "path": "test/v63_referral_ui_integrity_test.dart",
+      "bytes": 1747,
+      "sha256": "34cb4ce474c09aa6a80dec26eb5ece66867d73c24413cc6ed24d5f8ffa096ec4"
+    },
+    {
+      "path": "test/v66_referral_code_contract_test.dart",
+      "bytes": 634,
+      "sha256": "c595bdbee4ffec13efb2d7726de385c782738752934891623ea0069d06a0cba9"
+    },
+    {
+      "path": "test/v9_admin_pricing_test.dart",
+      "bytes": 6560,
+      "sha256": "371de87239774955786f6dbd977d04c3c0279e5ec6ab04f10976a84c08380aac"
+    },
+    {
+      "path": "test/veto2_admin_banners_test.dart",
+      "bytes": 2885,
+      "sha256": "9d0a0f0af74cbd034b350fb96eb7ccb88126204b69bb12159d008dc8363592f6"
+    },
+    {
+      "path": "test/veto2_banners_test.dart",
+      "bytes": 2138,
+      "sha256": "d2195f76399ac3807296367c45b531132341c1b249d92357b1d6e835025239d8"
+    },
+    {
+      "path": "test/veto2_drawer_test.dart",
+      "bytes": 3504,
+      "sha256": "b4c8d2dd9a32561a047be7a3da7ad59bdcb645336c7e4a9514c04e49cb350d65"
+    },
+    {
+      "path": "test/veto2_driving_test.dart",
+      "bytes": 4263,
+      "sha256": "5a566f6f9fb823eee8a78c634eabb25059997b06d35442d1042b6c2db8e527da"
+    },
+    {
+      "path": "test/veto2_game_widget_test.dart",
+      "bytes": 4222,
+      "sha256": "09f1ec44a62c167303a9a92613803a2afbf6022bd240adb5f1bdeed5591c5963"
+    },
+    {
+      "path": "test/veto2_secure_drafts_test.dart",
+      "bytes": 2496,
+      "sha256": "bce33c801dc9b9a5c7e29e8b6b1b3a3a26c83bfa754505b66bd02a8d91a88d76"
+    },
+    {
+      "path": "test/visual_onboarding_test.dart",
+      "bytes": 1202,
+      "sha256": "7ea861f62f53538746a220bdbd61e3d396fbd683bd38a4d5b80a49c0efca46a2"
+    },
+    {
+      "path": "UX_REBUILD/screens/fare_ar_dark_SYNTHETIC.png",
+      "bytes": 133372,
+      "sha256": "e0555a29c447bdb13d8b0530c0ad6b79612f11e61ab738e430f5f7419f480cce"
+    },
+    {
+      "path": "UX_REBUILD/screens/fare_ar_light_SYNTHETIC.png",
+      "bytes": 137717,
+      "sha256": "3102aded13edd527027c06ef5564fa72ed3ec35a71797eb273effc33828d6960"
+    },
+    {
+      "path": "UX_REBUILD/screens/fare_en_dark_SYNTHETIC.png",
+      "bytes": 133109,
+      "sha256": "9dcb4a8e10a67be7f3d83c9d5ea45fa9a60e47b2f2440ed23a66ffa67a4ae21c"
+    },
+    {
+      "path": "UX_REBUILD/screens/fare_en_light_SYNTHETIC.png",
+      "bytes": 136363,
+      "sha256": "68a17714ee2cc4cd57810c09832f9daffccc58f2689760ee33219b819cccd1a5"
+    },
+    {
+      "path": "UX_REBUILD/screens/home_ar_dark_SYNTHETIC.png",
+      "bytes": 105328,
+      "sha256": "52b326ea812518542c504bfb726c2992006699467f33ffc3ef0c0f601ee2b0e9"
+    },
+    {
+      "path": "UX_REBUILD/screens/home_ar_light_SYNTHETIC.png",
+      "bytes": 105751,
+      "sha256": "27aa72c6fe02a8420a8fec70053214ff4997976f0632c41e6556ead130b8a58d"
+    },
+    {
+      "path": "UX_REBUILD/screens/home_en_dark_SYNTHETIC.png",
+      "bytes": 101395,
+      "sha256": "15a6650548e543f87b735ec66a5d775d19dc0d54975a281432323a26797e0bb2"
+    },
+    {
+      "path": "UX_REBUILD/screens/home_en_light_SYNTHETIC.png",
+      "bytes": 102430,
+      "sha256": "b12a310ac58b4aafac7f9e4b7fadd9096830a562cb43549433a79d81e96c1747"
+    },
+    {
+      "path": "verification/backend_categories.json",
+      "bytes": 3796,
+      "sha256": "244e71c687c413ccd15825023d76a3019560452910a4b5ab26636b19802c1e47"
+    },
+    {
+      "path": "verification/mobile_ux_review_checklist.md",
+      "bytes": 965,
+      "sha256": "3fe1a63e99a15999dea733889f86fca83682f55e88dff33a2e2906e75c73d73e"
+    },
+    {
+      "path": "verification/mobile_ux_static_checks.json",
+      "bytes": 542,
+      "sha256": "e3d8464c8a12bdbb839008ea7ebdf3c0e57e4e8b5b1228de8c77a004dd428586"
+    },
+    {
+      "path": "verification/previews/admin_categories_ar_dark_SYNTHETIC.png",
+      "bytes": 194419,
+      "sha256": "82e52e820ef70d5e5e9cc94e9e33188d267fb43ba3665474763efdf10a9e715c"
+    },
+    {
+      "path": "verification/previews/admin_categories_ar_light_SYNTHETIC.png",
+      "bytes": 198990,
+      "sha256": "f732266e15c4de50344713be4108d8658141e83c45faf6e4322d213d16bafc3c"
+    },
+    {
+      "path": "verification/previews/admin_categories_en_dark_SYNTHETIC.png",
+      "bytes": 151639,
+      "sha256": "9b366ea06b444c21a03f6561d6ae9c46814f8b0e2a714f977957a73e0537a116"
+    },
+    {
+      "path": "verification/previews/admin_categories_en_light_SYNTHETIC.png",
+      "bytes": 152423,
+      "sha256": "61be38cb6f75f38d0d1731f9626a65b82a76f739caee50a83c7d196ac8ee45df"
+    },
+    {
+      "path": "verification/previews/admin_price_ar_320_scale2_SYNTHETIC.png",
+      "bytes": 70244,
+      "sha256": "e021fb58e7d7ab9ea49cd865c18a19d51dd9f6acc306e596aa7f7abdb1a7c368"
+    },
+    {
+      "path": "verification/previews/admin_price_en_320_scale2_SYNTHETIC.png",
+      "bytes": 62987,
+      "sha256": "87e070ca48ec5143942579bc6725c2f345fa9138ea8b8049773d89da38644e75"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_captain_categories_320.png",
+      "bytes": 77706,
+      "sha256": "0da7b80a0c5d4ad2226fcf4cec58b1be4e3a9da245201f950eed4049826689fd"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_categories_320.png",
+      "bytes": 62750,
+      "sha256": "8a02f7bec0b47c37f9a3e52e5fdcf9953ddadabfd18625531bd29250c532d660"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_categories_390.png",
+      "bytes": 90044,
+      "sha256": "288fb926e8dde1253373c3d65f53c3434ec7766fab169bffd5507b3565a1974e"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_completed_receipt.png",
+      "bytes": 90943,
+      "sha256": "02de69e2545e903dccc1c6eceb8ada0f44fe9a18ede42edb950f21412c7d137e"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_fare_390.png",
+      "bytes": 79250,
+      "sha256": "d0e0c192725be0f51a1b34006e29377924812e53c8fb76575ca91f56e8baaf29"
+    },
+    {
+      "path": "verification/previews/BROWSER_STAGING_home_390.png",
+      "bytes": 148781,
+      "sha256": "7eb19f891e514c7ab15a1d9869c50d8eedfa7b193e8c27be444db71b238f3689"
+    },
+    {
+      "path": "verification/previews/captain_categories_ar_dark_SYNTHETIC.png",
+      "bytes": 176473,
+      "sha256": "13bf98c77698a23cb6e577401438b9f7a8fd2bea054aadb79b74a9fd34d052c5"
+    },
+    {
+      "path": "verification/previews/captain_categories_ar_light_SYNTHETIC.png",
+      "bytes": 178567,
+      "sha256": "70e55a19bbe9ff83a728db1fd0a95893eabe8a2239893010eef3c8cb3fcdc0b4"
+    },
+    {
+      "path": "verification/previews/captain_categories_en_dark_SYNTHETIC.png",
+      "bytes": 179994,
+      "sha256": "72a347705bcb962e92db58624bfae94df7fef7aed31dc1862b79461184c2c107"
+    },
+    {
+      "path": "verification/previews/captain_categories_en_light_SYNTHETIC.png",
+      "bytes": 181511,
+      "sha256": "b9492dfb19f9bdf3835c923c46c03da9235f4ad287ec4ac087fa22b7b990879b"
+    },
+    {
+      "path": "verification/previews/categories_ar_dark.png",
+      "bytes": 163501,
+      "sha256": "d062a0ddcdd0306cd699266fbc939cc8a043f6062599e39b25343e68568755fb"
+    },
+    {
+      "path": "verification/previews/categories_ar_light.png",
+      "bytes": 164237,
+      "sha256": "31395963db02ee6641f5cb55acf72dfe3640540d36afc057d7b19876defafb16"
+    },
+    {
+      "path": "verification/previews/categories_en_dark.png",
+      "bytes": 158929,
+      "sha256": "8d01189e7ab6377cebf9ab91e24a426abbad224529bec0cc0e7169c73691555a"
+    },
+    {
+      "path": "verification/previews/categories_en_light.png",
+      "bytes": 159480,
+      "sha256": "53b74c695600c6d5e4ebddcd9f81a69e6957296cfd731a412fbfb2a6887eb63b"
+    },
+    {
+      "path": "verification/release_aab.log",
+      "bytes": 6490,
+      "sha256": "dd9be7bd159fb08d4b1f22a8dd46e1268c186f9473e16d6b50a6901140fa2bb9"
+    },
+    {
+      "path": "verification/release_analysis.log",
+      "bytes": 149895,
+      "sha256": "e4b56a68a6faf4b0ad23fac025180ac3506faa0190b8715180994c24434fef76"
+    },
+    {
+      "path": "verification/release_apk.log",
+      "bytes": 6060,
+      "sha256": "ab045789ce8368f349ce615eb7772279794093a0dac0f471c6df1888bb9cbafb"
+    },
+    {
+      "path": "verification/release_tests.log",
+      "bytes": 154718,
+      "sha256": "1c62f28b5c7f63ba8f5028a1e7abcdcee5e2082db7c35eaf74e7185964844998"
+    },
+    {
+      "path": "verification/release_web.log",
+      "bytes": 3822,
+      "sha256": "1d64b72aad1ad17e6a1ce80115008b11c956cc30985f73e21bcd103d65f6d97f"
+    },
+    {
+      "path": "verification/release_web_staging.log",
+      "bytes": 3822,
+      "sha256": "c930d71808147ee28b09eeeda7d219717053977c930880acbf93cab38e4ca3c7"
+    },
+    {
+      "path": "web/favicon.png",
+      "bytes": 1624,
+      "sha256": "35545783b26ae034467ffb9e70db4667abdb2056e352622c8b07cb79cf71e1fb"
+    },
+    {
+      "path": "web/flutter_plugins.js",
+      "bytes": 927,
+      "sha256": "e7a6beeb85078764f5651dca05331839fa47f32e2844f3daa5f4fcf0ab8eec04"
+    },
+    {
+      "path": "web/icons/Icon-192.png",
+      "bytes": 12637,
+      "sha256": "9b5f5ff752386195f660ed99e5a56265d64a0084f852801eaa557c5bb56de7d8"
+    },
+    {
+      "path": "web/icons/Icon-512.png",
+      "bytes": 39915,
+      "sha256": "a945c87eebc11544bf11994e7b9fdbd4c6d13cf8af217f73f5c884681a15e8a6"
+    },
+    {
+      "path": "web/icons/Icon-maskable-192.png",
+      "bytes": 12780,
+      "sha256": "f9b6da7a8e2e37aa722871f2358881a2d741dd3dcbd5733e8b99eaf058de1855"
+    },
+    {
+      "path": "web/icons/Icon-maskable-512.png",
+      "bytes": 47390,
+      "sha256": "7cf8c0c5c58219ca533f0596edf5b2ebb396f0fe66f5f998ddebb1ce4dfe2c49"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 5682,
+      "sha256": "019c1e477e05294799ebcb6014639b0611232c7e9eadf480af90497a6265d32c"
+    },
+    {
+      "path": "web/manifest.json",
+      "bytes": 1014,
+      "sha256": "1d37e03656f45401cd3adbb24e09e4e84aa5112f789f51515dd30d9bb87f5e80"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+-- Execute only on isolated Staging. Every synthetic row rolls back.
+begin;
+create temporary table v3_test_results(name text primary key, passed boolean);
+create function pg_temp.check_v3(label text,condition boolean) returns void language plpgsql as $$
+begin if condition is distinct from true then raise exception 'V3 test failed: %',label; end if;insert into v3_test_results values(label,true);end $$;
+do $$
+declare uid uuid:=gen_random_uuid();cap_uid uuid:=gen_random_uuid();admin_uid uuid:=gen_random_uuid();
+ sid uuid:=gen_random_uuid();cap_sid uuid:=gen_random_uuid();admin_sid uuid:=gen_random_uuid();cust uuid;cap uuid;quotes jsonb:='{}';quote jsonb;result jsonb;trip uuid;offer uuid;pin text;old_price numeric;category text;attempt integer;rejected boolean;active_count integer;
+begin
+ insert into auth.users(id,email,raw_app_meta_data,raw_user_meta_data) values(uid,'synthetic-v3-customer@example.invalid','{}','{}'),(cap_uid,'synthetic-v3-captain@example.invalid','{}','{}'),(admin_uid,'synthetic-v3-admin@example.invalid','{"role":"admin"}','{}');
+ insert into auth.sessions(id,user_id,created_at,updated_at) values(sid,uid,now(),now()),(cap_sid,cap_uid,now(),now()),(admin_sid,admin_uid,now(),now());
+ insert into public.user_profiles(id) values(uid),(cap_uid),(admin_uid) on conflict do nothing;
+ insert into public.customers(user_id,phone,full_name,wallet_balance) values(uid,'+201000009901','SYNTHETIC V3 CUSTOMER',200) returning id into cust;
+ insert into public.captains(user_id,phone,full_name,vehicle_type,captain_status,is_online,is_available,can_do_car_ride,identity_verified_v10,vehicle_verified_v10,combo_onboarding_seen_at,current_latitude,current_longitude,location_updated_at)
+ values(cap_uid,'+201000009902','SYNTHETIC V3 CAPTAIN','car','active',true,true,true,true,true,now(),29.974,31.101,now()) returning id into cap;
+ insert into public.captain_category_approvals_v3(captain_id,highest_tier,documents_approved,insurance_approved,reason) values(cap,3,true,true,'SYNTHETIC TEST qualified');
+ perform pg_temp.check_v3('premium inherits economy',veto_category_private.can_serve(cap,'veto_economy'));
+ perform pg_temp.check_v3('premium inherits comfort',veto_category_private.can_serve(cap,'veto_comfort'));
+ perform pg_temp.check_v3('premium accepts premium',veto_category_private.can_serve(cap,'veto_premium'));
+ perform pg_temp.check_v3('premium is not Ladies',not veto_category_private.can_serve(cap,'veto_ladies'));
+ perform pg_temp.check_v3('car is not motorcycle',not veto_category_private.can_serve(cap,'veto_moto'));
+ update public.captain_category_approvals_v3 set highest_tier=1 where captain_id=cap;
+ perform pg_temp.check_v3('economy cannot comfort',not veto_category_private.can_serve(cap,'veto_comfort'));
+ perform pg_temp.check_v3('economy cannot premium',not veto_category_private.can_serve(cap,'veto_premium'));
+ update public.captain_category_approvals_v3 set highest_tier=3,blocked=array['veto_economy'] where captain_id=cap;
+ perform pg_temp.check_v3('explicit block beats inheritance',not veto_category_private.can_serve(cap,'veto_economy'));
+ update public.captain_category_approvals_v3 set blocked='{}',female_verified=true,ladies_approved=true where captain_id=cap;
+ perform pg_temp.check_v3('separate Ladies approval',veto_category_private.can_serve(cap,'veto_ladies'));
+ update public.captain_category_approvals_v3 set documents_approved=false where captain_id=cap;
+ perform pg_temp.check_v3('documents cannot be bypassed',not veto_category_private.can_serve(cap,'veto_premium'));
+ update public.captain_category_approvals_v3 set documents_approved=true,insurance_approved=false where captain_id=cap;
+ perform pg_temp.check_v3('insurance cannot be bypassed',not veto_category_private.can_serve(cap,'veto_economy'));
+ update public.captain_category_approvals_v3 set insurance_approved=true where captain_id=cap;
+ perform pg_temp.check_v3('child seat requires approval',not veto_category_private.can_serve(cap,'veto_economy',array['child_seat']));
+ update public.captains set identity_verified_v10=false where id=cap;
+ perform pg_temp.check_v3('identity cannot be bypassed',not veto_category_private.can_serve(cap,'veto_economy'));
+ update public.captains set identity_verified_v10=true where id=cap;
+ perform set_config('request.jwt.claim.sub',uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',uid,'role','authenticated','session_id',sid)::text,true);
+ rejected:=false;begin perform public.v3_admin_save('promise','{"id":"quiet","enabled":false}');exception when insufficient_privilege then rejected:=true;end;
+ perform pg_temp.check_v3('customer cannot change settings',rejected);
+ perform pg_temp.check_v3('all public category tables have RLS',not exists(select 1 from pg_class where relname in ('ride_categories_v3','ride_category_prices_v3','captain_category_approvals_v3','trip_promise_options_v3','category_audit_v3') and not relrowsecurity));
+ perform pg_temp.check_v3('client cannot issue trusted route quotes',not has_function_privilege('authenticated','public.v3_issue_category_quote(uuid,text,text,numeric,numeric,numeric,numeric,numeric,integer)','execute'));
+ perform pg_temp.check_v3('anon cannot get safety secret',not has_function_privilege('anon','public.v3_customer_trip_code(uuid)','execute'));
+ perform pg_temp.check_v3('clients cannot access private safety table',not has_schema_privilege('authenticated','veto_category_private','usage'));
+ -- Server-routed category pricing uses the same trusted km/zone context.
+ foreach category in array array['veto_economy','veto_comfort','veto_premium','veto_ladies','veto_moto','veto_parcel'] loop
+  quote:=public.v3_issue_category_quote(uid,category,(select base_service::text from public.ride_categories_v3 where id=category),29.974,31.101,29.978,31.108,3,8);
+  quotes:=quotes||jsonb_build_object(category,quote);
+  perform pg_temp.check_v3(category||' correct category snapshot',quote->'pricing_snapshot'->>'ride_category_id_v3'=category);
+  perform pg_temp.check_v3(category||' trusted fare formula', (quote->>'base_fare')::numeric=round(greatest((quote->'pricing_snapshot'->'category_price_v3'->>'minimum')::numeric,(quote->'pricing_snapshot'->'category_price_v3'->>'opening')::numeric+3*(quote->'pricing_snapshot'->'category_price_v3'->>'per_km')::numeric)*(quote->>'multiplier')::numeric,2));
+ end loop;
+ quote:=public.v3_issue_category_quote(uid,'veto_economy','car_ride',29.974,31.101,29.978,31.108,3,8);old_price:=(quote->>'base_fare')::numeric;
+ result:=public.v3_book_category((quote->>'id')::uuid,jsonb_build_object('p_customer_id',cust,'p_pickup_address','SYNTHETIC FROM','p_destination_address','SYNTHETIC TO','p_payment_method','cash','p_incentive_amount',0,'skip_growth_v3',true,'trip_promises_v3',jsonb_build_array('quiet')));
+ trip:=(result->'trip'->>'id')::uuid;
+ perform pg_temp.check_v3('booking preserves selected economy',result->'trip'->>'ride_category_id_v3'='veto_economy');
+ perform pg_temp.check_v3('preferences preserved without surcharge',result->'trip'->'trip_promises_v3'=jsonb_build_array('quiet') and (result->'trip'->>'total_fare')::numeric=old_price);
+ result:=public.v3_book_category((quote->>'id')::uuid,'{}');
+ perform pg_temp.check_v3('same quote retry returns same trip',result->>'replayed'='true' and (result->'trip'->>'id')::uuid=trip);
+ perform pg_temp.check_v3('cash leaves wallet untouched',(select wallet_balance=200 from public.customers where id=cust));
+ rejected:=false;begin update public.trips set ride_category_id_v3='veto_premium' where id=trip;exception when others then rejected:=sqlerrm='category_snapshot_immutable';end;
+ perform pg_temp.check_v3('selected category immutable',rejected);
+ update public.ride_category_prices_v3 set opening=opening+10 where category_id='veto_economy';
+ perform pg_temp.check_v3('admin price edit does not alter existing trip',(select base_fare=old_price from public.trips where id=trip));
+ update public.ride_categories_v3 set enabled=false where id='veto_economy';
+ perform pg_temp.check_v3('pausing category preserves active trip',(select trip_status::text in ('requested','offer_received') from public.trips where id=trip));
+ rejected:=false;begin perform public.v3_issue_category_quote(uid,'veto_economy','car_ride',29.974,31.101,29.978,31.108,3,8);exception when others then rejected:=sqlerrm='category_unavailable';end;
+ perform pg_temp.check_v3('disabled category refuses new quote',rejected);
+ update public.ride_categories_v3 set enabled=true where id='veto_economy';
+ -- Produce a real authorized dispatch offer through the existing worker.
+ perform public.process_dispatch_waves(trip);
+ select id into offer from public.trip_offers where trip_id=trip and captain_id=cap and offer_status::text='sent';
+ perform pg_temp.check_v3('authorized captain receives real offer',offer is not null);
+ perform set_config('request.jwt.claim.sub',cap_uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',cap_uid,'role','authenticated','session_id',cap_sid)::text,true);
+ result:=public.captain_accept_trip_offer_engine_v10(offer,trip);
+ perform pg_temp.check_v3('premium captain accepts economy at economy fare',result->>'success'='true' and (select base_fare=old_price from public.trips where id=trip));
+ result:=public.captain_accept_trip_offer_engine_v10(offer,trip);
+ perform pg_temp.check_v3('acceptance retry idempotent',result->>'already_accepted'='true');
+ perform public.advance_trip_status_v13(trip,'arrived');
+ rejected:=false;begin perform public.advance_trip_status_v13(trip,'started');exception when others then rejected:=sqlerrm='trip_safety_code_required';end;
+ perform pg_temp.check_v3('trip cannot start without pickup code',rejected);
+ rejected:=false;begin perform public.v3_customer_trip_code(trip);exception when insufficient_privilege then rejected:=true;end;
+ perform pg_temp.check_v3('captain cannot read passenger secret',rejected);
+ select p.pin into pin from veto_category_private.trip_codes p where p.trip_id=trip;
+ result:=public.v3_verify_trip_code(trip,case when pin<>'000000' then '000000' else '000001' end);
+ perform pg_temp.check_v3('wrong PIN counted and rejected',result->>'success'='false' and result->>'attempts_left'='4');
+ result:=public.v3_verify_trip_code(trip,translate(pin,'0123456789','٠١٢٣٤٥٦٧٨٩'));
+ perform pg_temp.check_v3('correct Arabic-digit pickup code verifies',result->>'success'='true');
+ result:=public.v3_confirm_trip_promises(trip,array['quiet']);
+ perform pg_temp.check_v3('captain confirms only requested preferences',result->>'success'='true');
+ rejected:=false;begin perform public.v3_confirm_trip_promises(trip,array['unrequested']);exception when others then rejected:=sqlerrm='invalid_confirmation';end;
+ perform pg_temp.check_v3('captain cannot invent priced or unrequested preferences',rejected);
+ result:=public.advance_trip_status_v13(trip,'started');
+ perform pg_temp.check_v3('verified ride starts',result->>'success'='true');
+ perform public.advance_trip_status_v13(trip,'completed');
+ perform public.advance_trip_status_v13(trip,'completed');
+ perform pg_temp.check_v3('financial completion finalized once',(select financial_settled_at is not null from public.trips where id=trip));
+ perform pg_temp.check_v3('wallet remains unchanged on cash completion',(select wallet_balance=200 from public.customers where id=cust));
+ perform pg_temp.check_v3('safety secret cannot be reused after completion',(public.v3_verify_trip_code(trip,pin)->>'success')='false');
+ perform set_config('request.jwt.claim.sub',uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',uid,'role','authenticated','session_id',sid)::text,true);
+ foreach category in array array['veto_economy','veto_comfort','veto_premium','veto_ladies','veto_moto','veto_parcel'] loop
+  quote:=quotes->category;
+  perform pg_temp.check_v3(category||' estimates do not create extra quotes',jsonb_array_length(public.v3_category_estimates((quote->>'id')::uuid))=6);
+  if category='veto_ladies' then
+   rejected:=false;begin perform public.v3_book_category((quote->>'id')::uuid,jsonb_build_object('p_pickup_address','SYNTHETIC FROM','p_destination_address','SYNTHETIC TO','p_payment_method','cash','p_incentive_amount',0));exception when others then rejected:=sqlerrm='ladies_terms_required';end;
+   perform pg_temp.check_v3('Ladies booking requires explicit adult passenger terms',rejected);
+  end if;
+  result:=public.v3_book_category((quote->>'id')::uuid,jsonb_build_object('p_pickup_address','SYNTHETIC FROM','p_destination_address','SYNTHETIC TO','p_payment_method',case when category='veto_comfort' then 'wallet' else 'cash' end,'p_incentive_amount',0,'ladies_terms_accepted',true));
+  trip:=(result->'trip'->>'id')::uuid;
+  perform pg_temp.check_v3(category||' booking through growth RPC preserves fare',result->>'success'='true' and (result->'trip'->>'base_fare')::numeric=(quote->>'base_fare')::numeric);
+  result:=public.cancel_trip_v13(trip,'SYNTHETIC rollback regression');
+  perform pg_temp.check_v3(category||' cancellation succeeds',result->>'success'='true');
+ end loop;
+ perform pg_temp.check_v3('wallet reservation refunded after wallet cancellation',(select wallet_balance=200 from public.customers where id=cust));
+ rejected:=false;begin update public.ride_category_prices_v3 set per_km='NaN' where category_id='veto_economy';exception when check_violation then rejected:=true;end;
+ perform pg_temp.check_v3('nonfinite category prices rejected',rejected);
+
+ quote:=public.v3_issue_category_quote(uid,'veto_comfort','car_ride',29.974,31.101,29.978,31.108,3,8);
+ result:=public.v3_book_category((quote->>'id')::uuid,jsonb_build_object('p_pickup_address','SYNTHETIC FROM','p_destination_address','SYNTHETIC TO','p_payment_method','cash','p_incentive_amount',0,'skip_growth_v3',true));
+ trip:=(result->'trip'->>'id')::uuid;
+ select id into offer from public.trip_offers where trip_id=trip and captain_id=cap and offer_status::text='sent';
+ perform set_config('request.jwt.claim.sub',cap_uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',cap_uid,'role','authenticated','session_id',cap_sid)::text,true);
+ perform public.captain_accept_trip_offer_engine_v10(offer,trip);
+ perform public.advance_trip_status_v13(trip,'arrived');
+ select p.pin into pin from veto_category_private.trip_codes p where p.trip_id=trip;
+ for attempt in 1..5 loop perform public.v3_verify_trip_code(trip,case when pin<>'000000' then '000000' else '000001' end);end loop;
+ perform pg_temp.check_v3('five wrong PINs persist as a lock',(select failed=5 from veto_category_private.trip_codes p where p.trip_id=trip));
+ perform pg_temp.check_v3('even correct code refused after attempt lock',public.v3_verify_trip_code(trip,pin)->>'success'='false');
+ perform set_config('request.jwt.claim.sub',uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',uid,'role','authenticated','session_id',sid)::text,true);
+ rejected:=false;begin perform public.v3_verify_trip_code(trip,pin);exception when insufficient_privilege then rejected:=true;end;
+ perform pg_temp.check_v3('customer cannot verify on behalf of captain',rejected);
+ perform public.cancel_trip_v13(trip,'SYNTHETIC rollback regression');
+ perform set_config('request.jwt.claim.sub',admin_uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',admin_uid,'role','authenticated','session_id',admin_sid)::text,true);
+ -- Category quote composes with the existing V28 retry engine without
+ -- dropping Ladies identity, snapshots, retry lineage, or its existing 10%.
+ -- Age only this rollback fixture's previous quotes so this long regression
+ -- remains within the unchanged per-minute quote budget.
+ update public.route_pricing_quotes set created_at=now()-interval '5 minutes' where customer_id=cust;
+ perform set_config('request.jwt.claim.sub',uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',uid,'role','authenticated','session_id',sid)::text,true);
+ quote:=public.v3_issue_category_quote(uid,'veto_ladies','car_ride',29.974,31.101,29.978,31.108,3,8);
+ result:=public.v3_book_category((quote->>'id')::uuid,jsonb_build_object('p_customer_id',cust,'p_pickup_address','SYNTHETIC FROM','p_destination_address','SYNTHETIC TO','p_payment_method','cash','skip_growth_v3',true,'ladies_terms_accepted',true));
+ trip:=(result->'trip'->>'id')::uuid;
+ perform public.cancel_trip_v13(trip,'SYNTHETIC timeout regression');
+ update public.trips set created_at=now()-interval '11 minutes',cancellation_reason='search_timeout_10m' where id=trip;
+ quote:=public.v3_issue_category_quote(uid,'veto_economy','car_ride',29.974,31.101,29.978,31.108,3,8);
+ rejected:=false;begin perform public.v28_apply_search_retry_quote((quote->>'id')::uuid,trip,uid);exception when others then rejected:=sqlerrm='retry_category_mismatch';end;
+ perform pg_temp.check_v3('timeout retry cannot downgrade Ladies through legacy endpoint',rejected);
+ quote:=public.v3_issue_category_quote(uid,'veto_ladies','car_ride',29.974,31.101,29.978,31.108,3,8);
+ old_price:=(quote->>'base_fare')::numeric;
+ result:=public.v28_apply_search_retry_quote((quote->>'id')::uuid,trip,uid);
+ perform pg_temp.check_v3('timeout retry keeps Ladies category',result->'pricing_snapshot'->>'ride_category_id_v3'='veto_ladies');
+ perform pg_temp.check_v3('timeout retry retains original ten percent rule',(result->>'base_fare')::numeric=round(old_price*1.10,2));
+ perform pg_temp.check_v3('timeout retry retains lineage',(result->>'v28_retry_source_trip_id')::uuid=trip);
+ quote:=public.v28_apply_search_retry_quote((quote->>'id')::uuid,trip,uid);
+ perform pg_temp.check_v3('timeout retry quote adjustment is idempotent',quote->>'base_fare'=result->>'base_fare');
+ perform set_config('request.jwt.claim.sub',admin_uid::text,true);
+ perform set_config('request.jwt.claims',jsonb_build_object('sub',admin_uid,'role','authenticated','session_id',admin_sid)::text,true);
+ result:=public.v3_admin_save('promise','{"id":"no_music","enabled":false}');
+ perform pg_temp.check_v3('admin can pause preference',result->>'success'='true' and not (select enabled from public.trip_promise_options_v3 where id='no_music'));
+ perform pg_temp.check_v3('admin changes audited',exists(select 1 from public.category_audit_v3 where actor=admin_uid and entity='trip_promise_options_v3'));
+
+end $$;
+select jsonb_build_object('passed',count(*),'cases',jsonb_agg(name order by name)) results from v3_test_results;
+rollback;

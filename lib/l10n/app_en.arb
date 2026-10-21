@@ -1,0 +1,2892 @@
+{
+  "@@locale": "en",
+  "settings": "Settings",
+  "language": "Language",
+  "appearance": "Appearance",
+  "arabic": "العربية",
+  "english": "English",
+  "dark": "Dark",
+  "light": "Light",
+  "system": "Use device settings",
+  "preferenceSaveFailed": "Your setting could not be saved. Please try again.",
+  "whereTo": "Where to?",
+  "pickup": "Pickup",
+  "destination": "Destination",
+  "changeAddress": "Change address",
+  "home": "Home",
+  "work": "Work",
+  "savedPlaces": "Saved places",
+  "recentPlaces": "Recent destinations",
+  "useLocation": "Use my location",
+  "choosePickup": "Choose pickup location",
+  "chooseDestination": "Choose destination",
+  "services": "Choose a service",
+  "car": "Car",
+  "motorcycle": "Motorcycle",
+  "tukTuk": "Tuk-tuk",
+  "delivery": "Delivery",
+  "confirmRide": "Confirm ride",
+  "viewFare": "See fare",
+  "searching": "Looking for a nearby captain",
+  "cancel": "Cancel",
+  "refresh": "Refresh",
+  "retry": "Try again",
+  "continueAction": "Continue",
+  "close": "Close",
+  "support": "Support",
+  "price": "Fare",
+  "wallet": "Wallet",
+  "cash": "Cash",
+  "offers": "Available offers",
+  "suggestAddress": "Can't find your area or building?",
+  "suggestionTitle": "Suggest an address",
+  "suggestionInfo": "This is a private suggestion for review. It does not enable rides in an unsupported city.",
+  "city": "City",
+  "area": "Area",
+  "buildingLetter": "Building letter (optional)",
+  "buildingNumber": "Building number",
+  "address": "Address description",
+  "note": "Additional note",
+  "sendReview": "Send for review",
+  "mySuggestions": "My address suggestions",
+  "pending": "Pending review",
+  "needsInformation": "More information needed",
+  "rejected": "Rejected",
+  "published": "Published",
+  "reviewed": "Reviewed",
+  "suggestionSent": "Your suggestion was sent for review.",
+  "suggestionRateLimit": "Please wait a minute before sending another suggestion.",
+  "suggestionInvalid": "Check the address details and select a valid location.",
+  "suggestionCityMismatch": "Choose the correct city for this address.",
+  "suggestionFailed": "The suggestion could not be confirmed. Check its status or retry with the same details. Your ride and wallet were unchanged.",
+  "locationUnconfirmed": "Selected location — confirm the address or add a description.",
+  "gpsPermission": "Allow location access, or choose an address manually.",
+  "gpsDisabled": "Location services are off. You can choose an address manually.",
+  "gpsFailed": "We couldn't obtain a reliable location. Choose an address manually or try again.",
+  "phone": "Phone number",
+  "country": "Country",
+  "countrySearch": "Search country or calling code",
+  "phoneInvalid": "Enter a valid phone number for the selected country.",
+  "verificationRequest": "A verification code will be sent through the existing WhatsApp verification service.",
+  "bookingCreated": "Your ride request was created",
+  "captainAcceptance": "Captain acceptance",
+  "rideDuration": "Trip duration",
+  "noReliableEstimate": "Searching — no reliable time estimate yet",
+  "optionalOffer": "You can increase your offer if you wish.",
+  "higherOfferHelp": "A higher offer may interest more captains. Acceptance is not guaranteed.",
+  "market": "VETO Market",
+  "enterPhone": "Enter your phone number",
+  "requestCode": "Request verification code via WhatsApp",
+  "verificationFailed": "We couldn't submit the verification request. Please try again.",
+  "internationalUnavailable": "Verification is not available for this country yet. Choose a supported country.",
+  "preferencesLoadFailed": "Your saved settings couldn't be restored. Choose your language and appearance again.",
+  "offersDelivered": "Offers created",
+  "deliveredSearchRadius": "Last offer radius",
+  "continueConsent": "By continuing, you agree to",
+  "terms": "Terms of service",
+  "privacy": "Privacy policy",
+  "and": "and",
+  "morning": "Good morning",
+  "afternoon": "Good afternoon",
+  "evening": "Good evening",
+  "welcome": "Welcome",
+  "notifications": "Notifications",
+  "profile": "Profile",
+  "currency": "EGP",
+  "specialOffer": "Available offer",
+  "bookNow": "Book now",
+  "openMarket": "Open VETO Market",
+  "offersUnavailable": "Offers could not be loaded. You can still book a ride.",
+  "findingLocation": "Finding your location…",
+  "chooseLocation": "Choose your pickup location",
+  "selectedLocation": "Selected location",
+  "bookingGuide": "Choose pickup and destination, then review the fare before confirming. Save frequent addresses for faster booking.",
+  "understood": "Got it",
+  "suggestionReplay": "The previous submission may have reached the server. Retry with the same details to check its receipt.",
+  "emptySuggestions": "No address suggestions yet.",
+  "addressSearchFailed": "Address search is unavailable. Choose a saved address or a pin, or try again.",
+  "quoteFailed": "The server could not confirm the fare. Please try again.",
+  "routeDisplayUnavailable": "Road route preview is unavailable. Pickup and destination pins remain accurate.",
+  "accountLoadFailed": "Your account or active ride could not be refreshed. Retry before relying on these details.",
+  "marketLoadFailed": "Your market order status could not be loaded. Ride booking is still available.",
+  "correctSuggestion": "Correct details",
+  "uiea5f73b8": "Your location is unavailable. Choose a pin on the map.",
+  "ui4e3d1712": "Pickup",
+  "ui396197d7": "Choose a valid destination first.",
+  "uia8d53c82": "The server could not confirm the fare. Please try again.",
+  "uic32397f1": "No valid fare is available.",
+  "ui44a70a8d": "Choose a pickup with valid coordinates.",
+  "ui2c00f52f": "Choose a destination with valid coordinates.",
+  "ui2beacbfd": "You already have an active ride.",
+  "ui70e7a8c0": "Your active ride could not be checked.",
+  "ui41f09900": "Choose your service",
+  "uia3ac6d76": "Destination",
+  "ui7fc5c5dd": "Review and confirm your ride",
+  "ui09e60c0f": "Choose service and fare",
+  "ui56807a6f": "Choose your offer",
+  "uib075cda8": "Ride details",
+  "ui3c6518b4": "Searching for a captain",
+  "ui07676a93": "Captain offers",
+  "uic714374d": "Where to?",
+  "ui74cafc32": "Place categories could not be loaded. Try again.",
+  "ui15cd2781": "Registered places could not be loaded.",
+  "ui02609bec": "Buildings in this area could not be loaded.",
+  "ui5c6fddf6": "Choose your area letter first to find the correct building.",
+  "uiec4369bc": "Enter a building number from 1 to 590.",
+  "ui39c9c0fc": "Building search is unavailable.",
+  "ui2acdce12": "Selected map location",
+  "ui0282b8e7": "This place has no verified coordinates.",
+  "ui46d9c9af": "Registered place",
+  "ui5f74518a": "This building has no verified coordinates.",
+  "ui3ccabf1f": "Choose the area letter in the highlighted field first.",
+  "ui8e451470": "Enter a building number from 1 to 590, then select Add.",
+  "ui5dd6c786": "This ride will use your selected location. The building becomes public only after review.",
+  "ui91aff234": "Choose pickup location",
+  "ui5bdfac2b": "Your location, a building, or a saved place",
+  "uia1f24fc1": "Choose city",
+  "uiaae85882": "Use my location",
+  "ui0ecb38c0": "Choose a pin on the map",
+  "ui4960a634": "Building",
+  "uib5d1d3fe": "Area letter and building number",
+  "ui947ac162": "Known place",
+  "ui92c0fd35": "A registered gate, restaurant, school, or landmark",
+  "ui9f290894": "Saved places",
+  "uiefe7950f": "Home, work, or a place you saved",
+  "uif36f493e": "Change address type",
+  "ui72de3382": "Saved place",
+  "ui5c204281": "Landmark or pickup note (optional)",
+  "uifad68bbd": "For example, by the side gate",
+  "ui19896675": "No registered places in this category yet.",
+  "uiae7ae56d": "Pickup",
+  "uie0d502ff": "Choose area",
+  "uieca4806f": "Building number",
+  "ui7af87c25": "For example: 125",
+  "ui99bef41e": "This number was not found. You can suggest the building location below.",
+  "ui23e4b967": "No registered buildings in this area yet.",
+  "ui09d5b8ff": "Enter a building number to search.",
+  "ui42ebe4b5": "Select your building from the results",
+  "ui6b9fed40": "Finish entering the number to find the correct building.",
+  "uifc5bae31": "Cannot find your building?",
+  "ui8616aae5": "Suggest your building on the map for review.",
+  "uibff694c6": "Save this place",
+  "ui85c938bf": "Save this building",
+  "ui700ee7bb": "Choose a building with verified coordinates.",
+  "ui566d62bb": "Your pickup has no coordinates. Choose it from registered places or the map.",
+  "uib70a4633": "Choose destination",
+  "ui42f90d2d": "Choose on map",
+  "ui3d03e800": "Place the pin yourself",
+  "ui2a038421": "Building in Hadayek Al Ahram",
+  "ui018f341c": "Choose the area or search by building number",
+  "ui4f301aa9": "A registered gate, bank, restaurant, school, or mosque",
+  "uie2a404ff": "Choose home, work, or a saved address",
+  "uif8b22ed8": "Another city or area",
+  "ui955024f3": "Search for the place or choose it on the map",
+  "ui1e33ffb8": "Search by city or place name, then choose the result.",
+  "ui5ed8eb3d": "For example: Downtown, Alexandria, Ain Sokhna",
+  "uidde5f7a4": "For example: Downtown or a place name",
+  "uib8818d2d": "No matching places were found.",
+  "ui90754ad6": "Destination",
+  "uide6f5aba": "1. Select your area letter in the highlighted field",
+  "ui9ba6e611": "2. Enter your building number, then select its card",
+  "ui498edaea": "No building with this number was found.",
+  "ui533b3b9d": "Enter the building number to see results here.",
+  "ui5d77e042": "Select a destination card below to calculate the server fare.",
+  "uibc40c997": "This code has expired",
+  "ui327c8f24": "This offer has not started",
+  "uif628612e": "This code is currently disabled",
+  "ui9b548771": "The code usage limit has been reached",
+  "uiab945993": "The offer has reached its customer limit",
+  "ui312fca54": "You have reached your usage limit for this code",
+  "uidf40e49a": "This offer needs review",
+  "ui3b3d074b": "No discount is available for this ride",
+  "ui2dcb22b8": "Sign in with an active customer account",
+  "ui28fd5fd3": "Connection failed. Please try again",
+  "uia73828a5": "This code is invalid or unavailable",
+  "uidd00b654": "Distance",
+  "uia7947509": "Duration",
+  "ui45a9a436": "Fare",
+  "uid219bc19": "Enter code",
+  "ui84c7eeb2": "Expected purchase amount — optional",
+  "ui1881ccb3": "Cash",
+  "ui898cec70": "Pay the captain in cash",
+  "uidf1727d8": "Wallet",
+  "ui92215af2": "Wallet + cash",
+  "ui8b068efc": "Destination",
+  "ui69cb4d81": "Wallet",
+  "uid1588f9b": "Wallet + cash",
+  "uiff8a5dd1": "Transport fare",
+  "ui87369f01": "Added incentive",
+  "uif28e3f71": "Previous amount due",
+  "uib593a645": "Discount",
+  "uif918ebca": "Total after discount",
+  "ui70cc122a": "Paid from wallet",
+  "ui741126d6": "No registered places near your available location",
+  "ui228e7f21": "Nearby places",
+  "uif51ac3a9": "Previous amount due",
+  "uid7788534": "Services available for this route",
+  "uicb6c9e7d": "Transport fare before incentive, discount and previous due",
+  "uid8019644": "Continue to discount and payment",
+  "ui1dc14005": "The first eligible captain to accept is assigned automatically.",
+  "ui4c324b17": "Start your request",
+  "uia06d487b": "Where will we pick you up?",
+  "ui94709dd1": "Review request",
+  "ui194ae5ca": "Searching",
+  "ui595241dd": "Captain offers received",
+  "ui674f7a10": "Choose a service to continue.",
+  "ui5acaa87e": "Your current location or another pickup",
+  "ui4ef558e7": "Search for a place or select a map pin",
+  "uice4a26ca": "Choose a service and confirm",
+  "uiacd55510": "Your request is registered. We will notify you when a captain accepts. You can refresh its status.",
+  "uib3a04740": "Captain offers are available. Follow your ride here.",
+  "ui728e6087": "Service",
+  "ui4d7d679f": "From",
+  "ui97fe3fe5": "To",
+  "ui8d0a03c3": "Estimated fare",
+  "uib43afc26": "Your ride, made simple.",
+  "uicb822418": "Back",
+  "ui8f7d74ac": "Confirm",
+  "ui8a440ee4": "Package weight (kg)",
+  "uif11b8c52": "Promo code",
+  "ui268974da": "Apply",
+  "ui18a707e2": "Note for captain (optional)",
+  "ui49acfce8": "For example: call on arrival, or use the rear gate",
+  "uiae2d6005": "Payment method",
+  "uic6e5c7c6": "Balance does not cover the full total",
+  "ui5dbd6c30": "Wallet balance, then the rest in cash",
+  "ui16372d11": "No wallet balance",
+  "ui18c40f92": "Cash to pay the captain",
+  "ui216376e1": "Remaining payment",
+  "uia39f7a83": "Confirm and request ride",
+  "ui5164d8be": "Payment summary",
+  "ui68881282": "Including discount, previous due and wallet payment",
+  "uid6c3b867": "Remaining payment",
+  "ui8fb9853e": "Cash to pay the captain",
+  "ui032bb56d": "Fully paid from wallet",
+  "currencyShort": "EGP",
+  "moneyValue": "{amount} EGP",
+  "@moneyValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "distanceValue": "{amount} km",
+  "@distanceValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "durationValue": "{amount} min",
+  "@durationValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "promoAppliedValue": "Applied discount: {amount} EGP",
+  "@promoAppliedValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "previousDueNotice": "{reason}: {amount} EGP will be added to this ride",
+  "@previousDueNotice": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "paymentSummary": "Payment method: {method}",
+  "@paymentSummary": {
+    "placeholders": {
+      "method": {
+        "type": "String"
+      }
+    }
+  },
+  "walletPaymentSummary": "Payment: {method} — {amount} EGP from wallet",
+  "@walletPaymentSummary": {
+    "placeholders": {
+      "method": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "walletRemaining": "Estimated wallet balance after booking: {amount} EGP",
+  "@walletRemaining": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "foundPickup": "Your pickup: {address}",
+  "@foundPickup": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "flowStep": "Step {step} of {total}",
+  "@flowStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "buildingName": "Building {number}",
+  "@buildingName": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "areaBuilding": "Area {area} - building {number}",
+  "@areaBuilding": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "fromPickup": "From: {address}",
+  "@fromPickup": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "account9193bd6a": "Switch account",
+  "account7272be04": "Captain account",
+  "accountdebf96d9": "Customer account",
+  "accounta180a470": "Linking a customer account requires a secure identity review.",
+  "account3ef541b9": "Done",
+  "account478c486f": "More",
+  "account6553a836": "Not rated yet",
+  "account30db229c": "Help",
+  "account166aea7d": "Earnings",
+  "accountf3683943": "My rides",
+  "accountede87845": "Share VETO and earn",
+  "accounta496e785": "High demand areas",
+  "account654a0663": "Profile",
+  "accountb439a50f": "Switch to customer",
+  "account8f2788c0": "Quick verification — VETO team",
+  "account8ce3e0cc": "Notifications",
+  "accountc3bb52b7": "Customer support",
+  "accountaa6de5d4": "Privacy and terms",
+  "account24c192cb": "Request account deletion",
+  "account5bc457c0": "Refresh data",
+  "account21f47442": "Sign out",
+  "growthcf594384": "The gift is unavailable now. You can continue using the app.",
+  "growthafffef98": "Offer terms could not be loaded. Retry from Invitations.",
+  "growthcc285252": "Your choice could not be saved. Check the code and try again.",
+  "growthedf50f6c": "Welcome to VETO",
+  "growth9586813a": "Have an invitation code? Add it now. Campaign terms and budget apply. Incentives and waiting charges are excluded from the discount.",
+  "growthf132a39e": "Invitation code",
+  "growth47d263ad": "Saving…",
+  "growth2952dce5": "Apply code",
+  "growtha3238c1d": "Skip and continue",
+  "growth46164e2c": "Review your invitation",
+  "growth9a30dc2a": "Cancel",
+  "growth9bbb0792": "Open WhatsApp",
+  "growthfcf8b93c": "WhatsApp could not be opened. You can copy the link.",
+  "growthede87845": "Share VETO and earn",
+  "growthb7147d67": "Invite a friend and earn",
+  "growth77ac862f": "Invitation details could not be loaded",
+  "growth14d5786f": "Retry",
+  "growth574836bc": "Offers are currently disabled",
+  "growthc24481f6": "Share invitation",
+  "growthfef8e3c9": "Copy link",
+  "growthf1979292": "Ride concerns and review requests",
+  "growthc5cb135c": "Car badge / motorcycle card",
+  "growth965d621f": "Earn EGP 20 after your friend’s first eligible ride is completed and settled. Credit applies only to transport fare and cannot be combined with another offer.",
+  "growth1b588c8a": "Friend invitation credit is promotional and cannot be withdrawn.",
+  "growtha3856838": "Allow app usage measurement",
+  "growthe98a92b2": "Measurement preference could not be loaded",
+  "growthb31335b2": "Optional. No phone number, location, or verification code.",
+  "growth23af0f62": "Measurement preference could not be saved",
+  "growth3899eb0a": "Startup sound",
+  "growth9c2791a1": "Preference could not be loaded",
+  "growthb85f466b": "Optional short system click. Off by default.",
+  "growthf15e1487": "Sound preference could not be saved",
+  "growth961fd493": "Badge generation is currently disabled",
+  "growthbff11b26": "The approved badge template could not be loaded",
+  "growth75bc722a": "Invitation badge",
+  "growthc12b43ff": "Place the badge behind a seat, clear of the driver’s view and airbags. For motorcycles, attach a small card to the delivery bag, clear of handlebars and wheels.",
+  "growthd0195c3b": "Scan to download the app",
+  "growtha660bd6f": "Print landscape A4 car badge",
+  "growth50f5b043": "Print motorcycle card 8 × 11 cm",
+  "growthf12097cd": "Print at actual size. Do not use your phone as a badge while driving.",
+  "invitationMessage": "Try VETO SANYA 🚗\nInvitation code: {code}\nEnter the code during registration to see the offer available to your account.\n{link}",
+  "@invitationMessage": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "growthInvitations": "Invitations: {value}",
+  "@growthInvitations": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthQualifiedFriends": "Friends with an eligible completed ride: {value}",
+  "@growthQualifiedFriends": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthQualifiedTrips": "Eligible rides: {value}",
+  "@growthQualifiedTrips": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthDue": "Rewards due: EGP {value}",
+  "@growthDue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthPaid": "Rewards paid: EGP {value}",
+  "@growthPaid": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthCredit": "Available promotional credit: EGP {value}",
+  "@growthCredit": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthCode": "Invitation code: {value}",
+  "@growthCode": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthEventsFailed": "{value} optional measurement events could not be sent. Rides were unaffected.",
+  "@growthEventsFailed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroTitle": "Two hours of zero commission",
+  "zeroLoadFailed": "Zero commission reward could not be loaded.",
+  "zeroActivateFailed": "Activation could not be confirmed. Refresh before retrying; the server stores reward timing.",
+  "zeroActivate": "Activate now — timing starts on the server",
+  "zeroExpired": "The activation deadline has passed",
+  "zeroAcceptedPreserved": "The acceptance window has ended; eligible rides keep their exemption",
+  "zeroNoTripCap": "No ride count limit",
+  "zeroNoCostCap": "No cost limit",
+  "zeroIndependent": "Covers fare and waiting commission. Incentive and debt rules remain unchanged.",
+  "zeroRefresh": "Refresh rewards",
+  "zeroDeadline": "Activate before: {value}",
+  "@zeroDeadline": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroServices": "Eligible services: {value}",
+  "@zeroServices": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroRemaining": "Remaining {value}",
+  "@zeroRemaining": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroSaved": "Actual commission saved: EGP {value}",
+  "@zeroSaved": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroTripCap": "Completed ride limit: {value}",
+  "@zeroTripCap": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "zeroCostCap": "Cost limit: EGP {value}. Eligible rides keep their full exemption.",
+  "@zeroCostCap": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "live284968d7": "This ride is currently unavailable.",
+  "live182cb52e": "Ride status refreshed",
+  "live6ef3859c": "Ride status could not be refreshed. Try again.",
+  "liveeed45423": "the amount set by administration",
+  "livefc43d3fe": "You are still searching. Cancellation is free. Any wallet amount held for this ride is refunded once.",
+  "live47420271": "You are within the grace period, so cancellation is free. Any held wallet funds are refunded once.",
+  "live3006aec8": "Cancellation fees may apply based on captain acceptance time and administration rules. Check the amount due in your account.",
+  "live6aef022f": "Cancel ride",
+  "livecb822418": "Back",
+  "livede0b18e1": "Ride cancelled",
+  "liveac9ac0e6": "You can request a new ride. Held wallet funds are refunded once according to the cancellation statement.",
+  "live65d25b44": "OK",
+  "live2f225a03": "Captain",
+  "live6539544e": "WhatsApp could not be opened.",
+  "live37ccdeb7": "Ride support",
+  "live99f2c8a6": "Current ride",
+  "livedcf45bf6": "Refresh status",
+  "live9a86a128": "The ride could not be loaded",
+  "live14d5786f": "Retry",
+  "live5a6daebf": "Waiting for captain acceptance",
+  "live3c6518b4": "Searching for a captain",
+  "live4babb638": "Searching for available captains eligible for your service.",
+  "live606af07c": "Call",
+  "live5a0374f3": "Not provided",
+  "livea674a023": "Ride",
+  "liveb075cda8": "Ride details",
+  "liveae7ae56d": "Pickup",
+  "live8b068efc": "Destination",
+  "livedd00b654": "Distance",
+  "livea7947509": "Duration",
+  "live65fc6a0a": "Customer note for captain",
+  "live15d8bb61": "Chat with captain",
+  "liveb7d72a98": "Captain assigned",
+  "live2f7a3366": "Captain is on the way",
+  "live0676addf": "Captain has arrived",
+  "liveda8838dc": "Ride in progress",
+  "livece7c7ba9": "Ride completed",
+  "live8c2ae1f8": "Updating ride",
+  "livebdfe2de5": "Your captain accepted the ride and is preparing to come to you.",
+  "live6467fed6": "Follow your captain on the map until arrival.",
+  "live1a58a508": "Your captain has reached pickup. Please be ready.",
+  "live340df273": "Your ride has started. Captain location updates appear on the map.",
+  "live08e09e69": "Your ride has ended. Review the final statement and rate your experience.",
+  "live4a4aa18a": "The ride was cancelled. Check the cancellation statement for any applicable amount.",
+  "livea7ecc2bc": "Status refreshes automatically.",
+  "live89aef3a3": "Car",
+  "live80a51d6a": "Motorcycle",
+  "live113cb058": "Delivery",
+  "livec9a1bb1e": "The phone app could not be opened.",
+  "liveCancellationAfterGrace": "The grace period has ended. Current cancellation compensation of {fee} goes to the captain under administration rules. The server checks it again on confirmation.",
+  "@liveCancellationAfterGrace": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      }
+    }
+  },
+  "liveCancelConfirm": "{message}\n\nContinue and cancel this ride?",
+  "@liveCancelConfirm": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "liveSupportMessage": "Hello, I need support with ride {trip}.",
+  "@liveSupportMessage": {
+    "placeholders": {
+      "trip": {
+        "type": "String"
+      }
+    }
+  },
+  "liveIncentive": "Ride incentive: EGP {value}",
+  "@liveIncentive": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthDiscountTerms": "First three eligible ride discounts: {discounts}% · Discount cap: EGP {cap}",
+  "@growthDiscountTerms": {
+    "placeholders": {
+      "discounts": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "String"
+      }
+    }
+  },
+  "growthOfferExpiry": "Valid until {value}, subject to eligible services and campaign budget. Excludes incentives, waiting charges, and prior debts.",
+  "@growthOfferExpiry": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "growthLinkReadFailed": "The link code could not be read automatically. You can enter it manually.",
+  "home86b9f2f0": "Request your ride again?",
+  "home0708df98": "Not now",
+  "home76509239": "Request again",
+  "homeeefa3156": "Finding your city…",
+  "home80e0d09a": "Choose pickup on the map",
+  "home6d6c1e9b": "Choose pickup on the map for an accurate fare",
+  "home71bcd653": "Finding your current area",
+  "homea5ba6dc1": "Other app services remain available",
+  "home96a80d01": "You can continue and choose your destination",
+  "home57b420fe": "Choose pickup to calculate the fare",
+  "home53f070d4": "Choose city",
+  "home9874ac8e": "Refresh city",
+  "home13e32830": "New offers could not be checked. You can continue booking normally.",
+  "homeb7147d67": "Invite a friend and earn",
+  "home6397a101": "Track VETO Market order",
+  "home8e0c6845": "Waiting for store acceptance",
+  "home797b2da9": "Store accepted the order",
+  "home8594c09a": "Your order is being prepared",
+  "homee08d6fd7": "Ready for captain pickup",
+  "home58387cb4": "Captain assigned — open to contact",
+  "homebaac8162": "Captain picked up the order",
+  "home2f7a3366": "Captain is on the way",
+  "homebae11587": "Track order status",
+  "homeeb4cee6e": "Add your name in seconds",
+  "home05fb123d": "Add your name so we can welcome you personally.",
+  "home4fabeda0": "Enter a name with at least two characters",
+  "home0bfd0492": "Your name could not be saved. Try again.",
+  "homeb658c871": "Let us welcome you by name ✨",
+  "homed017c069": "Enter your name once for a personal welcome.",
+  "home84e2331e": "Your name",
+  "home2bd32fda": "Enter your name",
+  "homea49e25ed": "Save my name",
+  "profile6db47f1c": "Your photo could not be uploaded",
+  "profilec3bb52b7": "Customer support",
+  "profile606af07c": "Call",
+  "profile8e10b7d8": "Hello, I need help with VETO SANYA",
+  "profile9193bd6a": "Switch account",
+  "profile41e29a2a": "Personal",
+  "profile7272be04": "Captain account",
+  "profilee979acbd": "Register as captain",
+  "profileb9eaeabe": "Open captain mode with your account",
+  "profilebad7739d": "Apply to join the captain team",
+  "profile3ef541b9": "Done",
+  "profileafe5d60a": "My VETO account",
+  "profile3f3089b7": "My account",
+  "profile6b1fd308": "Refresh profile",
+  "profile4f95f432": "New member",
+  "profile05f99bc8": "VETO member",
+  "profile2df1f491": "Profile • Edit photo and details",
+  "profile89e7f927": "Account type",
+  "profile9092f905": "Switch to captain",
+  "profile30db229c": "Help",
+  "profile69cb4d81": "Wallet",
+  "profile92d05589": "Activity",
+  "profile09f41ce6": "Account and features",
+  "profilec8c5d575": "My frames and rewards",
+  "profilebfa6d7fd": "Your rating, rides, and available frames",
+  "profile158bcacd": "Invite a friend and earn EGP 20",
+  "profileb62e7ee8": "Separate promotional credit after your friend’s first eligible ride",
+  "profile8ce3e0cc": "Notifications",
+  "profile45d7fc3c": "Ride and account updates",
+  "profileed230578": "Receive rides with the same account",
+  "profile1614cb5d": "Register as captain",
+  "profileba0e24fa": "Apply to join the captain team",
+  "profiled2016401": "Quick verification",
+  "profile72081e80": "Verification and WhatsApp requests",
+  "profile52233a23": "Support and security",
+  "profile5fe46ac6": "Suggestion",
+  "profile615e6b1d": "Share an idea to improve VETO SANYA",
+  "profile12506e99": "Complaint",
+  "profileb0500561": "Our support team is ready to help",
+  "profileaa6de5d4": "Privacy and terms",
+  "profile86c46fe1": "Policies, your rights, and your data",
+  "profile24c192cb": "Request account deletion",
+  "profile70224a06": "Request deletion through the official channels",
+  "profile21f47442": "Sign out",
+  "profileda1d0e35": "Sign out safely",
+  "profile14009384": "VETO SANYA • Your journey, made simple",
+  "wallet30454aef": "Ride hold refund",
+  "wallet94d8f009": "Cancellation compensation",
+  "wallet08b4509e": "Cancellation fee",
+  "wallet73a173f7": "Balance correction",
+  "wallet7a70ab91": "Top-up reward",
+  "wallet4626aabc": "Wallet top-up",
+  "wallet9da2b774": "Credit",
+  "walletdd1bba5b": "Change from captain",
+  "walletec9ccd93": "Debit",
+  "walletf11b8c52": "Promo code",
+  "walleta674a023": "Ride",
+  "wallet113d570d": "Adjustment",
+  "wallet1cae7479": "Commission",
+  "wallete343e4a4": "Penalty",
+  "walleta94f951d": "Settlement credit",
+  "wallete1853a0c": "Settlement payment",
+  "wallet6432e51d": "Incentive",
+  "wallet40c7d7e2": "Wallet balance",
+  "wallet9b7f8de8": "Top up securely. Offers and rewards are applied after the transfer is reviewed.",
+  "wallet6a50382f": "Top up wallet",
+  "walletaf7fb819": "Transactions",
+  "walletf0795392": "No transactions yet",
+  "auth4b6a0d56": "Enter the code",
+  "auth94b8b549": "The code must contain four digits",
+  "auth8ba78f82": "This number is linked to different customer and captain accounts. Contact administration to review the account links.",
+  "auth877ec1c8": "Please wait. Administration has not sent the code yet.",
+  "auth2fb0282a": "This request expired. Request a new code.",
+  "authf4eb3c84": "Attempt limit reached. Request a new code.",
+  "auth7cf0e2f5": "Incorrect code.",
+  "auth5063b733": "This number is not linked to an active store.",
+  "auth00d3d260": "The store account could not be prepared. The server recorded the cause; administration must review the store login service.",
+  "authc9ff542b": "The account was created, but store access could not be linked. Administration must review the store account link.",
+  "auth9736c215": "The code was verified, but a secure session could not be opened. Request a new code and retry.",
+  "auth7525bff1": "Store login failed. Contact administration.",
+  "authac9e317b": "This request expired. Go back and request verification again.",
+  "auth7474039f": "Attempt limit reached. Request verification again.",
+  "authef7a895a": "This number is not registered as a captain.",
+  "auth8d4c6591": "The captain account is currently inactive.",
+  "authe1e92bab": "The captain account is not ready for login.",
+  "authbf47817e": "The captain account could not be secured. Contact administration.",
+  "auth095e455e": "Administration must review the captain account details.",
+  "auth767a6bf3": "Captain login failed. Try again.",
+  "autha18be99f": "This number belongs to a captain. Use the captain login code.",
+  "auth9ec825fc": "The customer account is inactive. Contact support.",
+  "auth6c804eff": "Administration must review the customer account.",
+  "auth6dd32123": "The customer account could not be prepared. Try again.",
+  "authe2341633": "The account could not be secured. Try again.",
+  "auth51953e13": "The customer profile could not be prepared. Try again.",
+  "authd7cba707": "The customer profile could not be linked to the account. Contact administration.",
+  "authc15acdd8": "A login session could not be created. Request a new code after administration reviews the issue.",
+  "authd41a26b6": "The customer account could not be linked. Contact administration.",
+  "authe4a12e31": "This account is blocked. Contact support.",
+  "auth517e8c1a": "Administration must review the account status.",
+  "authac51cf01": "Verification is temporarily unavailable. Try later.",
+  "authf7179060": "The code is incorrect or expired.",
+  "auth51721be4": "Login failed. Try again.",
+  "auth160e784b": "The connection is unavailable. Check your network and retry.",
+  "auth54d4f443": "Administration must update the login service.",
+  "auth7b3824d7": "The login service is not fully configured.",
+  "auth7513ec76": "The customer account could not be linked. Contact administration.",
+  "authd2227474": "The customer account could not be created. Contact administration.",
+  "auth010fd34d": "The login session could not be created. Contact administration.",
+  "auth31654349": "This account is blocked. Contact support.",
+  "auth334c0562": "Verification is temporarily unavailable.",
+  "auth4c5573f4": "Administration has not configured the support number",
+  "auth56a1b88a": "WhatsApp could not be opened",
+  "auth653fd437": "Verification code",
+  "auth4bf997e8": "Please wait",
+  "authaff91568": "Your verification code will be sent through WhatsApp after administration reviews your request.",
+  "authc1717a62": "Verify code",
+  "authec6b1f69": "Code not received? Contact support through WhatsApp",
+  "topupfb743f85": "Top-up service could not be loaded. Please retry.",
+  "topup120e8520": "Enter a valid amount or choose the offer amount.",
+  "topup85a2d105": "Choose an available payment method first.",
+  "topup42c2949d": "Enter the number you transferred from.",
+  "topup8c6dd9dd": "Your request was received for review. No balance has been added yet.",
+  "topupf5d7c7d6": "The top-up request could not be confirmed. Check its status before retrying.",
+  "topup4d96fe71": "✨ Wallet offers",
+  "topup6a50382f": "Top up your wallet",
+  "topup78775dc3": "Top up for your next ride",
+  "topup1eb95ad4": "Reward terms are shown clearly. Balance is added after transfer verification.",
+  "topupd2016477": "✦ Top-up offer",
+  "topup292f3529": "Choose this offer",
+  "topupf5e67eb7": "Available offers",
+  "topupd27033c9": "Choose an offer. The reward is shown separately from your transfer.",
+  "topupc2ef5692": "Choose your own top-up amount without a reward",
+  "topupe0607388": "Payment methods are not enabled. Administration must add a verified transfer number.",
+  "topup1768325b": "01 / Choose amount",
+  "topupb7231cbd": "Selected offer",
+  "topup1223dbd6": "The offer amount is fixed to protect your reward. Go back to choose another offer.",
+  "topupac3d43ad": "Transfer amount in EGP",
+  "topup29bc32d5": "Required transfer amount",
+  "topup346be366": "Offer reward",
+  "topup663ba8dc": "Total added after approval",
+  "topup43f4b708": "02 / Choose payment method",
+  "topupb14b98c9": "No payment method is currently active. Do not transfer until administration adds one.",
+  "topupd85df9ec": "Transfer details appear in the next step",
+  "topup1d09cf88": "Continue to transfer instructions",
+  "topup114df589": "03 / Transfer details",
+  "topup08e262ba": "Copy transfer number",
+  "topupa914d518": "Transfer details copied",
+  "topup58890d41": "Transfer instructions",
+  "topup9f05f6f1": "Check the transfer number and amount before sending.",
+  "topup9296abef": "Sender number *",
+  "topup9895aa5d": "Sender wallet or account number",
+  "topup18f7532a": "Transaction reference (if available)",
+  "topupceedefc4": "Reference shown on your transfer receipt",
+  "topup218b7624": "🛡️ Protecting your balance",
+  "topupd6c8e2d2": "Submitting a request does not add balance. Your payment and reward are credited once after an authorized employee verifies and approves the transfer.",
+  "topup838c527e": "Submitting request…",
+  "topup2bc6aebc": "Submit top-up request",
+  "topup4a807954": "Approved • Balance credited",
+  "topup5d969a71": "Rejected",
+  "topup8aac5fac": "Under review",
+  "topupd44d4435": "Unknown",
+  "topup90aa4d47": "04 / Track top-up request",
+  "topup007c4718": "We received your request and are checking the transfer. Status updates after review.",
+  "topupc769438a": "Your transfer was verified and your wallet credited.",
+  "topupca711e4a": "Your request was not approved. Review the rejection reason with support before a new attempt.",
+  "topupd84c4984": "Reference",
+  "topup558ab445": "Amount paid",
+  "topup36bba20f": "Reward",
+  "topupf3471840": "Payment method",
+  "topup82e926cb": "Received at",
+  "topupc875c278": "Refresh request status",
+  "topup066febb5": "View all requests",
+  "topupe5f00560": "Top-up request history",
+  "topup102df0aa": "You have not submitted a top-up request yet.",
+  "topup152d5282": "My wallet",
+  "topup45513074": "Top-up history",
+  "topupf3b40143": "Back to offers",
+  "topupcb822418": "Back",
+  "captain278d3e8e": "Update your location to receive requests. Check GPS and connectivity.",
+  "captainf6174ae5": "The dashboard could not be loaded. Retry.",
+  "captain5d90693a": "Wait for the current ride action to be confirmed, then retry.",
+  "captain0e3338be": "Allow location access to start receiving rides.",
+  "captain13e4b9b7": "Your location could not be confirmed. Check permission and connectivity, then retry.",
+  "captain199848b2": "You reached the debt limit. Open your payment statement; availability returns after an approved payment reduces debt below the limit.",
+  "captain9c360bcd": "Complete your current ride before going offline.",
+  "captain37cdd354": "Your captain account is not approved. Contact support.",
+  "captain0028fab8": "Your captain account is temporarily suspended. Check app notices or contact support.",
+  "captain20d90f0e": "Update your location to receive rides. Check GPS and connectivity.",
+  "captaineaa58c01": "Location services are off. Enable them in phone settings.",
+  "captainae5e5078": "Allow location access while using the app in its settings.",
+  "captainb91e4e01": "Location is enabled, but no fix is available yet. Try near a window or outdoors, then go online.",
+  "captain4d71e045": "Your device location could not be read. Check permission and retry.",
+  "captain0c8c1ed6": "Your session on this device has ended. Sign out and log in again.",
+  "captain6779d8a9": "The server rejected your status update. Log in again; contact support if the issue persists.",
+  "captain1c8a49fe": "Your captain account could not be verified. Log in again.",
+  "captain96de460e": "Your online status could not be saved on the server. Retry.",
+  "captain07ec3438": "Your location was found, but could not be sent to the server. Check connectivity and go online again.",
+  "captain4d8aa1e0": "Purchase instructions appear before request acceptance.",
+  "captain4bd12227": "You cannot accept a request while on an active ride",
+  "captain961fe263": "This request is unavailable",
+  "captaind292c0f8": "This request is no longer available",
+  "captain61f278b9": "Ride accepted",
+  "captain6aad32b8": "Another captain accepted this ride first",
+  "captaine28fe29b": "You are currently on another ride",
+  "captain817dceb0": "The request could not be accepted. It may no longer be available; refresh and retry.",
+  "captain3e4011c0": "The request could not be declined",
+  "captain9947a71a": "This step is unavailable",
+  "captain82963d4d": "Unavailable",
+  "captain583a75cf": "Detailed ride statement",
+  "captainfee7f899": "Server-approved amount to collect from the customer",
+  "captaind922438f": "After wallet payments, discounts, and prior amounts due, as confirmed by the server",
+  "captain7f29d28a": "Base fare",
+  "captaine8ea6cc8": "Waiting charges",
+  "captainb593a645": "Discount",
+  "captain48f62d04": "Full incentive",
+  "captaind8148f15": "Previous company amount due",
+  "captaindf9cee25": "Customer statement total",
+  "captainccfb9ede": "Paid from customer wallet",
+  "captain8b296d76": "Collect cash from customer",
+  "captain3bdc9404": "Company commission",
+  "captain79fe765a": "Company incentive share",
+  "captainc3b788c0": "Your incentive share",
+  "captain986f250b": "Your net entitlement",
+  "captaind3aa4069": "Settlement account change",
+  "captain233aea82": "Settlement balance after ride",
+  "captain3ef541b9": "Done",
+  "captainaa0eba0d": "The statement could not be shown. Pull to refresh and retry.",
+  "captaindb6c6f4e": "The phone app could not be opened",
+  "captain2b50d9f0": "Administration has not configured support details",
+  "captainc3bb52b7": "Customer support",
+  "captainebfead75": "Call customer support",
+  "captain56a1b88a": "WhatsApp could not be opened",
+  "captain14d5786f": "Retry",
+  "captainbfcf4830": "Home",
+  "captainf3683943": "My rides",
+  "captain166aea7d": "Earnings",
+  "captain62d6fd3d": "News",
+  "captain478c486f": "More",
+  "captain00eab31f": "Refresh",
+  "captain2443fd0d": "Ride offers could not be synchronized. Refresh and check connectivity.",
+  "captainee9201f4": "New ride request",
+  "captain99f2c8a6": "Current ride",
+  "captaind6004d47": "Captain offers and rewards",
+  "captain4abac2da": "VETO Market assignment",
+  "captaindee9712a": "Today and account details",
+  "captain33e9156d": "Today’s summary — Cairo time",
+  "captainb13e131c": "Today’s ride count",
+  "captain4c103c55": "Today’s income (net rides)",
+  "captainf8e8dfb6": "Today’s summary could not be refreshed. Pull to retry.",
+  "captain80098418": "Rating",
+  "captainfcd34918": "Captain app",
+  "captain8ce3e0cc": "Notifications",
+  "captain8448690a": "Confirming status…",
+  "captain7b3b2ab3": "Go offline",
+  "captainb074b07c": "Go online",
+  "captain3c02a45d": "Store order",
+  "captainbef9383c": "This assignment was allocated automatically. No acceptance or rejection is required.",
+  "captainf86852a4": "Track assignment and go to store",
+  "captaind83efdf5": "Review rides, VETO Market orders, and their statements.",
+  "captain4bf40b6a": "Market history could not be loaded. Refresh or contact support.",
+  "captainaf4b3178": "VETO Market orders",
+  "captaincf83fb17": "No previous rides",
+  "captainda3de6e3": "Completed rides appear here.",
+  "captain2823f378": "Earnings and settlements",
+  "pendingDraftUnavailable": "The pending request on this device could not be read. Retry before sending a new request.",
+  "suggestionConfirmedStorage": "Your suggestion reached review, but the local retry receipt could not be cleared. Retry to close without submitting again.",
+  "loading": "Loading…",
+  "captainReferralCode": "Captain referral code",
+  "captainCodeLoadFailed": "Your code could not be loaded. Retry.",
+  "cancelServiceUnavailable": "Cancellation is unavailable on this server version. Your request was not confirmed as cancelled; contact support.",
+  "cancelAcceptanceRace": "A captain accepted while you were cancelling. Review the updated ride status.",
+  "cancelFinancialGuard": "The server stopped cancellation to protect your balance because of a financial conflict. Send the ride ID to support.",
+  "cancelSessionUnavailable": "Your session could not be verified. Log in and review request status.",
+  "cancelUnconfirmed": "The server has not confirmed cancellation. Refresh request status before retrying, and reconnect if offline.",
+  "bookingCreatedDistributionFailed": "Your request was created, but delivery of captain offers was not confirmed. Refresh its status; do not create another request.",
+  "bookingCreateUnconfirmed": "Request creation was not confirmed. Refresh your rides before retrying to avoid a duplicate request.",
+  "bookingCreateRejected": "The server rejected this request. Review the address, price and payment method, or contact support if the problem persists.",
+  "bookingCoverageUnavailable": "Booking is unavailable in this city. You can submit an address suggestion for review, but cannot book outside service coverage.",
+  "bookingSessionUnavailable": "Your account session could not be verified. Log in and check your rides before requesting again.",
+  "bookingPromoExpired": "This promo code expired. Review the discount before requesting.",
+  "bookingPromoTotalLimit": "This code reached its usage limit.",
+  "bookingPromoPeopleLimit": "This offer reached its customer limit.",
+  "bookingPromoUserLimit": "You reached your usage limit for this code.",
+  "bookingPromoInactive": "This promo code is inactive.",
+  "bookingPromoNotStarted": "This offer has not started.",
+  "bookingPromoInvalid": "This promo code was not found.",
+  "bookingPromoReview": "Administration must review this code.",
+  "bookingStatusUnavailable": "Ride status could not be confirmed by the server. Refresh again or contact support; do not create a second request.",
+  "bookingStillSearching": "Status refreshed: still searching for a captain.",
+  "bookingRequestCancelled": "Your ride request was cancelled.",
+  "captainCodePending": "Your referral code is awaiting administration setup",
+  "captainCodeCapacityHelp": "Current code capacity is full. Your account, rides and accounting remain available; no unapproved code or QR will be shown.",
+  "registrationb214d2cc": "Application status updated",
+  "registration9496b651": "Your application could not be loaded. Check the connection and retry.",
+  "registration3cfb232e": "Your birth date does not match the national ID. Review and correct your details.",
+  "registration3f4f4ac8": "A detail is missing or invalid. Review your personal and vehicle details.",
+  "registration0e85de07": "Your session expired. Log in to VETO before submitting.",
+  "registration8574ec84": "Your account has a different role. Contact VETO administration to review the application without changing your account.",
+  "registrationad110af9": "An image is invalid. Use JPG, PNG or WebP smaller than 8 MB.",
+  "registration6d21b4e2": "This application has already been reviewed. Contact administration to change details.",
+  "registrationb23d2d69": "Application images could not be saved. Retry, or contact support if the problem persists.",
+  "registrationb4eecfa9": "Captain applications are currently unavailable. Contact support.",
+  "registration6d45fa59": "Service permissions prevented saving your application. Contact VETO administration.",
+  "registration6a52abd7": "The connection was interrupted during submission. Reconnect and check your application status before retrying.",
+  "registration41d01feb": "Image upload failed. Check your connection and retry.",
+  "registration53b824de": "Submission was not confirmed. Check application status before retrying, or contact support.",
+  "registration3659b0f0": "Make sure the image is clear and all edges are visible before uploading.",
+  "registrationb99f84a8": "Choose again",
+  "registration09a46335": "Use image",
+  "registration5460351a": "Your national ID and birth date do not match. Check the first seven ID digits and select the correct birth date.",
+  "registration9709cc61": "Some images are missing. Add all required images first.",
+  "registration93a7a9fd": "Your application was received, but the team code was not saved. Review it with support.",
+  "registration217825d5": "Your application was received. The VETO team will review it.",
+  "registrationd5a02f88": "This field is required",
+  "registrationcd844480": "Enter your 14-digit national ID",
+  "registration3190ac91": "Enter a valid Egyptian mobile number",
+  "registration056e90e2": "Enter a valid manufacture year",
+  "registration50f73ca9": "Enter your full name",
+  "registrationb44d35b0": "Join VETO captains",
+  "registration71763395": "Enter your details, photograph your documents and submit your application. The VETO team will review it and contact you.",
+  "registrationb5e7acfe": "Your Egyptian mobile number",
+  "registration6c2ab9bd": "Full name",
+  "registration6541a8c6": "National ID",
+  "registration2625e95c": "Team code (optional)",
+  "registration3d9e6c97": "Check the team code",
+  "registration33646453": "Birth date",
+  "registration6f667536": "You must be at least 18",
+  "registration39f0be0f": "Operating area",
+  "registration491712d6": "Full address",
+  "registration9d55adc6": "Vehicle type",
+  "registration89aef3a3": "Car",
+  "registration80a51d6a": "Motorcycle",
+  "registration0adf93a2": "Make",
+  "registrationc3e10fad": "Model",
+  "registrationae42906b": "Manufacture year",
+  "registration041b469d": "Colour",
+  "registration67fa5912": "Plate number",
+  "registration427f9e30": "Good lighting • no glare • all edges visible\nVehicle registration is required for cars and motorcycles.",
+  "registratione52577dc": "✓ Image stored privately",
+  "registration33b4d832": "✓ Image ready to submit",
+  "registrationb0014815": "Take photo",
+  "registrationa3f9bb7c": "Replace image",
+  "registration3a375696": "Choose image",
+  "registration0b2cbdfb": "Review your details before submitting",
+  "registration3a64c036": "Make sure your details and images are clear and correct, then submit to the VETO team. Keep the original documents for review.",
+  "registration35516879": "Submit for review",
+  "registration12e27be4": "Initial review completed",
+  "registrationc7dac90b": "You were approved. You can sign in to your captain account as usual.",
+  "registration6a4555f7": "Your status will be updated here after review.",
+  "registration541ca893": "Your application passed initial review. The VETO team will contact you to complete onboarding.",
+  "registration2a0486aa": "You can follow review team notes here.",
+  "registrationa9e9d067": "Back",
+  "registration27ae3a38": "Select your birth date",
+  "registration7b27fbaf": "Complete all documents",
+  "registration322b7b61": "Continue",
+  "applicationPortrait": "Portrait",
+  "applicationIdFront": "National ID • front",
+  "applicationIdBack": "National ID • back",
+  "applicationLicenseFront": "Driving licence • front",
+  "applicationLicenseBack": "Driving licence • back",
+  "applicationVehicleFront": "Vehicle registration • front",
+  "applicationVehicleBack": "Vehicle registration • back",
+  "applicationPending": "Under review",
+  "applicationNeedsInfo": "More information required",
+  "applicationApproved": "Approved",
+  "applicationRejected": "Rejected",
+  "applicationPersonalStep": "Personal details",
+  "applicationVehicleStep": "Vehicle details",
+  "applicationDocumentsStep": "Document images",
+  "applicationReviewStep": "Review and submit",
+  "applicationStep": "Step {step} of 4 • {label}",
+  "applicationDocumentCount": "Documents: {count} / 7",
+  "@applicationStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@applicationDocumentCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "presencecbc96ded": "Offline",
+  "presencee6302b21": "Updating connection and location",
+  "presencea781f074": "Online and ready for rides",
+  "presence0aeaba38": "Busy with a ride",
+  "presence05691d14": "Connection interrupted",
+  "presencee28d58d1": "Account unavailable",
+  "presencec81ed735": "Start when you are ready. Your location is checked before receiving requests.",
+  "presencee267108e": "Confirming your status with the server…",
+  "presence6d021561": "You will be alerted by sound and vibration when a suitable offer arrives.",
+  "presence2dbd1bcf": "Complete your current task. The server checks whether your availability can change.",
+  "presence2038f1aa": "Reconnecting automatically. Your receiving status has not yet been confirmed.",
+  "presence94d187fa": "Review approval and settlement status, or contact support.",
+  "presence7b43f77f": "Confirming",
+  "presence7b3b2ab3": "Stop receiving rides",
+  "presence52edad40": "Start receiving rides",
+  "presenceecaefa5c": "Offer expired",
+  "captainOfferSeconds": "{seconds} seconds left to accept",
+  "@captainOfferSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "chatTitle": "Ride chat",
+  "chatCaptain": "Captain",
+  "chatCustomer": "Customer",
+  "chatNotReady": "Chat opens after a captain accepts the ride.",
+  "chatParticipantOnly": "Chat is available only to this ride’s customer and captain.",
+  "chatLoadFailed": "Messages could not be loaded. Check your connection and retry.",
+  "chatSendUnconfirmed": "Message delivery was not confirmed. Check the chat, then retry the same message.",
+  "chatEmpty": "Start a conversation with the other ride participant",
+  "chatYou": "You",
+  "chatRetry": "Retry",
+  "chatCompose": "Write a message…",
+  "chatQuickReplies": "Quick replies · tap to send",
+  "chatRateLimited": "Messages were sent too quickly. Wait a moment before retrying.",
+  "chatRequestConflict": "The server detected a message request conflict. Check the chat and contact support if it persists.",
+  "chatInvalidMessage": "Enter a message of no more than 1,000 characters.",
+  "chatSessionUnavailable": "Your session could not be verified. Log in before sending a message.",
+  "replyCustomerWaiting": "Hello, I am waiting at the pickup point.",
+  "replyCustomerEta": "Could you let me know your estimated arrival time?",
+  "replyCustomerGate": "I am at the gate now.",
+  "replyCustomerCall": "Could you call me when you arrive?",
+  "replyCustomerReady": "Thank you, I will be ready.",
+  "replyCaptainEnRoute": "Hello, I am on my way to you.",
+  "replyCaptainArrived": "I have arrived at the pickup point and am waiting for you.",
+  "replyCaptainMeeting": "Could you confirm the meeting point?",
+  "replyCaptainLandmark": "Could you share a nearby landmark?",
+  "replyCaptainUpdate": "Thank you, I will let you know when I arrive.",
+  "receiptf1d6d15f": "Completed",
+  "receiptd87ae61b": "Cancelled",
+  "receiptc74d3b21": "Searching",
+  "receipt30d5d6b5": "Accepted",
+  "receipt2de6d001": "Captain on the way",
+  "receipt39ac9d30": "Captain arrived",
+  "receiptc20f27ab": "In progress",
+  "receipt42816de2": "VETO Car",
+  "receiptf8748198": "VETO Motorcycle",
+  "receiptccd99512": "VETO Package",
+  "receiptc99f71b7": "VETO ride",
+  "receiptdadf5afd": "No captain was assigned to this ride",
+  "receipt2f225a03": "Captain",
+  "receiptc634600a": "Your captain",
+  "receipte12a8659": "Ride details",
+  "receipt4d7d679f": "From",
+  "receipt97fe3fe5": "To",
+  "receipt4fe4aa51": "Captain details could not be refreshed",
+  "receipt17d786d8": "Invoice",
+  "receipt7f29d28a": "Base fare",
+  "receipt4d1a2a15": "Waiting",
+  "receipt6432e51d": "Incentive",
+  "receiptec9ccd93": "Discount",
+  "receiptf28e3f71": "Previous amount due",
+  "receiptc5496762": "Ride total",
+  "receipta455b08a": "Not yet confirmed",
+  "receipt48c3380c": "From wallet",
+  "receipt1881ccb3": "Cash",
+  "receiptDistance": "{value} km",
+  "@receiptDistance": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "receiptMinutes": "{value} min",
+  "@receiptMinutes": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "receiptCompletedAt": "Completed {value}",
+  "@receiptCompletedAt": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "notificationTitle": "Notifications",
+  "notificationReadAll": "Mark all read",
+  "notificationEmpty": "No notifications yet",
+  "notificationLoadFailed": "Notifications could not be loaded. Tap to retry.",
+  "notificationReadFailed": "This notification could not be marked as read. Please retry.",
+  "notificationUpdateFailed": "Notifications could not be updated",
+  "captainRide182cb52e": "Ride status refreshed",
+  "captainRide0f653eb8": "This ride could not be found.",
+  "captainRide3acc32e9": "Ride status could not be verified. Refresh or contact support.",
+  "captainRide5332028e": "You are now heading to the customer.",
+  "captainRide73187c4e": "Your arrival has been recorded.",
+  "captainRide3ab5268d": "The ride has started.",
+  "captainRided8d96922": "Ride status updated.",
+  "captainRidea042411e": "Customer",
+  "captainRide9947a71a": "This action is unavailable in the current ride state.",
+  "captainRide3c0f919c": "Cancellation is available only before starting the ride.",
+  "captainRidef20a786e": "Cancellation eligibility could not be verified. Please retry.",
+  "captainRidebe27c947": "Confirm ride cancellation",
+  "captainRidefd11f805": "No compensation is currently due. Eligibility is checked again when you confirm.",
+  "captainRidecb822418": "Back",
+  "captainRideadfc99d3": "Confirm cancellation",
+  "captainRide82963d4d": "Unavailable",
+  "captainRide54940fb7": "Ride invoice",
+  "captainRide18b3b709": "Collection amount comes from the server invoice. Existing accounting and settlements apply.",
+  "captainRide7f29d28a": "Base fare",
+  "captainRidee8ea6cc8": "Waiting charges",
+  "captainRideb593a645": "Discount",
+  "captainRide3eab5144": "Incentive",
+  "captainRide500e1d79": "Previous amount collected for the company",
+  "captainRidec5496762": "Ride total",
+  "captainRideb245e20d": "From customer wallet",
+  "captainRide6b6e59d4": "Cash to collect from customer",
+  "captainRide53f0a84e": "Company ride commission",
+  "captainRide79fe765a": "Company incentive share",
+  "captainRide4bbacf57": "Your incentive share",
+  "captainRide9c8ac33a": "Your net ride entitlement",
+  "captainRide493a9f67": "Settlement wallet change",
+  "captainRide233aea82": "Settlement balance after ride",
+  "captainRide3ef541b9": "Done",
+  "captainRide9af289d1": "Invoice could not be loaded.",
+  "captainRide6ff5cf85": "Amount to collect now",
+  "captainRideaab7cc3e": "Amount unavailable",
+  "captainRide4bbd31a2": "The server collection amount is unavailable. Refresh the invoice or contact support before collecting payment.",
+  "captainRideba6f0140": "Server-approved amount after wallet payment, discounts and any previous amount due.",
+  "captainRide0b915e74": "Navigation is unavailable in this ride state. Refresh the status.",
+  "captainRide5b455cbb": "Exact destination is unavailable. Ask the customer to confirm the address.",
+  "captainRide87bf7175": "Exact pickup is unavailable. Contact the customer to confirm it.",
+  "captainRide765e075b": "Maps could not be opened. Check that a map app or browser is available.",
+  "captainRide94920016": "Directions could not be opened. Please retry or contact support.",
+  "captainRide186db0ab": "WhatsApp could not be opened. Contact support from the menu.",
+  "captainRidedc09f493": "The support number has not been configured by an administrator.",
+  "captainRidef034b7ea": "Support could not be opened. Please retry.",
+  "captainRide0c1c76d8": "Ride assigned",
+  "captainRide7a8d87be": "Heading to customer",
+  "captainRide36e931f5": "Arrived at pickup",
+  "captainRidea6fa5196": "Ride in progress",
+  "captainRidece7c7ba9": "Ride completed",
+  "captainRidede0b18e1": "Ride cancelled",
+  "captainRide6a95aeca": "Refresh ride",
+  "captainRide3010a9b6": "Head to customer",
+  "captainRide058c0950": "Mark arrival",
+  "captainRide2cb6f5f1": "Start ride",
+  "captainRide11c70484": "Complete ride",
+  "captainRide9a86a128": "Ride could not be loaded.",
+  "captainRide8bbee7af": "Try again",
+  "captainRide97044b5c": "Back to requests",
+  "captainRidedcf45bf6": "Refresh status",
+  "captainRidef7776e80": "Complete or cancel this ride before leaving. Support and chat remain available.",
+  "captainRide1c184d79": "This ride is no longer active. You can return to receive new requests.",
+  "captainRidec99f7794": "Back to home",
+  "captainRide606af07c": "Call",
+  "captainRide287b4011": "Ride support",
+  "captainRideae7ae56d": "Pickup",
+  "captainRide8b068efc": "Destination",
+  "captainRide3c2c2a12": "Current stage: heading to destination",
+  "captainRide28582b4d": "Current stage: heading to customer",
+  "captainRidef73184e0": "Navigate to destination",
+  "captainRide7b2fdccc": "Navigate to pickup",
+  "captainRidede501d19": "Customer waiting time",
+  "captainRidef6c538ef": "Waiting charges and free minutes follow the administrator pricing rules. The final amount is confirmed in the invoice.",
+  "captainRide6aef022f": "Cancel ride",
+  "captainRide69ca2e6b": "Assigned",
+  "captainRide7e5dbf26": "To pickup",
+  "captainRideceb508b1": "Arrived",
+  "captainRidedaa86941": "Ride",
+  "captainRide3398d2be": "Completed",
+  "captainCancellationFee": "Current cancellation compensation: EGP {amount}, deducted from your balance and credited to the customer. Checked again at confirmation.",
+  "@captainCancellationFee": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "captainSupportRide": "Hello, I need support during ride {id}.",
+  "@captainSupportRide": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "captainExtraRequests": "Extra requests: {value}",
+  "@captainExtraRequests": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainCustomerNote": "Customer note: {value}",
+  "@captainCustomerNote": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainWaitingPolicy": "First {minutes} minutes are free, then EGP {rate} per minute under administrator pricing. The final amount appears in the invoice.",
+  "@captainWaitingPolicy": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "financialCard82963d4d": "Unavailable",
+  "financialCarde62437f7": "Final amounts cannot be confirmed until the receipt is loaded.",
+  "financialCard5164d8be": "Final receipt",
+  "financialCard02d58fca": "Available after completion and financial settlement",
+  "financialCard8b296d76": "Collect cash from customer",
+  "financialCarda98cf68f": "Cash remaining for captain",
+  "financialCardc5496762": "Ride total",
+  "financialCard4dcfdfe9": "Paid from wallet",
+  "financialCard3eab5144": "Incentive",
+  "financialCarde8ea6cc8": "Waiting charges",
+  "financialCardcfea168e": "Previous amount due included",
+  "financialCardb593a645": "Discount",
+  "financialCard10217aa6": "Change transferred to customer wallet",
+  "financialCard3bdc9404": "Company commission",
+  "financialCardc3b788c0": "Your incentive share",
+  "financialCard986f250b": "Your net entitlement",
+  "financialCardf22ebe52": "The server collection amount is unavailable. Open the invoice or contact support before collecting payment.",
+  "financialCardf9ba759e": "Wallet payment is already deducted. Collect only the cash amount shown above.",
+  "financialCard16361e3f": "Collect only the cash amount shown above.",
+  "financialCard6392399b": "Cancellation receipt",
+  "financialCardef59f590": "The receipt could not be loaded. Refund status and amount are unconfirmed.",
+  "financialCard95d3accb": "Wallet refund",
+  "financialCardb4549ee9": "Cancellation compensation after grace period",
+  "financialCard1da6648d": "This receipt shows recorded transactions and does not collect or refund money.",
+  "rideLoadingDetails": "Loading your ride details…",
+  "captainHomea9f18daf": "Amounts are read from the server and cannot be changed on this phone.",
+  "captainHomed704e9bc": "Net earnings",
+  "captainHomecf1aadab": "Current settlement balance",
+  "captainHome227f09b8": "A positive balance is due to you; a negative balance is due to the company. Ride earnings remain separate from store accounts.",
+  "captainHomeed440205": "Recent transactions",
+  "captainHome96dede8e": "No transactions yet",
+  "captainHome2f8aa27c": "Earnings, commissions and settlements will appear here.",
+  "captainHome3fcf112b": "Transaction",
+  "captainHomeaf9189ea": "Finish the ride and go offline before opening customer mode.",
+  "captainHome3dc57bb8": "The customer account is not linked to this identity. Contact support for review.",
+  "captainHome31e75c6d": "Finish your ride and go offline first.",
+  "captainHomeffc8991e": "Complete or cancel the active ride before signing out.",
+  "captainHome59807bee": "Captain details",
+  "captainHome52ab0984": "Name",
+  "captainHome94b59a51": "Phone",
+  "captainHome4309e001": "Vehicle",
+  "captainHome936290d6": "License plate",
+  "captainHome9643e947": "Captain",
+  "captainHome9d6ea6f4": "Welcome to your dashboard",
+  "captainHome5bc457c0": "Refresh",
+  "captainHome85c00f9b": "Your rating",
+  "captainHome19e6729c": "Completed rides",
+  "captainHome490a4c57": "Online",
+  "captainHomecbc96ded": "Offline",
+  "captainHome7a151ab7": "Receiving requests",
+  "captainHome6a746fbd": "Go online",
+  "captainHomec0ec8bb3": "Your debt limit has been reached. Contact support to settle the balance.",
+  "captainHome59003b32": "Your account needs review or approval before receiving rides.",
+  "captainHome134f277e": "Request details could not be loaded. Please reopen it.",
+  "captainHomecb822418": "Back",
+  "captainHomea042411e": "Customer",
+  "captainHome8c66b1c1": "Updating",
+  "captainHomec06144c2": "Accept ride",
+  "captainHome3fb68bff": "Extra shopping requests 🛍️",
+  "captainHomede8700b0": "New ride request",
+  "captainHome80a51d6a": "Motorcycle",
+  "captainHome113cb058": "Package",
+  "captainHome89aef3a3": "Car",
+  "captainHome9703ff57": "Accept",
+  "captainHomeeb3b1bcc": "Decline",
+  "captainHome3a7baec4": "On the way",
+  "captainHomeceb508b1": "Arrived",
+  "captainHome2cb6f5f1": "Start ride",
+  "captainHome11c70484": "Complete ride",
+  "captainHome606af07c": "Call",
+  "captainHome212e5d4b": "Chat",
+  "captainHome0c1c76d8": "Ride assigned",
+  "captainHome7a8d87be": "Heading to customer",
+  "captainHome36e931f5": "Arrived at pickup",
+  "captainHomea6fa5196": "Ride in progress",
+  "captainHomea674a023": "Ride",
+  "captainHome54940fb7": "Ride invoice",
+  "captainHome196a7a12": "Waiting for assignment",
+  "captainHome156d85a1": "Ride accepted",
+  "captainHome83ab21ee": "Arrived at pickup",
+  "captainHome888bd5a4": "Ride started",
+  "captainHomef1d6d15f": "Completed",
+  "captainHomed87ae61b": "Cancelled",
+  "captainHomefa8729c1": "Ride status updated",
+  "captainHome1cabb6f1": "Settlement is up to date",
+  "captainHome9cef3446": "Open payment statement",
+  "captainHome5a0374f3": "Unspecified",
+  "captainHomed528cf79": "online status",
+  "captainHome8937faa1": "location",
+  "captainHome234766dc": "Store",
+  "captainHome5f7b65d5": "Delivered",
+  "captainHome616d302c": "Cancelled",
+  "captainHomeNewRating": "New rating received ⭐ {value}",
+  "@captainHomeNewRating": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeCustomer": "Customer: {value}",
+  "@captainHomeCustomer": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomePartialEarnings": "Earnings for {count} completed rides are unavailable. Displayed income is partial.",
+  "@captainHomePartialEarnings": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeToDestination": "To {value}",
+  "@captainHomeToDestination": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeStatus": "Ride status: {value}",
+  "@captainHomeStatus": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeDistance": "{value} km",
+  "@captainHomeDistance": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomePickupDistance": "{value} km to pickup",
+  "@captainHomePickupDistance": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeArrival": "{value} min to arrive",
+  "@captainHomeArrival": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeCompanyDue": "Amount due to company: EGP {value}",
+  "@captainHomeCompanyDue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeYourSettlement": "Settlement credit due to you: EGP {value}",
+  "@captainHomeYourSettlement": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeDebtLimit": "Your debt limit (EGP {value}) has been reached. Open the statement and contact support. The balance changes only after payment approval.",
+  "@captainHomeDebtLimit": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeMissingRpc": "The captain presence service is incompatible with the database. Send support error code {code}.",
+  "@captainHomeMissingRpc": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "captainHomeServerSave": "The server could not save {field}. Error code: {code}.",
+  "@captainHomeServerSave": {
+    "placeholders": {
+      "field": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMarketTitle": "VETO Market — {store}{window}",
+  "@captainMarketTitle": {
+    "placeholders": {
+      "store": {
+        "type": "String"
+      },
+      "window": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMarketWindow": " — counter {number}",
+  "@captainMarketWindow": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMarketNet": "{status} • Net delivery: {amount}",
+  "@captainMarketNet": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "captainRideOfferDetails": "From: {pickup}\nTo: {destination}\nDistance: {distance} km\nDuration: {minutes} min\nBase fare: EGP {fare}\nIncentive: EGP {incentive}",
+  "@captainRideOfferDetails": {
+    "placeholders": {
+      "pickup": {
+        "type": "String"
+      },
+      "destination": {
+        "type": "String"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "String"
+      },
+      "fare": {
+        "type": "String"
+      },
+      "incentive": {
+        "type": "String"
+      }
+    }
+  },
+  "captainOfferExtras": "Customer requests: {extras}\n{estimate}",
+  "@captainOfferExtras": {
+    "placeholders": {
+      "extras": {
+        "type": "String"
+      },
+      "estimate": {
+        "type": "String"
+      }
+    }
+  },
+  "captainExtrasLimit": "Maximum EGP 500",
+  "captainExtrasEstimate": "Estimated: EGP {amount}",
+  "@captainExtrasEstimate": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "profile9cb77234": "Edit name",
+  "profileecc98e31": "Full name",
+  "profilecb822418": "Back",
+  "profileddfcaf9d": "Save",
+  "profile0b9ef884": "VETO customer",
+  "profiled256b773": "My profile",
+  "profileba69e2b8": "Choose a photo",
+  "profile995846e9": "Completed rides",
+  "profile957084b6": "Captain ratings",
+  "profiled51f9d8d": "New",
+  "profilea7b2860b": "My details",
+  "profilecaa3f2bb": "Gender",
+  "profilefdcd3da0": "Select",
+  "profile2f13379b": "Male",
+  "profiled2ee47ec": "Female",
+  "profile163e063e": "Ride preferences",
+  "profilead0b4e2d": "Choose up to four preferences, visible only to your assigned captain.",
+  "profile57141c0a": "Ride preferences are not available on the server. Other profile features remain available.",
+  "profile17ed4b4f": "My frames",
+  "profile4a630f62": "Frames unlock after completed rides. You can choose any unlocked frame.",
+  "profile60e389c8": "VETO frame",
+  "profiled520070b": "Available",
+  "profile774eeef9": "Refresh profile",
+  "profileErrorLoad": "Your profile could not be loaded. Retry or contact support.",
+  "profileErrorFrame": "Your frame was not changed. Check ride eligibility and retry.",
+  "profileErrorPhoto": "Your photo could not be updated. Please retry.",
+  "profileErrorName": "Your name could not be updated.",
+  "profileErrorGender": "Your gender could not be updated.",
+  "profileErrorLimit": "You can select up to four preferences.",
+  "profileErrorPreferences": "Preferences could not be saved and will not appear to your captain until saved.",
+  "profileInterest0": "Quiet ride",
+  "profileInterest1": "No music",
+  "profileInterest2": "Gentle air conditioning",
+  "profileInterest3": "No phone calls",
+  "profileInterest4": "Fastest route",
+  "profileInterest5": "Help with luggage",
+  "profileUnlockAfter": "Unlocks after {count} rides",
+  "@profileUnlockAfter": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "history6d43782b": "New request",
+  "history0791d4ac": "Offers received",
+  "historyf5fde9cb": "Accepted",
+  "history2de6d001": "Captain on the way",
+  "history39ac9d30": "Captain arrived",
+  "history888bd5a4": "Ride started",
+  "historyf1d6d15f": "Completed",
+  "historyd87ae61b": "Cancelled",
+  "history62853165": "Pending",
+  "history1318e3f2": "Confirmed",
+  "history06f3d61f": "Preparing",
+  "history5f7b65d5": "Delivered",
+  "history285fe647": "🚗 Car ride",
+  "history13b46160": "🛵 Motorcycle ride",
+  "history040fc12a": "📦 Package",
+  "history91392c59": "🛒 VETO Market",
+  "historyc951ef09": "My orders",
+  "historyb5fae2e2": "No orders yet",
+  "history22a82a2c": "Rides",
+  "history452d2aff": "Repeat ride at standard fare",
+  "historyaf4b3178": "VETO Market orders",
+  "history578c9670": "VETO Market order",
+  "historyAmountUnavailable": "Amount unavailable",
+  "historyLoadFailed": "Orders could not be loaded. Tap to retry.",
+  "marketCheckout583fb62f": "This promo code is invalid for this store or has expired.",
+  "marketCheckout5c851b29": "The area's delivery fee could not be loaded.",
+  "marketCheckout85907225": "Your account details could not be loaded. Sign in again and retry.",
+  "marketCheckout7e25319d": "Choose a delivery address.",
+  "marketCheckout6bd931d4": "This address has no valid coordinates. Tap Change and select a location on the map.",
+  "marketCheckout022a299f": "Your session has expired. Sign in again to confirm your order.",
+  "marketCheckoute6356df7": "You already have an active order. Open it from home before creating another.",
+  "marketCheckout22bbfe23": "A product or quantity is unavailable. Return to your cart and refresh it.",
+  "marketCheckout9b041b34": "This store is unavailable. Choose another store or retry later.",
+  "marketCheckoute957f73e": "Your wallet balance is insufficient. Choose cash or wallet plus cash.",
+  "marketCheckoutfb4a312e": "Confirm order",
+  "marketCheckout4cb08bb2": "Order summary",
+  "marketCheckout4793cceb": "Subtotal",
+  "marketCheckoutaa63ea8f": "Delivery fee",
+  "marketCheckoutbaed6e99": "Total",
+  "marketCheckout65397569": "VETO Market promo code",
+  "marketCheckout40cf4d30": "Enter an optional promo code",
+  "marketCheckout268974da": "Apply",
+  "marketCheckout0d08b83a": "Delivery address",
+  "marketCheckout3efc34e3": "Change",
+  "marketCheckout7b7b0404": "Finding your location…",
+  "marketCheckoutaae85882": "Use my location",
+  "marketCheckout74190f4b": "Address",
+  "marketCheckoutb03c96ad": "Choose delivery address",
+  "marketCheckoutae2d6005": "Payment method",
+  "marketCheckout1881ccb3": "Cash",
+  "marketCheckout91f328d3": "No saved addresses",
+  "marketCheckout8d30f720": "Add address",
+  "marketCheckout5dc8b4dc": "Allow location access, then tap Use my location.",
+  "marketCheckout1c4408e5": "Enable location services and retry.",
+  "marketCheckoutb4e4ffee": "Your location could not be determined. Retry near a window or choose an address manually.",
+  "marketCheckout75c427ae": "Location settings",
+  "marketCheckoutd49bcb58": "Home",
+  "marketCheckout20fa724b": "Location selected ✓ Add your area letter and building number to help the captain find you.",
+  "marketCheckout784ff5e6": "Label (for example: Home)",
+  "marketCheckoutbc20c882": "Choose your area letter in Hadayek Al Ahram",
+  "marketCheckouteca4806f": "Building number",
+  "marketCheckoutde69d94f": "Floor",
+  "marketCheckoutbf021870": "Apartment number",
+  "marketCheckout9a30dc2a": "Cancel",
+  "marketCheckout8a0c87e3": "Choose the area letter and building number first.",
+  "marketCheckout0a19bc85": "Allow location access, then tap Save.",
+  "marketCheckout70d4e1aa": "Enable location services, then tap Save.",
+  "marketCheckoute908ffef": "Your location is not available yet. Retry near a window, then tap Save.",
+  "marketCheckout9b62db02": "Your address could not be saved. Please retry.",
+  "marketCheckoutddfcaf9d": "Save",
+  "marketOrderUnconfirmed": "Order confirmation is unavailable. Check your orders or contact support before retrying.",
+  "marketPromoUnconfirmed": "The promo code could not be verified. It has not been confirmed invalid; please retry.",
+  "marketPromoApplied": "Promo discount ({code})",
+  "@marketPromoApplied": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "marketWalletChoice": "Wallet (EGP {amount})",
+  "@marketWalletChoice": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "marketWalletCashChoice": "Wallet + cash (EGP {amount} from wallet, remaining in cash)",
+  "@marketWalletCashChoice": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "ratingExperience": "How was your ride with this passenger?",
+  "ratingExcellent": "Excellent",
+  "ratingVeryGood": "Very good",
+  "ratingGood": "Good",
+  "ratingImprove": "Needs improvement",
+  "ratingUncomfortable": "Uncomfortable experience",
+  "ratingWhatHappened": "What happened?",
+  "ratingBlocked": "You will no longer receive requests from this passenger.",
+  "ratingBlockOption": "Stop receiving their requests",
+  "ratingNote": "Additional note (optional)",
+  "ratingSending": "Sending…",
+  "ratingSend": "Send rating",
+  "ratingLater": "Not now",
+  "ratingReason0": "Late to the pickup point",
+  "ratingReason1": "Inappropriate behaviour",
+  "ratingReason2": "Changed destination",
+  "ratingReason3": "Uncomfortable communication",
+  "ratingReason4": "Other",
+  "ratingUnconfirmed": "Rating completion could not be confirmed. Check its status or contact support before retrying.",
+  "ratingStars": "{count} out of 5",
+  "@ratingStars": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "customerRatingTitle": "How was your ride?",
+  "customerRatingComment": "Optional comment",
+  "customerRatingPrivacy": "Your reasons and comment are for the review team. The captain sees their updated rating without your name.",
+  "customerRatingSending": "Sending…",
+  "customerRatingReason0": "Late pickup",
+  "customerRatingReason1": "Inappropriate behaviour",
+  "customerRatingReason2": "Uncomfortable driving",
+  "customerRatingReason3": "Requested extra money",
+  "customerRatingReason4": "Different vehicle",
+  "customerRatingReason5": "Unexpected route",
+  "customerRatingReason6": "Another issue",
+  "customerRatingReason7": "Arrived quickly",
+  "customerRatingReason8": "Respectful",
+  "customerRatingReason9": "Comfortable driving",
+  "customerRatingReason10": "Clean vehicle",
+  "customerRatingReason11": "Excellent experience",
+  "customerRatingCaptain": "Rate captain {name}",
+  "@customerRatingCaptain": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "customerRatingStars": "{count} stars",
+  "@customerRatingStars": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "marketStoresTitle": "VETO Market",
+  "marketStoresEmpty": "No stores are available right now",
+  "marketStoresOpen": "Open",
+  "marketStoresClosed": "Closed",
+  "marketStoresFailed": "Stores could not be loaded. Please retry.",
+  "marketStoresMinutes": "{count} min",
+  "@marketStoresMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "marketProductsTitle": "Products",
+  "marketProductsEmpty": "No products in this category",
+  "marketProductsAdd": "Add",
+  "marketProductsCart": "Shopping cart",
+  "marketProductsTotal": "Subtotal",
+  "marketProductsContinue": "Continue order",
+  "marketProductsFailed": "Products could not be loaded. Please retry.",
+  "marketProductsViewCart": "View cart ({count} items) - EGP {amount}",
+  "@marketProductsViewCart": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "marketProductsLine": "EGP {price} × {count} = EGP {amount}",
+  "@marketProductsLine": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "marketHistoryTitle": "My VETO Market orders",
+  "marketHistoryEmpty": "No previous orders.",
+  "marketHistoryReorder": "Reorder available items at current prices",
+  "marketHistoryPartial": "Some items are not fully available",
+  "marketHistoryCancel": "Cancel",
+  "marketHistoryAccept": "Agree",
+  "marketHistoryStoreUnavailable": "This store is closed or unavailable.",
+  "marketHistoryProductsUnavailable": "No items are currently available to reorder.",
+  "marketHistoryReorderFailed": "The reorder could not be prepared. Please retry.",
+  "marketHistoryFailed": "Your orders could not be loaded. Retry or check your sign-in.",
+  "marketHistoryStock": "{name} (only {count} available)",
+  "@marketHistoryStock": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "marketHistoryMissing": "These items will be omitted or reduced:\n{items}\n\nContinue with the remaining items at current prices?",
+  "@marketHistoryMissing": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "marketHistoryOrder": "Order {id} • {status}",
+  "@marketHistoryOrder": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "marketHistoryAmount": "Total when ordered: EGP {amount}",
+  "@marketHistoryAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "marketHistoryDate": "Date: {date}",
+  "@marketHistoryDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "marketTracking2335b680": "Your VETO Market order",
+  "marketTrackingd8fd5c0d": "WhatsApp support",
+  "marketTracking7a653e5a": "Order could not be loaded. Refresh or check your sign-in.",
+  "marketTrackingd51f9d8d": "New",
+  "marketTrackingf5fde9cb": "Accepted",
+  "marketTrackingbf6cf358": "Preparing",
+  "marketTracking9643e947": "Captain",
+  "marketTracking69ca2e6b": "Collected",
+  "marketTracking4452951b": "On the way",
+  "marketTracking3ef541b9": "Done",
+  "marketTracking3b315330": "Your captain",
+  "marketTrackinga6b2ea4b": "VETO captain",
+  "marketTracking606af07c": "Call",
+  "marketTracking3150a947": "Chat",
+  "marketTrackinge9ffcc97": "Order details",
+  "marketTracking771e11be": "Subtotal",
+  "marketTracking78415ee3": "Delivery",
+  "marketTracking48c3380c": "Paid from wallet",
+  "marketTrackingdbf303cb": "Cash due",
+  "marketTrackingbaed6e99": "Total",
+  "marketTracking4c5cf17e": "Store",
+  "marketTrackingae881876": "WhatsApp could not be opened.",
+  "marketTracking376012df": "Waiting for the store",
+  "marketTracking333cc412": "The store accepted your order",
+  "marketTracking58837987": "Your order is being prepared",
+  "marketTracking07554e17": "Ready for pickup",
+  "marketTrackingb7d72a98": "A captain has been assigned",
+  "marketTrackingff3274e0": "The captain collected your order",
+  "marketTracking2f7a3366": "The captain is on the way to you",
+  "marketTracking3a648805": "Order delivered",
+  "marketTracking46c5b2fc": "Order cancelled",
+  "marketTracking7430827b": "We will let you know when the store accepts.",
+  "marketTracking3a216b91": "The store will prepare your order.",
+  "marketTracking80c40038": "The store is checking and preparing your items.",
+  "marketTracking0f39c3d0": "Waiting for captain pickup.",
+  "marketTracking7451a3a0": "The captain is heading to the store.",
+  "marketTracking8877e2b1": "You can now contact the captain.",
+  "marketTracking55635fa8": "Follow the captain on the map.",
+  "marketTrackingc0e8e2e6": "Thank you for using VETO Market.",
+  "marketTrackinga952b3bf": "Check the cancellation reason or contact support.",
+  "marketTrackingaed070ad": "Order chat",
+  "marketTrackingcb7741fc": "Write a message…",
+  "marketTrackingPhone": "Captain phone: {phone}",
+  "@marketTrackingPhone": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "marketTrackingVehicle": "{vehicle} • {color} • Plate {plate}",
+  "@marketTrackingVehicle": {
+    "placeholders": {
+      "vehicle": {
+        "type": "String"
+      },
+      "color": {
+        "type": "String"
+      },
+      "plate": {
+        "type": "String"
+      }
+    }
+  },
+  "marketTrackingCounter": "Counter {number}",
+  "@marketTrackingCounter": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "marketChatSendFailed": "Message delivery could not be confirmed. Check the conversation before retrying.",
+  "marketChatSupportFailed": "WhatsApp could not be opened.",
+  "marketChatTitle": "Order chat",
+  "marketChatSupport": "WhatsApp support",
+  "marketChatEmpty": "Start the conversation with a clear message.",
+  "marketChatInput": "Write a clear message…",
+  "marketChatYou": "You",
+  "marketChatCaptain": "Captain",
+  "marketChatStore": "Store",
+  "marketChatAdmin": "Review team",
+  "marketChatCustomer": "Customer",
+  "marketChatParticipant": "Participant",
+  "marketChatLoadFailed": "The conversation could not be loaded. Retry or check your sign-in.",
+  "marketChatReadFailed": "The message read status could not be updated.",
+  "captainFareBase": "Ride base fare",
+  "captainFareUpdating": "Fare is being updated",
+  "captainFareFinalInvoice": "Server fare. Final invoice after the ride.",
+  "captainFareIncentive": "Extra incentive: +EGP {amount}",
+  "@captainFareIncentive": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "activeCaptain9b2f45b6": "Ride status could not be confirmed. Refresh before retrying.",
+  "activeCaptain99f2c8a6": "Current ride",
+  "activeCaptainae7ae56d": "Pickup",
+  "activeCaptain8b068efc": "Destination",
+  "activeCaptain45a9a436": "Fare",
+  "activeCaptain3eab5144": "Incentive",
+  "activeCaptainf69cdd96": "Accepted",
+  "activeCaptain3a7baec4": "On the way",
+  "activeCaptainceb508b1": "Arrived",
+  "activeCaptain888bd5a4": "Ride started",
+  "activeCaptainc20f27ab": "In progress",
+  "activeCaptaineef4662a": "Head to pickup",
+  "activeCaptain2cb6f5f1": "Start ride",
+  "activeCaptain11c70484": "Finish ride",
+  "feedbackClearMessage": "Please write a clearer message",
+  "feedbackSent": "Your message was sent to the review team",
+  "feedbackComplaint": "Complaint",
+  "feedbackSuggestion": "Suggestion",
+  "feedbackType": "Message type",
+  "feedbackComplaintHint": "Describe your complaint…",
+  "feedbackSuggestionHint": "Share your suggestion to improve the app…",
+  "feedbackSending": "Sending…",
+  "feedbackSend": "Send to review team",
+  "feedbackUnconfirmed": "Message submission could not be confirmed. Check with support before retrying.",
+  "feedbackAccountChanged": "Check your sign-in and reopen this page from your current account.",
+  "legal23d4bbf5": "The link could not be opened. You can call 01031517830.",
+  "legalbb7d2e6a": "The link could not be opened. Call 01031517830.",
+  "legal930c8cba": "Legal information and support",
+  "legalcb822418": "Back",
+  "legal5d933de9": "Your rights and information in one place",
+  "legal18f333af": "Read our policies and contact options, or start an account deletion request.",
+  "legalbcaecd4c": "Last updated: 22 September 2026",
+  "legalf0942ede": "I request deletion of my VETO SANYA account and associated data. Please explain verification and follow-up steps.",
+  "legal04f1727b": "Request deletion through WhatsApp",
+  "legal0efc8201": "Call to request deletion",
+  "legal94fb90ab": "WhatsApp opens a way to send the request. It does not automatically delete your account.",
+  "legal3852d180": "View all legal pages",
+  "legal01b2add5": "Contact: وعد محمد",
+  "legalb70c8e6c": "Call: 01031517830",
+  "captainMarketd7768428": "Pickup recorded. You can now contact the customer.",
+  "captainMarket14dc5df9": "The customer was notified that you are on the way.",
+  "captainMarket53dcbe87": "Order delivered successfully.",
+  "captainMarket6eae6542": "Order updated.",
+  "captainMarket6de2e125": "The update could not be confirmed. Refresh the order before retrying.",
+  "captainMarketd8fd5c0d": "WhatsApp support",
+  "captainMarkete8449fb2": "Cancel job — EGP 10 fee",
+  "captainMarket14d5786f": "Try again",
+  "captainMarketd5d536cd": "Go to the store first. Customer details appear after pickup.",
+  "captainMarketd8f14d9b": "Complete the steps in order. The customer and store will receive updates.",
+  "captainMarketdaf5d487": "First stop: store",
+  "captainMarket97432797": "Store details",
+  "captainMarket4c5cf17e": "Store",
+  "captainMarketd33daf8e": "Call store",
+  "captainMarketc76b2601": "Open navigation",
+  "captainMarket8cc3de69": "Second stop: customer",
+  "captainMarketa042411e": "Customer",
+  "captainMarket606af07c": "Call",
+  "captainMarket3150a947": "Chat",
+  "captainMarket467e6137": "Check the order items",
+  "captainMarketf8720c74": "Product",
+  "captainMarketc2b2b3af": "I collected the order",
+  "captainMarket58ed2a34": "On the way to customer",
+  "captainMarket25cb347d": "Review invoice and confirm delivery",
+  "captainMarket310ca3cd": "Order finished",
+  "captainMarket973ed905": "Collection and delivery invoice",
+  "captainMarket95b5d1f4": "Collect from customer",
+  "captainMarketdf06bb32": "The order is paid. Do not collect money from the customer.",
+  "captainMarket75d406d4": "Pay store on pickup",
+  "captainMarket02f77b39": "Paid from customer wallet",
+  "captainMarket25d3f39d": "Customer discount",
+  "captainMarketaa63ea8f": "Delivery fee",
+  "captainMarket78163c16": "Your net delivery earnings",
+  "captainMarket15c48cd1": "Do not deduct commission from the customer payment or the store entitlement. Your balance settlement is recorded automatically once after delivery.",
+  "captainMarket456e5cc8": "The invoice is incomplete. Refresh the order before confirming delivery.",
+  "captainMarket981e9393": "Confirm delivery and collection",
+  "captainMarketcce08954": "The order is paid. Deliver it without collecting cash.",
+  "captainMarketcb822418": "Back",
+  "captainMarket25deb8cf": "Order delivered",
+  "captainMarket8b4ef63a": "Payment collected and order delivered",
+  "captainMarketae881876": "WhatsApp could not be opened.",
+  "captainMarket3b88cefe": "Cancel this store job?",
+  "captainMarket0ea97780": "Your assignment will be cancelled and the order returned to the administration. An EGP 10 fee will be deducted from your account.",
+  "captainMarket2e57d50e": "Confirm cancellation and fee",
+  "captainMarket206a9708": "The job was cancelled and the EGP 10 fee deducted.",
+  "captainMarketff44f761": "Cancellation could not be confirmed. Refresh the order before retrying.",
+  "captainMarket3ba053db": "Head to the store",
+  "captainMarket0b98ede2": "The order is ready at the store",
+  "captainMarket0bbfeacc": "Collected — head to customer",
+  "captainMarketaf0ea2c8": "You are on the way to the customer",
+  "captainMarketf711d592": "Delivered successfully",
+  "captainMarket97b675e6": "Store delivery job",
+  "captainMarket67cf4a3e": "Customer chat",
+  "captainMarketcb7741fc": "Write a message…",
+  "captainMarketLoadFailed": "The store job could not be loaded. Refresh or check your sign-in.",
+  "captainMarketCommission": "Company commission ({percent}%)",
+  "@captainMarketCommission": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMarketConfirmCash": "Confirm you collected EGP {amount} from the customer.",
+  "@captainMarketConfirmCash": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMarketJobTitle": "VETO Market job — {order}",
+  "@captainMarketJobTitle": {
+    "placeholders": {
+      "order": {
+        "type": "String"
+      }
+    }
+  },
+  "bookingFinalCopy1b070dab": "Offer settings could not be loaded. You can continue booking.",
+  "bookingFinalCopy372b98ca": "Amount details",
+  "bookingFinalCopybeed4dc9": "Current incentive",
+  "bookingFinalCopy48c3380c": "From wallet",
+  "bookingFinalCopy2e243e7f": "Expected cash",
+  "bookingFinalCopy955b4b7b": "Updating the fare from the server",
+  "bookingFinalCopy4a2fae95": "The previous request could not be restored. Choose its details and review the current fare.",
+  "bookingFinalCopy37a5d6fa": "The fare is currently unavailable for this service. Please retry.",
+  "bookingFinalCopy2f2b8b3e": "Choose your ride",
+  "bookingFinalCopy89aef3a3": "Car",
+  "bookingFinalCopy80a51d6a": "Motorcycle",
+  "bookingFinalCopy113cb058": "Package",
+  "bookingFinalCopyda3ac454": "Fare after selection",
+  "bookingFinalCopyde62259f": "The server fare changed. Review the total and confirm again.",
+  "bookingFinalCopy9d4632b1": "The fare could not be refreshed. Check the current quote before retrying.",
+  "bookingFinalCopyb60ed4c8": "Additional purchase requests must not exceed EGP 500",
+  "bookingFinalCopyb9f67739": "The ride request was cancelled.",
+  "bookingFinalCopyd6bf4f47": "The incentive update could not be confirmed. Refresh the ride before retrying.",
+  "bookingFinalCopy6c65081c": "The choice could not be confirmed. Refresh the ride and payment details before retrying.",
+  "bookingFinalCopydd481f00": "The request is cancelled, but its recorded fees need support review. No historical balance was adjusted.",
+  "bookingFinalCopy70377ee9": "Updating your ride fare…",
+  "bookingCurrentIncentive": "The current incentive is already +EGP {amount}. You can choose a higher amount.",
+  "@bookingCurrentIncentive": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "legacyCaptainRewardb754feca": "The offer link could not be opened",
+  "legacyCaptainRewardbbe4ec79": "Captain rewards",
+  "legacyCaptainRewardea201b37": "Eligible completed rides during the offer period count. Payment is manual after administrative review.",
+  "legacyCaptainReward06d1b76f": "The administration pays the reward through Vodafone Cash. It is not added to the app wallet.",
+  "legacyCaptainRewarda73a4757": "Open offer details",
+  "legacyCaptainReward9e6d9f56": "Reward paid",
+  "legacyCaptainReward9868ebaa": "Due — awaiting Vodafone Cash payment",
+  "legacyCaptainReward6d269d00": "Recipient limit reached",
+  "legacyCaptainRewardecaefa5c": "Offer ended",
+  "legacyCaptainReward7a13f6b6": "Starts soon",
+  "legacyCaptainReward141a2c34": "Offer available",
+  "legacyCaptainReward683deff3": "Manual Vodafone Cash payment after administrative review",
+  "legacyCaptainRewardTime": "Time remaining: {time}",
+  "@legacyCaptainRewardTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "legacyCaptainRewardProgress": "{progress} of {target} eligible rides",
+  "@legacyCaptainRewardProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "bookingAccountChanged": "Your account changed. Return home and start from your current account.",
+  "captainAssignmentTitle": "VETO Market job",
+  "captainAssignmentRefresh": "Refresh",
+  "captainAssignmentEmpty": "No store job is assigned to you right now",
+  "captainAssignmentOpen": "Open assigned job",
+  "buildingNumberFirst": "Enter a building number from 1 to 590 first.",
+  "buildingConfirmFirst": "Confirm you are at the building first.",
+  "buildingGpsEnable": "Turn on location services in your phone settings.",
+  "buildingGpsAllow": "Allow location access in your device or browser settings.",
+  "buildingOutside": "Your current location is outside the approximate Hadayek Al Ahram area.",
+  "buildingNumberInvalid": "Enter a building number from 1 to 590.",
+  "buildingLocateFirst": "Confirm you are at the building, then choose Locate me.",
+  "buildingReviewed": "This building has already been reviewed. Go back and select it from search.",
+  "buildingDailyLimit": "You reached today’s building submission limit. Try tomorrow.",
+  "buildingSession": "Your session ended. Sign in again.",
+  "buildingLocationInvalid": "The location or its accuracy is unsuitable. Enable GPS and try in an open area.",
+  "buildingCustomerRequired": "Sign in with an active customer account.",
+  "buildingUnconfirmed": "Saving could not be confirmed. Check the submission status before retrying.",
+  "buildingTitle": "Building missing? Suggest its location",
+  "buildingAreaLetter": "Area letter",
+  "buildingNumberHint": "From 1 to 590",
+  "buildingAtLocation": "I am at my building now",
+  "buildingLocating": "Locating you…",
+  "buildingLocate": "Locate me",
+  "buildingCancel": "Cancel",
+  "buildingSaving": "Saving…",
+  "buildingSave": "Save and use this pickup",
+  "buildingIntro": "Help the captain find you. Stand at the building and allow location access.",
+  "buildingReviewNotice": "You can use this pickup for the current request. The administration reviews it before it appears for other customers.",
+  "buildingAccuracyWeak": "Location accuracy is low ({accuracy} m). Try again in an open area.",
+  "buildingAreaValue": "Area {letter}",
+  "buildingAccuracyCaptured": "Location captured — approximate accuracy {accuracy} m",
+  "@buildingAccuracyWeak": {
+    "placeholders": {
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "@buildingAccuracyCaptured": {
+    "placeholders": {
+      "accuracy": {
+        "type": "String"
+      }
+    }
+  },
+  "@buildingAreaValue": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMapDemandError": "Areas could not be refreshed. Previous data may be outdated.",
+  "captainMapHighDemand": "High demand",
+  "captainMapConnected": "Connected",
+  "captainMapOffline": "Offline",
+  "captainMapOpen": "Open area map",
+  "captainMapMissingLocation": "Your location is unavailable. The map shows a default centre.",
+  "captainMapHotspots": "High-demand areas",
+  "captainMapRange": "Range:",
+  "captainMapRefresh": "Refresh areas",
+  "captainMapNearby": "Active areas nearby",
+  "captainMapMultiplier": "Highest published multiplier",
+  "captainMapSearchRange": "Search range",
+  "captainMapOpenFull": "View the full area map",
+  "captainMapEnable": "Enable this to see high-demand areas around your location.",
+  "captainMapKilometres": "{distance} km",
+  "@captainMapKilometres": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMapRequests": "Requests: {count}",
+  "@captainMapRequests": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "captainMapUpdated": "Updated {time} • Server multipliers only",
+  "@captainMapUpdated": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "partnerLoadFailed": "The partnership report could not be loaded. Refresh or check your sign-in.",
+  "partnerPayoutTitle": "Payout wallet",
+  "partnerWalletNumber": "Wallet number",
+  "partnerCancel": "Cancel",
+  "partnerSave": "Save",
+  "partnerWalletUnconfirmed": "The payout wallet update could not be confirmed. Refresh before retrying.",
+  "partnerTitle": "Partnership account",
+  "partnerInactive": "Partnership is inactive",
+  "partnerTeamCode": "Your team code",
+  "partnerCaptains": "Captains",
+  "partnerTrips": "Rides",
+  "partnerDue": "Amount due",
+  "partnerPaid": "Paid",
+  "partnerSettledOnly": "After ride completion and settlement",
+  "partnerCommissionDisabled": "Commission is currently inactive",
+  "partnerPayoutWallet": "Payout wallet",
+  "partnerAddWallet": "Add your wallet number",
+  "partnerSchedule": "Settlement every Saturday • 11 PM Cairo time",
+  "partnerTeam": "Your team",
+  "partnerCaptain": "Captain",
+  "partnerMotorcycle": "Motorcycle",
+  "partnerCar": "Car",
+  "partnerMonthly": "Monthly summary",
+  "partnerStatements": "Settlement statements",
+  "partnerTransferred": "Paid",
+  "partnerPendingTransfer": "Awaiting transfer",
+  "partnerOpen": "Open partnership account",
+  "partnerShare": "Your commission: {percent}% of the fare",
+  "@partnerShare": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "partnerTeamRides": "{vehicle} • {count} rides",
+  "@partnerTeamRides": {
+    "placeholders": {
+      "vehicle": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "partnerMonthValues": "Due: EGP {due} • Paid: EGP {paid}",
+  "@partnerMonthValues": {
+    "placeholders": {
+      "due": {
+        "type": "String"
+      },
+      "paid": {
+        "type": "String"
+      }
+    }
+  },
+  "partnerMonthlyUnavailable": "The monthly report is unavailable. The rest of the partnership report shows server results.",
+  "addressSearchPartial": "Part of address search is unavailable. Results are from responding sources; you can choose an address manually.",
+  "vectorMapUnavailable": "The map could not be displayed. You can use a saved address or return to address selection.",
+  "newsLoadFailed": "Posts could not be loaded. Refresh to retry.",
+  "newsReactionFailed": "Your reaction could not be confirmed. Refresh before retrying.",
+  "newsNicknameTitle": "Your community nickname",
+  "newsNicknameHint": "Choose the name you want to display.",
+  "newsNicknameExample": "Example: VETO rider",
+  "newsCancel": "Cancel",
+  "newsSaveNickname": "Save nickname",
+  "newsNicknameSaved": "Nickname saved",
+  "newsNicknameFailed": "The nickname update could not be confirmed. Refresh before retrying.",
+  "newsTitle": "VETO News",
+  "newsDisplayName": "Display name",
+  "newsRefresh": "Refresh",
+  "newsRetry": "Retry",
+  "newsEmpty": "No posts yet",
+  "newsCommunity": "Community news",
+  "newsImageUnavailable": "Image unavailable",
+  "newsComments": "Comments",
+  "newsCommentsFailed": "Comments are unavailable. Try again later.",
+  "newsCommentFailed": "Comment posting could not be confirmed. Refresh before retrying.",
+  "newsMember": "VETO member",
+  "newsUseNickname": "Post using your nickname",
+  "newsWriteComment": "Write a comment…",
+  "newsPostComment": "Post comment",
+  "newsLikes": "Like {count}",
+  "@newsLikes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "liveMapStale": "Location needs an update — waiting for the captain",
+  "liveMapEtaUnavailable": "Arrival estimate is unavailable",
+  "liveMapCalculating": "Calculating arrival time",
+  "liveMapNearTarget": "Near the destination point",
+  "liveMapEstimate": "Estimated",
+  "liveMapEtaDistance": "{minutes} min • {distance} km",
+  "@liveMapEtaDistance": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "homeLoyaltySilver": "Silver",
+  "homeLoyaltyGold": "Gold",
+  "homeLoyaltyRank": "Your rank: {rank}",
+  "homeLoyaltyProgress": "{remaining} rides to the next level · {completed} completed",
+  "homeLoyaltyCompleted": "{completed} rides completed",
+  "homeLoyaltyRewardCredited": "Your ride reward was credited to your wallet",
+  "homeLoyaltyRewardRemaining": "{remaining} rides to a reward of {amount} EGP",
+  "@homeLoyaltyRank": {
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeLoyaltyProgress": {
+    "placeholders": {
+      "remaining": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeLoyaltyCompleted": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeLoyaltyRewardRemaining": {
+    "placeholders": {
+      "remaining": {
+        "type": "int"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "homeSavedPickupVerified": "Saved pickup — you can change it before confirmation",
+  "homeSelectedCity": "Selected city: {city}",
+  "homeCityLocation": "Your location: {city}",
+  "homeCityLookupUnavailable": "Pickup city could not be confirmed. Choose it manually or retry.",
+  "@homeSelectedCity": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@homeCityLocation": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "extraIntroTitle": "Your ride and purchases in one trip",
+  "extraIntroBody": "Ask your captain to pick up small purchases on the way. Agree on the items and their cost before buying.",
+  "extraIntroContinue": "Continue to purchases",
+  "extraFeatureTitle": "Pick up purchases",
+  "extraFeatureTip": "Add your purchase request before confirming the ride.",
+  "extraFeatureLabel": "Purchase request (optional)",
+  "extraFeatureHint": "Example: pick up bread and milk on the way",
+  "extraFeatureHelper": "Agree on the purchases and their cost with the captain",
+  "extraInvalidAmount": "Enter a valid amount in EGP with up to two decimal places",
+  "captainGpsNeedsUpdate": "Online — update your location",
+  "captainProfileVehicle": "Ride vehicle",
+  "captainProfileIncompleteVehicle": "Vehicle information is incomplete",
+  "captainProfileReviews": "Passenger reviews",
+  "captainProfileNoReviews": "No published captain reviews yet.",
+  "captainProfileVerifiedIdentity": "Verified identity",
+  "captainProfileVerifiedVehicle": "Verified vehicle",
+  "captainProfileCompleted": "Completed rides",
+  "captainProfileAverage": "Average rating",
+  "captainProfileRatingCount": "From {count} ratings",
+  "@captainProfileRatingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "captainProfileDefaultName": "Captain",
+  "cityChoose": "Choose a city",
+  "cityActualPrice": "The fare uses the actual ride location",
+  "cityAutomaticLocation": "Use my current location",
+  "cityPickupNext": "Choose your pickup point next",
+  "cityComingSoon": "Coming soon",
+  "placesRefresh": "Refresh places",
+  "placesSearchHint": "Search for an area, building letter or number",
+  "placesChooseAreaFirst": "Choose an area first",
+  "placesIndependent": "Buildings and individual places",
+  "placesBuildingLetter": "Building letter, if available",
+  "placesAll": "All",
+  "placesNoLetter": "No letter",
+  "placesChooseBuilding": "Choose a building number or place",
+  "placesNoApproved": "No approved addresses are available for this city yet. Choose a map location or suggest an address.",
+  "placesSuggestionHelp": "Address missing? Use Suggest an address below the list.",
+  "comboCaptainTitle": "This ride includes purchases 🛍️",
+  "comboCaptainDescription": "The customer has requested small purchases along the way.",
+  "comboCaptainSteps": "What to do:",
+  "comboCaptainBuy": "Buy the agreed items and pay in cash.",
+  "comboCaptainDeliver": "Deliver the items and collect their cost plus the ride fare.",
+  "comboCaptainAgree": "Confirm the items and prices with the customer in chat before buying.",
+  "comboCaptainLimit": "Purchases are limited to EGP 500. Agree with the customer before buying.",
+  "comboCaptainSaveFailed": "Confirmation could not be saved. Check connectivity and try again.",
+  "comboCaptainUnderstood": "Understood",
+  "captainProfileNew": "New",
+  "cityNotActive": "{place} · Not active yet",
+  "@cityNotActive": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "placesCityTitle": "Areas and buildings in {place}",
+  "@placesCityTitle": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "placesCityAreas": "All areas in {place}",
+  "@placesCityAreas": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "placesUseArea": "Use the location of {place}",
+  "@placesUseArea": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "placesLoadFailed": "Places could not be loaded. Tap refresh.",
+  "tripBadgeRequested": "Requested",
+  "tripBadgeOffers": "Offers available",
+  "tripBadgeAccepted": "Accepted",
+  "tripBadgeArriving": "Captain on the way",
+  "tripBadgeArrived": "Captain arrived",
+  "tripBadgeStarted": "Ride started",
+  "tripBadgeCompleted": "Completed",
+  "tripBadgeCancelled": "Cancelled",
+  "banDefaultAppeal": "Please review the temporary suspension and the circumstances of the ride.",
+  "banAppealTitle": "Tell us your side",
+  "banAppealHint": "Explain your appeal",
+  "banBack": "Back",
+  "banSendAppeal": "Send appeal",
+  "banClearReason": "Please explain your appeal clearly.",
+  "banSendFailed": "The appeal could not be sent. Try again.",
+  "banTitle": "Account temporarily suspended",
+  "banRemaining": "Time remaining",
+  "banExpiryConfirming": "Confirming the end of the suspension with the server",
+  "banReturnOnline": "After the suspension ends, return to your dashboard and go online.",
+  "banAppealSent": "Appeal sent for review",
+  "banSending": "Sending",
+  "banAppeal": "Submit an appeal",
+  "banRefreshAccount": "Refresh account status",
+  "debtInvoiceLoadFailed": "The invoice could not be loaded. Check the required server update and refresh.",
+  "debtInvoiceTitle": "Captain amount due",
+  "debtInvoiceRefresh": "Refresh invoice",
+  "debtInvoiceReference": "Invoice reference",
+  "debtInvoiceStatus": "Invoice status",
+  "debtInvoicePaid": "Paid",
+  "debtInvoicePending": "Awaiting payment and confirmation",
+  "debtInvoiceHelp": "Contact support with the invoice reference. You can pay all or part of the amount due. The balance changes only after administration confirms receipt; opening this invoice or sending proof does not change it.",
+  "debtInvoiceSupportUnavailable": "The support number is unavailable. Contact administration to configure it.",
+  "debtInvoiceAfterPayment": "Refresh after payment",
+  "areaChooseLetter": "Choose your area letter",
+  "areaChooseBuildingLetter": "Tap the letter of the area containing your building",
+  "areaShowLetters": "Tap the card to view the 16 area letters",
+  "banReason": "Your account was temporarily suspended: {reason}",
+  "@banReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "debtInvoiceAmount": "Current amount due: {amount} EGP",
+  "@debtInvoiceAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "debtInvoiceCall": "Call support: {phone}",
+  "@debtInvoiceCall": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "captainRoadUnavailable": "Route preview is unavailable. Refresh and try again.",
+  "captainRoadCoordinatesUnavailable": "Ride coordinates are unavailable.",
+  "captainRoadTitle": "Ride route",
+  "captainRoadLegend": "Green: pickup • Red: destination • Blue: your location",
+  "captainRoadDirections": "Road directions",
+  "captainRoadExplanation": "Road geometry appears when available. Otherwise only location pins are shown. Distance comes from the ride record.",
+  "captainRoadDistanceUnknown": "Unavailable",
+  "captainRoadPreview": "Preview route",
+  "invalidTripIdentifier": "Invalid ride identifier",
+  "topupBannerTitle": "✦ Wallet top-up offer",
+  "topupBannerApproval": "Your bonus is added after the transfer is verified and approved.",
+  "topupBannerOpen": "View offer",
+  "savedLoadFailed": "Saved places could not be loaded. Try again.",
+  "savedDeleteTitle": "Remove from saved places?",
+  "savedBack": "Back",
+  "savedDelete": "Remove",
+  "savedDeleteFailed": "The saved place could not be removed.",
+  "savedPlacesTitle": "Your saved places",
+  "savedRefresh": "Refresh",
+  "savedHelp": "Choose a saved place, or save one using the star beside a result.",
+  "savedEmptyHelp": "No saved places yet. Open a building or place and tap its star.",
+  "quickBookingTitle": "Your next ride starts here",
+  "quickBookingSubtitle": "Everything you need for your ride",
+  "quickBookingCoverage": "Currently available in Hadayek Al Ahram",
+  "quickBookingService": "Choose your service",
+  "quickCar": "VETO Car",
+  "quickCarCaption": "A comfortable ride",
+  "quickMotorcycle": "VETO Motorcycle",
+  "quickMotorcycleCaption": "A quick ride",
+  "quickPackage": "VETO Delivery",
+  "quickPackageCaption": "From pickup to destination",
+  "quickMarket": "VETO Market",
+  "quickMarketCaption": "Household shopping",
+  "demandMapTitle": "High-demand areas",
+  "demandDirectionsFailed": "Directions could not be opened",
+  "demandHigh": "High demand",
+  "demandNow": "High-demand areas now",
+  "demandExplanation": "Areas with high demand or an announced fare multiplier. This map does not change the fare.",
+  "demandLower": "Lower demand",
+  "demandUpdating": "Updating",
+  "demandEveryMinute": "Updates every minute",
+  "demandHigher": "Higher demand",
+  "demandNone": "No high-demand area right now",
+  "demandStayAvailable": "Stay available. New offers will appear automatically.",
+  "demandDirections": "Directions to area",
+  "topupBannerAmount": "Pay {paid} EGP and receive {total} EGP",
+  "@topupBannerAmount": {
+    "placeholders": {
+      "paid": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "savedDeleteDescription": "Remove “{place}” from saved places only.",
+  "@savedDeleteDescription": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "demandMultiplier": "Fare ×{factor}",
+  "@demandMultiplier": {
+    "placeholders": {
+      "factor": {
+        "type": "String"
+      }
+    }
+  },
+  "demandHighArea": "{place} • High demand",
+  "@demandHighArea": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "demandAreaMultiplier": "{place} • Fare ×{factor}",
+  "@demandAreaMultiplier": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      },
+      "factor": {
+        "type": "String"
+      }
+    }
+  },
+  "demandWaiting": "{count} waiting requests at observation",
+  "@demandWaiting": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "demandSnapshot": "Snapshot: {requests} requests • {captains} available captains",
+  "@demandSnapshot": {
+    "placeholders": {
+      "requests": {
+        "type": "String"
+      },
+      "captains": {
+        "type": "String"
+      }
+    }
+  },
+  "savedAddTitle": "Save a place",
+  "savedNameHint": "Place label, for example Home or Work",
+  "savedCancel": "Cancel",
+  "savedSave": "Save",
+  "savedEnterLabel": "Enter a label for this place.",
+  "changeTransferAlready": "Change for this ride was already transferred with another amount",
+  "changeTransferCashOnly": "Change transfer is available after a completed cash ride",
+  "changeTransferAssignedOnly": "Only the assigned captain can transfer change",
+  "changeTransferFailed": "Transfer failed. Retry with the same amount",
+  "changeTransferUnconfirmed": "The result is unconfirmed. Retry with the same amount",
+  "changeTransferAmount": "Change amount in EGP",
+  "changeTransferBusy": "Transferring",
+  "changeTransferAction": "Transfer change to wallet",
+  "changeTransferDebt": "Settlement debt",
+  "changeTransferBalance": "Settlement balance",
+  "changeTransferInvalidAmount": "Enter a positive amount with up to two decimal places",
+  "changeTransferSuccess": "{amount} EGP transferred to the customer wallet. {kind}: {balance} EGP",
+  "@changeTransferSuccess": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "kind": {
+        "type": "String"
+      },
+      "balance": {
+        "type": "String"
+      }
+    }
+  },
+  "savedFallbackLabel": "Saved place",
+  "savedRemoveTooltip": "Remove from saved places",
+  "savedChooseFailed": "This place could not be selected. Try again.",
+  "savedCoordinatesRequired": "Valid coordinates are required to save a place.",
+  "savedAlreadyExists": "This place is already saved.",
+  "savedAdded": "Place saved ✓",
+  "savedAddFailed": "The place could not be saved. Check connectivity and try again.",
+  "quoteRateLimited": "Too many fare requests in a short time. Wait briefly and retry; your destination is retained.",
+  "quoteCoordinatesRequired": "Choose pickup and destination coordinates to calculate the fare.",
+  "quoteUnavailableRetry": "Fare calculation is unavailable right now. Retry without selecting your addresses again.",
+  "compareServicePrices": "Compare service fares",
+  "viewServiceFare": "View fare",
+  "bookingProgressRoute": "Route",
+  "bookingProgressService": "Service",
+  "bookingProgressConfirm": "Confirm",
+  "bookingProgressSearch": "Search",
+  "captainLocationServiceRequired": "Turn on location services to receive rides",
+  "captainLocationPermissionTitle": "Location permission",
+  "captainLocationPermissionBody": "Allow location while using the app to receive rides.",
+  "captainLocationLater": "Later",
+  "expandBooking": "Show booking options",
+  "collapseBooking": "Collapse booking panel",
+  "earnedRideDiscount": "A discount is available for this ride",
+  "earnedRideSaving": "Save {amount} with your eligible offer. The server confirms the final amount.",
+  "@earnedRideSaving": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "earnedRideTerms": "Eligibility and expiry follow the offer terms.",
+  "earnedRideSkipped": "Discount not selected. Review the total before confirming.",
+  "suggestedFareTitle": "We are still looking for a captain",
+  "suggestedFareHelp": "Keep your current price or choose the suggested price. You can cancel the search before a captain accepts.",
+  "suggestedFareValue": "Suggested price: EGP {amount}",
+  "@suggestedFareValue": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "keepCurrentFare": "Keep current price",
+  "useSuggestedFare": "Use suggested price",
+  "confirmingRequest": "Confirming your request…",
+  "searchElapsed": "Search time: {time}",
+  "@searchElapsed": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "searchCancelFree": "Search cancellation is free before a captain accepts",
+  "bookingTotal": "Ride total",
+  "changePayment": "Choose payment method",
+  "captainJoinTitle": "Drive with VETO",
+  "captainApplyAction": "Apply as a captain",
+  "captainBadgeTitle": "Your badge and referrals",
+  "captainCodeLoading": "Loading your code…",
+  "captainCodeFailed": "Code unavailable. Refresh to retry.",
+  "captainCodeUnavailable": "Your code is unavailable or the campaign is paused",
+  "captainCodeRefresh": "Refresh code and statistics",
+  "referralRegistrations": "Signed up with your code",
+  "referralQualified": "Completed a ride",
+  "referralPending": "Awaiting qualification",
+  "referralDue": "Due (EGP)",
+  "referralPaid": "Paid (EGP)",
+  "badgeActive": "Badge activated",
+  "badgePending": "Badge awaiting administration activation",
+  "badgeTeam": "Team: {value}",
+  "noLinkedTeam": "Not linked",
+  "badgeMetricsUnavailable": "Statistics are unavailable. Refresh to retry; estimates are not displayed.",
+  "badgePrintAction": "Print your badge with your code and QR",
+  "badgeDetailsAction": "Referral and offer details",
+  "badgeMetricsSource": "Counts and rewards come from your account, not QR views.",
+  "badgeMenuAction": "Invitation codes and badge earnings",
+  "currentPickup": "My current location",
+  "welcomeNameInvalid": "Enter a name with 2 to 80 characters.",
+  "welcomeCodeUnavailable": "You can enter a code, but activation is paused or unavailable for this account. No discount is granted before server confirmation. You can continue without a code.",
+  "welcomeConfirmFailed": "The server could not confirm this code. No gift has been granted. Check your connection and invitation before retrying.",
+  "@badgeTeam": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "homeReferralSaving": "You have a {value}% discount 🎁",
+  "@homeReferralSaving": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "homeCreditSaving": "You have EGP {value} in rewards 🎁",
+  "@homeCreditSaving": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "homeReferralSavingHelp": "Use your offer on an eligible ride. Savings appear after choosing your route.",
+  "homeCreditSavingHelp": "Use your invitation credit on an eligible ride after reviewing the quote.",
+  "menuWelcome": "Your journey starts here",
+  "menuProfile": "My profile",
+  "menuTrips": "My trips and orders",
+  "menuWallet": "My wallet",
+  "menuOffers": "Offers and discounts",
+  "menuInvite": "Invite friends",
+  "menuNews": "VETO news",
+  "menuHelp": "Help and complaints",
+  "menuSafety": "Safety",
+  "menuSettings": "Settings",
+  "menuLegal": "Terms and privacy",
+  "menuCaptainApply": "Drive with VETO SANYA",
+  "menuCaptainMode": "Open captain mode",
+  "menuAccountTools": "Account, partners and team",
+  "menuLogout": "Sign out",
+  "menuNoAddresses": "No saved places yet. Save an address when choosing a location.",
+  "menuAddressSuggestions": "My address suggestions",
+  "homeActiveOrder": "Track your current order",
+  "homePickupHint": "Pickup point",
+  "authWelcomeV2": "Welcome to VETO SANYA",
+  "authPhoneHintV2": "Enter your mobile number to get started",
+  "gameTitle": "Ring Road Driver",
+  "gamePlay": "Play while you wait",
+  "gameStart": "Let’s drive",
+  "gameResume": "Resume checkpoint",
+  "gameRestart": "Start again",
+  "gamePause": "Pause",
+  "gameContinue": "Continue driving",
+  "gameGarage": "Choose your car",
+  "gameName": "Car nickname (optional)",
+  "gameNicknameHint": "Karim’s car",
+  "gameSedan": "Small sedan",
+  "gameTaxi": "Taxi",
+  "gameSuv": "SUV",
+  "gameSport": "Sporty compact",
+  "gameGold": "Gold",
+  "gameWhite": "White",
+  "gameBlack": "Black",
+  "gameBlue": "Blue",
+  "gameRed": "Red",
+  "gameGreen": "Green",
+  "gameLeft": "Left",
+  "gameRight": "Right",
+  "gameSound": "Game sound",
+  "gameMuted": "Sound off",
+  "gameDistance": "Distance",
+  "gameBest": "Best score",
+  "gameScore": "Score",
+  "gameExit": "Return to your request",
+  "gamePersonalExit": "Close game",
+  "gameSaved": "Progress is saved on this device for your account",
+  "gameSaveFailed": "Unable to save progress on this device right now",
+  "gameWaiting": "Captain matching is still running. Your trip comes first.",
+  "gameCrash1": "Easy, driver! We might need a tow 😂",
+  "gameCrash2": "Steady! This car is still new!",
+  "gameCrash3": "Stay in your lane, driver!",
+  "gameDodge": "Nice driving!",
+  "gamePaused": "Take a break. Continue when you are ready.",
+  "gameEntertainment": "For fun only. Points are not money or wallet credit.",
+  "gameNotReady": "Getting your car ready…",
+  "bannerPosition": "Offer",
+  "bannerPrevious": "Previous offer",
+  "bannerNext": "Next offer",
+  "authResendV2": "Check verification request again",
+  "authRequestPendingV2": "Your request is pending. The verification team will provide the code.",
+  "authPhoneLabelV2": "Mobile number",
+  "draftUnavailableV2": "Unable to save the draft on this device right now."
+}

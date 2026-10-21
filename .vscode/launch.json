@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "VETO SANYA",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": [
+        "--dart-define-from-file=env.json"
+      ],
+      "env": {
+        "JAVA_HOME": "C:\\Users\\PC\\Downloads\\vetosanyafinal111\\output\\build_tools_jdk21\\jdk-21.0.12.1+1",
+        "GRADLE_OPTS": "-Dorg.gradle.java.home=\"C:\\Users\\PC\\Downloads\\vetosanyafinal111\\output\\build_tools_jdk21\\jdk-21.0.12.1+1\""
+      }
+    }
+  ]
+}
