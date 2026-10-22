@@ -29,7 +29,15 @@ class CaptainProfileCardV11 extends StatelessWidget {
       p['vehicle_color'],
     ].where((v) => v != null && '$v'.trim().isNotEmpty).join(' • ');
 
-    final darkPalette = Theme.of(context).brightness == Brightness.dark;
+    // Existing embeddings retain their established palette; the product
+    // design system supplies explicit light and dark variants.
+    final productTheme = const [
+      'Inter',
+      'IBMPlexSansArabic',
+      'Cairo',
+    ].contains(Theme.of(context).textTheme.bodyMedium?.fontFamily);
+    final darkPalette =
+        !productTheme || Theme.of(context).brightness == Brightness.dark;
     final bg = darkPalette
         ? const Color(0xFF09111F)
         : Theme.of(context).colorScheme.surface;
@@ -128,7 +136,7 @@ class CaptainProfileCardV11 extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
         border: Border.all(
           color: darkPalette
-              ? const Color(0xFF2A3355)
+              ? Colors.white.withValues(alpha: .07)
               : Theme.of(context).colorScheme.outlineVariant,
         ),
       ),

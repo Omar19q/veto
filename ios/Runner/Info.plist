@@ -28,6 +28,8 @@
 	<string>يستخدم VETO SANYA موقعك أثناء فتح التطبيق لتحديد نقطة الانطلاق ومتابعة الرحلة.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>يحتاج VETO SANYA الوصول للصور عند اختيار صورة للحساب أو المحتوى المسموح لك بإدارته.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>يحتاج VETO SANYA الوصول إلى الكاميرا لالتقاط صور المستندات والوثائق وصورة الحساب عند التسجيل.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
