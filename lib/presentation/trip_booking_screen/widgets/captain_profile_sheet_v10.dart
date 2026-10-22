@@ -26,6 +26,10 @@ class _CaptainProfileSheetV10State extends State<CaptainProfileSheetV10> {
   @override
   Widget build(BuildContext context) {
     final bottom = MediaQuery.of(context).padding.bottom;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    final primaryAccent = isDark ? const Color(0xFFFFC400) : colorScheme.primary;
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: SafeArea(
@@ -34,19 +38,19 @@ class _CaptainProfileSheetV10State extends State<CaptainProfileSheetV10> {
           constraints: BoxConstraints(
             maxHeight: MediaQuery.of(context).size.height * .88,
           ),
-          decoration: const BoxDecoration(
-            color: Color(0xFF07101E),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+          decoration: BoxDecoration(
+            color: colorScheme.surface,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
           ),
           padding: EdgeInsets.fromLTRB(12, 8, 12, bottom + 14),
           child: FutureBuilder<dynamic>(
             future: data,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const SizedBox(
+                return SizedBox(
                   height: 260,
                   child: Center(
-                    child: CircularProgressIndicator(color: Color(0xFFFFC400)),
+                    child: CircularProgressIndicator(color: primaryAccent),
                   ),
                 );
               }
@@ -57,17 +61,16 @@ class _CaptainProfileSheetV10State extends State<CaptainProfileSheetV10> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.person_off_rounded,
-                          color: Color(0xFFFFC400),
+                          color: primaryAccent,
                           size: 38,
                         ),
                         const SizedBox(height: 12),
-                        const Text(
+                        Text(
                           'بيانات الكابتن ما اتحملتش',
                           style: TextStyle(
-                            
-                            color: Colors.white,
+                            color: colorScheme.onSurface,
                             fontWeight: FontWeight.w800,
                           ),
                         ),

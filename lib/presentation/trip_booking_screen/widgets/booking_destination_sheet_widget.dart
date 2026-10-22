@@ -594,15 +594,29 @@ class _BookingDestinationSheetWidgetState
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF212B40),
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xFF212B40)
+                    : Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(19),
-                border: Border.all(color: const Color(0xFFFFC642), width: 1.3),
+                border: Border.all(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xFFFFC642)
+                      : Theme.of(context).colorScheme.primary,
+                  width: 1.3,
+                ),
               ),
               child: Row(
                 children: [
-                  const CircleAvatar(
-                    backgroundColor: Color(0xFFFFC642),
-                    child: Icon(Icons.flag_rounded, color: Color(0xFF111725)),
+                  CircleAvatar(
+                    backgroundColor: Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xFFFFC642)
+                        : Theme.of(context).colorScheme.primary,
+                    child: Icon(
+                      Icons.flag_rounded,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? const Color(0xFF111725)
+                          : Colors.white,
+                    ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(

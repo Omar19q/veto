@@ -34,10 +34,10 @@ class CustomerLoyaltyPanelV29 extends StatefulWidget {
 class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
   late final CustomerProfileBackend _backend =
       widget.backend ?? CustomerProfileBackend();
-  static const gold = Color(0xFFFFCA46);
-  Color get goldInk => Theme.of(context).brightness == Brightness.dark
-      ? gold
+  Color get gold => Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xFFFFCA46)
       : Theme.of(context).colorScheme.primary;
+  Color get goldInk => gold;
   Color get navy => Theme.of(context).brightness == Brightness.dark
       ? Color(0xFF0B111E)
       : Theme.of(context).scaffoldBackgroundColor;
@@ -387,7 +387,9 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                           ],
                         ),
                         borderRadius: BorderRadius.circular(27),
-                        border: Border.all(color: Color(0xFF4A5160)),
+                        border: Border.all(
+                          color: Theme.of(context).colorScheme.outlineVariant,
+                        ),
                       ),
                       padding: EdgeInsets.symmetric(
                         horizontal: 15,
@@ -415,7 +417,7 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                                     tooltip: context.strings.profileba69e2b8,
                                     icon: Icon(
                                       Icons.camera_alt_rounded,
-                                      color: Color(0xFF0B111E),
+                                      color: Theme.of(context).colorScheme.onPrimary,
                                       size: 21,
                                     ),
                                   ),
@@ -586,18 +588,24 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                             onSelected: !_preferencesAvailable || _saving
                                 ? null
                                 : (_) => _toggleInterest(interest),
-                            selectedColor: Color(0xFFFFDE8A),
-                            checkmarkColor: Color(0xFF0B111E),
+                            selectedColor: Theme.of(context).brightness == Brightness.dark
+                                ? const Color(0xFFFFDE8A)
+                                : Theme.of(context).colorScheme.primaryContainer,
+                            checkmarkColor: Theme.of(context).brightness == Brightness.dark
+                                ? const Color(0xFF0B111E)
+                                : Theme.of(context).colorScheme.onPrimaryContainer,
                             backgroundColor: surface,
                             labelStyle: TextStyle(
                               color: _interests.contains(interest)
-                                  ? Color(0xFF0B111E)
+                                  ? (Theme.of(context).brightness == Brightness.dark
+                                      ? const Color(0xFF0B111E)
+                                      : Theme.of(context).colorScheme.onPrimaryContainer)
                                   : Theme.of(context).colorScheme.onSurface,
                             ),
                             side: BorderSide(
                               color: _interests.contains(interest)
                                   ? gold
-                                  : Color(0xFF394860),
+                                  : Theme.of(context).colorScheme.outlineVariant,
                             ),
                           ),
                       ],
@@ -606,7 +614,6 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                     Text(
                       context.strings.profile4a630f62,
                       style: TextStyle(
-                        
                         fontSize: 11,
                         color: muted,
                       ),
@@ -626,7 +633,11 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                           color: surface,
                           borderRadius: BorderRadius.circular(19),
                           border: Border.all(
-                            color: chosen ? color : Color(0xFF2E3A51),
+                            color: chosen
+                                ? color
+                                : (Theme.of(context).brightness == Brightness.dark
+                                    ? const Color(0xFF2E3A51)
+                                    : Theme.of(context).colorScheme.outlineVariant),
                             width: chosen ? 1.6 : 1,
                           ),
                         ),
@@ -682,7 +693,9 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                                           _chooseFrame(frame['key'].toString()),
                                 style: FilledButton.styleFrom(
                                   backgroundColor: gold,
-                                  foregroundColor: Color(0xFF0B111E),
+                                  foregroundColor: Theme.of(context).brightness == Brightness.dark
+                                      ? const Color(0xFF0B111E)
+                                      : Colors.white,
                                 ),
                                 child: Text(
                                   context.strings.profilefdcd3da0,

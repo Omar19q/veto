@@ -103,10 +103,15 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    final primaryAccent = isDark ? const Color(0xFFFFC107) : colorScheme.primary;
+    final moneyColor = isDark ? const Color(0xFFFFC107) : const Color(0xFF10B981);
+
     return Directionality(
       textDirection: Directionality.of(context),
       child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.surface,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           child: _loadFailed
               ? Center(
@@ -123,7 +128,7 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                 )
               : _isLoading
               ? Center(
-                  child: CircularProgressIndicator(color: Color(0xFFFFC107)),
+                  child: CircularProgressIndicator(color: primaryAccent),
                 )
               : CustomScrollView(
                   slivers: [
@@ -132,14 +137,21 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                         margin: const EdgeInsets.all(16),
                         padding: const EdgeInsets.all(24),
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFF1A1400), Color(0xFF2A2000)],
+                          gradient: LinearGradient(
+                            colors: isDark
+                                ? const [Color(0xFF1A1400), Color(0xFF2A2000)]
+                                : [
+                                    colorScheme.surface,
+                                    colorScheme.surfaceContainerHighest,
+                                  ],
                             begin: Alignment.topRight,
                             end: Alignment.bottomLeft,
                           ),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: const Color(0xFFFFC107).withAlpha(77),
+                            color: isDark
+                                ? const Color(0xFFFFC107).withAlpha(77)
+                                : colorScheme.outlineVariant,
                           ),
                         ),
                         child: Column(
@@ -149,7 +161,7 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                               context.strings.wallet40c7d7e2,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Color(0xFF8A93B2),
+                                color: colorScheme.onSurfaceVariant,
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -157,10 +169,10 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                               context.strings.moneyValue(
                                 _balance.toStringAsFixed(2),
                               ),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 36,
                                 fontWeight: FontWeight.w700,
-                                color: Color(0xFFFFC107),
+                                color: moneyColor,
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -168,7 +180,7 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                               context.strings.wallet9b7f8de8,
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Color(0xFF8A93B2),
+                                color: colorScheme.onSurfaceVariant,
                               ),
                             ),
                             const SizedBox(height: 14),
@@ -185,8 +197,10 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                                   style: TextStyle(fontWeight: FontWeight.w800),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFFFC83D),
-                                  foregroundColor: const Color(0xFF0B1428),
+                                  backgroundColor: primaryAccent,
+                                  foregroundColor: isDark
+                                      ? const Color(0xFF0B1428)
+                                      : Colors.white,
                                   padding: const EdgeInsets.symmetric(
                                     vertical: 13,
                                   ),

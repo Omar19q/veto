@@ -119,107 +119,107 @@ class _CaptainBanScreenState extends State<CaptainBanScreen> {
   }
 
   @override
-  Widget build(BuildContext context) => Directionality(
-    textDirection: Directionality.of(context),
-    child: Scaffold(
-      backgroundColor: const Color(0xFF0B1828),
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(28),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 440),
-              child: Column(
-                children: [
-                  Container(
-                    width: 130,
-                    height: 130,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: const Color(0xFFFFCF60).withAlpha(24),
-                      border: Border.all(
-                        color: const Color(0xFFFFCF60).withAlpha(90),
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    final accentColor = isDark ? const Color(0xFFFFCF60) : colorScheme.primary;
+
+    return Directionality(
+      textDirection: Directionality.of(context),
+      child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(28),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 440),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 130,
+                      height: 130,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: accentColor.withAlpha(24),
+                        border: Border.all(
+                          color: accentColor.withAlpha(90),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.lock_clock_rounded,
+                        color: accentColor,
+                        size: 70,
                       ),
                     ),
-                    child: const Icon(
-                      Icons.lock_clock_rounded,
-                      color: Color(0xFFFFCF60),
-                      size: 70,
+                    const SizedBox(height: 28),
+                    Text(
+                      context.strings.banTitle,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: colorScheme.onSurface,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 28),
-                  Text(
-                    context.strings.banTitle,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w900,
+                    const SizedBox(height: 16),
+                    Text(
+                      context.strings.banReason(widget.reason),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        height: 1.8,
+                        color: colorScheme.onSurfaceVariant,
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    context.strings.banReason(widget.reason),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      
-                      height: 1.8,
-                      color: Color(0xFFBFCCD8),
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(height: 28),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(22),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF172D42),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          context.strings.banRemaining,
-                          style: TextStyle(
-                            
-                            color: Colors.white70,
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Directionality(
-                          textDirection: TextDirection.ltr,
-                          child: Text(
-                            formatBanCountdown(_remaining),
-                            style: const TextStyle(
-                              fontFeatures: [FontFeature.tabularFigures()],
-                              color: Color(0xFFFFCF60),
-                              fontSize: 42,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ),
-                        if (_remaining <= Duration.zero)
+                    const SizedBox(height: 28),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(22),
+                      decoration: BoxDecoration(
+                        color: colorScheme.surfaceContainerHighest,
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      child: Column(
+                        children: [
                           Text(
-                            context.strings.banExpiryConfirming,
+                            context.strings.banRemaining,
                             style: TextStyle(
-                              color: Colors.white70,
-                              
+                              color: colorScheme.onSurfaceVariant,
                             ),
                           ),
-                      ],
+                          const SizedBox(height: 10),
+                          Directionality(
+                            textDirection: TextDirection.ltr,
+                            child: Text(
+                              formatBanCountdown(_remaining),
+                              style: TextStyle(
+                                fontFeatures: const [FontFeature.tabularFigures()],
+                                color: accentColor,
+                                fontSize: 42,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ),
+                          if (_remaining <= Duration.zero)
+                            Text(
+                              context.strings.banExpiryConfirming,
+                              style: TextStyle(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 18),
-                  Text(
-                    context.strings.banReturnOnline,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      
-                      color: Colors.white54,
-                      height: 1.7,
+                    const SizedBox(height: 18),
+                    Text(
+                      context.strings.banReturnOnline,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: colorScheme.onSurfaceVariant,
+                        height: 1.7,
+                      ),
                     ),
-                  ),
                   const SizedBox(height: 20),
                   TextButton.icon(
                     onPressed: _sending || _sent ? null : _appeal,
@@ -244,4 +244,5 @@ class _CaptainBanScreenState extends State<CaptainBanScreen> {
       ),
     ),
   );
+  }
 }

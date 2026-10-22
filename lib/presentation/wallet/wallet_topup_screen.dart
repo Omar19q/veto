@@ -198,7 +198,7 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
       color: _panel,
       borderRadius: BorderRadius.circular(22),
       border: Border.all(
-        color: glow ? _gold : const Color(0xFF30435F),
+        color: glow ? _gold : Theme.of(context).colorScheme.outlineVariant,
         width: glow ? 1.4 : 1,
       ),
       boxShadow: glow
@@ -269,7 +269,7 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
         filled: true,
         fillColor: _navy,
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFF405373)),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
           borderRadius: BorderRadius.circular(14),
         ),
         focusedBorder: OutlineInputBorder(
@@ -440,7 +440,7 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
           children: [
             _line(context.strings.topup29bc32d5, '${_paid.toStringAsFixed(2)} جنيه'),
             _line(context.strings.topup346be366, '+ ${_bonus.toStringAsFixed(2)} جنيه'),
-            const Divider(color: Color(0xFF405373)),
+            Divider(color: Theme.of(context).colorScheme.outlineVariant),
             _line(
               context.strings.topup663ba8dc,
               '${(_paid + _bonus).toStringAsFixed(2)} جنيه',
@@ -575,14 +575,14 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
                 ),
               ],
             ),
-            const Divider(color: Color(0xFF405373)),
+            Divider(color: Theme.of(context).colorScheme.outlineVariant),
             _txt(context.strings.topup58890d41, color: _gold, bold: true),
             _txt(
               (_method?['instructions'] ??
                       context.strings.topup9f05f6f1)
                   .toString(),
               size: 12,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ],
         ),
@@ -666,7 +666,7 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
                 size: 12,
                 color: _muted,
               ),
-              const Divider(color: Color(0xFF405373)),
+              Divider(color: Theme.of(context).colorScheme.outlineVariant),
               _line(context.strings.topupd84c4984, _current!['reference'].toString()),
               _line(context.strings.topup558ab445, '${_current!['paid_amount']} جنيه'),
               _line(context.strings.topup36bba20f, '${_current!['bonus_amount']} جنيه'),

@@ -27,7 +27,9 @@ class _CustomerTripDetailsV46State extends State<CustomerTripDetailsV46> {
   Color get _panel => Theme.of(context).brightness == Brightness.dark
       ? Color(0xFF1A2540)
       : Theme.of(context).colorScheme.surfaceContainer;
-  static const _gold = Color(0xFFFFC629);
+  Color get _gold => Theme.of(context).brightness == Brightness.dark
+      ? const Color(0xFFFFC629)
+      : Theme.of(context).colorScheme.primary;
   Color get _light => Theme.of(context).brightness == Brightness.dark
       ? Color(0xFFF4F5FA)
       : Theme.of(context).colorScheme.onSurface;
@@ -155,7 +157,7 @@ class _CustomerTripDetailsV46State extends State<CustomerTripDetailsV46> {
     );
     final fallback = CircleAvatar(
       radius: 24,
-      backgroundColor: Color(0xFF2A3855),
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
       child: Icon(Icons.person, color: _gold),
     );
     return Row(
@@ -298,7 +300,10 @@ class _CustomerTripDetailsV46State extends State<CustomerTripDetailsV46> {
                           ),
                         ],
                       ),
-                      Divider(color: Color(0xFF39455B), height: 24),
+                      Divider(
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                        height: 24,
+                      ),
                       _address(
                         Icons.my_location_rounded,
                         context.strings.receipt4d7d679f,
@@ -420,7 +425,7 @@ class _CustomerTripDetailsV46State extends State<CustomerTripDetailsV46> {
                           context.strings.receiptf28e3f71,
                           _money(t['customer_previous_due']),
                         ),
-                      Divider(color: Color(0xFF39455B)),
+                      Divider(color: Theme.of(context).colorScheme.outlineVariant),
                       _caption(
                         context.strings.receiptc5496762,
                         t['total_fare'] == null

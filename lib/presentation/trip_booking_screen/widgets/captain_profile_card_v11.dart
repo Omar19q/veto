@@ -29,35 +29,28 @@ class CaptainProfileCardV11 extends StatelessWidget {
       p['vehicle_color'],
     ].where((v) => v != null && '$v'.trim().isNotEmpty).join(' • ');
 
-    // Existing embeddings retain their established palette; the product
-    // design system supplies explicit light and dark variants.
-    final productTheme = const [
-      'Inter',
-      'IBMPlexSansArabic',
-    ].contains(Theme.of(context).textTheme.bodyMedium?.fontFamily);
-    final darkPalette =
-        !productTheme || Theme.of(context).brightness == Brightness.dark;
+    final darkPalette = Theme.of(context).brightness == Brightness.dark;
     final bg = darkPalette
-        ? Color(0xFF09111F)
+        ? const Color(0xFF09111F)
         : Theme.of(context).colorScheme.surface;
     final panel = darkPalette
-        ? Color(0xFF121D31)
+        ? const Color(0xFF121D31)
         : Theme.of(context).colorScheme.surface;
     final panel2 = darkPalette
-        ? Color(0xFF182640)
+        ? const Color(0xFF182640)
         : Theme.of(context).colorScheme.surfaceContainerHighest;
     final gold = darkPalette
-        ? Color(0xFFFFC400)
+        ? const Color(0xFFFFC400)
         : Theme.of(context).colorScheme.primary;
     final ink = darkPalette
-        ? Color(0xFFF8FAFF)
+        ? const Color(0xFFF8FAFF)
         : Theme.of(context).colorScheme.onSurface;
     final muted = darkPalette
-        ? Color(0xFFADB9CF)
+        ? const Color(0xFFADB9CF)
         : Theme.of(context).colorScheme.onSurfaceVariant;
     final good = darkPalette
-        ? Color(0xFF55D69E)
-        : Theme.of(context).colorScheme.primary;
+        ? const Color(0xFF55D69E)
+        : const Color(0xFF10B981);
 
     Widget stat(IconData icon, String value, String label) => Expanded(
       child: Container(
@@ -133,7 +126,11 @@ class CaptainProfileCardV11 extends StatelessWidget {
       decoration: BoxDecoration(
         color: bg,
         borderRadius: BorderRadius.circular(28),
-        border: Border.all(color: Colors.white.withValues(alpha: .07)),
+        border: Border.all(
+          color: darkPalette
+              ? const Color(0xFF2A3355)
+              : Theme.of(context).colorScheme.outlineVariant,
+        ),
       ),
       child: Column(
         children: [
@@ -144,7 +141,12 @@ class CaptainProfileCardV11 extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
-                colors: [Color(0xFF213558), Color(0xFF111A2C)],
+                colors: darkPalette
+                    ? const [Color(0xFF213558), Color(0xFF111A2C)]
+                    : [
+                        Theme.of(context).colorScheme.surface,
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
+                      ],
               ),
               borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
             ),

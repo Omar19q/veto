@@ -102,10 +102,13 @@ class _CaptainDemandMapScreenState extends State<CaptainDemandMapScreen>
             .toList()
           ..sort((a, b) => b.multiplier.compareTo(a.multiplier));
     final best = hot.isEmpty ? null : hot.first;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Directionality(
       textDirection: Directionality.of(context),
       child: Scaffold(
-        backgroundColor: const Color(0xFF0A1525),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           title: Text(context.strings.demandMapTitle,
             style: TextStyle( fontWeight: FontWeight.w800)),
@@ -291,11 +294,20 @@ class _CaptainDemandMapScreenState extends State<CaptainDemandMapScreen>
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF25324B), Color(0xFF152137)],
+                    gradient: LinearGradient(
+                      colors: isDark
+                          ? const [Color(0xFF25324B), Color(0xFF152137)]
+                          : [
+                              colorScheme.surface,
+                              colorScheme.surfaceContainerHighest,
+                            ],
                     ),
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: AppTheme.gold.withAlpha(100)),
+                    border: Border.all(
+                      color: isDark
+                          ? AppTheme.gold.withAlpha(100)
+                          : colorScheme.outlineVariant,
+                    ),
                     boxShadow: const [
                       BoxShadow(
                         color: Colors.black38,

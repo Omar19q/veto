@@ -28,19 +28,21 @@ class CaptainEarningsWidget extends StatelessWidget {
         debtThreshold > 0 && settlementDebt >= debtThreshold * 0.7;
     final bool debtBlocked =
         debtThreshold > 0 && settlementDebt >= debtThreshold;
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    final primaryAccent = isDark ? AppTheme.gold : colorScheme.primary;
+    final moneyColor = isDark ? AppTheme.gold : const Color(0xFF10B981);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [Color(0xFF252525), Color(0xFF1D1D1D)],
-            ),
+            color: colorScheme.surface,
             borderRadius: BorderRadius.circular(16.0),
-            border: Border.all(color: AppTheme.cardBorder),
+            border: Border.all(
+              color: isDark ? const Color(0xFF2A3355) : colorScheme.outlineVariant,
+            ),
           ),
           child: Column(
             children: [
@@ -51,12 +53,12 @@ class CaptainEarningsWidget extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: AppTheme.gold.withAlpha(25),
+                        color: primaryAccent.withAlpha(25),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.account_balance_wallet_rounded,
-                        color: AppTheme.gold,
+                        color: primaryAccent,
                         size: 18,
                       ),
                     ),
@@ -64,10 +66,9 @@ class CaptainEarningsWidget extends StatelessWidget {
                     Text(
                       'أرباحي',
                       style: TextStyle(
-                        
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
-                        color: AppTheme.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                     ),
                     const Spacer(),
@@ -77,25 +78,24 @@ class CaptainEarningsWidget extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: AppTheme.surfaceVariant,
+                        color: colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.directions_car_rounded,
-                            color: AppTheme.textSecondary,
+                            color: colorScheme.onSurfaceVariant,
                             size: 12,
                           ),
                           const SizedBox(width: 4),
                           Text(
                             '$todayTrips رحلة اليوم',
                             style: TextStyle(
-                              
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: AppTheme.textSecondary,
+                              color: colorScheme.onSurfaceVariant,
                             ),
                           ),
                         ],
@@ -115,10 +115,9 @@ class CaptainEarningsWidget extends StatelessWidget {
                     Text(
                       todayEarnings.toStringAsFixed(0),
                       style: TextStyle(
-                        
                         fontSize: 40,
                         fontWeight: FontWeight.w800,
-                        color: AppTheme.gold,
+                        color: moneyColor,
                         height: 1.0,
                       ),
                     ),
@@ -128,10 +127,9 @@ class CaptainEarningsWidget extends StatelessWidget {
                       child: Text(
                         'جنيه',
                         style: TextStyle(
-                          
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppTheme.textSecondary,
+                          color: colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ),
@@ -142,9 +140,8 @@ class CaptainEarningsWidget extends StatelessWidget {
                         Text(
                           'اليوم',
                           style: TextStyle(
-                            
                             fontSize: 11,
-                            color: AppTheme.textMuted,
+                            color: colorScheme.onSurfaceVariant,
                           ),
                         ),
                         const SizedBox(height: 2),
@@ -158,7 +155,7 @@ class CaptainEarningsWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(height: 1, color: AppTheme.cardBorder),
+              Container(height: 1, color: isDark ? const Color(0xFF2A3355) : colorScheme.outlineVariant),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Row(
@@ -170,7 +167,11 @@ class CaptainEarningsWidget extends StatelessWidget {
                         icon: Icons.calendar_view_week_rounded,
                       ),
                     ),
-                    Container(width: 1, height: 40, color: AppTheme.cardBorder),
+                    Container(
+                      width: 1,
+                      height: 40,
+                      color: isDark ? const Color(0xFF2A3355) : colorScheme.outlineVariant,
+                    ),
                     Expanded(
                       child: _EarningPeriod(
                         label: 'هذا الشهر',
@@ -211,25 +212,24 @@ class _EarningPeriod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
-        Icon(icon, color: AppTheme.textSecondary, size: 16),
+        Icon(icon, color: colorScheme.onSurfaceVariant, size: 16),
         const SizedBox(height: 4),
         Text(
           '${amount.toStringAsFixed(0)} ج',
           style: TextStyle(
-            
             fontSize: 16,
             fontWeight: FontWeight.w700,
-            color: AppTheme.textPrimary,
+            color: colorScheme.onSurface,
           ),
         ),
         Text(
           label,
           style: TextStyle(
-            
             fontSize: 11,
-            color: AppTheme.textSecondary,
+            color: colorScheme.onSurfaceVariant,
           ),
         ),
       ],
@@ -256,23 +256,26 @@ class _SettlementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     final Color cardColor = debtBlocked
-        ? const Color(0xFF2B0D0D)
+        ? (isDark ? const Color(0xFF2B0D0D) : const Color(0xFFFEF2F2))
         : debtWarning
-        ? const Color(0xFF2B1A00)
-        : AppTheme.surface;
+        ? (isDark ? const Color(0xFF2B1A00) : const Color(0xFFFFFBEB))
+        : colorScheme.surface;
 
     final Color borderColor = debtBlocked
-        ? AppTheme.errorLight.withAlpha(100)
+        ? (isDark ? AppTheme.errorLight.withAlpha(100) : const Color(0xFFFCA5A5))
         : debtWarning
-        ? AppTheme.gold.withAlpha(100)
-        : AppTheme.cardBorder;
+        ? (isDark ? AppTheme.gold.withAlpha(100) : const Color(0xFFFDE68A))
+        : (isDark ? const Color(0xFF2A3355) : colorScheme.outlineVariant);
 
     final Color accentColor = debtBlocked
         ? AppTheme.errorLight
         : debtWarning
-        ? AppTheme.gold
-        : AppTheme.successLight;
+        ? (isDark ? AppTheme.gold : const Color(0xFFD97706))
+        : const Color(0xFF10B981);
 
     final double progressValue = hasDebt && threshold > 0
         ? (debt / threshold).clamp(0.0, 1.0)
@@ -314,10 +317,9 @@ class _SettlementCard extends StatelessWidget {
                     Text(
                       'حالة التسوية',
                       style: TextStyle(
-                        
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        color: AppTheme.textPrimary,
+                        color: colorScheme.onSurface,
                       ),
                     ),
                     Text(
@@ -327,7 +329,6 @@ class _SettlementCard extends StatelessWidget {
                           ? 'اقتربت من الحد المسموح'
                           : 'وضعك المالي جيد',
                       style: TextStyle(
-                        
                         fontSize: 11,
                         color: accentColor,
                       ),
@@ -342,7 +343,6 @@ class _SettlementCard extends StatelessWidget {
                     Text(
                       '${debt.toStringAsFixed(0)} ج',
                       style: TextStyle(
-                        
                         fontSize: 18,
                         fontWeight: FontWeight.w800,
                         color: accentColor,
@@ -351,9 +351,8 @@ class _SettlementCard extends StatelessWidget {
                     Text(
                       'مستحق',
                       style: TextStyle(
-                        
                         fontSize: 10,
-                        color: AppTheme.textSecondary,
+                        color: colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -369,7 +368,7 @@ class _SettlementCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4.0),
                     child: LinearProgressIndicator(
                       value: progressValue,
-                      backgroundColor: AppTheme.cardBorder,
+                      backgroundColor: isDark ? const Color(0xFF2A3355) : colorScheme.outlineVariant,
                       valueColor: AlwaysStoppedAnimation<Color>(accentColor),
                       minHeight: 6,
                     ),
@@ -379,9 +378,8 @@ class _SettlementCard extends StatelessWidget {
                 Text(
                   '${threshold.toStringAsFixed(0)} ج حد',
                   style: TextStyle(
-                    
                     fontSize: 10,
-                    color: AppTheme.textSecondary,
+                    color: colorScheme.onSurfaceVariant,
                   ),
                 ),
               ],

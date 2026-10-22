@@ -189,7 +189,7 @@ class _VitoMarketScreenState extends State<VitoMarketScreen> {
                                       height: 64,
                                       padding: EdgeInsets.all(3),
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF13182A),
+                                        color: Theme.of(context).colorScheme.surface,
                                         shape: BoxShape.circle,
                                       ),
                                       child: ClipOval(

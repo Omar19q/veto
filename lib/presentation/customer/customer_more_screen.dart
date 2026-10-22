@@ -195,10 +195,12 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
   // The selected account remains bound to the same authenticated UID.
   // Registration never grants captain permissions without server approval.
   void _chooseAccountV31() {
+    final colorScheme = Theme.of(context).colorScheme;
+    final primaryAccent = colorScheme.primary;
     showModalBottomSheet<void>(
       context: context,
       showDragHandle: true,
-      backgroundColor: const Color(0xFF111927),
+      backgroundColor: colorScheme.surface,
       builder: (sheet) => Directionality(
         textDirection: Directionality.of(context),
         child: SafeArea(
@@ -211,50 +213,50 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                   context.strings.profile9193bd6a,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: colorScheme.onSurface,
                     fontSize: 19,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
                 const SizedBox(height: 16),
                 ListTile(
-                  tileColor: const Color(0xFF252D3A),
+                  tileColor: colorScheme.surfaceContainerHighest,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  leading: const Icon(
+                  leading: Icon(
                     Icons.person_rounded,
-                    color: Color(0xFFFFC534),
+                    color: primaryAccent,
                   ),
                   title: Text(
                     context.strings.profile41e29a2a,
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: colorScheme.onSurface,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  trailing: const Icon(
+                  trailing: Icon(
                     Icons.radio_button_checked_rounded,
-                    color: Color(0xFFFFC534),
+                    color: primaryAccent,
                   ),
                   onTap: () => Navigator.pop(sheet),
                 ),
                 const SizedBox(height: 9),
                 ListTile(
-                  tileColor: const Color(0xFF252D3A),
+                  tileColor: colorScheme.surfaceContainerHighest,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                   ),
-                  leading: const Icon(
+                  leading: Icon(
                     Icons.drive_eta_rounded,
-                    color: Color(0xFFFFC534),
+                    color: primaryAccent,
                   ),
                   title: Text(
                     _approvedCaptainV21
                         ? context.strings.profile7272be04
                         : context.strings.profilee979acbd,
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurface,
+                      color: colorScheme.onSurface,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -262,14 +264,14 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                     _approvedCaptainV21
                         ? context.strings.profileb9eaeabe
                         : context.strings.profilebad7739d,
-                    style: const TextStyle(
-                      color: Color(0xFFAAB5C9),
+                    style: TextStyle(
+                      color: colorScheme.onSurfaceVariant,
                       fontSize: 11,
                     ),
                   ),
-                  trailing: const Icon(
+                  trailing: Icon(
                     Icons.radio_button_unchecked_rounded,
-                    color: Color(0xFFAAB5C9),
+                    color: colorScheme.onSurfaceVariant,
                   ),
                   onTap: () async {
                     Navigator.pop(sheet);
@@ -289,8 +291,8 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                   child: FilledButton(
                     onPressed: () => Navigator.pop(sheet),
                     style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xFFFFC534),
-                      foregroundColor: const Color(0xFF101724),
+                      backgroundColor: primaryAccent,
+                      foregroundColor: colorScheme.onPrimary,
                     ),
                     child: Text(
                       context.strings.profile3ef541b9,
@@ -319,7 +321,11 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(icon, color: const Color(0xFFFFC743), size: 27),
+                  Icon(
+                    icon,
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 27,
+                  ),
                   const SizedBox(height: 8),
                   Text(
                     label,
@@ -357,10 +363,11 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
     final name = _customerName.trim().isEmpty
         ? context.strings.profileafe5d60a
         : _customerName;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Directionality(
       textDirection: Directionality.of(context),
       child: Scaffold(
-        backgroundColor: const Color(0xFF0A101A),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           child: RefreshIndicator(
             onRefresh: () async {
@@ -401,12 +408,20 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                 ),
                 const SizedBox(height: 8),
                 Material(
-                  color: const Color(0xFF131D2D),
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(24),
                   child: InkWell(
                     onTap: _openFullProfileV31,
                     borderRadius: BorderRadius.circular(24),
-                    child: Padding(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        border: Border.all(
+                          color: isDark
+                              ? const Color(0xFF2A3355)
+                              : Theme.of(context).colorScheme.outlineVariant,
+                        ),
+                      ),
                       padding: const EdgeInsets.all(17),
                       child: Column(
                         children: [
