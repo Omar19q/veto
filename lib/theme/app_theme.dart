@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static String productFontFamily(BuildContext context) {
     final family = Theme.of(context).textTheme.bodyMedium?.fontFamily;
-    return const ['Inter', 'IBMPlexSansArabic'].contains(family)
+    return const ['Inter', 'IBMPlexSansArabic', 'Cairo'].contains(family)
         ? family!
         : 'Cairo';
   }

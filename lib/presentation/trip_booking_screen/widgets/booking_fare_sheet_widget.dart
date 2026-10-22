@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import '../../../l10n/strings.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
@@ -210,6 +211,7 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
   }
 
   void _setPaymentMethod(String method) {
+    HapticFeedback.selectionClick();
     _paymentChosen = true;
     setState(() => _paymentMethod = method);
     _recalculatePayment(notify: true);
@@ -907,6 +909,7 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                             if (_extraAmountKey.currentState?.validate() ==
                                 false)
                               return;
+                            HapticFeedback.mediumImpact();
                             widget.onConfirm();
                           }
                         : null,

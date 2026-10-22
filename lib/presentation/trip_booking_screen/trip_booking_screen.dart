@@ -11,6 +11,7 @@ import '../../widgets/ride_category_card.dart';
 import 'dart:math' as math;
 import '../../services/booking_address_seed.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -2403,6 +2404,7 @@ class _TripBookingScreenState extends State<TripBookingScreen>
             !_cancellingSearch,
         onConfirmed: () {
           navigating = true;
+          HapticFeedback.heavyImpact();
           unawaited(AppSoundService.instance.playSuccess());
           context.go('${AppRoutes.liveTrip}?tripId=$id');
         },

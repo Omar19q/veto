@@ -1206,6 +1206,7 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
           _activeTrip = Map<String, dynamic>.from(active);
         });
         _syncScreenAwake();
+        HapticFeedback.heavyImpact();
         await AppSoundService.instance.playSuccess();
         _show(context.strings.captain61f278b9);
         _wireActiveTripRealtime();

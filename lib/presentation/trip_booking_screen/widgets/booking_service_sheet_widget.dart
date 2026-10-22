@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_theme.dart';
@@ -126,6 +127,7 @@ class _BookingServiceSheetWidgetState extends State<BookingServiceSheetWidget> {
                       borderRadius: BorderRadius.circular(17),
                       onTap: () {
                         if (_selectedId != null) return;
+                        HapticFeedback.lightImpact();
                         setState(() => _selectedId = service.id);
                         widget.onServiceSelected(service.id);
                       },

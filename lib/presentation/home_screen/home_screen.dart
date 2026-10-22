@@ -957,12 +957,82 @@ class _HomeScreenState extends State<HomeScreen>
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     sliver: SliverToBoxAdapter(child: HomePromoWidget()),
                   ),
+                  if (_zoneLocationUnavailable && !_zoneResolving)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: Theme.of(context).colorScheme.outlineVariant,
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_off_rounded,
+                                color: Theme.of(context).colorScheme.primary,
+                                size: 20,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  'خدمة تحديد الموقع ضعيفة؛ يمكنك المحاولة مجدداً أو تحديد الوجهة يدوياً',
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              TextButton.icon(
+                                onPressed: () => _refreshCurrentCity(force: true),
+                                icon: const Icon(Icons.my_location_rounded, size: 16),
+                                label: Text(context.strings.retry),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   if (_homeLoadFailed || _marketLoadFailed)
                     SliverToBoxAdapter(
-                      child: TextButton.icon(
-                        onPressed: _loadCustomerData,
-                        icon: const Icon(Icons.refresh),
-                        label: Text(context.strings.retry),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.errorContainer.withAlpha(50),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: Theme.of(context).colorScheme.error.withAlpha(80),
+                            ),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.wifi_off_rounded,
+                                color: Theme.of(context).colorScheme.error,
+                                size: 20,
+                              ),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Text(
+                                  'تعذر تحديث البيانات، يرجى التحقق من اتصال الإنترنت',
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              TextButton.icon(
+                                onPressed: _loadCustomerData,
+                                icon: const Icon(Icons.refresh_rounded, size: 16),
+                                label: Text(context.strings.retry),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   const SliverToBoxAdapter(child: SizedBox(height: 6)),

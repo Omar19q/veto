@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,7 @@ class ProductHomePanel extends StatefulWidget {
 
 class _ProductHomePanelState extends State<ProductHomePanel> {
   BookingAddressSeed? _pickup;
+  List<BookingAddressSeed> _quickDestinations = [];
   String? _service;
   bool _loading = true;
   bool _failed = false;
@@ -48,6 +50,7 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
     super.didUpdateWidget(old);
     if (old.customerId != widget.customerId) {
       _pickup = null;
+      _quickDestinations = [];
       _pickupChosen = false;
       _loading = widget.customerId != null;
       _failed = false;
@@ -74,8 +77,20 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
           .whereType<BookingAddressSeed>()
           .toList();
       if (!mounted || id != widget.customerId) return;
+      final savedDestinations = saved.where((a) => !a.defaultPickup).toList();
+      final seen = <String>{};
+      for (final s in savedDestinations) {
+        seen.add('\,');
+      }
+      final recent = results[1]
+          .map(BookingAddressSeed.recent)
+          .whereType<BookingAddressSeed>()
+          .where((r) => seen.add('\,'))
+          .toList();
+      final quick = [...savedDestinations, ...recent].take(3).toList();
       setState(() {
         _pickup = saved.where((a) => a.defaultPickup).firstOrNull;
+        _quickDestinations = quick;
         _loading = false;
         _failed = false;
       });
@@ -178,7 +193,10 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
         SizedBox(
           height: 52,
           child: FilledButton(
-            onPressed: () => _start(),
+            onPressed: () {
+              HapticFeedback.lightImpact();
+              _start();
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -195,6 +213,47 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
             ),
           ),
         ),
+        if (_quickDestinations.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                for (final dest in _quickDestinations) ...[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 8),
+                    child: ActionChip(
+                      avatar: Icon(
+                        dest.label.contains('منزل') || dest.label.toLowerCase().contains('home')
+                            ? Icons.home_rounded
+                            : dest.label.contains('عمل') || dest.label.toLowerCase().contains('work')
+                                ? Icons.work_rounded
+                                : Icons.history_rounded,
+                        size: 15,
+                        color: colors.primary,
+                      ),
+                      label: Text(
+                        dest.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      backgroundColor: colors.surfaceContainerHighest.withAlpha(isDark ? 120 : 90),
+                      side: BorderSide(color: colors.outlineVariant.withAlpha(90)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        _start(dest);
+                      },
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
         const SizedBox(height: 10),
         SizedBox(
           height: 58 + MediaQuery.textScalerOf(context).scale(14) * 2.5,
