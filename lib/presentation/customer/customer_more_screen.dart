@@ -131,7 +131,7 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFFF0F2F8),
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 const SizedBox(height: 14),
@@ -325,6 +325,7 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                     label,
                     textAlign: TextAlign.center,
                     maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 12,
@@ -443,13 +444,17 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                                           size: 17,
                                         ),
                                         const SizedBox(width: 3),
-                                        Text(
-                                          ratingCount == 0 || rating == null
-                                              ? context.strings.profile4f95f432
-                                              : rating.toStringAsFixed(1),
-                                          style: TextStyle(
-                                            color: muted,
-                                            fontWeight: FontWeight.bold,
+                                        Flexible(
+                                          child: Text(
+                                            ratingCount == 0 || rating == null
+                                                ? context.strings.profile4f95f432
+                                                : rating.toStringAsFixed(1),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              color: muted,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ],

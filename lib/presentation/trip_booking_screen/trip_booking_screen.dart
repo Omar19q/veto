@@ -929,14 +929,14 @@ class _TripBookingScreenState extends State<TripBookingScreen>
       } else if (status == 'cancelled') {
         if (trip['cancellation_reason']?.toString() == 'search_timeout_10m') {
           navigating = true;
-          context.go(AppRoutes.homeScreen);
+          if (mounted) context.go(AppRoutes.homeScreen);
         } else {
           _show(context.strings.bookingRequestCancelled);
           _backToFare();
         }
       } else if (status == 'completed') {
         navigating = true;
-        context.go('${AppRoutes.liveTrip}?tripId=$id');
+        if (mounted) context.go('${AppRoutes.liveTrip}?tripId=$id');
       } else {
         await _checkPriceSuggestion(id);
         if (manual) _show(context.strings.bookingStillSearching);

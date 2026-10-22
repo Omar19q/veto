@@ -153,7 +153,7 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(Localizations.localeOf(context).languageCode=='ar'?'مكان الركوب':'Pickup', style: theme.textTheme.labelSmall),
+                        Text(l.pickup, style: theme.textTheme.labelSmall),
                         Text(
                           pickupName,
                           maxLines: 1,

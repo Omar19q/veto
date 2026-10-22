@@ -48,7 +48,7 @@ class CaptainComboIntroduction {
 
 class CaptainComboSheet extends StatefulWidget {
   final Future<void> Function() onAcknowledge;
-  const CaptainComboSheet({required this.onAcknowledge});
+  const CaptainComboSheet({super.key, required this.onAcknowledge});
   @override
   State<CaptainComboSheet> createState() => CaptainComboSheetState();
 }

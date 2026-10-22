@@ -1020,7 +1020,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get growth965d621f =>
-      'اكسب 20 جنيهًا عند إتمام وتسوية أول رحلة مؤهلة لصديقك. يُستخدم الرصيد على أجرة النقل فقط، دون جمعه مع عرض آخر.';
+      'اكسب 15 جنيهًا عند إتمام وتسوية أول رحلة مؤهلة لصديقك. يُستخدم الرصيد على أجرة النقل فقط، دون جمعه مع عرض آخر.';
 
   @override
   String get growth1b588c8a =>
@@ -1547,7 +1547,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profilebfa6d7fd => 'تقييمك ورحلاتك والإطارات المتاحة';
 
   @override
-  String get profile158bcacd => 'ادعُ صاحبك واكسب 20 جنيهًا';
+  String get profile158bcacd => 'ادعُ صاحبك واكسب 15 جنيهًا';
 
   @override
   String get profileb62e7ee8 => 'رصيد ترويجي مستقل بعد أول رحلة مؤهلة لصديقك';

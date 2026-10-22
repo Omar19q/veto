@@ -1042,7 +1042,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get growth965d621f =>
-      'Earn EGP 20 after your friend’s first eligible ride is completed and settled. Credit applies only to transport fare and cannot be combined with another offer.';
+      'Earn EGP 15 after your friend’s first eligible ride is completed and settled. Credit applies only to transport fare and cannot be combined with another offer.';
 
   @override
   String get growth1b588c8a =>
@@ -1572,7 +1572,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profilebfa6d7fd => 'Your rating, rides, and available frames';
 
   @override
-  String get profile158bcacd => 'Invite a friend and earn EGP 20';
+  String get profile158bcacd => 'Invite a friend and earn EGP 15';
 
   @override
   String get profileb62e7ee8 =>

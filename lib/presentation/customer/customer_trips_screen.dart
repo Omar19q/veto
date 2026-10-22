@@ -282,15 +282,18 @@ class _TripCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                tripCategoryLabel(context,trip,serviceLabel(service)),
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.w600,
+              Expanded(
+                child: Text(
+                  tripCategoryLabel(context, trip, serviceLabel(service)),
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                 decoration: BoxDecoration(

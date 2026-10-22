@@ -178,6 +178,7 @@ class _WalletTopupScreenState extends State<WalletTopupScreen> {
         _sending = false;
       });
       await _refreshRequests();
+      if (!mounted) return;
       _snack(context.strings.topup8c6dd9dd);
     } catch (e) {
       debugPrint('Wallet top-up request failed: $e');

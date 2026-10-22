@@ -142,9 +142,10 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
             ),
             item(Icons.logout, l.menuLogout, () async {
               final router = GoRouter.of(context);
+              final navigator = Navigator.of(context);
               await SupabaseService.instance.signOut();
               if (mounted) {
-                Navigator.pop(context);
+                navigator.pop();
                 router.go('/sign-up-login-screen');
               }
             }),

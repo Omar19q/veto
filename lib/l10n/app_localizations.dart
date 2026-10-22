@@ -2015,7 +2015,7 @@ abstract class AppLocalizations {
   /// No description provided for @growth965d621f.
   ///
   /// In en, this message translates to:
-  /// **'Earn EGP 20 after your friend’s first eligible ride is completed and settled. Credit applies only to transport fare and cannot be combined with another offer.'**
+  /// **'Earn EGP 15 after your friend’s first eligible ride is completed and settled. Credit applies only to transport fare and cannot be combined with another offer.'**
   String get growth965d621f;
 
   /// No description provided for @growth1b588c8a.
@@ -2951,7 +2951,7 @@ abstract class AppLocalizations {
   /// No description provided for @profile158bcacd.
   ///
   /// In en, this message translates to:
-  /// **'Invite a friend and earn EGP 20'**
+  /// **'Invite a friend and earn EGP 15'**
   String get profile158bcacd;
 
   /// No description provided for @profileb62e7ee8.

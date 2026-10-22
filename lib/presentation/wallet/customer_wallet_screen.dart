@@ -199,13 +199,13 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                     ),
                     SliverToBoxAdapter(
                       child: Padding(
-                        padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                         child: Text(
                           context.strings.walletaf7fb819,
                           style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xFFF0F2F8),
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                       ),
@@ -214,12 +214,14 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                       SliverToBoxAdapter(
                         child: Center(
                           child: Padding(
-                            padding: EdgeInsets.all(32),
+                            padding: const EdgeInsets.all(32),
                             child: Text(
                               context.strings.walletf0795392,
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Color(0xFF4A5270),
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ),
@@ -248,7 +250,7 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                               color: Theme.of(context).colorScheme.surface,
                               borderRadius: BorderRadius.circular(12),
                               border: Border.all(
-                                color: const Color(0xFF2A3355),
+                                color: Theme.of(context).dividerColor,
                               ),
                             ),
                             child: Row(
@@ -285,18 +287,22 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
                                           type,
                                           tx['description']?.toString(),
                                         ),
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: Color(0xFFF0F2F8),
+                                          color: Theme.of(
+                                            context,
+                                          ).colorScheme.onSurface,
                                         ),
                                       ),
                                       if (tx['description'] != null)
                                         Text(
                                           tx['description'] as String,
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                             fontSize: 12,
-                                            color: Color(0xFF8A93B2),
+                                            color: Theme.of(
+                                              context,
+                                            ).colorScheme.onSurfaceVariant,
                                           ),
                                         ),
                                     ],
