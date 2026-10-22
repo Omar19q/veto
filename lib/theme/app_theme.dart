@@ -16,7 +16,7 @@ class AppTheme {
     TextTheme typography(TextTheme theme) => theme
         .apply(
           fontFamily: family,
-          fontFamilyFallback: const ['IBMPlexSansArabic', 'Inter'],
+          fontFamilyFallback: const ['Cairo', 'IBMPlexSansArabic', 'Inter'],
         )
         .copyWith(
           titleLarge: theme.titleLarge?.copyWith(
@@ -43,26 +43,30 @@ class AppTheme {
             fontFamily: family,
             fontSize: 14,
           ),
+          labelLarge: theme.labelLarge?.copyWith(
+            fontFamily: 'Inter',
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+          ),
           labelMedium: theme.labelMedium?.copyWith(
-            fontFamily: family,
+            fontFamily: 'Inter',
             fontSize: 14,
           ),
           labelSmall: theme.labelSmall?.copyWith(
-            fontFamily: family,
+            fontFamily: 'Inter',
             fontSize: 12,
           ),
         );
     return base.copyWith(
-      visualDensity: VisualDensity.standard,
-      materialTapTargetSize: MaterialTapTargetSize.padded,
-      iconButtonTheme: IconButtonThemeData(
-        style: IconButton.styleFrom(minimumSize: const Size(48, 48)),
-      ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           minimumSize: const Size(48, 52),
-          backgroundColor: const Color(0xFFFFC247),
-          foregroundColor: primary,
+          backgroundColor: brightness == Brightness.dark
+              ? const Color(0xFFFFC107)
+              : const Color(0xFF5D5FEF),
+          foregroundColor: brightness == Brightness.dark
+              ? primary
+              : Colors.white,
           textStyle: TextStyle(
             fontFamily: family,
             fontSize: 16,
@@ -72,22 +76,6 @@ class AppTheme {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-      ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          minimumSize: const Size(48, 48),
-          textStyle: TextStyle(
-            fontFamily: family,
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
       ),
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: base.colorScheme.surface,
@@ -131,7 +119,10 @@ class AppTheme {
   static const Color cardBorder = Color(0xFF2A3355);
 
   // Semantic Colors
-  static const Color success = Color(0xFF2D7A4F);
+  static const Color tertiary = Color(0xFF10B981);
+  static const Color neutral = Color(0xFF94A3B8);
+  static const Color routeIndigo = Color(0xFF5D5FEF);
+  static const Color success = Color(0xFF10B981);
   static const Color successLight = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFB45309);
   static const Color error = Color(0xFFB91C1C);
@@ -146,48 +137,53 @@ class AppTheme {
   static ThemeData get lightTheme => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    colorScheme: ColorScheme.light(
-      primary: const Color(0xFF8A6500),
+    colorScheme: const ColorScheme.light(
+      primary: Color(0xFF5D5FEF),
       onPrimary: Colors.white,
-      primaryContainer: const Color(0xFFFFE69A),
-      onPrimaryContainer: const Color(0xFF2A1F00),
-      secondary: const Color(0xFF715A1B),
+      primaryContainer: Color(0xFFEEF2FF),
+      onPrimaryContainer: Color(0xFF312E81),
+      secondary: Color(0xFF10B981),
       onSecondary: Colors.white,
-      secondaryContainer: const Color(0xFFF7E8BC),
-      onSecondaryContainer: primary,
+      secondaryContainer: Color(0xFFD1FAE5),
+      onSecondaryContainer: Color(0xFF065F46),
+      tertiary: Color(0xFF10B981),
+      onTertiary: Colors.white,
       surface: Colors.white,
-      onSurface: primary,
-      surfaceContainerHighest: const Color(0xFFEAECEF),
-      onSurfaceVariant: const Color(0xFF454A56),
-      outline: const Color(0xFF767B87),
-      outlineVariant: const Color(0xFFD5D8DF),
-      error: error,
+      onSurface: Color(0xFF0F172A),
+      surfaceContainerHighest: Color(0xFFF1F5F9),
+      surfaceContainerLow: Color(0xFFF8FAFC),
+      onSurfaceVariant: Color(0xFF64748B),
+      outline: Color(0xFFCBD5E1),
+      outlineVariant: Color(0xFFE2E8F0),
+      error: Color(0xFFDC2626),
       onError: Colors.white,
     ),
     textTheme: _buildTextTheme(Brightness.light),
-    scaffoldBackgroundColor: const Color(0xFFF5F6FA),
+    scaffoldBackgroundColor: const Color(0xFFF8FAFC),
   );
 
   static ThemeData get darkTheme => ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.dark(
+    colorScheme: const ColorScheme.dark(
       primary: gold,
-      onPrimary: primary,
-      primaryContainer: const Color(0xFF2A1F00),
+      onPrimary: backgroundDark,
+      primaryContainer: Color(0xFF2A1F00),
       onPrimaryContainer: goldLight,
       secondary: goldDark,
-      onSecondary: primary,
-      secondaryContainer: const Color(0xFF1E2540),
+      onSecondary: backgroundDark,
+      secondaryContainer: Color(0xFF1E2540),
       onSecondaryContainer: textPrimary,
+      tertiary: Color(0xFF10B981),
+      onTertiary: Colors.white,
       surface: surface,
       onSurface: textPrimary,
-      surfaceContainerHighest: surfaceVariant,
-      onSurfaceVariant: textSecondary,
+      surfaceContainerHighest: Color(0xFF1F293D),
+      onSurfaceVariant: Color(0xFF94A3B8),
       error: errorLight,
       onError: Colors.white,
       outline: cardBorder,
-      outlineVariant: const Color(0xFF1A2035),
+      outlineVariant: Color(0xFF1E293B),
       inverseSurface: textPrimary,
       onInverseSurface: primary,
       shadow: Colors.black,

@@ -269,13 +269,40 @@ class _TripCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final status = trip['trip_status'] as String? ?? '';
     final service = trip['service_type'] as String? ?? '';
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    Color statusBg;
+    Color statusFg;
+    switch (status) {
+      case 'completed':
+        statusBg = const Color(0xFF10B981).withAlpha(25);
+        statusFg = const Color(0xFF10B981);
+        break;
+      case 'cancelled':
+        statusBg = const Color(0xFFEF5350).withAlpha(25);
+        statusFg = const Color(0xFFEF5350);
+        break;
+      case 'started':
+      case 'arriving':
+      case 'arrived':
+        statusBg = colorScheme.primary.withAlpha(25);
+        statusFg = colorScheme.primary;
+        break;
+      default:
+        statusBg = colorScheme.primary.withAlpha(20);
+        statusFg = colorScheme.primary;
+    }
+
+    final priceColor = isDark ? const Color(0xFFFFC107) : const Color(0xFF10B981);
+
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Theme.of(context).dividerColor),
+        border: Border.all(color: colorScheme.outlineVariant),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -287,25 +314,25 @@ class _TripCard extends StatelessWidget {
                   tripCategoryLabel(context, trip, serviceLabel(service)),
                   style: TextStyle(
                     fontSize: 13,
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontWeight: FontWeight.w600,
+                    color: colorScheme.onSurface,
+                    fontWeight: FontWeight.w700,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(width: 8),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withAlpha(31),
-                  borderRadius: BorderRadius.circular(6),
+                  color: statusBg,
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   statusLabel(status),
                   style: TextStyle(
                     fontSize: 11,
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.w600,
+                    color: statusFg,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -316,18 +343,18 @@ class _TripCard extends StatelessWidget {
             '${trip['pickup_address'] ?? ''} → ${trip['destination_address'] ?? ''}',
             style: TextStyle(
               fontSize: 12,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+              color: colorScheme.onSurfaceVariant,
             ),
             overflow: TextOverflow.ellipsis,
           ),
           if (trip['total_fare'] != null) ...[
-            const SizedBox(height: 4),
+            const SizedBox(height: 6),
             Text(
               context.strings.moneyValue('${trip['total_fare']}'),
               style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.primary,
+                fontSize: 15,
+                fontWeight: FontWeight.w800,
+                color: priceColor,
               ),
             ),
           ],
@@ -346,6 +373,10 @@ class _OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final status = order['order_status'] as String? ?? '';
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    final priceColor = isDark ? const Color(0xFFFFC107) : const Color(0xFF10B981);
+
     return GestureDetector(
       onTap: () => context.push(
         AppRoutes.vitoMarketOrderTracking,
@@ -355,18 +386,26 @@ class _OrderCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
+          color: colorScheme.surface,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: Theme.of(context).dividerColor),
+          border: Border.all(color: colorScheme.outlineVariant),
         ),
         child: Row(
           children: [
-            Icon(
-              Icons.shopping_bag_rounded,
-              color: Theme.of(context).colorScheme.primary,
-              size: 20,
+            Container(
+              width: 38,
+              height: 38,
+              decoration: BoxDecoration(
+                color: colorScheme.primary.withAlpha(isDark ? 30 : 20),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                Icons.shopping_bag_rounded,
+                color: colorScheme.primary,
+                size: 20,
+              ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -375,15 +414,15 @@ class _OrderCard extends StatelessWidget {
                     context.strings.history578c9670,
                     style: TextStyle(
                       fontSize: 13,
-                      color: Theme.of(context).colorScheme.onSurface,
-                      fontWeight: FontWeight.w600,
+                      color: colorScheme.onSurface,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
                     statusLabel(status),
                     style: TextStyle(
                       fontSize: 12,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      color: colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ],
@@ -396,9 +435,9 @@ class _OrderCard extends StatelessWidget {
                     )
                   : context.strings.historyAmountUnavailable,
               style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).colorScheme.primary,
+                fontSize: 15,
+                fontWeight: FontWeight.w800,
+                color: priceColor,
               ),
             ),
           ],

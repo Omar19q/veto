@@ -1500,7 +1500,7 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
                 
                 color: strong
                     ? Theme.of(context).colorScheme.onSurface
-                    : const Color(0xFFC6D0E4),
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: strong ? FontWeight.w800 : FontWeight.w500,
                 fontSize: strong ? 14 : 12,
               ),
@@ -1768,20 +1768,27 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
       (Icons.newspaper_rounded, context.strings.captain62d6fd3d),
       (Icons.grid_view_rounded, context.strings.captain478c486f),
     ];
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return SafeArea(
       top: false,
       child: Container(
         margin: const EdgeInsets.fromLTRB(12, 0, 12, 10),
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 7),
         decoration: BoxDecoration(
-          color: const Color(0xFF121A2B),
+          color: isDark
+              ? const Color(0xFF121A2B)
+              : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: const Color(0xFF29344D)),
-          boxShadow: const [
+          border: Border.all(
+            color: isDark
+                ? const Color(0xFF29344D)
+                : Theme.of(context).colorScheme.outlineVariant,
+          ),
+          boxShadow: [
             BoxShadow(
-              color: Color(0x66000000),
+              color: isDark ? const Color(0x66000000) : Colors.black.withAlpha(20),
               blurRadius: 24,
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
         ),
@@ -2359,9 +2366,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
           Text(
             context.strings.captainHome227f09b8,
             style: TextStyle(
-              
               fontSize: 12,
-              color: const Color(0xFFC6D0E4),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               height: 1.5,
             ),
           ),
@@ -2552,59 +2558,67 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
     },
   );
 
-  Widget _pageIntro(IconData icon, String title, String subtitle) => Container(
-    padding: const EdgeInsets.all(17),
-    decoration: BoxDecoration(
-      gradient: const LinearGradient(
-        colors: [Color(0xFF202B46), Color(0xFF151C2E)],
+  Widget _pageIntro(IconData icon, String title, String subtitle) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.all(17),
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        gradient: isDark
+            ? const LinearGradient(
+                colors: [Color(0xFF202B46), Color(0xFF151C2E)],
+              )
+            : null,
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(
+          color: isDark ? const Color(0xFF303C56) : colorScheme.outlineVariant,
+        ),
       ),
-      borderRadius: BorderRadius.circular(22),
-      border: Border.all(color: const Color(0xFF303C56)),
-    ),
-    child: Row(
-      children: [
-        Container(
-          width: 48,
-          height: 48,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withValues(alpha: .13),
-            borderRadius: BorderRadius.circular(15),
+      child: Row(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(
+              color: colorScheme.primary.withValues(alpha: .13),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Icon(
+              icon,
+              color: colorScheme.primary,
+              size: 25,
+            ),
           ),
-          child: Icon(
-            icon,
-            color: Theme.of(context).colorScheme.primary,
-            size: 25,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
-                  color: Theme.of(context).colorScheme.onSurface,
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: colorScheme.onSurface,
+                  ),
                 ),
-              ),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  
-                  fontSize: 11,
-                  height: 1.45,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 11,
+                    height: 1.45,
+                    color: colorScheme.onSurfaceVariant,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 
   Future<void> _showProfile() async {
     final c = _captain ?? const <String, dynamic>{};
@@ -2672,9 +2686,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
           width: 90,
           child: Text(
             a,
-            style: const TextStyle(
-              
-              color: const Color(0xFFC6D0E4),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 12,
             ),
           ),
@@ -2811,9 +2824,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
                   context.strings.captainHomeDistance(
                     distance.toStringAsFixed(1),
                   ),
-                  style: const TextStyle(
-                    
-                    color: const Color(0xFFC6D0E4),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 12,
                   ),
                 ),
@@ -2833,7 +2845,6 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
           Text(
             trip['pickup_address']?.toString() ?? '',
             style: TextStyle(
-              
               color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.w700,
             ),
@@ -2843,9 +2854,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
             context.strings.captainHomeToDestination(
               trip['destination_address']?.toString() ?? '',
             ),
-            style: const TextStyle(
-              
-              color: const Color(0xFFC6D0E4),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
           if (note.isNotEmpty) ...[
@@ -2902,7 +2912,7 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
                   context.strings.captainHomeDistance(
                     distance.toStringAsFixed(1),
                   ),
-                  const Color(0xFFC6D0E4),
+                  Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
             ],
           ),
@@ -3003,9 +3013,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
           const SizedBox(height: 6),
           Text(
             context.strings.captainHomeStatus(_statusLabel(status)),
-            style: const TextStyle(
-              
-              color: Color(0xFFC6D0E4),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 11,
             ),
           ),
@@ -3015,7 +3024,6 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              
               color: Theme.of(context).colorScheme.onSurface,
               fontWeight: FontWeight.w700,
             ),
@@ -3027,9 +3035,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
             ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              
-              color: const Color(0xFFC6D0E4),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
           if (note.isNotEmpty) ...[
@@ -3171,9 +3178,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
               const SizedBox(height: 3),
               Text(
                 _historyStatusLabel(t['trip_status']?.toString()),
-                style: const TextStyle(
-                  
-                  color: const Color(0xFFC6D0E4),
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                   fontSize: 12,
                 ),
               ),
@@ -3418,9 +3424,8 @@ class _CaptainDashboardScreenState extends State<CaptainDashboardScreen>
         Text(
           subtitle,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            
-            color: const Color(0xFFC6D0E4),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             fontSize: 12,
           ),
         ),

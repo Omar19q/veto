@@ -457,86 +457,93 @@ class _CaptainLiveTripScreenState extends State<CaptainLiveTripScreen>
     }
   }
 
-  Widget _cashCollectCard(double? amount) => Container(
-    width: double.infinity,
-    padding: const EdgeInsets.all(14),
-    decoration: BoxDecoration(
-      gradient: const LinearGradient(
-        colors: [Color(0xFF3B2A06), Color(0xFF1E2236)],
-        begin: Alignment.topRight,
-        end: Alignment.bottomLeft,
-      ),
-      borderRadius: BorderRadius.circular(16),
-      border: Border.all(color: AppTheme.gold.withAlpha(120)),
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          context.strings.captainRide6ff5cf85,
-          style: TextStyle(
-            
-            fontSize: 12,
-            fontWeight: FontWeight.w700,
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          amount == null
-              ? context.strings.captainRideaab7cc3e
-              : context.strings.moneyValue(amount.toStringAsFixed(2)),
-          style: const TextStyle(
-            
-            fontSize: 28,
-            fontWeight: FontWeight.w900,
-            color: AppTheme.gold,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          amount == null
-              ? context.strings.captainRide4bbd31a2
-              : context.strings.captainRideba6f0140,
-          style: TextStyle(
-            
-            fontSize: 11,
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-      ],
-    ),
-  );
+  Widget _cashCollectCard(double? amount) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final accent = isDark ? AppTheme.gold : const Color(0xFF10B981);
 
-  Widget _row(String a, String b, {bool strong = false}) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 5),
-    child: Row(
-      children: [
-        Expanded(
-          child: Text(
-            a,
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: isDark
+              ? const [Color(0xFF3B2A06), Color(0xFF1E2236)]
+              : const [Color(0xFFECFDF5), Color(0xFFF8FAFC)],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+        ),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: accent.withAlpha(120)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            context.strings.captainRide6ff5cf85,
             style: TextStyle(
-              
-              color: strong
-                  ? Theme.of(context).colorScheme.onSurface
-                  : const Color(0xFFC6D0E4),
-              fontWeight: strong ? FontWeight.w800 : FontWeight.w500,
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
-        ),
-        Text(
-          b,
-          style: TextStyle(
-            
-            color: strong
-                ? AppTheme.gold
-                : Theme.of(context).colorScheme.onSurface,
-            fontWeight: FontWeight.w800,
+          const SizedBox(height: 6),
+          Text(
+            amount == null
+                ? context.strings.captainRideaab7cc3e
+                : context.strings.moneyValue(amount.toStringAsFixed(2)),
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.w900,
+              color: accent,
+            ),
           ),
-        ),
-      ],
-    ),
-  );
+          const SizedBox(height: 4),
+          Text(
+            amount == null
+                ? context.strings.captainRide4bbd31a2
+                : context.strings.captainRideba6f0140,
+            style: TextStyle(
+              fontSize: 11,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _row(String a, String b, {bool strong = false}) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final highlightColor = isDark ? AppTheme.gold : const Color(0xFF10B981);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              a,
+              style: TextStyle(
+                color: strong
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
+                fontWeight: strong ? FontWeight.w800 : FontWeight.w500,
+              ),
+            ),
+          ),
+          Text(
+            b,
+            style: TextStyle(
+              color: strong
+                  ? highlightColor
+                  : Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   // Opens real turn-by-turn directions in the installed map/browser.
   // Accepted/arriving/arrived -> pickup. Started -> destination. This does not
@@ -812,9 +819,8 @@ class _CaptainLiveTripScreenState extends State<CaptainLiveTripScreen>
                           context.strings.captainRidede0b18e1,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            
                             fontSize: 26,
-                            color: Colors.white,
+                            color: Theme.of(context).colorScheme.onSurface,
                             fontWeight: FontWeight.w900,
                           ),
                         ),
@@ -823,8 +829,7 @@ class _CaptainLiveTripScreenState extends State<CaptainLiveTripScreen>
                           context.strings.captainRide1c184d79,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            
-                            color: Color(0xFFB5C1D0),
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
                             fontSize: 13,
                           ),
                         ),
@@ -835,8 +840,14 @@ class _CaptainLiveTripScreenState extends State<CaptainLiveTripScreen>
                             onPressed: () =>
                                 context.go(AppRoutes.captainDashboardScreen),
                             style: FilledButton.styleFrom(
-                              backgroundColor: AppTheme.gold,
-                              foregroundColor: const Color(0xFF101725),
+                              backgroundColor:
+                                  Theme.of(context).brightness == Brightness.dark
+                                      ? AppTheme.gold
+                                      : Theme.of(context).colorScheme.primary,
+                              foregroundColor:
+                                  Theme.of(context).brightness == Brightness.dark
+                                      ? const Color(0xFF101725)
+                                      : Colors.white,
                               minimumSize: const Size.fromHeight(52),
                             ),
                             icon: const Icon(Icons.home_rounded),

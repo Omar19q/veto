@@ -50,28 +50,51 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
   @override
   Widget build(BuildContext context) {
     final l = context.strings, c = Theme.of(context).colorScheme;
-    Widget item(IconData icon, String label, VoidCallback action) => ListTile(
-      minVerticalPadding: 12,
-      leading: Icon(icon, color: c.primary),
-      title: Text(label),
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    Widget item(IconData icon, String label, VoidCallback action, {Color? color}) => ListTile(
+      dense: true,
+      visualDensity: VisualDensity.compact,
+      leading: Icon(icon, color: color ?? c.primary),
+      title: Text(label, style: color != null ? TextStyle(color: color, fontWeight: FontWeight.w700) : null),
       onTap: action,
     );
+
     return Drawer(
+      backgroundColor: c.surface,
       width: (MediaQuery.sizeOf(context).width - 32).clamp(0, 360).toDouble(),
       child: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           children: [
             ListTile(
-              title: const Text('VETO SANYA'),
+              dense: true,
+              visualDensity: VisualDensity.compact,
+              leading: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: c.primary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(
+                  Icons.directions_car_filled_rounded,
+                  color: isDark ? const Color(0xFF0B0F1A) : Colors.white,
+                  size: 20,
+                ),
+              ),
+              title: const Text(
+                'VETO SANYA',
+                style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 0.5),
+              ),
               subtitle: Text(l.menuWelcome),
               trailing: IconButton(
                 tooltip: l.close,
-                icon: const Icon(Icons.close),
+                icon: const Icon(Icons.close_rounded),
                 onPressed: () => Navigator.pop(context),
               ),
             ),
-            const Divider(),
+            Divider(color: c.outlineVariant, height: 1),
             item(Icons.home_outlined, l.home, () => _route('/home-screen')),
             item(
               Icons.person_outline,
@@ -121,11 +144,12 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
               () => _page(const ProductSettingsScreen()),
             ),
             item(Icons.policy_outlined, l.menuLegal, () => _route('/legal')),
-            const Divider(),
+            Divider(color: c.outlineVariant, height: 1),
             item(
               Icons.badge_outlined,
               l.menuCaptainApply,
               () => _route('/captain-registration'),
+              color: isDark ? const Color(0xFFFFC107) : const Color(0xFF5D5FEF),
             ),
             if (_captain)
               item(Icons.drive_eta_outlined, l.menuCaptainMode, () async {
@@ -140,15 +164,20 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
               l.menuAccountTools,
               () => _route('/more'),
             ),
-            item(Icons.logout, l.menuLogout, () async {
-              final router = GoRouter.of(context);
-              final navigator = Navigator.of(context);
-              await SupabaseService.instance.signOut();
-              if (mounted) {
-                navigator.pop();
-                router.go('/sign-up-login-screen');
-              }
-            }),
+            item(
+              Icons.logout_rounded,
+              l.menuLogout,
+              () async {
+                final router = GoRouter.of(context);
+                final navigator = Navigator.of(context);
+                await SupabaseService.instance.signOut();
+                if (mounted) {
+                  navigator.pop();
+                  router.go('/sign-up-login-screen');
+                }
+              },
+              color: const Color(0xFFEF5350),
+            ),
           ],
         ),
       ),

@@ -132,8 +132,9 @@ class _SmoothLiveTripMapState extends State<SmoothLiveTripMap>
     final now = DateTime.now();
     if (!force &&
         _lastRouteRequest != null &&
-        now.difference(_lastRouteRequest!) < const Duration(seconds: 30))
+        now.difference(_lastRouteRequest!) < const Duration(seconds: 30)) {
       return;
+    }
     _lastRouteRequest = now;
     _routeBusy = true;
     final version = ++_routeVersion;
@@ -265,7 +266,7 @@ class _SmoothLiveTripMapState extends State<SmoothLiveTripMap>
                 polylines: [
                   Polyline(
                     points: route.remaining(projection),
-                    color: const Color(0xff18b9a5),
+                    color: Theme.of(context).colorScheme.primary,
                     strokeWidth: 5,
                     borderColor: Colors.white,
                     borderStrokeWidth: 2,
@@ -281,9 +282,12 @@ class _SmoothLiveTripMapState extends State<SmoothLiveTripMap>
                     height: 24,
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Theme.of(context).colorScheme.primary,
                         shape: BoxShape.circle,
                         border: Border.all(color: Colors.white, width: 3),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black26, blurRadius: 4),
+                        ],
                       ),
                     ),
                   ),
@@ -291,12 +295,20 @@ class _SmoothLiveTripMapState extends State<SmoothLiveTripMap>
                     _target != _point(widget.pickupLat, widget.pickupLng))
                   Marker(
                     point: _point(widget.pickupLat, widget.pickupLng)!,
-                    width: 36,
-                    height: 36,
-                    child: const Icon(
-                      Icons.trip_origin,
-                      color: Colors.green,
-                      size: 30,
+                    width: 28,
+                    height: 28,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Theme.of(context).colorScheme.primary,
+                          width: 4,
+                        ),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black26, blurRadius: 6),
+                        ],
+                      ),
                     ),
                   ),
                 if (_point(widget.destinationLat, widget.destinationLng) !=
@@ -308,46 +320,93 @@ class _SmoothLiveTripMapState extends State<SmoothLiveTripMap>
                       widget.destinationLat,
                       widget.destinationLng,
                     )!,
-                    width: 36,
-                    height: 36,
-                    child: const Icon(
-                      Icons.flag,
-                      color: Colors.deepOrange,
-                      size: 30,
+                    width: 28,
+                    height: 28,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF10B981),
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black26, blurRadius: 6),
+                        ],
+                      ),
                     ),
                   ),
                 if (_target != null)
                   Marker(
                     point: _target!,
-                    width: 42,
-                    height: 42,
-                    child: const Icon(
-                      Icons.location_on_rounded,
-                      color: Colors.redAccent,
-                      size: 40,
+                    width: 32,
+                    height: 32,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF10B981),
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black38, blurRadius: 8),
+                        ],
+                      ),
+                      child: const Icon(
+                        Icons.place_rounded,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ),
                   ),
                 if (_car != null)
                   Marker(
                     point: _car!,
-                    width: 48,
-                    height: 48,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: colors.surfaceContainerHighest,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 3),
-                        boxShadow: const [
-                          BoxShadow(color: Colors.black26, blurRadius: 10),
-                        ],
-                      ),
-                      child: Icon(
-                        widget.serviceType?.contains('motorcycle') == true
-                            ? Icons.two_wheeler_rounded
-                            : Icons.directions_car_rounded,
-                        color: Colors.amber,
-                        size: 28,
-                      ),
+                    width: 68,
+                    height: 52,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 3,
+                          ),
+                          decoration: BoxDecoration(
+                            color: colors.surface,
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: Theme.of(context).dividerColor,
+                            ),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 8,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Image.asset(
+                            widget.serviceType?.contains('motorcycle') == true
+                                ? 'assets/vehicles/veto_moto.webp'
+                                : 'assets/vehicles/veto_economy.webp',
+                            width: 44,
+                            height: 28,
+                            fit: BoxFit.contain,
+                            errorBuilder: (_, __, ___) => Icon(
+                              widget.serviceType?.contains('motorcycle') == true
+                                  ? Icons.two_wheeler_rounded
+                                  : Icons.directions_car_rounded,
+                              color: Theme.of(context).colorScheme.primary,
+                              size: 24,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary,
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.white, width: 2),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
               ],

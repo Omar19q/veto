@@ -66,6 +66,10 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
     final double? incentive = _number(job['incentive_amount']);
     final String serviceType = job['service_type'] as String? ?? 'car_ride';
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryAccent = isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary;
+    final fareColor = isDark ? AppTheme.gold : const Color(0xFF10B981);
+
     final (Color statusColor, String statusLabel, IconData statusIcon) =
         _getStatusInfo(status);
 
@@ -76,10 +80,13 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16.0),
-        border: Border.all(color: AppTheme.gold.withAlpha(60), width: 1.5),
+        border: Border.all(
+          color: isDark ? AppTheme.gold.withAlpha(60) : Theme.of(context).colorScheme.outlineVariant,
+          width: 1.5,
+        ),
         boxShadow: [
           BoxShadow(
-            color: AppTheme.gold.withAlpha(20),
+            color: isDark ? AppTheme.gold.withAlpha(20) : Colors.black.withAlpha(15),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),
@@ -92,7 +99,7 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: AppTheme.gold.withAlpha(20),
+              color: primaryAccent.withAlpha(isDark ? 20 : 15),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16.0),
                 topRight: Radius.circular(16.0),
@@ -108,7 +115,7 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
                       : serviceType == 'vito_market'
                       ? Icons.shopping_bag_rounded
                       : Icons.directions_car_rounded,
-                  color: AppTheme.gold,
+                  color: primaryAccent,
                   size: 18,
                 ),
                 const SizedBox(width: 8),
@@ -116,10 +123,9 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
                   child: Text(
                     context.strings.activeCaptain99f2c8a6,
                     style: TextStyle(
-                      
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
-                      color: AppTheme.gold,
+                      color: primaryAccent,
                     ),
                   ),
                 ),
@@ -194,7 +200,7 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
                             : context.strings.moneyValue(
                                 fare.toStringAsFixed(0),
                               ),
-                        color: AppTheme.gold,
+                        color: fareColor,
                       ),
                     ),
                     if (incentive != null && incentive > 0) ...[
@@ -220,21 +226,21 @@ class _CaptainActiveJobWidgetState extends State<CaptainActiveJobWidget> {
                           ? null
                           : () => _advanceStatus(tripId, nextStatus),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppTheme.gold,
-                        foregroundColor: AppTheme.primary,
+                        backgroundColor: primaryAccent,
+                        foregroundColor: isDark ? AppTheme.primary : Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        disabledBackgroundColor: AppTheme.gold.withAlpha(100),
+                        disabledBackgroundColor: primaryAccent.withAlpha(100),
                       ),
                       child: _isUpdating
-                          ? const SizedBox(
+                          ? SizedBox(
                               width: 20,
                               height: 20,
                               child: CircularProgressIndicator(
                                 strokeWidth: 2,
-                                color: AppTheme.primary,
+                                color: isDark ? AppTheme.primary : Colors.white,
                               ),
                             )
                           : Text(

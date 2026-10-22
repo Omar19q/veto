@@ -133,6 +133,15 @@ class _AppNavigationState extends State<AppNavigation>
   @override
   Widget build(BuildContext context) {
     final selected = _selectedVisualIndex;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final surfaceColor = isDark ? AppTheme.surfaceVariant : Colors.white;
+    final borderColor = isDark ? AppTheme.cardBorder : const Color(0xFFE2E8F0);
+    final activeBubbleColor = isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
+    final activeIconColor = isDark ? AppTheme.primary : Colors.white;
+    final inactiveIconColor = isDark ? AppTheme.textPrimary : const Color(0xFF64748B);
+    final activeTextColor = isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
+    final inactiveTextColor = isDark ? AppTheme.textSecondary : const Color(0xFF64748B);
+
     return SafeArea(
       top: false,
       child: Padding(
@@ -152,7 +161,14 @@ class _AppNavigationState extends State<AppNavigation>
                   clipBehavior: Clip.none,
                   children: [
                     Positioned.fill(
-                      child: CustomPaint(painter: _LiquidBarPainter(center)),
+                      child: CustomPaint(
+                        painter: _LiquidBarPainter(
+                          center,
+                          surfaceColor: surfaceColor,
+                          borderColor: borderColor,
+                          isDark: isDark,
+                        ),
+                      ),
                     ),
                     Positioned(
                       left: center - 26,
@@ -161,15 +177,17 @@ class _AppNavigationState extends State<AppNavigation>
                         width: 52,
                         height: 52,
                         decoration: BoxDecoration(
-                          color: AppTheme.gold,
+                          color: activeBubbleColor,
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: AppTheme.backgroundDark,
+                            color: isDark ? AppTheme.backgroundDark : Colors.white,
                             width: 4,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withAlpha(70),
+                              color: isDark
+                                  ? Colors.black.withAlpha(70)
+                                  : activeBubbleColor.withValues(alpha: 0.35),
                               blurRadius: 12,
                               offset: const Offset(0, 4),
                             ),
@@ -177,7 +195,7 @@ class _AppNavigationState extends State<AppNavigation>
                         ),
                         child: Icon(
                           _tabs[selected].activeIcon,
-                          color: AppTheme.primary,
+                          color: activeIconColor,
                           size: 25,
                         ),
                       ),
@@ -207,7 +225,7 @@ class _AppNavigationState extends State<AppNavigation>
                                           children: [
                                             Icon(
                                               tab.icon,
-                                              color: AppTheme.textPrimary,
+                                              color: inactiveIconColor,
                                               size: 23,
                                             ),
                                             if (index == 3 &&
@@ -231,15 +249,15 @@ class _AppNavigationState extends State<AppNavigation>
                                       Text(
                                         tab.label,
                                         maxLines: 1,
-                                        style: TextStyle(fontFamily: AppTheme.productFontFamily(context), 
-                                          
+                                        style: TextStyle(
+                                          fontFamily: AppTheme.productFontFamily(context),
                                           fontSize: 10,
                                           fontWeight: active
                                               ? FontWeight.w800
                                               : FontWeight.w500,
                                           color: active
-                                              ? AppTheme.gold
-                                              : AppTheme.textSecondary,
+                                              ? activeTextColor
+                                              : inactiveTextColor,
                                         ),
                                       ),
                                     ],
@@ -263,8 +281,16 @@ class _AppNavigationState extends State<AppNavigation>
 }
 
 class _LiquidBarPainter extends CustomPainter {
-  const _LiquidBarPainter(this.center);
+  const _LiquidBarPainter(
+    this.center, {
+    required this.surfaceColor,
+    required this.borderColor,
+    required this.isDark,
+  });
   final double center;
+  final Color surfaceColor;
+  final Color borderColor;
+  final bool isDark;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -283,12 +309,17 @@ class _LiquidBarPainter extends CustomPainter {
       ..lineTo(0, 41)
       ..quadraticBezierTo(0, 23, 18, 23)
       ..close();
-    canvas.drawShadow(path, Colors.black.withAlpha(100), 8, false);
-    canvas.drawPath(path, Paint()..color = AppTheme.surfaceVariant);
+    canvas.drawShadow(
+      path,
+      isDark ? Colors.black.withAlpha(100) : const Color(0x180F172A),
+      isDark ? 8 : 12,
+      false,
+    );
+    canvas.drawPath(path, Paint()..color = surfaceColor);
     canvas.drawPath(
       path,
       Paint()
-        ..color = AppTheme.cardBorder
+        ..color = borderColor
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1,
     );

@@ -220,7 +220,9 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                   IconButton(
                     icon: Icon(
                       Icons.shopping_cart_rounded,
-                      color: AppTheme.gold,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? AppTheme.gold
+                          : Theme.of(context).colorScheme.primary,
                     ),
                     onPressed: () => _showCart(context),
                   ),
@@ -302,23 +304,29 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                               ),
                               decoration: BoxDecoration(
                                 color: isSelected
-                                    ? AppTheme.gold
+                                    ? (Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? AppTheme.gold
+                                        : Theme.of(context).colorScheme.primary)
                                     : Theme.of(context).brightness ==
-                                          Brightness.dark
-                                    ? Color(0xFF13182A)
-                                    : Theme.of(
-                                        context,
-                                      ).colorScheme.surfaceContainer,
+                                            Brightness.dark
+                                        ? const Color(0xFF13182A)
+                                        : Theme.of(
+                                            context,
+                                          ).colorScheme.surface,
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
                                   color: isSelected
-                                      ? AppTheme.gold
+                                      ? (Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? AppTheme.gold
+                                          : Theme.of(context).colorScheme.primary)
                                       : Theme.of(context).brightness ==
-                                            Brightness.dark
-                                      ? Color(0xFF2A3355)
-                                      : Theme.of(
-                                          context,
-                                        ).colorScheme.outlineVariant,
+                                              Brightness.dark
+                                          ? const Color(0xFF2A3355)
+                                          : Theme.of(
+                                              context,
+                                            ).colorScheme.outlineVariant,
                                 ),
                               ),
                               child: Text(
@@ -327,7 +335,10 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
                                   color: isSelected
-                                      ? Color(0xFF0B0F1A)
+                                      ? (Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? const Color(0xFF0B0F1A)
+                                          : Colors.white)
                                       : Theme.of(context).colorScheme.onSurface,
                                 ),
                               ),
@@ -485,12 +496,15 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                                         _addToCart(p),
                                                     style: ElevatedButton.styleFrom(
                                                       backgroundColor:
-                                                          AppTheme.gold,
-                                                      foregroundColor: Color(
-                                                        0xFF0B0F1A,
-                                                      ),
+                                                          Theme.of(context).brightness == Brightness.dark
+                                                              ? AppTheme.gold
+                                                              : Theme.of(context).colorScheme.primary,
+                                                      foregroundColor:
+                                                          Theme.of(context).brightness == Brightness.dark
+                                                              ? const Color(0xFF0B0F1A)
+                                                              : Colors.white,
                                                       padding:
-                                                          EdgeInsets.symmetric(
+                                                          const EdgeInsets.symmetric(
                                                             vertical: 6,
                                                           ),
                                                       shape: RoundedRectangleBorder(
@@ -504,7 +518,7 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                                       context
                                                           .strings
                                                           .marketProductsAdd,
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 12,
                                                         fontWeight:
                                                             FontWeight.w700,
@@ -524,13 +538,18 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                                         width: 28,
                                                         height: 28,
                                                         decoration: BoxDecoration(
-                                                          color: Color(
-                                                            0xFF2A3355,
-                                                          ),
+                                                          color: Theme.of(context).brightness == Brightness.dark
+                                                              ? const Color(0xFF2A3355)
+                                                              : Theme.of(context).colorScheme.surfaceContainerHighest,
                                                           borderRadius:
                                                               BorderRadius.circular(
                                                                 8,
                                                               ),
+                                                          border: Border.all(
+                                                            color: Theme.of(context).brightness == Brightness.dark
+                                                                ? Colors.transparent
+                                                                : Theme.of(context).colorScheme.outlineVariant,
+                                                          ),
                                                         ),
                                                         child: Icon(
                                                           Icons.remove_rounded,
@@ -560,7 +579,9 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                                         width: 28,
                                                         height: 28,
                                                         decoration: BoxDecoration(
-                                                          color: AppTheme.gold,
+                                                          color: Theme.of(context).brightness == Brightness.dark
+                                                              ? AppTheme.gold
+                                                              : Theme.of(context).colorScheme.primary,
                                                           borderRadius:
                                                               BorderRadius.circular(
                                                                 8,
@@ -569,9 +590,9 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                                         child: Icon(
                                                           Icons.add_rounded,
                                                           size: 16,
-                                                          color: Color(
-                                                            0xFF0B0F1A,
-                                                          ),
+                                                          color: Theme.of(context).brightness == Brightness.dark
+                                                              ? const Color(0xFF0B0F1A)
+                                                              : Colors.white,
                                                         ),
                                                       ),
                                                     ),
@@ -715,7 +736,9 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                   ),
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: AppTheme.gold,
+                                    color: Theme.of(context).brightness == Brightness.dark
+                                        ? AppTheme.gold
+                                        : const Color(0xFF10B981),
                                   ),
                                 ),
                               ],
@@ -736,7 +759,7 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                     color:
                                         Theme.of(context).brightness ==
                                             Brightness.dark
-                                        ? Color(0xFF2A3355)
+                                        ? const Color(0xFF2A3355)
                                         : Theme.of(
                                             context,
                                           ).colorScheme.outlineVariant,
@@ -752,7 +775,7 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
                                 child: Text(
                                   '$qty',
                                   style: TextStyle(
@@ -774,13 +797,17 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                                   width: 28,
                                   height: 28,
                                   decoration: BoxDecoration(
-                                    color: AppTheme.gold,
+                                    color: Theme.of(context).brightness == Brightness.dark
+                                        ? AppTheme.gold
+                                        : Theme.of(context).colorScheme.primary,
                                     borderRadius: BorderRadius.circular(8),
                                   ),
                                   child: Icon(
                                     Icons.add_rounded,
                                     size: 16,
-                                    color: Color(0xFF0B0F1A),
+                                    color: Theme.of(context).brightness == Brightness.dark
+                                        ? const Color(0xFF0B0F1A)
+                                        : Colors.white,
                                   ),
                                 ),
                               ),
@@ -793,7 +820,7 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     Row(
@@ -815,12 +842,14 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
-                            color: AppTheme.gold,
+                            color: Theme.of(context).brightness == Brightness.dark
+                                ? AppTheme.gold
+                                : const Color(0xFF10B981),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -837,9 +866,13 @@ class _VitoMarketProductsScreenState extends State<VitoMarketProductsScreen> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppTheme.gold,
-                          foregroundColor: Color(0xFF0B0F1A),
-                          padding: EdgeInsets.symmetric(vertical: 14),
+                          backgroundColor: Theme.of(context).brightness == Brightness.dark
+                              ? AppTheme.gold
+                              : Theme.of(context).colorScheme.primary,
+                          foregroundColor: Theme.of(context).brightness == Brightness.dark
+                              ? const Color(0xFF0B0F1A)
+                              : Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14),
                           ),

@@ -61,11 +61,20 @@ class _BookingServiceSheetWidgetState extends State<BookingServiceSheetWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Container(
-      decoration: const BoxDecoration(
-        color: AppTheme.surface,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
-        boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 24)],
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(26)),
+        boxShadow: [
+          BoxShadow(
+            color: isDark ? Colors.black54 : Colors.black.withAlpha(20),
+            blurRadius: 24,
+            offset: const Offset(0, -4),
+          ),
+        ],
       ),
       child: SafeArea(
         top: false,
@@ -75,20 +84,40 @@ class _BookingServiceSheetWidgetState extends State<BookingServiceSheetWidget> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Center(child: Container(width: 38, height: 4,
-                decoration: BoxDecoration(color: AppTheme.cardBorder,
-                    borderRadius: BorderRadius.circular(4)))),
+              Center(
+                child: Container(
+                  width: 38,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: colorScheme.outlineVariant,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
               const SizedBox(height: 12),
-              const Text('اختار خدمتك', style: TextStyle(
-                fontSize: 19, fontWeight: FontWeight.w800,
-                color: AppTheme.textPrimary)),
-              const Text('اضغط على الخدمة المناسبة، وهننقلك للخطوة التالية مباشرة.',
-                style: TextStyle( fontSize: 11,
-                  color: AppTheme.textSecondary)),
+              Text(
+                'اختار خدمتك',
+                style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.w800,
+                  color: colorScheme.onSurface,
+                ),
+              ),
+              Text(
+                'اضغط على الخدمة المناسبة، وهننقلك للخطوة التالية مباشرة.',
+                style: TextStyle(
+                  fontSize: 11,
+                  color: colorScheme.onSurfaceVariant,
+                ),
+              ),
               const SizedBox(height: 12),
               ...List.generate(_services.length, (index) {
                 final service = _services[index];
                 final selected = _selectedId == service.id;
+                final effectiveAccent = service.id == 'car' && !isDark
+                    ? colorScheme.primary
+                    : service.accentColor;
+
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Material(
@@ -104,37 +133,71 @@ class _BookingServiceSheetWidgetState extends State<BookingServiceSheetWidget> {
                         duration: const Duration(milliseconds: 180),
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: selected ? service.accentColor.withAlpha(34)
-                              : AppTheme.surfaceVariant,
+                          color: selected
+                              ? effectiveAccent.withAlpha(isDark ? 34 : 20)
+                              : (isDark
+                                  ? AppTheme.surfaceVariant
+                                  : colorScheme.surfaceContainerHighest),
                           borderRadius: BorderRadius.circular(17),
-                          border: Border.all(color: selected
-                            ? service.accentColor : AppTheme.cardBorder),
+                          border: Border.all(
+                            color: selected
+                                ? effectiveAccent
+                                : colorScheme.outlineVariant,
+                            width: selected ? 1.8 : 1,
+                          ),
                         ),
-                        child: Row(children: [
-                          Container(width: 58, height: 58,
-                            decoration: BoxDecoration(
-                              color: service.accentColor.withAlpha(30),
-                              borderRadius: BorderRadius.circular(14)),
-                            child: Icon(service.icon, color: service.accentColor, size: 31)),
-                          const SizedBox(width: 12),
-                          Expanded(child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(service.title, maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle( fontSize: 16,
-                                  fontWeight: FontWeight.w800, color: AppTheme.textPrimary)),
-                              Text(service.description, maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle( fontSize: 10.5,
-                                  color: AppTheme.textSecondary)),
-                            ],
-                          )),
-                          const SizedBox(width: 6),
-                          Icon(selected ? Icons.check_circle_rounded
-                              : Icons.chevron_left_rounded,
-                              color: service.accentColor, size: 23),
-                        ]),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 58,
+                              height: 58,
+                              decoration: BoxDecoration(
+                                color: effectiveAccent.withAlpha(isDark ? 30 : 22),
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              child: Icon(
+                                service.icon,
+                                color: effectiveAccent,
+                                size: 31,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    service.title,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w800,
+                                      color: colorScheme.onSurface,
+                                    ),
+                                  ),
+                                  Text(
+                                    service.description,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 10.5,
+                                      color: colorScheme.onSurfaceVariant,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 6),
+                            Icon(
+                              selected
+                                  ? Icons.check_circle_rounded
+                                  : Icons.chevron_left_rounded,
+                              color: effectiveAccent,
+                              size: 23,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

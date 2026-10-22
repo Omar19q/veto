@@ -113,11 +113,13 @@ class _VitoMarketOrderTrackingScreenState
   }
 
   @override
-  Widget build(BuildContext context) => Directionality(
-    textDirection: Directionality.of(context),
-    child: Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Directionality(
+      textDirection: Directionality.of(context),
+      child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
         title: Text(
           context.strings.marketTracking2335b680,
@@ -136,7 +138,11 @@ class _VitoMarketOrderTrackingScreenState
         ],
       ),
       body: loading
-          ? Center(child: CircularProgressIndicator(color: AppTheme.gold))
+          ? Center(
+              child: CircularProgressIndicator(
+                color: isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary,
+              ),
+            )
           : data == null
           ? Center(child: Text(context.strings.marketTracking7a653e5a))
           : RefreshIndicator(
@@ -163,22 +169,28 @@ class _VitoMarketOrderTrackingScreenState
             ),
     ),
   );
+  }
 
   Widget _hero() {
     final s = order['order_status']?.toString() ?? 'pending';
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryAccent = isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary;
+
     return Container(
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: Theme.of(context).brightness == Brightness.dark
-              ? [Color(0xFF25200B), Color(0xFF12182A)]
+          colors: isDark
+              ? const [Color(0xFF25200B), Color(0xFF12182A)]
               : [
-                  Theme.of(context).colorScheme.surfaceContainer,
+                  Theme.of(context).colorScheme.surfaceContainerHighest,
                   Theme.of(context).colorScheme.surface,
                 ],
         ),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppTheme.gold.withValues(alpha: .45)),
+        border: Border.all(
+          color: isDark ? AppTheme.gold.withValues(alpha: .45) : Theme.of(context).colorScheme.outlineVariant,
+        ),
       ),
       child: Row(
         children: [
@@ -186,12 +198,12 @@ class _VitoMarketOrderTrackingScreenState
             width: 54,
             height: 54,
             decoration: BoxDecoration(
-              color: AppTheme.gold,
+              color: primaryAccent,
               shape: BoxShape.circle,
             ),
-            child: Icon(_icon(s), color: AppTheme.primary),
+            child: Icon(_icon(s), color: isDark ? AppTheme.primary : Colors.white),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -199,7 +211,6 @@ class _VitoMarketOrderTrackingScreenState
                 Text(
                   _status(s),
                   style: TextStyle(
-                    
                     color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
@@ -208,7 +219,6 @@ class _VitoMarketOrderTrackingScreenState
                 Text(
                   _hint(s),
                   style: TextStyle(
-                    
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 12,
                   ),
@@ -218,7 +228,7 @@ class _VitoMarketOrderTrackingScreenState
           ),
           Text(
             _orderLabel,
-            style: TextStyle(color: AppTheme.gold, fontWeight: FontWeight.w700),
+            style: TextStyle(color: primaryAccent, fontWeight: FontWeight.w700),
           ),
         ],
       ),
@@ -226,6 +236,9 @@ class _VitoMarketOrderTrackingScreenState
   }
 
   Widget _progress() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final progressDoneColor = isDark ? AppTheme.gold : const Color(0xFF10B981);
+
     final flow = [
       ('pending', context.strings.marketTrackingd51f9d8d),
       ('confirmed', context.strings.marketTrackingf5fde9cb),
@@ -237,7 +250,7 @@ class _VitoMarketOrderTrackingScreenState
     ];
     final current = _rank(order['order_status']?.toString() ?? 'pending');
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 14, horizontal: 8),
+      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
       decoration: _decoration(),
       child: Row(
         children: flow.map((x) {
@@ -248,24 +261,23 @@ class _VitoMarketOrderTrackingScreenState
                 CircleAvatar(
                   radius: 13,
                   backgroundColor: done
-                      ? AppTheme.gold
-                      : Theme.of(context).colorScheme.surfaceVariant,
+                      ? progressDoneColor
+                      : Theme.of(context).colorScheme.surfaceContainerHighest,
                   child: Icon(
                     done ? Icons.check : Icons.circle_outlined,
                     size: 14,
                     color: done
-                        ? AppTheme.primary
+                        ? (isDark ? AppTheme.primary : Colors.white)
                         : Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
-                SizedBox(height: 3),
+                const SizedBox(height: 3),
                 Text(
                   x.$2,
                   style: TextStyle(
-                    
                     fontSize: 9,
                     color: done
-                        ? AppTheme.gold
+                        ? progressDoneColor
                         : Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
@@ -278,6 +290,8 @@ class _VitoMarketOrderTrackingScreenState
   }
 
   Widget _captainCard() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
     return Container(
       padding: EdgeInsets.all(14),
       decoration: _decoration(gold: true),
@@ -287,13 +301,16 @@ class _VitoMarketOrderTrackingScreenState
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+                backgroundColor: colorScheme.surfaceContainerHighest,
                 backgroundImage:
                     (captain['profile_photo']?.toString() ?? '').isNotEmpty
                     ? captainPhotoV16(captain['profile_photo'].toString())
                     : null,
                 child: (captain['profile_photo']?.toString() ?? '').isEmpty
-                    ? Icon(Icons.delivery_dining, color: AppTheme.gold)
+                    ? Icon(
+                        Icons.delivery_dining,
+                        color: isDark ? AppTheme.gold : colorScheme.primary,
+                      )
                     : null,
               ),
               SizedBox(width: 12),
@@ -304,8 +321,7 @@ class _VitoMarketOrderTrackingScreenState
                     Text(
                       context.strings.marketTracking3b315330,
                       style: TextStyle(
-                        
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        color: colorScheme.onSurfaceVariant,
                         fontSize: 11,
                       ),
                     ),
@@ -313,8 +329,7 @@ class _VitoMarketOrderTrackingScreenState
                       captain['full_name']?.toString() ??
                           context.strings.marketTrackinga6b2ea4b,
                       style: TextStyle(
-                        
-                        color: Theme.of(context).colorScheme.onSurface,
+                        color: colorScheme.onSurface,
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                       ),
@@ -324,8 +339,7 @@ class _VitoMarketOrderTrackingScreenState
                         '${captain['phone'] ?? '-'}',
                       ),
                       style: TextStyle(
-                        
-                        color: Colors.white,
+                        color: colorScheme.onSurfaceVariant,
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
                       ),
@@ -337,8 +351,7 @@ class _VitoMarketOrderTrackingScreenState
                         '${captain['vehicle_plate'] ?? '-'}',
                       ),
                       style: TextStyle(
-                        
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        color: colorScheme.onSurfaceVariant,
                         fontSize: 11,
                       ),
                     ),
@@ -346,8 +359,7 @@ class _VitoMarketOrderTrackingScreenState
                       Text(
                         _eta()!,
                         style: TextStyle(
-                          
-                          color: AppTheme.gold,
+                          color: isDark ? AppTheme.gold : colorScheme.primary,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -373,8 +385,8 @@ class _VitoMarketOrderTrackingScreenState
                   icon: Icon(Icons.chat_bubble),
                   label: Text(context.strings.marketTracking3150a947),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.gold,
-                    foregroundColor: AppTheme.primary,
+                    backgroundColor: isDark ? AppTheme.gold : colorScheme.primary,
+                    foregroundColor: isDark ? AppTheme.primary : Colors.white,
                   ),
                 ),
               ),
@@ -450,68 +462,75 @@ class _VitoMarketOrderTrackingScreenState
       ],
     ),
   );
-  Widget _storeCard() => Container(
-    padding: EdgeInsets.all(15),
-    decoration: _decoration(),
-    child: Row(
-      children: [
-        Icon(Icons.storefront, color: AppTheme.gold, size: 32),
-        SizedBox(width: 10),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                store['name']?.toString() ??
-                    context.strings.marketTracking4c5cf17e,
-                style: TextStyle(
-                  
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              Text(
-                store['address']?.toString() ?? '',
-                style: TextStyle(
-                  
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ],
+  Widget _storeCard() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      padding: EdgeInsets.all(15),
+      decoration: _decoration(),
+      child: Row(
+        children: [
+          Icon(
+            Icons.storefront,
+            color: isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary,
+            size: 32,
           ),
-        ),
-      ],
-    ),
-  );
-  Widget _line(String label, dynamic value, {bool strong = false}) => Padding(
-    padding: EdgeInsets.symmetric(vertical: 3),
-    child: Row(
-      children: [
-        Expanded(
-          child: Text(
-            label,
-            style: TextStyle(
-              
-              color: strong
-                  ? Theme.of(context).colorScheme.onSurface
-                  : Theme.of(context).colorScheme.onSurfaceVariant,
-              fontWeight: strong ? FontWeight.w800 : null,
+          SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  store['name']?.toString() ??
+                      context.strings.marketTracking4c5cf17e,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                Text(
+                  store['address']?.toString() ?? '',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        Text(
-          _amountLabel(value),
-          style: TextStyle(
-            
-            color: strong
-                ? AppTheme.gold
-                : Theme.of(context).colorScheme.onSurface,
-            fontWeight: FontWeight.w700,
+        ],
+      ),
+    );
+  }
+
+  Widget _line(String label, dynamic value, {bool strong = false}) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(
+                color: strong
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
+                fontWeight: strong ? FontWeight.w800 : null,
+              ),
+            ),
           ),
-        ),
-      ],
-    ),
-  );
+          Text(
+            _amountLabel(value),
+            style: TextStyle(
+              color: strong
+                  ? (isDark ? AppTheme.gold : const Color(0xFF10B981))
+                  : Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
   bool get _chatOpen => {
     'captain_assigned',
     'ready_for_pickup',
@@ -599,15 +618,20 @@ class _VitoMarketOrderTrackingScreenState
         : LatLng(x, y);
   }
 
-  BoxDecoration _decoration({bool gold = false}) => BoxDecoration(
-    color: Theme.of(context).colorScheme.surface,
-    borderRadius: BorderRadius.circular(20),
-    border: Border.all(
-      color: gold
-          ? AppTheme.gold.withValues(alpha: .35)
-          : Theme.of(context).colorScheme.outlineVariant,
-    ),
-  );
+  BoxDecoration _decoration({bool gold = false}) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return BoxDecoration(
+      color: Theme.of(context).colorScheme.surface,
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(
+        color: gold
+            ? (isDark
+                ? AppTheme.gold.withValues(alpha: .35)
+                : Theme.of(context).colorScheme.primary.withValues(alpha: .35))
+            : Theme.of(context).colorScheme.outlineVariant,
+      ),
+    );
+  }
   Map<String, dynamic> _map(dynamic v) =>
       v is Map ? Map<String, dynamic>.from(v) : {};
   List<Map<String, dynamic>> _list(dynamic v) => v is List
@@ -718,89 +742,96 @@ class _MarketChatSheetState extends State<_MarketChatSheet> {
   }
 
   @override
-  Widget build(BuildContext context) => Directionality(
-    textDirection: Directionality.of(context),
-    child: Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
-      child: SizedBox(
-        height: MediaQuery.sizeOf(context).height * .72,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                context.strings.marketTrackingaed070ad,
-                style: TextStyle(
-                  
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colorScheme = Theme.of(context).colorScheme;
+    return Directionality(
+      textDirection: Directionality.of(context),
+      child: Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
+        child: SizedBox(
+          height: MediaQuery.sizeOf(context).height * .72,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  context.strings.marketTrackingaed070ad,
+                  style: TextStyle(
+                    color: colorScheme.onSurface,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                padding: EdgeInsets.all(12),
-                itemCount: messages.length,
-                itemBuilder: (_, i) {
-                  final m = messages[i],
-                      mine =
-                          m['sender_user_id'] ==
-                          SupabaseService.instance.currentUser?.id;
-                  return Align(
-                    alignment: mine
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 7),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 9,
-                      ),
-                      decoration: BoxDecoration(
-                        color: mine
-                            ? AppTheme.gold
-                            : Theme.of(context).colorScheme.surfaceVariant,
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Text(
-                        m['message_text']?.toString() ?? '',
-                        style: TextStyle(
-                          
+              Expanded(
+                child: ListView.builder(
+                  padding: EdgeInsets.all(12),
+                  itemCount: messages.length,
+                  itemBuilder: (_, i) {
+                    final m = messages[i],
+                        mine =
+                            m['sender_user_id'] ==
+                            SupabaseService.instance.currentUser?.id;
+                    return Align(
+                      alignment: mine
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 7),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 9,
+                        ),
+                        decoration: BoxDecoration(
                           color: mine
-                              ? AppTheme.primary
-                              : Theme.of(context).colorScheme.onSurface,
+                              ? (isDark ? AppTheme.gold : colorScheme.primary)
+                              : (isDark
+                                  ? const Color(0xFF1E2638)
+                                  : colorScheme.surfaceContainerHighest),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Text(
+                          m['message_text']?.toString() ?? '',
+                          style: TextStyle(
+                            color: mine
+                                ? (isDark ? AppTheme.primary : Colors.white)
+                                : colorScheme.onSurface,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: input,
+                        maxLength: 1000,
+                        decoration: InputDecoration(
+                          hintText: context.strings.marketTrackingcb7741fc,
+                          counterText: '',
                         ),
                       ),
                     ),
-                  );
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: input,
-                      maxLength: 1000,
-                      decoration: InputDecoration(
-                        hintText: context.strings.marketTrackingcb7741fc,
-                        counterText: '',
+                    IconButton(
+                      onPressed: sending ? null : _send,
+                      icon: Icon(
+                        Icons.send,
+                        color: isDark ? AppTheme.gold : colorScheme.primary,
                       ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: sending ? null : _send,
-                    icon: Icon(Icons.send, color: AppTheme.gold),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

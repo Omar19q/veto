@@ -82,11 +82,12 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
       // A local platform read must never hold the booking UI in loading state.
       unawaited(_restorePickup(id, saved));
     } catch (_) {
-      if (mounted && id == widget.customerId)
+      if (mounted && id == widget.customerId) {
         setState(() {
           _loading = false;
           _failed = true;
         });
+      }
     }
   }
 
@@ -122,6 +123,8 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
     final scale = MediaQuery.textScalerOf(context).scale(14);
+    final isDark = theme.brightness == Brightness.dark;
+    final onFilledColor = isDark ? const Color(0xFF111827) : Colors.white;
     final compactLabels = scale <= 19;
     final pickupName = _pickup?.label ?? widget.pickupCaption;
     final services = <({String id, String label})>[
@@ -179,12 +182,12 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.search_rounded, size: 21),
+                Icon(Icons.search_rounded, size: 21, color: onFilledColor),
                 const SizedBox(width: 8),
                 Text(
                   l.whereTo,
                   style: theme.textTheme.titleMedium?.copyWith(
-                    color: const Color(0xFF111827),
+                    color: onFilledColor,
                     fontWeight: FontWeight.w800,
                   ),
                 ),

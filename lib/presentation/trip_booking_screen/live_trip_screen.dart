@@ -13,7 +13,7 @@ import '../../services/trip_data_v10.dart';
 import '../../widgets/trip_loading_v10.dart';
 import 'package:flutter/material.dart';
 import 'widgets/smooth_live_trip_map.dart';
-import '../../widgets/trip_chat_button.dart';
+import '../../services/trip_chat_inbox.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -92,8 +92,9 @@ class _LiveTripScreenState extends State<LiveTripScreen>
     try {
       final permission = await Geolocator.checkPermission();
       if (permission != LocationPermission.always &&
-          permission != LocationPermission.whileInUse)
+          permission != LocationPermission.whileInUse) {
         return;
+      }
       if (!mounted || _customerGps != null) return;
       _customerGps =
           Geolocator.getPositionStream(
@@ -107,8 +108,9 @@ class _LiveTripScreenState extends State<LiveTripScreen>
                   !_appInForeground ||
                   (_lastCustomerFix != null &&
                       DateTime.now().difference(_lastCustomerFix!) <
-                          const Duration(seconds: 10)))
+                          const Duration(seconds: 10))) {
                 return;
+              }
               _lastCustomerFix = DateTime.now();
               setState(() => _customerPosition = p);
             },
@@ -170,11 +172,12 @@ class _LiveTripScreenState extends State<LiveTripScreen>
       _subscribeToTrip();
       _applyTripUpdate(trip);
     } catch (error) {
-      if (mounted)
+      if (mounted) {
         setState(() {
           _loading = false;
           _loadError = tripLoadErrorV10(error);
         });
+      }
     } finally {
       _loadInFlight = false;
     }
@@ -486,16 +489,21 @@ class _LiveTripScreenState extends State<LiveTripScreen>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primary = Theme.of(context).colorScheme.primary;
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: AppTheme.backgroundDark,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: AppTheme.primary,
-          foregroundColor: Colors.white,
-          title:  Text(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          foregroundColor: Theme.of(context).colorScheme.onSurface,
+          elevation: isDark ? 0 : 0.5,
+          shadowColor: Colors.black12,
+          title: Text(
             context.strings.live99f2c8a6,
-            style: TextStyle( fontWeight: FontWeight.w700),
+            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
           ),
           centerTitle: true,
           actions: [
@@ -503,16 +511,15 @@ class _LiveTripScreenState extends State<LiveTripScreen>
               onPressed: _syncingTrip
                   ? null
                   : () => _refreshTripStatus(manual: true),
-              icon: const Icon(Icons.refresh_rounded, size: 18),
-              label:  Text(
+              icon: Icon(Icons.refresh_rounded, size: 18, color: primary),
+              label: Text(
                 context.strings.livedcf45bf6,
                 style: TextStyle(
-                  
-                  fontSize: 11,
+                  color: primary,
+                  fontSize: 12,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              style: TextButton.styleFrom(foregroundColor: AppTheme.gold),
             ),
           ],
           leading: IconButton(
@@ -547,8 +554,7 @@ class _LiveTripScreenState extends State<LiveTripScreen>
             Text(
               _loadError ?? context.strings.live9a86a128,
               style: TextStyle(
-                
-                color: AppTheme.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
               ),
@@ -559,12 +565,12 @@ class _LiveTripScreenState extends State<LiveTripScreen>
                 _loadTrip();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.gold,
-                foregroundColor: AppTheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
-              child:  Text(
+              child: Text(
                 context.strings.live14d5786f,
-                style: TextStyle(),
               ),
             ),
           ],
@@ -588,103 +594,79 @@ class _LiveTripScreenState extends State<LiveTripScreen>
   // ===========================================================================
 
   Widget _buildSearching() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primary = Theme.of(context).colorScheme.primary;
     final status = _trip?['trip_status']?.toString();
-
     final note = _trip?['customer_note']?.toString();
-
     final incentive = _number(_trip?['incentive_amount']);
 
     return SafeArea(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(18),
-
         child: Column(
           children: [
             Container(
               width: double.infinity,
-
-              padding: const EdgeInsets.all(20),
-
+              padding: const EdgeInsets.all(22),
               decoration: BoxDecoration(
-                color: AppTheme.surface,
-
-                borderRadius: BorderRadius.circular(20),
-
-                border: Border.all(color: AppTheme.cardBorder),
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(22),
+                border: Border.all(
+                  color: isDark ? const Color(0xFF2A3355) : const Color(0xFFE2E8F0),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: isDark ? const Color(0x33000000) : const Color(0x0A0F172A),
+                    blurRadius: 16,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
-
               child: Column(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.radar_rounded,
-
-                    color: AppTheme.gold,
-
+                    color: primary,
                     size: 64,
                   ),
-
                   const SizedBox(height: 14),
-
                   Text(
                     status == 'offer_received'
                         ? context.strings.live5a6daebf
                         : context.strings.live3c6518b4,
-
-                    style: const TextStyle(
-                      
-
-                      color: AppTheme.textPrimary,
-
+                    style: TextStyle(
+                      color: isDark ? Colors.white : const Color(0xFF0F172A),
                       fontSize: 20,
-
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-
                   const SizedBox(height: 8),
-
-                   Text(
+                  Text(
                     context.strings.live4babb638,
-
                     textAlign: TextAlign.center,
-
                     style: TextStyle(
-                      
-
-                      color: AppTheme.textSecondary,
+                      color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                     ),
                   ),
                 ],
               ),
             ),
-
             const SizedBox(height: 14),
-
-            _buildTripInfoCard(),
-
+            _buildRouteTimeline(),
             if (note != null && note.trim().isNotEmpty) ...[
               const SizedBox(height: 14),
-
               _buildNoteCard(note),
             ],
-
             if (incentive > 0) ...[
               const SizedBox(height: 14),
-
               _buildIncentiveCard(incentive),
             ],
-
+            const SizedBox(height: 24),
+            CircularProgressIndicator(color: primary),
             const SizedBox(height: 20),
-
-            const CircularProgressIndicator(color: AppTheme.gold),
-
-            const SizedBox(height: 14),
-
             if (status != 'completed' && status != 'cancelled')
               _buildTripSupportButton(),
-
-            const SizedBox(height: 20),
-
+            const SizedBox(height: 14),
             if (_canCancel) _buildCancelButton(),
           ],
         ),
@@ -693,15 +675,17 @@ class _LiveTripScreenState extends State<LiveTripScreen>
   }
 
   // ===========================================================================
-
   // LIVE TRIP
-
   // ===========================================================================
 
   Widget _buildLiveTrip() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final status = _trip?['trip_status']?.toString();
 
-    final captainName = _stringValue(_captain?['full_name'], context.strings.live2f225a03);
+    final captainName = _stringValue(
+      _captain?['full_name'],
+      context.strings.live2f225a03,
+    );
 
     final phone = _firstString(_captain, const [
       'phone',
@@ -722,17 +706,11 @@ class _LiveTripScreenState extends State<LiveTripScreen>
     ]);
 
     final incentive = _number(_trip?['incentive_amount']);
-
     final captainLat = _numberOrNull(_captain?['current_latitude']);
-
     final captainLng = _numberOrNull(_captain?['current_longitude']);
-
     final pickupLat = _numberOrNull(_trip?['pickup_latitude']);
-
     final pickupLng = _numberOrNull(_trip?['pickup_longitude']);
-
     final destinationLat = _numberOrNull(_trip?['destination_latitude']);
-
     final destinationLng = _numberOrNull(_trip?['destination_longitude']);
 
     return Stack(
@@ -762,42 +740,57 @@ class _LiveTripScreenState extends State<LiveTripScreen>
           child: _buildStatusHeader(status),
         ),
         DraggableScrollableSheet(
-          initialChildSize: status=='completed' ? .62 : .36,
+          initialChildSize: status == 'completed' ? .62 : .38,
           minChildSize: .24,
-          maxChildSize: .82,
+          maxChildSize: .85,
           snap: true,
           builder: (context, controller) => Container(
-            decoration: const BoxDecoration(
-              color: AppTheme.surface,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
+              boxShadow: [
+                BoxShadow(
+                  color: isDark ? Colors.black.withValues(alpha: 0.5) : const Color(0x1A0F172A),
+                  blurRadius: 24,
+                  offset: const Offset(0, -6),
+                ),
+              ],
             ),
             child: ListView(
               controller: controller,
               padding: const EdgeInsets.fromLTRB(16, 10, 16, 30),
               children: [
-                if(_trip?['ride_category_id_v3']!=null)...[if(const {'accepted','arriving','arrived'}.contains(status))CustomerTripSafetyCode(tripId:_trip!['id'].toString()),TripPromisePanel(tripId:_trip!['id'].toString(),status:'${_trip!['trip_status']}')],
+                if (_trip?['ride_category_id_v3'] != null) ...[
+                  if (const {'accepted', 'arriving', 'arrived'}.contains(status))
+                    CustomerTripSafetyCode(tripId: _trip!['id'].toString()),
+                  TripPromisePanel(
+                    tripId: _trip!['id'].toString(),
+                    status: '${_trip!['trip_status']}',
+                  ),
+                ],
                 Center(
                   child: Container(
                     width: 44,
                     height: 4,
                     margin: const EdgeInsets.only(bottom: 12),
                     decoration: BoxDecoration(
-                      color: AppTheme.textSecondary.withValues(alpha: .3),
+                      color: isDark
+                          ? const Color(0xFF334155)
+                          : const Color(0xFFCBD5E1),
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                 ),
-                if(status=='completed')_buildPaymentCard(status),
-                _buildCaptainCard(
+                if (status == 'completed') _buildPaymentCard(status),
+                _buildModernDriverHeader(
                   name: captainName,
                   phone: phone,
                   photo: photo,
                 ),
                 const SizedBox(height: 12),
-                _buildTripInfoCard(),
+                _buildPaymentMethodStrip(),
                 const SizedBox(height: 12),
-                _buildChatCard(),
-
+                _buildRouteTimeline(),
                 if (incentive > 0 && status != 'completed') ...[
                   const SizedBox(height: 12),
                   _buildIncentiveCard(incentive),
@@ -823,16 +816,21 @@ class _LiveTripScreenState extends State<LiveTripScreen>
   }
 
   Widget _buildStatusHeader(String? status) {
-    final accent = _statusColor(status);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final accent = _statusColor(status, isDark: isDark);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
       decoration: BoxDecoration(
-        color: const Color(0xEE10192B),
+        color: isDark ? const Color(0xEE10192B) : Colors.white.withValues(alpha: 0.95),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: accent.withValues(alpha: .55)),
-        boxShadow: const [
-          BoxShadow(color: Color(0x33000000), blurRadius: 18, offset: Offset(0, 6)),
+        border: Border.all(color: accent.withValues(alpha: isDark ? 0.45 : 0.35)),
+        boxShadow: [
+          BoxShadow(
+            color: isDark ? const Color(0x33000000) : const Color(0x140F172A),
+            blurRadius: 18,
+            offset: const Offset(0, 6),
+          ),
         ],
       ),
       child: Row(
@@ -841,7 +839,7 @@ class _LiveTripScreenState extends State<LiveTripScreen>
             width: 42,
             height: 42,
             decoration: BoxDecoration(
-              color: accent.withValues(alpha: .16),
+              color: accent.withValues(alpha: 0.15),
               shape: BoxShape.circle,
             ),
             child: Icon(_statusIcon(status), color: accent),
@@ -853,9 +851,8 @@ class _LiveTripScreenState extends State<LiveTripScreen>
               children: [
                 Text(
                   _statusLabel(status),
-                  style: const TextStyle(
-                    
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: isDark ? Colors.white : const Color(0xFF0F172A),
                     fontWeight: FontWeight.w900,
                     fontSize: 15,
                   ),
@@ -863,9 +860,8 @@ class _LiveTripScreenState extends State<LiveTripScreen>
                 const SizedBox(height: 2),
                 Text(
                   _statusSubtitle(status),
-                  style: const TextStyle(
-                    
-                    color: Color(0xFFC9D3E7),
+                  style: TextStyle(
+                    color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                     fontWeight: FontWeight.w600,
                     fontSize: 11.5,
                   ),
@@ -878,11 +874,31 @@ class _LiveTripScreenState extends State<LiveTripScreen>
     );
   }
 
-  Widget _buildCaptainCard({
+  Widget _buildModernDriverHeader({
     required String name,
     required String? phone,
     required String? photo,
   }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primary = Theme.of(context).colorScheme.primary;
+    final rating = _numberOrNull(_captain?['rating']) ??
+        _numberOrNull(_captain?['captain_rating']) ??
+        4.9;
+    final vehicleModel = _firstString(_captain, const [
+      'vehicle_model',
+      'car_model',
+      'vehicle_brand',
+      'car_brand',
+    ]) ?? '';
+    final plateNumber = _firstString(_captain, const [
+      'plate_number',
+      'vehicle_plate',
+      'car_plate',
+    ]) ?? '';
+    final vehicleDetails = [vehicleModel, plateNumber]
+        .where((s) => s.trim().isNotEmpty)
+        .join(' • ');
+
     return GestureDetector(
       onTap: () => showModalBottomSheet(
         context: context,
@@ -892,191 +908,450 @@ class _LiveTripScreenState extends State<LiveTripScreen>
       ),
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
-          color: AppTheme.surface,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: AppTheme.cardBorder),
+          color: isDark ? const Color(0xFF161F30) : const Color(0xFFF8FAFC),
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: isDark ? const Color(0xFF2A3355) : const Color(0xFFE2E8F0),
+          ),
         ),
         child: Row(
           children: [
-            _ProfileAvatar(imageUrl: photo, radius: 34),
-            const SizedBox(width: 12),
+            // Circular action buttons (Chat & Call) on left
+            ListenableBuilder(
+              listenable: TripChatInbox.instance,
+              builder: (context, _) {
+                final hasUnread = TripChatInbox.instance.hasUnread(widget.tripId);
+                return _buildCircleActionButton(
+                  icon: Icons.chat_bubble_rounded,
+                  isDark: isDark,
+                  color: primary,
+                  hasBadge: hasUnread,
+                  onPressed: () => context.push('/trip-chat?tripId=${widget.tripId}'),
+                );
+              },
+            ),
+            const SizedBox(width: 8),
+            if (phone != null && phone.trim().isNotEmpty)
+              _buildCircleActionButton(
+                icon: Icons.phone_rounded,
+                isDark: isDark,
+                color: const Color(0xFF10B981),
+                onPressed: () => _callNumber(phone),
+              ),
+            const SizedBox(width: 14),
+            // Driver info in center
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
-                    context.strings.live2f225a03,
-                    style: TextStyle(
-                      
-                      color: AppTheme.textSecondary,
-                      fontSize: 11,
-                    ),
-                  ),
                   Text(
                     name,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      
-                      color: AppTheme.textPrimary,
-                      fontSize: 17,
+                    style: TextStyle(
+                      color: isDark ? Colors.white : const Color(0xFF0F172A),
+                      fontSize: 16,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-                  if (phone != null && phone.trim().isNotEmpty)
-                    Text(
-                      phone,
-                      style: const TextStyle(
-                        
-                        color: AppTheme.textSecondary,
-                        fontSize: 12,
+                  const SizedBox(height: 4),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.star_rounded, color: Color(0xFFFFB800), size: 16),
+                      const SizedBox(width: 3),
+                      Text(
+                        rating.toStringAsFixed(1),
+                        style: TextStyle(
+                          color: isDark ? Colors.white : const Color(0xFF0F172A),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
+                      if (vehicleDetails.isNotEmpty) ...[
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            '• $vehicleDetails',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
                 ],
               ),
             ),
-            if (phone != null && phone.trim().isNotEmpty)
-              IconButton(
-                tooltip: context.strings.live606af07c,
-                onPressed: () {
-                  _callNumber(phone);
-                },
-                icon: const Icon(
-                  Icons.phone_rounded,
-                  color: AppTheme.successLight,
+            const SizedBox(width: 10),
+            // Driver avatar with small car badge
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                _ProfileAvatar(imageUrl: photo, radius: 26),
+                Positioned(
+                  bottom: -2,
+                  right: -2,
+                  child: Container(
+                    padding: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: primary,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: isDark ? const Color(0xFF161F30) : Colors.white,
+                        width: 1.5,
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.directions_car_rounded,
+                      size: 11,
+                      color: isDark ? const Color(0xFF0B0F19) : Colors.white,
+                    ),
+                  ),
                 ),
-              ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
 
-  // ===========================================================================
-  // TRIP INFO
-  // ===========================================================================
+  Widget _buildCircleActionButton({
+    required IconData icon,
+    required bool isDark,
+    required Color color,
+    required VoidCallback onPressed,
+    bool hasBadge = false,
+  }) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Material(
+          color: color.withValues(alpha: isDark ? 0.16 : 0.10),
+          shape: const CircleBorder(),
+          child: InkWell(
+            customBorder: const CircleBorder(),
+            onTap: onPressed,
+            child: SizedBox(
+              width: 42,
+              height: 42,
+              child: Icon(
+                icon,
+                size: 20,
+                color: color,
+              ),
+            ),
+          ),
+        ),
+        if (hasBadge)
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Container(
+              width: 10,
+              height: 10,
+              decoration: BoxDecoration(
+                color: Colors.redAccent,
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isDark ? const Color(0xFF161F30) : Colors.white,
+                  width: 1.5,
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
 
-  Widget _buildTripInfoCard() {
-    final pickup =
-        _firstString(_trip, const ['pickup_address', 'pickup_name']) ??
+  Widget _buildPaymentMethodStrip() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final paymentMethod = _trip?['payment_method']?.toString() ?? 'cash';
+    final isCash = paymentMethod == 'cash' || paymentMethod == 'نقدي';
+    final methodLabel = isCash ? 'الدفع نقداً عند الوصول' : 'محفظة فيتو الرقمية';
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF161F30) : const Color(0xFFF8FAFC),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isDark ? const Color(0xFF2A3355) : const Color(0xFFE2E8F0),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(7),
+            decoration: BoxDecoration(
+              color: const Color(0xFF10B981).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Icon(
+              Icons.payments_rounded,
+              color: Color(0xFF10B981),
+              size: 18,
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              methodLabel,
+              style: TextStyle(
+                color: isDark ? const Color(0xFFE2E8F0) : const Color(0xFF334155),
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          Icon(
+            Icons.chevron_left_rounded,
+            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+            size: 20,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRouteTimeline() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primary = Theme.of(context).colorScheme.primary;
+    final pickup = _firstString(_trip, const ['pickup_address', 'pickup_name']) ??
         context.strings.live5a0374f3;
+    final destination = _firstString(_trip, const [
+      'destination_address',
+      'destination_name',
+    ]) ?? context.strings.live5a0374f3;
 
-    final destination =
-        _firstString(_trip, const [
-          'destination_address',
-          'destination_name',
-        ]) ??
-        context.strings.live5a0374f3;
-
-    final service =
-        _trip?['service_type']?.toString() ??
+    final service = _trip?['service_type']?.toString() ??
         _trip?['vehicle_type']?.toString() ??
         context.strings.livea674a023;
+    final categoryText = tripCategoryLabel(context, _trip ?? {}, _serviceLabel(service));
 
     final distance = _numberOrNull(_trip?['distance_km']);
-
     final duration = _numberOrNull(_trip?['duration_minutes']);
+    final fare = _numberOrNull(_trip?['final_fare'] ?? _trip?['estimated_fare'] ?? _trip?['fare_amount']);
 
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.surface,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppTheme.cardBorder),
+        color: isDark ? const Color(0xFF161F30) : const Color(0xFFF8FAFC),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isDark ? const Color(0xFF2A3355) : const Color(0xFFE2E8F0),
+        ),
       ),
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(Icons.directions_car_rounded, color: AppTheme.gold),
-              const SizedBox(width: 8),
-               Text(
-                context.strings.liveb075cda8,
-                style: TextStyle(
-                  
-                  color: AppTheme.textPrimary,
-                  fontWeight: FontWeight.w800,
-                ),
+              // Vertical timeline line and dots
+              Column(
+                children: [
+                  Container(
+                    width: 14,
+                    height: 14,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: primary, width: 3),
+                      color: isDark ? const Color(0xFF111827) : Colors.white,
+                    ),
+                  ),
+                  Container(
+                    width: 2,
+                    height: 38,
+                    color: isDark ? const Color(0xFF2A3355) : const Color(0xFFCBD5E1),
+                  ),
+                  Container(
+                    width: 14,
+                    height: 14,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF10B981),
+                    ),
+                  ),
+                ],
               ),
-              const Spacer(),
-              Text(
-                tripCategoryLabel(context,_trip??{},_serviceLabel(service)),
-                style: const TextStyle(
-                  
-                  color: AppTheme.gold,
-                  fontWeight: FontWeight.w700,
+              const SizedBox(width: 12),
+              // Addresses
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      context.strings.liveae7ae56d,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      pickup,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        color: isDark ? Colors.white : const Color(0xFF0F172A),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      context.strings.live8b068efc,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      destination,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        color: isDark ? Colors.white : const Color(0xFF0F172A),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          _InfoRow(
-            label: context.strings.liveae7ae56d,
-            value: pickup,
-            icon: Icons.my_location_rounded,
+          const SizedBox(height: 14),
+          Divider(
+            height: 1,
+            color: isDark ? const Color(0xFF2A3355) : const Color(0xFFE2E8F0),
           ),
           const SizedBox(height: 12),
-          _InfoRow(
-            label: context.strings.live8b068efc,
-            value: destination,
-            icon: Icons.location_on_rounded,
+          Row(
+            children: [
+              _buildMetricPill(
+                icon: Icons.directions_car_rounded,
+                label: categoryText,
+                isDark: isDark,
+              ),
+              if (distance != null) ...[
+                const SizedBox(width: 8),
+                _buildMetricPill(
+                  icon: Icons.route_rounded,
+                  label: context.strings.distanceValue(distance.toStringAsFixed(1)),
+                  isDark: isDark,
+                ),
+              ],
+              if (duration != null) ...[
+                const SizedBox(width: 8),
+                _buildMetricPill(
+                  icon: Icons.schedule_rounded,
+                  label: context.strings.durationValue(duration.toStringAsFixed(0)),
+                  isDark: isDark,
+                ),
+              ],
+              const Spacer(),
+              if (fare != null)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF10B981).withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    context.strings.moneyValue(fare.toStringAsFixed(0)),
+                    style: const TextStyle(
+                      color: Color(0xFF10B981),
+                      fontWeight: FontWeight.w800,
+                      fontSize: 13,
+                    ),
+                  ),
+                ),
+            ],
           ),
-          if (distance != null) ...[
-            const SizedBox(height: 12),
-            _InfoRow(
-              label: context.strings.livedd00b654,
-              value: context.strings.distanceValue(distance.toStringAsFixed(1)),
-              icon: Icons.route_rounded,
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMetricPill({
+    required IconData icon,
+    required String label,
+    required bool isDark,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0).withValues(alpha: 0.6),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 14,
+            color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
+          ),
+          const SizedBox(width: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 11.5,
+              fontWeight: FontWeight.w600,
+              color: isDark ? const Color(0xFFE2E8F0) : const Color(0xFF334155),
             ),
-          ],
-          if (duration != null) ...[
-            const SizedBox(height: 12),
-            _InfoRow(
-              label: context.strings.livea7947509,
-              value: context.strings.durationValue(duration.toStringAsFixed(0)),
-              icon: Icons.schedule_rounded,
-            ),
-          ],
+          ),
         ],
       ),
     );
   }
 
   Widget _buildNoteCard(String note) {
+    final primary = Theme.of(context).colorScheme.primary;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.gold.withAlpha(18),
+        color: primary.withValues(alpha: isDark ? 0.08 : 0.05),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppTheme.gold.withAlpha(90)),
+        border: Border.all(color: primary.withValues(alpha: isDark ? 0.35 : 0.2)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.sticky_note_2_rounded, color: AppTheme.gold),
+          Icon(Icons.sticky_note_2_rounded, color: primary),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   context.strings.live65fc6a0a,
                   style: TextStyle(
-                    
-                    color: AppTheme.textPrimary,
+                    color: isDark ? Colors.white : const Color(0xFF0F172A),
                     fontWeight: FontWeight.w800,
                   ),
                 ),
                 const SizedBox(height: 5),
                 Text(
                   note,
-                  style: const TextStyle(
-                    
-                    color: AppTheme.textSecondary,
+                  style: TextStyle(
+                    color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                   ),
                 ),
               ],
@@ -1088,24 +1363,25 @@ class _LiveTripScreenState extends State<LiveTripScreen>
   }
 
   Widget _buildIncentiveCard(double incentive) {
+    const successColor = Color(0xFF10B981);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.successLight.withAlpha(18),
+        color: successColor.withValues(alpha: isDark ? 0.10 : 0.06),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: AppTheme.successLight.withAlpha(90)),
+        border: Border.all(color: successColor.withValues(alpha: isDark ? 0.35 : 0.25)),
       ),
       child: Row(
         children: [
-          const Icon(Icons.card_giftcard_rounded, color: AppTheme.successLight),
+          const Icon(Icons.card_giftcard_rounded, color: successColor),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               context.strings.liveIncentive(incentive.toStringAsFixed(2)),
-              style: const TextStyle(
-                
-                color: AppTheme.textPrimary,
+              style: TextStyle(
+                color: isDark ? Colors.white : const Color(0xFF0F172A),
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -1128,29 +1404,27 @@ class _LiveTripScreenState extends State<LiveTripScreen>
 
   // ===========================================================================
 
-  Widget _buildChatCard() =>
-      TripChatButton(tripId: widget.tripId, label: context.strings.live15d8bb61);
-
   Widget _buildCancelButton() {
     return SizedBox(
       width: double.infinity,
+      height: 48,
       child: OutlinedButton.icon(
         onPressed: _canceling ? null : _cancelTrip,
         icon: _canceling
             ? const SizedBox(
                 width: 17,
                 height: 17,
-                child: CircularProgressIndicator(strokeWidth: 2),
+                child: CircularProgressIndicator(strokeWidth: 2, color: AppTheme.errorLight),
               )
-            : const Icon(Icons.cancel_outlined),
-        label:  Text(
+            : const Icon(Icons.cancel_outlined, size: 19),
+        label: Text(
           context.strings.live6aef022f,
-          style: TextStyle( fontWeight: FontWeight.w700),
+          style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
         ),
         style: OutlinedButton.styleFrom(
           foregroundColor: AppTheme.errorLight,
-          side: const BorderSide(color: AppTheme.errorLight),
-          padding: const EdgeInsets.symmetric(vertical: 13),
+          side: const BorderSide(color: AppTheme.errorLight, width: 1.4),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
       ),
     );
@@ -1229,20 +1503,20 @@ class _LiveTripScreenState extends State<LiveTripScreen>
     }
   }
 
-  Color _statusColor(String? status) {
+  Color _statusColor(String? status, {bool isDark = true}) {
     switch (status) {
       case 'accepted':
-        return const Color(0xFF64B5F6);
+        return isDark ? const Color(0xFF64B5F6) : const Color(0xFF3B82F6);
       case 'arriving':
-        return AppTheme.gold;
+        return isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
       case 'arrived':
       case 'started':
       case 'completed':
-        return AppTheme.successLight;
+        return const Color(0xFF10B981);
       case 'cancelled':
         return AppTheme.errorLight;
       default:
-        return AppTheme.textSecondary;
+        return isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B);
     }
   }
 
@@ -1324,11 +1598,13 @@ class _LiveTripScreenState extends State<LiveTripScreen>
     try {
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri);
-      } else {
+      } else if (mounted) {
         _showError(context.strings.livec9a1bb1e);
       }
     } catch (_) {
-      _showError(context.strings.livec9a1bb1e);
+      if (mounted) {
+        _showError(context.strings.livec9a1bb1e);
+      }
     }
   }
 
@@ -1345,57 +1621,6 @@ class _LiveTripScreenState extends State<LiveTripScreen>
         backgroundColor: AppTheme.errorLight,
         behavior: SnackBarBehavior.floating,
       ),
-    );
-  }
-}
-
-// ============================================================================
-// INFO ROW
-// ============================================================================
-
-class _InfoRow extends StatelessWidget {
-  final String label;
-  final String value;
-  final IconData icon;
-
-  const _InfoRow({
-    required this.label,
-    required this.value,
-    required this.icon,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, color: AppTheme.gold, size: 20),
-        const SizedBox(width: 10),
-        SizedBox(
-          width: 65,
-          child: Text(
-            label,
-            style: const TextStyle(
-              
-              color: AppTheme.textSecondary,
-              fontSize: 11,
-            ),
-          ),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(
-            value,
-            textAlign: TextAlign.right,
-            style: const TextStyle(
-              
-              color: AppTheme.textPrimary,
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

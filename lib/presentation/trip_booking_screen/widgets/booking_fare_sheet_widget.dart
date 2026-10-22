@@ -399,15 +399,18 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
     final isPackage =
         widget.serviceId == 'package' || widget.serviceId == 'package_delivery';
 
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryAccent = isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary;
+
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black54,
+            color: isDark ? Colors.black54 : Colors.black.withAlpha(25),
             blurRadius: 30,
-            offset: Offset(0, -4),
+            offset: const Offset(0, -4),
           ),
         ],
       ),
@@ -538,7 +541,7 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                           min: 1,
                           max: 30,
                           divisions: 29,
-                          activeColor: AppTheme.gold,
+                          activeColor: primaryAccent,
                           inactiveColor: Theme.of(
                             context,
                           ).colorScheme.surfaceContainerHighest,
@@ -552,15 +555,15 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                       if (widget.availableGrowthDiscount > 0) ...[
                         const SizedBox(height: 12),
                         Material(
-                          color: AppTheme.gold.withAlpha(20),
+                          color: primaryAccent.withAlpha(20),
                           borderRadius: BorderRadius.circular(16),
                           child: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.card_giftcard_rounded,
-                                  color: AppTheme.gold,
+                                  color: primaryAccent,
                                   size: 27,
                                 ),
                                 const SizedBox(width: 10),
@@ -601,7 +604,7 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                                 Switch.adaptive(
                                   value: widget.useEarnedDiscount,
                                   onChanged: widget.onEarnedDiscountChanged,
-                                  activeTrackColor: AppTheme.gold,
+                                  activeTrackColor: primaryAccent,
                                 ),
                               ],
                             ),
@@ -658,8 +661,8 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                             ElevatedButton(
                               onPressed: _promoLoading ? null : _applyPromo,
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: AppTheme.gold,
-                                foregroundColor: AppTheme.primary,
+                                backgroundColor: primaryAccent,
+                                foregroundColor: isDark ? AppTheme.primary : Colors.white,
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 14,
                                   vertical: 15,
@@ -913,8 +916,9 @@ class _BookingFareSheetWidgetState extends State<BookingFareSheetWidget> {
                       child: Text(context.strings.uia39f7a83),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppTheme.gold,
-                      foregroundColor: AppTheme.primary,
+                      backgroundColor: primaryAccent,
+                      foregroundColor: isDark ? AppTheme.primary : Colors.white,
+                      elevation: 0,
                       minimumSize: const Size(48, 52),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
@@ -1057,7 +1061,13 @@ class _InfoBox extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Icon(icon, size: 17, color: AppTheme.gold),
+          Icon(
+            icon,
+            size: 17,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppTheme.gold
+                : Theme.of(context).colorScheme.primary,
+          ),
           const SizedBox(height: 3),
           Text(
             label,
@@ -1117,13 +1127,24 @@ class _FinalFareSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryAccent = isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary;
     final paidFullyByWallet = totalAfterDiscount > 0 && cashAmount <= 0.004;
+    final cashStripColor = paidFullyByWallet
+        ? AppTheme.successLight
+        : (isDark ? AppTheme.gold : const Color(0xFF10B981));
+
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.gold.withAlpha(90), width: 1.2),
+        border: Border.all(
+          color: isDark
+              ? AppTheme.gold.withAlpha(90)
+              : Theme.of(context).colorScheme.outlineVariant,
+          width: 1.2,
+        ),
       ),
       child: Column(
         children: [
@@ -1133,12 +1154,12 @@ class _FinalFareSummary extends StatelessWidget {
                 width: 42,
                 height: 42,
                 decoration: BoxDecoration(
-                  color: AppTheme.gold.withAlpha(28),
+                  color: primaryAccent.withAlpha(28),
                   borderRadius: BorderRadius.circular(13),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.calculate_rounded,
-                  color: AppTheme.gold,
+                  color: primaryAccent,
                   size: 26,
                 ),
               ),
@@ -1208,7 +1229,7 @@ class _FinalFareSummary extends StatelessWidget {
             label: context.strings.uif918ebca,
             value: totalAfterDiscount,
             strong: true,
-            color: AppTheme.gold,
+            color: primaryAccent,
           ),
           if (walletAmount > 0)
             _line(
@@ -1216,21 +1237,17 @@ class _FinalFareSummary extends StatelessWidget {
               icon: Icons.account_balance_wallet_rounded,
               label: context.strings.ui70cc122a,
               value: -walletAmount,
-              color: AppTheme.gold,
+              color: primaryAccent,
             ),
           const SizedBox(height: 10),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 12),
             decoration: BoxDecoration(
-              color: paidFullyByWallet
-                  ? AppTheme.successLight.withAlpha(18)
-                  : AppTheme.gold.withAlpha(18),
+              color: cashStripColor.withAlpha(18),
               borderRadius: BorderRadius.circular(14),
               border: Border.all(
-                color: paidFullyByWallet
-                    ? AppTheme.successLight.withAlpha(90)
-                    : AppTheme.gold.withAlpha(90),
+                color: cashStripColor.withAlpha(90),
               ),
             ),
             child: Row(
@@ -1239,9 +1256,7 @@ class _FinalFareSummary extends StatelessWidget {
                   paidFullyByWallet
                       ? Icons.verified_rounded
                       : Icons.payments_rounded,
-                  color: paidFullyByWallet
-                      ? AppTheme.successLight
-                      : AppTheme.gold,
+                  color: cashStripColor,
                   size: 28,
                 ),
                 const SizedBox(width: 10),
@@ -1269,9 +1284,7 @@ class _FinalFareSummary extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w900,
-                          color: paidFullyByWallet
-                              ? AppTheme.successLight
-                              : AppTheme.gold,
+                          color: cashStripColor,
                         ),
                       ),
                     ],
@@ -1376,7 +1389,9 @@ class _FinalFareSummary extends StatelessWidget {
               color:
                   color ??
                   (strong
-                      ? AppTheme.gold
+                      ? (Theme.of(context).brightness == Brightness.dark
+                          ? AppTheme.gold
+                          : Theme.of(context).colorScheme.primary)
                       : Theme.of(context).colorScheme.onSurface),
               fontWeight: strong ? FontWeight.w900 : FontWeight.w800,
               fontSize: strong ? 14 : 11,

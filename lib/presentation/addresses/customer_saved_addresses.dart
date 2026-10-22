@@ -146,9 +146,33 @@ class _CustomerSavedAddressesState extends State<CustomerSavedAddresses> {
                   ),
                 for (final row in _rows)
                   Card(
+                    elevation: 0,
+                    margin: const EdgeInsets.only(bottom: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      side: BorderSide(
+                        color: Theme.of(context).colorScheme.outlineVariant,
+                      ),
+                    ),
+                    color: Theme.of(context).colorScheme.surface,
                     child: ListTile(
-                      leading: const Icon(Icons.bookmark_outline),
-                      title: Text('${row['label'] ?? ''}'),
+                      leading: Container(
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary.withAlpha(20),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Icon(
+                          Icons.bookmark_rounded,
+                          color: Theme.of(context).colorScheme.primary,
+                          size: 20,
+                        ),
+                      ),
+                      title: Text(
+                        '${row['label'] ?? ''}',
+                        style: const TextStyle(fontWeight: FontWeight.w700),
+                      ),
                       subtitle: Text('${row['display_address'] ?? ''}'),
                       trailing: IconButton(
                         tooltip: l.savedNameHint,
@@ -157,11 +181,12 @@ class _CustomerSavedAddressesState extends State<CustomerSavedAddresses> {
                       ),
                       onTap: () {
                         final seed = BookingAddressSeed.saved(row);
-                        if (seed != null)
+                        if (seed != null) {
                           context.push(
                             '/trip-booking-screen',
                             extra: BookingAddressSelection(destination: seed),
                           );
+                        }
                       },
                     ),
                   ),

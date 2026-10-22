@@ -956,8 +956,14 @@ class _VitoMarketCheckoutScreenState extends State<VitoMarketCheckoutScreen> {
                           _showAddAddressDialog(context);
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppTheme.gold,
-                          foregroundColor: const Color(0xFF0B0F1A),
+                          backgroundColor:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? AppTheme.gold
+                                  : Theme.of(context).colorScheme.primary,
+                          foregroundColor:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? const Color(0xFF0B0F1A)
+                                  : Colors.white,
                         ),
                         child: Text(
                           context.strings.marketCheckout8d30f720,
@@ -970,9 +976,11 @@ class _VitoMarketCheckoutScreenState extends State<VitoMarketCheckoutScreen> {
               else ...[
                 ..._savedAddresses.map(
                   (addr) => ListTile(
-                    leading: const Icon(
+                    leading: Icon(
                       Icons.location_on_rounded,
-                      color: AppTheme.gold,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? AppTheme.gold
+                          : Theme.of(context).colorScheme.primary,
                     ),
                     title: Text(
                       addr['label'] as String? ??
@@ -990,9 +998,11 @@ class _VitoMarketCheckoutScreenState extends State<VitoMarketCheckoutScreen> {
                       ),
                     ),
                     trailing: _selectedAddress?['id'] == addr['id']
-                        ? const Icon(
+                        ? Icon(
                             Icons.check_circle_rounded,
-                            color: AppTheme.gold,
+                            color: Theme.of(context).brightness == Brightness.dark
+                                ? AppTheme.gold
+                                : Theme.of(context).colorScheme.primary,
                           )
                         : null,
                     onTap: () {
@@ -1244,8 +1254,14 @@ class _VitoMarketCheckoutScreenState extends State<VitoMarketCheckoutScreen> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppTheme.gold,
-                      foregroundColor: const Color(0xFF0B0F1A),
+                      backgroundColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? AppTheme.gold
+                              : Theme.of(context).colorScheme.primary,
+                      foregroundColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? const Color(0xFF0B0F1A)
+                              : Colors.white,
                     ),
                     onPressed: isSaving
                         ? null
@@ -1353,18 +1369,32 @@ class _VitoMarketCheckoutScreenState extends State<VitoMarketCheckoutScreen> {
           fontSize: 12,
         ),
         filled: true,
-        fillColor: const Color(0xFF1A2035),
+        fillColor: Theme.of(context).brightness == Brightness.dark
+            ? const Color(0xFF1A2035)
+            : Theme.of(context).colorScheme.surfaceContainerHighest,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFF2A3355)),
+          borderSide: BorderSide(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xFF2A3355)
+                : Theme.of(context).colorScheme.outlineVariant,
+          ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Color(0xFF2A3355)),
+          borderSide: BorderSide(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xFF2A3355)
+                : Theme.of(context).colorScheme.outlineVariant,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: AppTheme.gold),
+          borderSide: BorderSide(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppTheme.gold
+                : Theme.of(context).colorScheme.primary,
+          ),
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 12,
@@ -1394,19 +1424,26 @@ class _PaymentOption extends StatelessWidget {
   Widget build(BuildContext context) {
     final isSelected = value == selected;
     final isDisabled = onTap == null;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryAccent = isDark ? AppTheme.gold : Theme.of(context).colorScheme.primary;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: isSelected
-              ? AppTheme.gold.withAlpha(20)
-              : Theme.of(context).brightness == Brightness.dark
+              ? primaryAccent.withAlpha(isDark ? 20 : 16)
+              : isDark
               ? const Color(0xFF13182A)
               : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? AppTheme.gold : const Color(0xFF2A3355),
+            color: isSelected
+                ? primaryAccent
+                : (isDark
+                    ? const Color(0xFF2A3355)
+                    : Theme.of(context).colorScheme.outlineVariant),
           ),
         ),
         child: Row(
@@ -1416,7 +1453,7 @@ class _PaymentOption extends StatelessWidget {
               color: isDisabled
                   ? Theme.of(context).colorScheme.onSurfaceVariant
                   : (isSelected
-                        ? AppTheme.gold
+                        ? primaryAccent
                         : Theme.of(context).colorScheme.onSurface),
               size: 22,
             ),
@@ -1434,9 +1471,9 @@ class _PaymentOption extends StatelessWidget {
               ),
             ),
             if (isSelected)
-              const Icon(
+              Icon(
                 Icons.check_circle_rounded,
-                color: AppTheme.gold,
+                color: primaryAccent,
                 size: 20,
               ),
           ],
