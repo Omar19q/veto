@@ -128,6 +128,16 @@ class _NetworkGuardState extends State<NetworkGuard>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final backdropColor = isDark ? const Color(0xF20B0F1A) : const Color(0x8A0B0F1A);
+    final cardColor = isDark ? AppTheme.surface : Colors.white;
+    final borderColor = isDark ? AppTheme.cardBorder : const Color(0xFFE2E8F0);
+    final titleColor = isDark ? AppTheme.textPrimary : const Color(0xFF0B0F1A);
+    final subtitleColor = isDark ? AppTheme.textSecondary : const Color(0xFF64748B);
+    final shadowColor = isDark ? Colors.black45 : const Color(0x1F0B0F1A);
+    final iconBgColor = isDark ? AppTheme.gold.withAlpha(24) : const Color(0xFFFEF3C7);
+    final iconColor = isDark ? AppTheme.gold : const Color(0xFFD97706);
+
     return PopScope(
       canPop: !_isBlocked,
       child: Stack(
@@ -136,7 +146,7 @@ class _NetworkGuardState extends State<NetworkGuard>
           if (_isBlocked)
             Positioned.fill(
               child: Material(
-                color: const Color(0xF20B0F1A),
+                color: backdropColor,
                 child: SafeArea(
                   child: Center(
                     child: SingleChildScrollView(
@@ -148,14 +158,14 @@ class _NetworkGuardState extends State<NetworkGuard>
                           child: Container(
                             padding: const EdgeInsets.all(24),
                             decoration: BoxDecoration(
-                              color: AppTheme.surface,
+                              color: cardColor,
                               borderRadius: BorderRadius.circular(22),
-                              border: Border.all(color: AppTheme.cardBorder),
-                              boxShadow: const [
+                              border: Border.all(color: borderColor),
+                              boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black45,
+                                  color: shadowColor,
                                   blurRadius: 32,
-                                  offset: Offset(0, 12),
+                                  offset: const Offset(0, 12),
                                 ),
                               ],
                             ),
@@ -166,14 +176,14 @@ class _NetworkGuardState extends State<NetworkGuard>
                                   width: 72,
                                   height: 72,
                                   decoration: BoxDecoration(
-                                    color: AppTheme.gold.withAlpha(24),
+                                    color: iconBgColor,
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
                                     _isOnline == null
                                         ? Icons.sync_rounded
                                         : Icons.wifi_off_rounded,
-                                    color: AppTheme.gold,
+                                    color: iconColor,
                                     size: 38,
                                   ),
                                 ),
@@ -183,9 +193,9 @@ class _NetworkGuardState extends State<NetworkGuard>
                                       ? 'جاري فحص الاتصال'
                                       : 'الاتصال بالإنترنت منقطع',
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    
-                                    color: AppTheme.textPrimary,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.productFontFamily(context),
+                                    color: titleColor,
                                     fontSize: 21,
                                     fontWeight: FontWeight.w800,
                                   ),
@@ -196,9 +206,9 @@ class _NetworkGuardState extends State<NetworkGuard>
                                       ? 'لحظات ونتأكد إن الخدمة متاحة.'
                                       : 'التطبيق محتاج اتصال مستمر علشان يحمي حالة الرحلات والحساب. مش هيتنفذ أي إجراء لحد ما النت يرجع.',
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    
-                                    color: AppTheme.textSecondary,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.productFontFamily(context),
+                                    color: subtitleColor,
                                     fontSize: 14,
                                     height: 1.7,
                                   ),
@@ -217,10 +227,10 @@ class _NetworkGuardState extends State<NetworkGuard>
                                             ),
                                           )
                                         : const Icon(Icons.refresh_rounded),
-                                    label: const Text(
+                                    label: Text(
                                       'إعادة المحاولة',
                                       style: TextStyle(
-                                        
+                                        fontFamily: AppTheme.productFontFamily(context),
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
