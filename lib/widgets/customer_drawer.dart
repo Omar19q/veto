@@ -60,11 +60,22 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
       onTap: action,
     );
 
-    return Drawer(
-      backgroundColor: c.surface,
-      width: (MediaQuery.sizeOf(context).width - 32).clamp(0, 360).toDouble(),
-      child: SafeArea(
-        child: ListView(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        final scaffold = Scaffold.maybeOf(context);
+        if (scaffold != null && scaffold.isDrawerOpen) {
+          scaffold.closeDrawer();
+        } else if (Navigator.canPop(context)) {
+          Navigator.pop(context);
+        }
+      },
+      child: Drawer(
+        backgroundColor: c.surface,
+        width: (MediaQuery.sizeOf(context).width - 32).clamp(0, 360).toDouble(),
+        child: SafeArea(
+          child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           children: [
             ListTile(
@@ -181,6 +192,7 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
 }
