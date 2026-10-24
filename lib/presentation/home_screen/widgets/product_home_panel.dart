@@ -200,7 +200,11 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.search_rounded, size: 21, color: onFilledColor),
+                Icon(
+                  Icons.search_rounded,
+                  size: 21,
+                  color: isDark ? onFilledColor : const Color(0xFFFFC107),
+                ),
                 const SizedBox(width: 8),
                 Text(
                   l.whereTo,

@@ -63,7 +63,7 @@ class AppTheme {
           minimumSize: const Size(48, 52),
           backgroundColor: brightness == Brightness.dark
               ? const Color(0xFFFFC107)
-              : const Color(0xFF5D5FEF),
+              : const Color(0xFF0B0F1A),
           foregroundColor: brightness == Brightness.dark
               ? primary
               : Colors.white,
@@ -121,7 +121,7 @@ class AppTheme {
   // Semantic Colors
   static const Color tertiary = Color(0xFF10B981);
   static const Color neutral = Color(0xFF94A3B8);
-  static const Color routeIndigo = Color(0xFF5D5FEF);
+  static const Color routeIndigo = Color(0xFF0B0F1A);
   static const Color success = Color(0xFF10B981);
   static const Color successLight = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFB45309);
@@ -138,10 +138,10 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: const ColorScheme.light(
-      primary: Color(0xFF5D5FEF),
+      primary: Color(0xFF0B0F1A),
       onPrimary: Colors.white,
-      primaryContainer: Color(0xFFEEF2FF),
-      onPrimaryContainer: Color(0xFF312E81),
+      primaryContainer: Color(0xFF1E2540),
+      onPrimaryContainer: Colors.white,
       secondary: Color(0xFF10B981),
       onSecondary: Colors.white,
       secondaryContainer: Color(0xFFD1FAE5),
@@ -188,7 +188,7 @@ class AppTheme {
       ),
       focusedBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),
-        borderSide: BorderSide(color: Color(0xFF5D5FEF), width: 2),
+        borderSide: BorderSide(color: Color(0xFF0B0F1A), width: 2),
       ),
       errorBorder: const OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -199,7 +199,7 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF5D5FEF),
+        backgroundColor: const Color(0xFF0B0F1A),
         foregroundColor: Colors.white,
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),

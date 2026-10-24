@@ -1508,7 +1508,7 @@ class _LiveTripScreenState extends State<LiveTripScreen>
       case 'accepted':
         return isDark ? const Color(0xFF64B5F6) : const Color(0xFF3B82F6);
       case 'arriving':
-        return isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
+        return isDark ? AppTheme.gold : const Color(0xFFE5A800);
       case 'arrived':
       case 'started':
       case 'completed':

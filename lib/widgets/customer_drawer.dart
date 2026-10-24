@@ -149,7 +149,7 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
               Icons.badge_outlined,
               l.menuCaptainApply,
               () => _route('/captain-registration'),
-              color: isDark ? const Color(0xFFFFC107) : const Color(0xFF5D5FEF),
+              color: isDark ? const Color(0xFFFFC107) : const Color(0xFFE5A800),
             ),
             if (_captain)
               item(Icons.drive_eta_outlined, l.menuCaptainMode, () async {

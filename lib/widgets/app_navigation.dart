@@ -136,10 +136,10 @@ class _AppNavigationState extends State<AppNavigation>
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final surfaceColor = isDark ? AppTheme.surfaceVariant : Colors.white;
     final borderColor = isDark ? AppTheme.cardBorder : const Color(0xFFE2E8F0);
-    final activeBubbleColor = isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
-    final activeIconColor = isDark ? AppTheme.primary : Colors.white;
+    final activeBubbleColor = isDark ? AppTheme.gold : AppTheme.primary;
+    final activeIconColor = isDark ? AppTheme.primary : AppTheme.gold;
     final inactiveIconColor = isDark ? AppTheme.textPrimary : const Color(0xFF64748B);
-    final activeTextColor = isDark ? AppTheme.gold : const Color(0xFF5D5FEF);
+    final activeTextColor = isDark ? AppTheme.gold : AppTheme.primary;
     final inactiveTextColor = isDark ? AppTheme.textSecondary : const Color(0xFF64748B);
 
     return SafeArea(
