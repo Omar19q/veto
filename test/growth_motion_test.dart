@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:vetosanya/presentation/growth/growth_booking_progress.dart';
@@ -155,6 +156,62 @@ void main() {
       await tester.tap(find.text('existing'));
       expect(taps, 1);
       expect(find.text('VETO SANYA'), findsNothing);
+    },
+  );
+
+  testWidgets(
+    'GrowthStartup splash adapts background to light theme',
+    (tester) async {
+      SharedPreferences.setMockInitialValues({});
+      GrowthStartup.resetForTesting();
+      await tester.pumpWidget(
+        MaterialApp(
+          themeMode: ThemeMode.light,
+          theme: ThemeData.light(),
+          home: GrowthStartup(key: UniqueKey(), child: const SizedBox()),
+        ),
+      );
+      await tester.idle();
+      await tester.pump();
+      expect(find.text('VETO SANYA'), findsOneWidget);
+      final lightMaterial = tester.widget<Material>(
+        find
+            .descendant(
+              of: find.byType(GrowthStartup),
+              matching: find.byType(Material),
+            )
+            .first,
+      );
+      expect(lightMaterial.color, const Color(0xFFF8FAFC));
+      await tester.pump(const Duration(milliseconds: 2000));
+    },
+  );
+
+  testWidgets(
+    'GrowthStartup splash adapts background to dark theme',
+    (tester) async {
+      SharedPreferences.setMockInitialValues({});
+      GrowthStartup.resetForTesting();
+      await tester.pumpWidget(
+        MaterialApp(
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeData.dark(),
+          home: GrowthStartup(key: UniqueKey(), child: const SizedBox()),
+        ),
+      );
+      await tester.idle();
+      await tester.pump();
+      expect(find.text('VETO SANYA'), findsOneWidget);
+      final darkMaterial = tester.widget<Material>(
+        find
+            .descendant(
+              of: find.byType(GrowthStartup),
+              matching: find.byType(Material),
+            )
+            .first,
+      );
+      expect(darkMaterial.color, const Color(0xFF071728));
+      await tester.pump(const Duration(milliseconds: 2000));
     },
   );
 }

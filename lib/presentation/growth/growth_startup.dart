@@ -12,6 +12,11 @@ class GrowthStartup extends StatefulWidget {
   const GrowthStartup({super.key, required this.child});
   final Widget child;
 
+  @visibleForTesting
+  static void resetForTesting() {
+    _GrowthStartupState._alreadyShownInProcess = false;
+  }
+
   @override
   State<GrowthStartup> createState() => _GrowthStartupState();
 }
@@ -88,6 +93,13 @@ class _GrowthStartupState extends State<GrowthStartup>
   @override
   Widget build(BuildContext context) {
     final reduceMotion = MediaQuery.disableAnimationsOf(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor = isDark ? const Color(0xFF071728) : const Color(0xFFF8FAFC);
+    final brandGold = isDark ? const Color(0xFFFFC534) : const Color(0xFFD97706);
+    final titleColor = isDark ? Colors.white : const Color(0xFF0B0F1A);
+    final subtitleColor = isDark ? const Color(0xFFB8C8D3) : const Color(0xFF64748B);
+    final barColor = isDark ? const Color(0xFFFFC534) : const Color(0xFFE5A800);
+
     return Stack(fit: StackFit.expand, children: [
       widget.child,
       if (_visible)
@@ -96,7 +108,7 @@ class _GrowthStartupState extends State<GrowthStartup>
             duration: reduceMotion ? Duration.zero : const Duration(milliseconds: 250),
             opacity: _closing ? 0 : 1,
             child: Material(
-              color: const Color(0xFF071728),
+              color: bgColor,
               child: SafeArea(child: Stack(children: [
                 Positioned.fill(
                   child: IgnorePointer(
@@ -112,7 +124,9 @@ class _GrowthStartupState extends State<GrowthStartup>
                               width: 125 + i * 14,
                               height: 2,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFFFC534).withAlpha(35 + i * 12),
+                                color: isDark
+                                    ? const Color(0xFFFFC534).withAlpha(35 + i * 12)
+                                    : const Color(0xFFCBD5E1).withAlpha(80 + i * 20),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
@@ -141,26 +155,26 @@ class _GrowthStartupState extends State<GrowthStartup>
                               ),
                             ),
                             const SizedBox(height: 18),
-                            const Text('VETO SANYA',
+                            Text('VETO SANYA',
                               style: TextStyle(fontSize: 28,
                                 fontWeight: FontWeight.w900,
                                 letterSpacing: 2.2,
-                                color: Color(0xFFFFC534))),
+                                color: brandGold)),
                             const SizedBox(height: 9),
-                            const Text('ثانية توفّرلك وقت وفلوس',
+                            Text('ثانية توفّرلك وقت وفلوس',
                               textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.white,
+                              style: TextStyle(color: titleColor,
                                 fontWeight: FontWeight.w800,
                                 fontSize: 21)),
                             const SizedBox(height: 8),
-                            const Text('مشاوير أسرع  •  تكلفة أوضح  •  راحة أكتر',
+                            Text('مشاوير أسرع  •  تكلفة أوضح  •  راحة أكتر',
                               textAlign: TextAlign.center,
-                              style: TextStyle(color: Color(0xFFB8C8D3),
+                              style: TextStyle(color: subtitleColor,
                                 fontSize: 12)),
                             const SizedBox(height: 26),
                             Container(width: 125, height: 3,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFFFC534),
+                                color: barColor,
                                 borderRadius: BorderRadius.circular(12))),
                           ],
                         ),
