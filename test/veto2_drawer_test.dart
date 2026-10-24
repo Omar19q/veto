@@ -44,9 +44,9 @@ void main() {
                   ),
                 ),
                 GoRoute(
-                  path: '/wallet',
+                  path: '/feedback',
                   builder: (_, __) =>
-                      const Scaffold(body: Text('WALLET ROUTE')),
+                      const Scaffold(body: Text('FEEDBACK ROUTE')),
                 ),
               ],
             );
@@ -73,7 +73,7 @@ void main() {
             final l = lookupAppLocalizations(Locale(lang));
             expect(tester.getSize(find.byType(Drawer)).width, lessThan(width));
             await tester.scrollUntilVisible(
-              find.text(l.menuWallet),
+              find.text(l.menuHelp),
               200,
               scrollable: find
                   .descendant(
@@ -82,9 +82,11 @@ void main() {
                   )
                   .first,
             );
-            await tester.tap(find.text(l.menuWallet));
+            await tester.ensureVisible(find.text(l.menuHelp));
             await tester.pumpAndSettle();
-            expect(find.text('WALLET ROUTE'), findsOneWidget);
+            await tester.tap(find.text(l.menuHelp));
+            await tester.pumpAndSettle();
+            expect(find.text('FEEDBACK ROUTE'), findsOneWidget);
             expect(tester.takeException(), isNull);
             await tester.pumpWidget(const SizedBox());
             router.dispose();

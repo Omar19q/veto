@@ -111,31 +111,15 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
               l.menuProfile,
               () => _page(const CustomerLoyaltyPanelV29()),
             ),
-            item(Icons.route_outlined, l.menuTrips, () => _route('/my-trips')),
-            item(
-              Icons.account_balance_wallet_outlined,
-              l.menuWallet,
-              () => _route('/wallet'),
-            ),
             item(
               Icons.local_offer_outlined,
               l.menuOffers,
               () => _page(const GrowthReferralScreen()),
             ),
             item(
-              Icons.newspaper_outlined,
-              l.menuNews,
-              () => _route('/karizma'),
-            ),
-            item(
               Icons.bookmark_outline,
               l.savedPlaces,
               () => _page(const CustomerSavedAddresses()),
-            ),
-            item(
-              Icons.notifications_none,
-              l.notifications,
-              () => _route('/notifications'),
             ),
             item(Icons.support_agent, l.menuHelp, () => _route('/feedback')),
             item(
