@@ -106,7 +106,6 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
               ),
             ),
             Divider(color: c.outlineVariant, height: 1),
-            item(Icons.home_outlined, l.home, () => _route('/home-screen')),
             item(
               Icons.person_outline,
               l.menuProfile,
@@ -121,11 +120,6 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
             item(
               Icons.local_offer_outlined,
               l.menuOffers,
-              () => _page(const GrowthReferralScreen()),
-            ),
-            item(
-              Icons.people_outline,
-              l.menuInvite,
               () => _page(const GrowthReferralScreen()),
             ),
             item(
@@ -169,12 +163,6 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
                 Navigator.pop(context);
                 if (id != null) await VetoModeV21.openCaptain(router, id);
               }),
-            // Preserve partner, verifier and legacy account tools behind their guards.
-            item(
-              Icons.manage_accounts_outlined,
-              l.menuAccountTools,
-              () => _route('/more'),
-            ),
             item(
               Icons.logout_rounded,
               l.menuLogout,
