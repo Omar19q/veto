@@ -341,6 +341,7 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
     }
 
     final isTablet = MediaQuery.of(context).size.width >= 600;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Directionality(
       textDirection: Directionality.of(context),
@@ -372,11 +373,28 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
                         ),
                       ),
                     const SizedBox(height: 24),
-                    FadeTransition(
-                      opacity: _stepFade,
-                      child: SlideTransition(
-                        position: _stepSlide,
-                        child: _buildCurrentStep(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+                      decoration: BoxDecoration(
+                        color: isDark ? AppTheme.surface : Colors.white,
+                        borderRadius: BorderRadius.circular(24),
+                        border: Border.all(
+                          color: isDark ? AppTheme.cardBorder : const Color(0xFFE2E8F0),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withAlpha(isDark ? 60 : 12),
+                            blurRadius: 20,
+                            offset: const Offset(0, 6),
+                          ),
+                        ],
+                      ),
+                      child: FadeTransition(
+                        opacity: _stepFade,
+                        child: SlideTransition(
+                          position: _stepSlide,
+                          child: _buildCurrentStep(),
+                        ),
                       ),
                     ),
                   ],

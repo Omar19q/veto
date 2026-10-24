@@ -7,6 +7,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../services/supabase_service.dart';
+import '../../theme/app_theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -85,28 +86,40 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final english = context.strings.localeName.startsWith('en');
     final pages = english ? _contentEn : _content;
     final colors = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Directionality(
     textDirection: english ? TextDirection.ltr : TextDirection.rtl,
     child: Scaffold(
-      backgroundColor: colors.surface,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Row(
                 children: [
-                  const Text(
+                  Image.asset(
+                    'assets/images/veto_sanya_app_icon.png',
+                    width: 32,
+                    height: 32,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
                     'VETO',
                     style: TextStyle(
-                      color: Color(0xFFFFCF60),
-                      fontSize: 25,
+                      fontFamily: AppTheme.productFontFamily(context),
+                      color: isDark ? AppTheme.gold : const Color(0xFF0B0F1A),
+                      fontSize: 22,
                       fontWeight: FontWeight.w900,
+                      letterSpacing: 1.2,
                     ),
                   ),
                   const Spacer(),
                   TextButton(
                     onPressed: _saving ? null : _finish,
+                    style: TextButton.styleFrom(
+                      foregroundColor: colors.onSurfaceVariant,
+                    ),
                     child: Text(english ? 'Skip' : 'تخطي'),
                   ),
                 ],
@@ -131,41 +144,61 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               AnimatedScale(
-                                scale: _index == i ? 1 : 0.92,
+                                scale: _index == i ? 1 : 0.94,
                                 duration: MediaQuery.disableAnimationsOf(context)
-                                    ? Duration.zero : const Duration(milliseconds: 450),
-                                child: SvgPicture.asset(
-                                  'assets/onboarding/${page.$1}.svg',
-                                  height: (constraints.maxHeight * 0.59).clamp(
-                                    150.0,
-                                    340.0,
+                                    ? Duration.zero
+                                    : const Duration(milliseconds: 350),
+                                child: Container(
+                                  height: (constraints.maxHeight * 0.48).clamp(130.0, 290.0),
+                                  padding: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    color: isDark ? AppTheme.surface : Colors.white,
+                                    borderRadius: BorderRadius.circular(28),
+                                    border: Border.all(
+                                      color: isDark
+                                          ? AppTheme.cardBorder
+                                          : const Color(0xFFE2E8F0),
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withAlpha(isDark ? 40 : 10),
+                                        blurRadius: 18,
+                                        offset: const Offset(0, 6),
+                                      ),
+                                    ],
                                   ),
-                                  fit: BoxFit.contain,
+                                  child: SvgPicture.asset(
+                                    'assets/onboarding/${page.$1}.svg',
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
-                              const SizedBox(height: 26),
+                              const SizedBox(height: 22),
                               Text(
                                 page.$2,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  
-                                  fontSize: 26,
+                                  fontFamily: AppTheme.productFontFamily(context),
+                                  fontSize: 22,
                                   fontWeight: FontWeight.w900,
                                   color: colors.onSurface,
                                 ),
                               ),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: 10),
                               Text(
                                 page.$3,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  
-                                  height: 1.8,
-                                  fontSize: 15,
-                                  color: Color(0xFFA9C4CF),
+                                style: TextStyle(
+                                  fontFamily: AppTheme.productFontFamily(context),
+                                  height: 1.6,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: isDark
+                                      ? AppTheme.textSecondary
+                                      : const Color(0xFF64748B),
                                 ),
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 16),
                             ],
                           ),
                         ),
@@ -178,12 +211,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             SmoothPageIndicator(
               controller: _pages,
               count: pages.length,
-              effect: const ExpandingDotsEffect(
-                activeDotColor: Color(0xFFFFCF60),
-                dotColor: Color(0xFF345065),
+              effect: ExpandingDotsEffect(
+                activeDotColor: isDark ? AppTheme.gold : const Color(0xFF0B0F1A),
+                dotColor: isDark ? const Color(0xFF2A3355) : const Color(0xFFCBD5E1),
                 dotHeight: 8,
                 dotWidth: 8,
-                spacing: 9,
+                spacing: 8,
               ),
               onDotClicked: (page) => _pages.animateToPage(
                 page,
@@ -200,14 +233,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
             Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(20),
               child: SizedBox(
                 width: double.infinity,
-                height: 56,
+                height: 52,
                 child: FilledButton(
                   style: FilledButton.styleFrom(
-                    backgroundColor: const Color(0xFFFFCF60),
-                    foregroundColor: const Color(0xFF091827),
+                    backgroundColor: isDark
+                        ? AppTheme.gold
+                        : const Color(0xFF0B0F1A),
+                    foregroundColor: isDark
+                        ? AppTheme.primary
+                        : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                   ),
                   onPressed: _saving
                       ? null
@@ -232,9 +272,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ? (english ? 'Get started' : 'ابدأ الآن')
                               : (english ? 'Next' : 'التالي'),
                           style: const TextStyle(
-                            
                             fontWeight: FontWeight.w900,
-                            fontSize: 17,
+                            fontSize: 16,
                           ),
                         ),
                 ),

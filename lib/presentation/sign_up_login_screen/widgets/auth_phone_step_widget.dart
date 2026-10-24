@@ -138,6 +138,7 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
   @override
   Widget build(BuildContext context) {
     final l = context.strings, colors = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Form(
       key: _formKey,
       child: Column(
@@ -145,12 +146,18 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
         children: [
           Text(
             l.authWelcomeV2,
-            style: Theme.of(context).textTheme.headlineSmall,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.w800,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             l.authPhoneHintV2,
-            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: colors.onSurfaceVariant,
+            ),
           ),
           const SizedBox(height: 24),
           TextFormField(
@@ -214,16 +221,26 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
               ),
             ),
           const SizedBox(height: 24),
-          FilledButton.icon(
-            onPressed: _isLoading ? null : _submit,
-            icon: _isLoading
-                ? const SizedBox(
-                    width: 18,
-                    height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : const Icon(Icons.chat_outlined),
-            label: Text(l.requestCode, textAlign: TextAlign.center),
+          SizedBox(
+            height: 52,
+            child: FilledButton.icon(
+              onPressed: _isLoading ? null : _submit,
+              icon: _isLoading
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : Icon(
+                      Icons.arrow_forward_rounded,
+                      color: isDark ? const Color(0xFF0B0F1A) : const Color(0xFFFFC107),
+                    ),
+              label: Text(
+                l.requestCode,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+              ),
+            ),
           ),
           const SizedBox(height: 12),
           Wrap(

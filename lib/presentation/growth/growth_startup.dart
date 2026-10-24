@@ -53,17 +53,6 @@ class _GrowthStartupState extends State<GrowthStartup>
         .instance.platformDispatcher.accessibilityFeatures.disableAnimations;
     setState(() => _visible = true);
     if (!reduced) _motion.forward();
-    if (!reduced && _audioEnabled && !kIsWeb) {
-      _sound = AudioPlayer();
-      try {
-        await _sound!.play(
-          AssetSource('sounds/veto_intro_chime.wav'),
-          volume: 0.24,
-        );
-      } catch (error) {
-        debugPrint('Optional intro chime unavailable: ${error.runtimeType}');
-      }
-    }
     if (!mounted) return;
     _closeTimer = Timer(Duration(milliseconds: reduced ? 200 : 1400), () {
       if (!mounted) return;
@@ -179,15 +168,6 @@ class _GrowthStartupState extends State<GrowthStartup>
                     );
                   },
                 )),
-                Positioned(
-                  top: 8, right: 10,
-                  child: IconButton(
-                    tooltip: _audioEnabled ? 'إيقاف صوت المقدمة' : 'تفعيل صوت المقدمة',
-                    onPressed: _toggleSound,
-                    icon: Icon(_audioEnabled ? Icons.volume_up_rounded : Icons.volume_off_rounded,
-                      color: Colors.white70),
-                  ),
-                ),
               ])),
             ),
           ),

@@ -478,6 +478,7 @@ class _AuthOtpStepWidgetState extends State<AuthOtpStepWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Form(
       key: _formKey,
       child: Column(
@@ -520,16 +521,18 @@ class _AuthOtpStepWidgetState extends State<AuthOtpStepWidget> {
           Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: AppTheme.gold.withAlpha(20),
+              color: isDark ? AppTheme.gold.withAlpha(20) : const Color(0xFFFFFBEB),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: AppTheme.gold.withAlpha(70)),
+              border: Border.all(
+                color: isDark ? AppTheme.gold.withAlpha(70) : const Color(0xFFFDE68A),
+              ),
             ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(
+                Icon(
                   Icons.hourglass_top_rounded,
-                  color: AppTheme.gold,
+                  color: isDark ? AppTheme.gold : const Color(0xFFB45309),
                   size: 22,
                 ),
                 const SizedBox(width: 10),
@@ -542,7 +545,7 @@ class _AuthOtpStepWidgetState extends State<AuthOtpStepWidget> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
-                          color: AppTheme.gold,
+                          color: isDark ? AppTheme.gold : const Color(0xFFB45309),
                         ),
                       ),
                       const SizedBox(height: 3),
@@ -582,10 +585,10 @@ class _AuthOtpStepWidgetState extends State<AuthOtpStepWidget> {
             inputFormatters: [
               FilteringTextInputFormatter.allow(RegExp(r'[0-9٠-٩۰-۹]')),
             ],
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.w700,
-              color: AppTheme.gold,
+              color: isDark ? AppTheme.gold : const Color(0xFF0B0F1A),
               letterSpacing: 12,
             ),
             onChanged: (v) {
@@ -617,7 +620,10 @@ class _AuthOtpStepWidgetState extends State<AuthOtpStepWidget> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),
-                borderSide: const BorderSide(color: AppTheme.gold, width: 2),
+                borderSide: BorderSide(
+                  color: isDark ? AppTheme.gold : const Color(0xFF0B0F1A),
+                  width: 2,
+                ),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(14),

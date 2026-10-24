@@ -41,6 +41,7 @@ class _AuthLogoWidgetState extends State<AuthLogoWidget>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return FadeTransition(
       opacity: _fadeAnim,
       child: ScaleTransition(
@@ -52,21 +53,28 @@ class _AuthLogoWidgetState extends State<AuthLogoWidget>
               width: 94,
               height: 94,
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF111827), Color(0xFF080B12)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: isDark ? null : Colors.white,
+                gradient: isDark
+                    ? const LinearGradient(
+                        colors: [Color(0xFF13182A), Color(0xFF0B0F1A)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      )
+                    : null,
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(
-                  color: AppTheme.gold.withAlpha(155),
+                  color: isDark
+                      ? AppTheme.gold.withAlpha(155)
+                      : const Color(0xFFE2E8F0),
                   width: 1.2,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppTheme.gold.withAlpha(64),
-                    blurRadius: 28,
-                    offset: const Offset(0, 10),
+                    color: isDark
+                        ? AppTheme.gold.withAlpha(50)
+                        : const Color(0x140B0F1A),
+                    blurRadius: 24,
+                    offset: const Offset(0, 8),
                   ),
                 ],
               ),
@@ -83,37 +91,37 @@ class _AuthLogoWidgetState extends State<AuthLogoWidget>
             const SizedBox(height: 16),
             RichText(
               textAlign: TextAlign.center,
-              text: const TextSpan(
+              text: TextSpan(
                 children: [
                   TextSpan(
                     text: 'Veto ',
                     style: TextStyle(
-                      
+                      fontFamily: AppTheme.productFontFamily(context),
                       fontSize: 28,
-                      fontWeight: FontWeight.w800,
-                      color: AppTheme.textPrimary,
+                      fontWeight: FontWeight.w900,
+                      color: isDark ? AppTheme.textPrimary : const Color(0xFF0B0F1A),
                     ),
                   ),
                   TextSpan(
                     text: 'Sanya',
                     style: TextStyle(
-                      
+                      fontFamily: AppTheme.productFontFamily(context),
                       fontSize: 28,
-                      fontWeight: FontWeight.w800,
-                      color: AppTheme.gold,
+                      fontWeight: FontWeight.w900,
+                      color: isDark ? AppTheme.gold : const Color(0xFFE5A800),
                     ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 4),
-            const Text(
+            Text(
               'فيتو ثانية',
               style: TextStyle(
-                
+                fontFamily: AppTheme.productFontFamily(context),
                 fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppTheme.textSecondary,
+                fontWeight: FontWeight.w700,
+                color: isDark ? AppTheme.textSecondary : const Color(0xFF475569),
               ),
             ),
             const SizedBox(height: 6),
@@ -123,22 +131,23 @@ class _AuthLogoWidgetState extends State<AuthLogoWidget>
                 Container(
                   width: 30,
                   height: 1,
-                  color: AppTheme.gold.withAlpha(102),
+                  color: isDark ? AppTheme.gold.withAlpha(102) : const Color(0xFFCBD5E1),
                 ),
                 const SizedBox(width: 8),
-                const Text(
+                Text(
                   'دايماً أقرب إليك',
                   style: TextStyle(
-                    
+                    fontFamily: AppTheme.productFontFamily(context),
                     fontSize: 12,
-                    color: AppTheme.textSecondary,
+                    fontWeight: FontWeight.w500,
+                    color: isDark ? AppTheme.textSecondary : const Color(0xFF64748B),
                   ),
                 ),
                 const SizedBox(width: 8),
                 Container(
                   width: 30,
                   height: 1,
-                  color: AppTheme.gold.withAlpha(102),
+                  color: isDark ? AppTheme.gold.withAlpha(102) : const Color(0xFFCBD5E1),
                 ),
               ],
             ),
