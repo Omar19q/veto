@@ -2709,7 +2709,7 @@ class SupabaseService {
     int targetAmount, {
     String? requestId,
   }) async {
-    if (![5, 10, 15, 20].contains(targetAmount)) {
+    if (targetAmount <= 0) {
       throw ArgumentError('invalid_boost');
     }
     final raw = await client.rpc(

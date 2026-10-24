@@ -29,6 +29,7 @@ class GrowthGiftSheet extends StatefulWidget {
     this.customerId,
     this.initialName = '',
     this.canUseCode = true,
+    this.requireName = false,
     this.onNameSaved,
   });
 
@@ -36,6 +37,7 @@ class GrowthGiftSheet extends StatefulWidget {
   final String? customerId;
   final String initialName;
   final bool canUseCode;
+  final bool requireName;
   final ValueChanged<String>? onNameSaved;
   static bool _opening = false;
   // A successful, server-persisted decision is not reopened in this process,
@@ -74,18 +76,20 @@ class GrowthGiftSheet extends StatefulWidget {
       final nameIncomplete = customer['name_onboarding_completed'] != true;
       // Existing names don't need a repeat welcome if code isn't eligible.
       if (!canUseCode && !emptyName && !nameIncomplete) return;
+      final bool requireName = emptyName || nameIncomplete;
       await showModalBottomSheet<void>(
         context: context,
         isScrollControlled: true,
         useSafeArea: true,
-        isDismissible: true,
-        enableDrag: true,
+        isDismissible: !requireName,
+        enableDrag: !requireName,
         backgroundColor: Theme.of(context).colorScheme.surface,
         builder: (_) => GrowthGiftSheet(
           service: service,
           customerId: customer['id']?.toString(),
           initialName: customer['full_name']?.toString() ?? '',
           canUseCode: canUseCode,
+          requireName: requireName,
           onNameSaved: onNameSaved,
         ),
       );
@@ -203,6 +207,13 @@ class _GrowthGiftSheetState extends State<GrowthGiftSheet> {
 
   Future<void> submit(bool skip) async {
     if (busy) return;
+    final cleanName = name.text.trim().replaceAll(RegExp(r'\s+'), ' ');
+    if (widget.requireName && cleanName.length < 2) {
+      setState(() => error = context.strings.localeName.startsWith('en')
+          ? 'Please enter your name to continue'
+          : 'يرجى كتابة اسمك للمتابعة (حرفين على الأقل)');
+      return;
+    }
     final value = code.text.trim();
     if (!skip && (value.isEmpty || kind == GrowthReferralKind.invalid)) {
       setState(() => error = growthReferralHint(kind,
@@ -357,11 +368,12 @@ class _GrowthGiftSheetState extends State<GrowthGiftSheet> {
           padding: EdgeInsets.fromLTRB(20, 12, 20, 20 + MediaQuery.viewInsetsOf(context).bottom),
           child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 520), child:
             Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-              Align(alignment: AlignmentDirectional.centerEnd,
-                child: TextButton.icon(
-                  onPressed: () => Navigator.of(context).maybePop(),
-                  icon: const Icon(Icons.close_rounded),
-                  label: Text(context.strings.growtha3238c1d))),
+              if (!widget.requireName)
+                Align(alignment: AlignmentDirectional.centerEnd,
+                  child: TextButton.icon(
+                    onPressed: () => Navigator.of(context).maybePop(),
+                    icon: const Icon(Icons.close_rounded),
+                    label: Text(context.strings.growtha3238c1d))),
               Center(child: Container(width: 46, height: 4,
                 decoration: BoxDecoration(color: colors.outlineVariant, borderRadius: BorderRadius.circular(30)))),
               const SizedBox(height: 12),
@@ -390,8 +402,25 @@ class _GrowthGiftSheetState extends State<GrowthGiftSheet> {
                 ]),
               ),
               const SizedBox(height: 16),
-              Text(english ? 'What should we call you?' : 'تحب نناديك بإيه؟',
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: colors.onSurface)),
+              Row(
+                children: [
+                  Text(english ? 'What should we call you?' : 'تحب نناديك بإيه؟',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: colors.onSurface)),
+                  const SizedBox(width: 8),
+                  if (widget.requireName)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: colors.primary.withAlpha(30),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        english ? 'Required' : 'شرط المتابعة',
+                        style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800, color: colors.primary),
+                      ),
+                    ),
+                ],
+              ),
               const SizedBox(height: 6),
               TextField(
                 controller: name, enabled: !busy, maxLength: 80,

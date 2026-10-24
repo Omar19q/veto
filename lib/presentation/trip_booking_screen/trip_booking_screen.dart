@@ -741,8 +741,14 @@ class _TripBookingScreenState extends State<TripBookingScreen>
           'car',
           'motorcycle',
           'package',
+          'ladies',
         }.contains(widget.initialService)) {
-      b.service = widget.initialService;
+      if (widget.initialService == 'ladies') {
+        b.service = 'car';
+        _categoryV3 = 'veto_ladies';
+      } else {
+        b.service = widget.initialService;
+      }
       step = BookingStep.pickup;
     }
 
@@ -3395,10 +3401,11 @@ class _TripBookingScreenState extends State<TripBookingScreen>
                   ),
                 Wrap(
                   spacing: 8,
+                  runSpacing: 6,
                   children: [
-                    for (final amount in [5, 10, 15, 20])
+                    for (final amount in [5, 10, 15, 20, 30, 50])
                       ChoiceChip(
-                        label: Text('+ $amount'),
+                        label: Text('+ $amount ج'),
                         selected: b.incentive == amount,
                         onSelected: _decidingPrice || b.incentive >= amount
                             ? null

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import './customer_drawer.dart';
+import './app_navigation.dart';
 
 class AppScaffold extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -25,6 +26,7 @@ class AppScaffold extends StatelessWidget {
               ],
             ),
       body: navigationShell,
+      bottomNavigationBar: AppNavigation(navigationShell: navigationShell),
     );
   }
 }

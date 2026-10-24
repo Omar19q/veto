@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../routes/app_routes.dart';
@@ -25,6 +27,7 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
   String _phone = '';
   bool _isCheckingSession = true;
   String? _sessionError;
+  StreamSubscription<AuthState>? _authSub;
 
   late AnimationController _stepController;
   late Animation<double> _stepFade;
@@ -47,6 +50,11 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
         );
     _stepController.forward();
     _checkExistingSession();
+    _authSub = SupabaseService.instance.client.auth.onAuthStateChange.listen((data) {
+      if (data.event == AuthChangeEvent.signedIn && mounted) {
+        _checkExistingSession();
+      }
+    });
   }
 
   /// Route an authenticated customer directly to Home or their active trip.
@@ -188,6 +196,7 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
 
   @override
   void dispose() {
+    _authSub?.cancel();
     _stepController.dispose();
     super.dispose();
   }

@@ -62,7 +62,7 @@ class _BookingRadarWidgetState extends State<BookingRadarWidget>
 
   @override
   Widget build(BuildContext context) {
-    final incentive = widget.currentIncentive.clamp(0, 20);
+    final incentive = widget.currentIncentive < 0 ? 0 : widget.currentIncentive;
     return LayoutBuilder(
       builder: (context, constraints) {
         // Most handsets show everything without scrolling. Very short landscape
@@ -207,9 +207,9 @@ class _BookingRadarWidgetState extends State<BookingRadarWidget>
                     ),
                   ],
                   const SizedBox(height: 10),
-                  Row(children: [5, 10].map(incentiveOption).toList()),
+                  Row(children: [5, 10, 15].map(incentiveOption).toList()),
                   const SizedBox(height: 7),
-                  Row(children: [15, 20].map(incentiveOption).toList()),
+                  Row(children: [20, 30, 50].map(incentiveOption).toList()),
                 ],
               ),
             );

@@ -142,9 +142,11 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
     final onFilledColor = isDark ? const Color(0xFF111827) : Colors.white;
     final compactLabels = scale <= 19;
     final pickupName = _pickup?.label ?? widget.pickupCaption;
+    final isEnglish = l.localeName.startsWith('en');
     final services = <({String id, String label})>[
       (id: 'car', label: l.car),
       (id: 'motorcycle', label: l.motorcycle),
+      (id: 'ladies', label: isEnglish ? 'Ladies' : 'سيدات وأطفال'),
       (id: 'package', label: l.delivery),
       (id: 'market', label: l.market),
     ];
@@ -294,7 +296,7 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
-                                'assets/vehicles/${const {'car': 'veto_economy', 'motorcycle': 'veto_moto', 'package': 'veto_parcel', 'market': 'veto_market'}[services[i].id]}.webp',
+                                'assets/vehicles/${const {'car': 'veto_economy', 'motorcycle': 'veto_moto', 'ladies': 'veto_ladies', 'package': 'veto_parcel', 'market': 'veto_market'}[services[i].id]}.webp',
                                 width: 54,
                                 height: 36,
                                 fit: BoxFit.contain,

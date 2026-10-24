@@ -9,6 +9,8 @@ import '../../../l10n/strings.dart';
 import '../../../services/supabase_service.dart';
 import '../../../routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthPhoneStepWidget extends StatefulWidget {
   final void Function(String phone) onSubmit;
@@ -31,6 +33,30 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
   String? _errorMessage;
   Country _country = Country.parse('EG');
   bool _countryChosen = false;
+  Future<void> _handleGoogleSignIn() async {
+    if (_isLoading) return;
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+    });
+    try {
+      await SupabaseService.instance.client.auth.signInWithOAuth(
+        OAuthProvider.google,
+        redirectTo: 'com.vetosanya.app://login-callback',
+      );
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _errorMessage = context.strings.localeName.startsWith('en')
+              ? 'Google Sign-In failed. Please try again.'
+              : 'تعذر تسجيل الدخول باستخدام Google. حاول مرة أخرى.';
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -239,6 +265,66 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
                 l.requestCode,
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+              ),
+            ),
+          ),
+          const SizedBox(height: 14),
+          Row(
+            children: [
+              Expanded(child: Divider(color: colors.outlineVariant.withAlpha(120))),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+                child: Text(
+                  l.localeName.startsWith('en') ? 'OR' : 'أو',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: colors.onSurfaceVariant,
+                  ),
+                ),
+              ),
+              Expanded(child: Divider(color: colors.outlineVariant.withAlpha(120))),
+            ],
+          ),
+          const SizedBox(height: 14),
+          SizedBox(
+            height: 52,
+            child: OutlinedButton(
+              onPressed: _isLoading ? null : _handleGoogleSignIn,
+              style: OutlinedButton.styleFrom(
+                backgroundColor: isDark ? const Color(0xFF1E293B) : Colors.white,
+                side: BorderSide(
+                  color: colors.outlineVariant.withAlpha(180),
+                  width: 1.2,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    'assets/images/google_logo.svg',
+                    width: 20,
+                    height: 20,
+                  ),
+                  const SizedBox(width: 10),
+                  Flexible(
+                    child: Text(
+                      l.localeName.startsWith('en')
+                          ? 'Continue with Google'
+                          : 'المتابعة باستخدام Google',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: colors.onSurface,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
