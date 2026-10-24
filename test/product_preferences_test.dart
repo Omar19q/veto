@@ -8,19 +8,19 @@ import 'package:vetosanya/services/address_suggestion_service.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   test(
-    'Arabic and current dark presentation default; saved settings restore',
+    'Arabic and system presentation default; saved settings restore',
     () async {
       SharedPreferences.setMockInitialValues({});
       final p = ProductPreferences();
       await p.load();
       expect(p.locale.languageCode, 'ar');
-      expect(p.themeMode, ThemeMode.dark);
+      expect(p.themeMode, ThemeMode.system);
       await p.setLanguage('en');
-      await p.setTheme(ThemeMode.system);
+      await p.setTheme(ThemeMode.dark);
       final restored = ProductPreferences();
       await restored.load();
       expect(restored.locale.languageCode, 'en');
-      expect(restored.themeMode, ThemeMode.system);
+      expect(restored.themeMode, ThemeMode.dark);
       expect(() => p.setLanguage('zz'), throwsArgumentError);
     },
   );

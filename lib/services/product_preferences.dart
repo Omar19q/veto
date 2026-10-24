@@ -6,7 +6,7 @@ class ProductPreferences extends ChangeNotifier {
   ProductPreferences();
   static final instance = ProductPreferences();
   Locale _locale = const Locale('ar');
-  ThemeMode _theme = ThemeMode.dark;
+  ThemeMode _theme = ThemeMode.system;
   Locale get locale => _locale;
   ThemeMode get themeMode => _theme;
   bool loadFailed = false;
@@ -54,15 +54,16 @@ class ProductPreferences extends ChangeNotifier {
       );
       _theme = switch (prefs.getString('product.theme')) {
         'light' => ThemeMode.light,
+        'dark' => ThemeMode.dark,
         'system' => ThemeMode.system,
-        _ => ThemeMode.dark,
+        _ => ThemeMode.system,
       };
       loadFailed = false;
     } catch (_) {
       // Presentation storage must not prevent boot or change Auth/session state.
       loadFailed = true;
       _locale = const Locale('ar');
-      _theme = ThemeMode.dark;
+      _theme = ThemeMode.system;
     }
     notifyListeners();
   }

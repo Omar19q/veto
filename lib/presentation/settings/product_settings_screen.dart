@@ -55,9 +55,9 @@ class _ProductSettingsScreenState extends State<ProductSettingsScreen> {
           Text(l.appearance, style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 12),
           for (final entry in [
-            MapEntry(ThemeMode.dark, l.dark),
-            MapEntry(ThemeMode.light, l.light),
             MapEntry(ThemeMode.system, l.system),
+            MapEntry(ThemeMode.light, l.light),
+            MapEntry(ThemeMode.dark, l.dark),
           ])
             ListTile(
               title: Text(entry.value),
