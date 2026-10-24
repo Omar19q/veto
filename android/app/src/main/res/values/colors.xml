@@ -2,4 +2,5 @@
 <resources>
     <color name="veto_navy">#0B0F1A</color>
     <color name="veto_icon_background">#F7F8FC</color>
+	<color name="ic_launcher_background">#F7F8FC</color>
 </resources>

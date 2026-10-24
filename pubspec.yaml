@@ -57,6 +57,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/veto_sanya_app_icon.png"
+  min_sdk_android: 24
+  adaptive_icon_background: "#F7F8FC"
+  adaptive_icon_foreground: "assets/images/veto_sanya_app_icon.png"
 
 flutter:
   generate: true
