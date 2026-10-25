@@ -5,22 +5,30 @@ import '../../routes/app_routes.dart';
 import '../../services/supabase_service.dart';
 
 class CustomerWalletScreen extends StatefulWidget {
-  const CustomerWalletScreen({super.key});
+  final double? initialBalance;
+  final bool autoLoad;
+  const CustomerWalletScreen({
+    super.key,
+    this.initialBalance,
+    this.autoLoad = true,
+  });
 
   @override
   State<CustomerWalletScreen> createState() => _CustomerWalletScreenState();
 }
 
 class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
-  double _balance = 0;
+  late double _balance = widget.initialBalance ?? 0;
   List<Map<String, dynamic>> _transactions = [];
-  bool _isLoading = true;
+  late bool _isLoading = widget.initialBalance == null;
   bool _loadFailed = false;
 
   @override
   void initState() {
     super.initState();
-    _load();
+    if (widget.autoLoad) {
+      _load();
+    }
   }
 
   Future<void> _load() async {
@@ -106,7 +114,9 @@ class _CustomerWalletScreenState extends State<CustomerWalletScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final colorScheme = Theme.of(context).colorScheme;
     final primaryAccent = isDark ? const Color(0xFFFFC107) : colorScheme.primary;
-    final moneyColor = isDark ? const Color(0xFFFFC107) : const Color(0xFF10B981);
+    final moneyColor = _balance < 0
+        ? const Color(0xFFEF4444)
+        : (isDark ? Colors.white : const Color(0xFF0B0F1A));
 
     return Directionality(
       textDirection: Directionality.of(context),
