@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import './app_navigation.dart';
@@ -12,16 +13,48 @@ class AppScaffold extends StatefulWidget {
 }
 
 class _AppScaffoldState extends State<AppScaffold> {
+  DateTime? _lastBackPressTime;
+
   @override
   Widget build(BuildContext context) {
-    final canReturnToHome = widget.navigationShell.currentIndex != 0;
+    final isHome = widget.navigationShell.currentIndex == 0;
 
     return PopScope(
-      canPop: !canReturnToHome,
+      canPop: false,
       onPopInvokedWithResult: (didPop, result) {
         if (didPop) return;
-        if (widget.navigationShell.currentIndex != 0) {
+
+        // If not on Home tab, return to Home smoothly
+        if (!isHome) {
           widget.navigationShell.goBranch(0);
+          return;
+        }
+
+        // On Home tab: double-tap back to exit
+        final now = DateTime.now();
+        if (_lastBackPressTime == null ||
+            now.difference(_lastBackPressTime!) > const Duration(seconds: 2)) {
+          _lastBackPressTime = now;
+          final isEn = Localizations.localeOf(context).languageCode == 'en';
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                isEn ? 'Press back again to exit' : 'اضغط مرة أخرى للخروج من التطبيق',
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+              duration: const Duration(seconds: 2),
+              behavior: SnackBarBehavior.floating,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+              margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 24),
+            ),
+          );
+        } else {
+          _lastBackPressTime = null;
+          SystemNavigator.pop();
         }
       },
       child: Scaffold(
@@ -46,4 +79,5 @@ class _AppScaffoldState extends State<AppScaffold> {
     );
   }
 }
+
 

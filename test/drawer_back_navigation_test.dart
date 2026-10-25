@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:vetosanya/l10n/app_localizations.dart';
 import 'package:vetosanya/widgets/app_scaffold.dart';
 
 void main() {
@@ -83,6 +84,9 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp.router(
+          locale: const Locale('ar'),
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
           routerConfig: router,
         ),
       );
@@ -90,11 +94,12 @@ void main() {
 
       expect(find.text('Home Screen'), findsOneWidget);
 
-      // On Home (branch 0), system back does not intercept (canPop is true)
+      // On Home (branch 0), the first system back triggers the exit-confirmation SnackBar
       final homePopResult = await tester.binding.handlePopRoute();
-      await tester.pumpAndSettle();
-      // On the root route when canPop is true, handlePopRoute returns false (not intercepted)
-      expect(homePopResult, isFalse);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(homePopResult, isTrue);
+      expect(find.text('اضغط مرة أخرى للخروج من التطبيق'), findsOneWidget);
 
       // Navigate to /more (branch 4)
       router.go('/more');
