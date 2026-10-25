@@ -262,11 +262,21 @@ class _CustomerReferralCompactScreenState
                       Container(
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
-                            colors: [Color(0xFF6C39DE), Color(0xFF925DF1)],
+                            colors: [Color(0xFF0B0F1A), Color(0xFF1E2640)],
                             begin: Alignment.topRight,
                             end: Alignment.bottomLeft,
                           ),
                           borderRadius: BorderRadius.circular(22),
+                          border: Border.all(
+                            color: const Color(0xFFFFC107).withValues(alpha: .35),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: .12),
+                              blurRadius: 16,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
                         ),
                         padding: EdgeInsets.all(compact ? 16 : 22),
                         child: Row(
@@ -275,11 +285,14 @@ class _CustomerReferralCompactScreenState
                               width: 56,
                               height: 56,
                               decoration: BoxDecoration(
-                                color: Colors.white.withValues(alpha: .17),
+                                color: const Color(0xFFFFC107).withValues(alpha: .18),
                                 borderRadius: BorderRadius.circular(18),
                               ),
-                              child: const Icon(Icons.card_giftcard_rounded,
-                                color: Colors.white, size: 31),
+                              child: const Icon(
+                                Icons.card_giftcard_rounded,
+                                color: Color(0xFFFFC107),
+                                size: 31,
+                              ),
                             ),
                             const SizedBox(width: 14),
                             Expanded(
@@ -291,7 +304,8 @@ class _CustomerReferralCompactScreenState
                                         ? (_english ? 'Earn ${reward.toStringAsFixed(0)} EGP' : 'اكسب ${reward.toStringAsFixed(0)} جنيه')
                                         : (_english ? 'Friends bring rewards' : 'الصحاب معاهم مكافآت'),
                                     style: theme.textTheme.titleLarge?.copyWith(
-                                      color: Colors.white, fontWeight: FontWeight.w900,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w900,
                                     ),
                                   ),
                                   const SizedBox(height: 3),
@@ -299,7 +313,9 @@ class _CustomerReferralCompactScreenState
                                     enabled
                                         ? (_english ? 'When your friend completes an eligible ride' : 'لما صاحبك يكمّل أول رحلة مؤهلة')
                                         : (_english ? 'Rewards are currently paused' : 'العروض متوقفة مؤقتًا'),
-                                    style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
+                                    style: theme.textTheme.bodySmall?.copyWith(
+                                      color: const Color(0xFFE2E8F0),
+                                    ),
                                   ),
                                 ],
                               ),
