@@ -204,6 +204,8 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                           Expanded(
                             child: Text(
                               l.whereTo,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 16.5,
