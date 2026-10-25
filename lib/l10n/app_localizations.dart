@@ -6750,7 +6750,7 @@ abstract class AppLocalizations {
   /// No description provided for @profile957084b6.
   ///
   /// In en, this message translates to:
-  /// **'Captain ratings'**
+  /// **'Your rating'**
   String get profile957084b6;
 
   /// No description provided for @profiled51f9d8d.

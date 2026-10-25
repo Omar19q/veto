@@ -3631,7 +3631,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profile995846e9 => 'رحلات مكتملة';
 
   @override
-  String get profile957084b6 => 'تقييم الكباتن';
+  String get profile957084b6 => 'تقييمك';
 
   @override
   String get profiled51f9d8d => 'جديد';

@@ -3703,7 +3703,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profile995846e9 => 'Completed rides';
 
   @override
-  String get profile957084b6 => 'Captain ratings';
+  String get profile957084b6 => 'Your rating';
 
   @override
   String get profiled51f9d8d => 'New';
