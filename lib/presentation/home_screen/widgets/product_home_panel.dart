@@ -184,8 +184,8 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                       child: Row(
                         children: [
                           Container(
-                            width: 38,
-                            height: 38,
+                            width: 36,
+                            height: 36,
                             decoration: BoxDecoration(
                               color: isDark
                                   ? const Color(0xFFFFC107).withAlpha(35)
@@ -194,13 +194,13 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                             ),
                             child: Icon(
                               Icons.search_rounded,
-                              size: 21,
+                              size: 20,
                               color: isDark
                                   ? const Color(0xFFFFC107)
                                   : const Color(0xFFD97706),
                             ),
                           ),
-                          const SizedBox(width: 12),
+                          const SizedBox(width: 10),
                           Expanded(
                             child: Text(
                               l.whereTo,
@@ -208,21 +208,22 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.w800,
-                                fontSize: 16.5,
+                                fontSize: 16,
                               ),
                             ),
                           ),
+                          const SizedBox(width: 8),
                           ExcludeSemantics(
                             child: Container(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
+                                horizontal: 8,
+                                vertical: 4,
                               ),
                               decoration: BoxDecoration(
                                 color: isDark
                                     ? const Color(0xFF1E2540)
                                     : colors.surface,
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(14),
                                 border: Border.all(
                                   color: colors.outlineVariant.withAlpha(80),
                                 ),
@@ -232,16 +233,16 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                                 children: [
                                   Icon(
                                     Icons.near_me_rounded,
-                                    size: 13,
+                                    size: 12,
                                     color: isDark
                                         ? const Color(0xFFFFC107)
                                         : const Color(0xFFD97706),
                                   ),
-                                  const SizedBox(width: 4),
+                                  const SizedBox(width: 3),
                                   Text(
                                     isEnglish ? 'Now' : 'طلب الآن',
                                     style: TextStyle(
-                                      fontSize: 11.5,
+                                      fontSize: 11,
                                       fontWeight: FontWeight.w700,
                                       color: theme.colorScheme.onSurface,
                                     ),

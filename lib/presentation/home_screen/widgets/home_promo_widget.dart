@@ -90,7 +90,7 @@ class _HomePromoWidgetState extends State<HomePromoWidget> {
     final l = context.strings, c = Theme.of(context).colorScheme;
     final height = MediaQuery.textScalerOf(context).scale(14) > 20
         ? 142.0
-        : 92.0;
+        : 100.0;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
