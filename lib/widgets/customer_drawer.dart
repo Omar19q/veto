@@ -38,7 +38,7 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
   void _route(String path) {
     final router = GoRouter.of(context);
     Navigator.pop(context);
-    router.go(path);
+    router.push(path);
   }
 
   void _page(Widget child) {

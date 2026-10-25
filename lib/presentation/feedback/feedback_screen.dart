@@ -5,6 +5,7 @@ import 'dart:async';
 import '../../services/customer_feedback_backend.dart';
 import '../../l10n/strings.dart';
 import '../../theme/app_theme.dart';
+import '../../routes/app_routes.dart';
 
 class FeedbackScreen extends StatefulWidget {
   final String initialType;
@@ -78,7 +79,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         throw Exception(result['error'] ?? 'feedback_failed');
       }
 
-      if (!ownsRequest()) return;
+      if (!mounted || !ownsRequest()) return;
 
       _controller.clear();
 
@@ -91,9 +92,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
         ),
       );
 
-      context.pop();
+      _handleBack();
     } catch (e) {
-      if (!ownsRequest()) return;
+      if (!mounted || !ownsRequest()) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -110,34 +111,49 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
     }
   }
 
+  void _handleBack() {
+    if (context.canPop()) {
+      context.pop();
+    } else if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go(AppRoutes.homeScreen);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool isComplaint = _type == 'complaint';
 
-    return Directionality(
-      textDirection: Directionality.of(context),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          title: Text(
-            isComplaint
-                ? context.strings.feedbackComplaint
-                : context.strings.feedbackSuggestion,
-            style: TextStyle(
-              
-              fontWeight: FontWeight.w800,
-              color: Theme.of(context).colorScheme.onSurface,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _handleBack();
+      },
+      child: Directionality(
+        textDirection: Directionality.of(context),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            title: Text(
+              isComplaint
+                  ? context.strings.feedbackComplaint
+                  : context.strings.feedbackSuggestion,
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+            ),
+            leading: IconButton(
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              onPressed: _handleBack,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
-          leading: IconButton(
-            onPressed: () => context.pop(),
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
-        ),
         body: ListView(
           padding: EdgeInsets.all(18),
           children: [
@@ -256,8 +272,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
 class _TypeChoice extends StatelessWidget {

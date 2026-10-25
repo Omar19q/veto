@@ -53,38 +53,52 @@ class VetoLegalCenterScreen extends StatelessWidget {
       context.strings.localeName,
     )[pageKey];
     final title = (page?['title'] as String?) ?? context.strings.legal930c8cba;
-    return Directionality(
-      textDirection: Directionality.of(context),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          title: Text(
-            title,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              
-              fontWeight: FontWeight.w800,
-              color: Theme.of(context).colorScheme.onSurface,
-              fontSize: 16,
+
+    void handleBack() {
+      if (context.canPop()) {
+        context.pop();
+      } else if (Navigator.of(context).canPop()) {
+        Navigator.of(context).pop();
+      } else {
+        context.go('/home-screen');
+      }
+    }
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) handleBack();
+      },
+      child: Directionality(
+        textDirection: Directionality.of(context),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            title: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontWeight: FontWeight.w800,
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 16,
+              ),
+            ),
+            leading: IconButton(
+              tooltip: context.strings.legalcb822418,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
+              onPressed: handleBack,
             ),
           ),
-          leading: IconButton(
-            tooltip: context.strings.legalcb822418,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: Theme.of(context).colorScheme.onSurface,
+          body: SafeArea(
+            child: ListView(
+              padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
+              children: page == null ? _index(context) : _article(context, page),
             ),
-            onPressed: () => context.canPop()
-                ? context.pop()
-                : context.go('/sign-up-login-screen'),
-          ),
-        ),
-        body: SafeArea(
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(16, 16, 16, 24),
-            children: page == null ? _index(context) : _article(context, page),
           ),
         ),
       ),
