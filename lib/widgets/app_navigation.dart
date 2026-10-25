@@ -30,7 +30,11 @@ class AppNavigation extends StatefulWidget {
 
 class _AppNavigationState extends State<AppNavigation>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
-  int get _selectedVisualIndex => widget.navigationShell.currentIndex;
+  int get _selectedVisualIndex {
+    final currentBranch = widget.navigationShell.currentIndex;
+    final idx = _tabs.indexWhere((t) => t.branchIndex == currentBranch);
+    return idx >= 0 ? idx : 2;
+  }
   int _karizmaUnread = 0;
   Timer? _karizmaTimer;
   RealtimeChannel? _karizmaNewsChannel;
@@ -54,12 +58,6 @@ class _AppNavigationState extends State<AppNavigation>
 
   final List<_TabSpec> _tabs = const [
     _TabSpec(
-      label: 'الرئيسية',
-      icon: Icons.home_outlined,
-      activeIcon: Icons.home_rounded,
-      branchIndex: 0,
-    ),
-    _TabSpec(
       label: 'رحلاتي',
       icon: Icons.receipt_long_outlined,
       activeIcon: Icons.receipt_long_rounded,
@@ -70,6 +68,12 @@ class _AppNavigationState extends State<AppNavigation>
       icon: Icons.account_balance_wallet_outlined,
       activeIcon: Icons.account_balance_wallet_rounded,
       branchIndex: 2,
+    ),
+    _TabSpec(
+      label: 'الرئيسية',
+      icon: Icons.home_outlined,
+      activeIcon: Icons.home_rounded,
+      branchIndex: 0,
     ),
     _TabSpec(
       label: 'الأخبار',
@@ -119,13 +123,13 @@ class _AppNavigationState extends State<AppNavigation>
     if (spec.branchIndex == null) return; // stub tab — silent ignore
     if (visualIndex == _selectedVisualIndex) return;
     setState(() {
-      if (visualIndex == 3) _karizmaUnread = 0;
+      if (spec.branchIndex == 3) _karizmaUnread = 0;
     });
     widget.navigationShell.goBranch(
       spec.branchIndex!,
       initialLocation: spec.branchIndex == widget.navigationShell.currentIndex,
     );
-    if (visualIndex == 3) {
+    if (spec.branchIndex == 3) {
       SupabaseService.instance.karizmaCustomerOpen.value++;
     }
   }

@@ -40,9 +40,10 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
 
   void _toggle() {
     if (!_sheet.isAttached) return;
-    final expand = _sheet.size < .8;
+    final expand = _sheet.size < .6;
+    setState(() => _expanded = expand);
     _sheet.animateTo(
-      expand ? .94 : .34,
+      expand ? .94 : .38,
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
           : const Duration(milliseconds: 220),
@@ -57,7 +58,7 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
     return LayoutBuilder(
       builder: (context, bounds) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
-        final initial = bounds.maxHeight < 560 || largeText ? .70 : .34;
+        final initial = bounds.maxHeight < 560 || largeText ? .70 : .38;
         return Stack(
           fit: StackFit.expand,
           children: [
@@ -153,21 +154,22 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
             ),
             NotificationListener<DraggableScrollableNotification>(
               onNotification: (n) {
-                final expanded = n.extent > .8;
-                if (_extent != n.extent)
+                final expanded = n.extent > .6;
+                if (_extent != n.extent || _expanded != expanded) {
                   setState(() {
                     _expanded = expanded;
                     _extent = n.extent;
                   });
+                }
                 return false;
               },
               child: DraggableScrollableSheet(
                 controller: _sheet,
                 initialChildSize: initial,
-                minChildSize: .30,
+                minChildSize: .32,
                 maxChildSize: .94,
                 snap: true,
-                snapSizes: const [.30, .34, .70, .94],
+                snapSizes: const [.32, .38, .70, .94],
                 builder: (context, scroll) => Material(
                   color: c.surface,
                   elevation: 8,
@@ -179,15 +181,55 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
                     controller: scroll,
                     slivers: [
                       SliverToBoxAdapter(
-                        child: SizedBox(
-                          height: 30,
-                          child: TextButton.icon(
-                            onPressed: _toggle,
-                            icon: Icon(
-                              _expanded ? Icons.expand_more : Icons.expand_less,
+                        child: InkWell(
+                          onTap: _toggle,
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(28),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 10,
+                              bottom: 8,
                             ),
-                            label: Text(
-                              _expanded ? l.collapseBooking : l.expandBooking,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Container(
+                                  width: 40,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                    color: c.outlineVariant.withAlpha(160),
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      _expanded
+                                          ? Icons.keyboard_arrow_down_rounded
+                                          : Icons.keyboard_arrow_up_rounded,
+                                      size: 18,
+                                      color: c.onSurfaceVariant,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      _expanded
+                                          ? l.collapseBooking
+                                          : l.expandBooking,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelMedium
+                                          ?.copyWith(
+                                            color: c.onSurfaceVariant,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ),
