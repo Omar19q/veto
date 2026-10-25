@@ -11,7 +11,7 @@ class CustomerMapHome extends StatefulWidget {
     required this.onCity,
     this.onPickup,
     required this.onLocate,
-    required this.onAccount,
+    this.onAccount,
     required this.onNotifications,
     this.locating = false,
     this.unreadCount = 0,
@@ -19,7 +19,8 @@ class CustomerMapHome extends StatefulWidget {
   final Widget map;
   final List<Widget> slivers;
   final String city;
-  final VoidCallback onCity, onLocate, onAccount, onNotifications;
+  final VoidCallback onCity, onLocate, onNotifications;
+  final VoidCallback? onAccount;
   final VoidCallback? onPickup;
   final bool locating;
   final int unreadCount;
@@ -52,6 +53,7 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
   @override
   Widget build(BuildContext context) {
     final l = context.strings, c = Theme.of(context).colorScheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return LayoutBuilder(
       builder: (context, bounds) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
@@ -80,11 +82,25 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
                   borderRadius: BorderRadius.circular(22),
                   child: Row(
                     children: [
-                      IconButton(
-                        tooltip: l.account478c486f,
-                        onPressed: widget.onAccount,
-                        icon: const Icon(Icons.menu_rounded),
+                      const SizedBox(width: 14),
+                      Container(
+                        width: 34,
+                        height: 34,
+                        decoration: BoxDecoration(
+                          color: isDark
+                              ? const Color(0xFFFFC107).withAlpha(30)
+                              : const Color(0xFFD97706).withAlpha(22),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.location_on_rounded,
+                          color: isDark
+                              ? const Color(0xFFFFC107)
+                              : const Color(0xFFD97706),
+                          size: 19,
+                        ),
                       ),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: InkWell(
                           onTap: widget.onPickup ?? widget.onCity,

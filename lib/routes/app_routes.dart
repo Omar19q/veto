@@ -629,9 +629,8 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: AppRoutes.customerKarizma,
-              builder: (context, state) => KarizmaScreen(
+              builder: (context, state) => const KarizmaScreen(
                 audience: 'customer',
-                onMenu: () => Scaffold.maybeOf(context)?.openDrawer(),
               ),
             ),
           ],

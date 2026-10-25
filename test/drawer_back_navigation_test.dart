@@ -23,7 +23,7 @@ void main() {
   });
 
   testWidgets(
-    'Pressing system back when drawer is open closes the drawer and stays on screen',
+    'Pressing system back on secondary branches returns to Home tab without exiting',
     (tester) async {
       final router = GoRouter(
         initialLocation: '/home-screen',
@@ -36,12 +36,9 @@ void main() {
                 routes: [
                   GoRoute(
                     path: '/home-screen',
-                    builder: (context, state) => Scaffold(
+                    builder: (context, state) => const Scaffold(
                       body: Center(
-                        child: ElevatedButton(
-                          onPressed: () => Scaffold.of(context).openDrawer(),
-                          child: const Text('Open'),
-                        ),
+                        child: Text('Home Screen'),
                       ),
                     ),
                   ),
@@ -52,6 +49,30 @@ void main() {
                   GoRoute(
                     path: '/trips',
                     builder: (_, __) => const Text('Trips Page'),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: [
+                  GoRoute(
+                    path: '/wallet',
+                    builder: (_, __) => const Text('Wallet Page'),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: [
+                  GoRoute(
+                    path: '/karizma',
+                    builder: (_, __) => const Text('Karizma Page'),
+                  ),
+                ],
+              ),
+              StatefulShellBranch(
+                routes: [
+                  GoRoute(
+                    path: '/more',
+                    builder: (_, __) => const Text('More Page'),
                   ),
                 ],
               ),
@@ -67,21 +88,24 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Open drawer from Home
-      await tester.tap(find.text('Open'));
+      expect(find.text('Home Screen'), findsOneWidget);
+
+      // On Home (branch 0), system back does not intercept (canPop is true)
+      final homePopResult = await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
+      // On the root route when canPop is true, handlePopRoute returns false (not intercepted)
+      expect(homePopResult, isFalse);
 
-      // Drawer is visible
-      expect(find.byType(Drawer), findsOneWidget);
-
-      // Trigger system back button (simulate Android back button)
-      final didPopRoute = await tester.binding.handlePopRoute();
+      // Navigate to /more (branch 4)
+      router.go('/more');
       await tester.pumpAndSettle();
+      expect(find.text('More Page'), findsOneWidget);
 
-      // The pop was handled internally and drawer closed
-      expect(didPopRoute, isTrue);
-      expect(find.byType(Drawer), findsNothing);
-      expect(find.text('Open'), findsOneWidget);
+      // Trigger system back button from More tab -> intercepted and returns to Home (branch 0)
+      final handledMoreBack = await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+      expect(handledMoreBack, isTrue);
+      expect(find.text('Home Screen'), findsOneWidget);
 
       // Navigate to /trips (branch 1)
       router.go('/trips');
@@ -92,7 +116,7 @@ void main() {
       final handledTripsBack = await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
       expect(handledTripsBack, isTrue);
-      expect(find.text('Open'), findsOneWidget);
+      expect(find.text('Home Screen'), findsOneWidget);
 
       router.dispose();
     },
