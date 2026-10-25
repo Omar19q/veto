@@ -118,6 +118,28 @@ void main() {
       expect(handledTripsBack, isTrue);
       expect(find.text('Home Screen'), findsOneWidget);
 
+      // Navigate to /wallet (branch 2)
+      router.go('/wallet');
+      await tester.pumpAndSettle();
+      expect(find.text('Wallet Page'), findsOneWidget);
+
+      // Trigger system back button from wallet tab -> returns to Home tab (branch 0)
+      final handledWalletBack = await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+      expect(handledWalletBack, isTrue);
+      expect(find.text('Home Screen'), findsOneWidget);
+
+      // Navigate to /karizma (branch 3 - News)
+      router.go('/karizma');
+      await tester.pumpAndSettle();
+      expect(find.text('Karizma Page'), findsOneWidget);
+
+      // Trigger system back button from news tab -> returns to Home tab (branch 0)
+      final handledNewsBack = await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+      expect(handledNewsBack, isTrue);
+      expect(find.text('Home Screen'), findsOneWidget);
+
       router.dispose();
     },
   );
