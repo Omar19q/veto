@@ -4575,7 +4575,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get legalbb7d2e6a => 'The link could not be opened. Call 01031517830.';
 
   @override
-  String get legal930c8cba => 'Legal information and support';
+  String get legal930c8cba => 'Terms & Privacy';
 
   @override
   String get legalcb822418 => 'Back';

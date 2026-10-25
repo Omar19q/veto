@@ -4486,7 +4486,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get legalbb7d2e6a => 'تعذر فتح الرابط. اتصل على 01031517830.';
 
   @override
-  String get legal930c8cba => 'المعلومات القانونية والدعم';
+  String get legal930c8cba => 'الشروط والخصوصية';
 
   @override
   String get legalcb822418 => 'رجوع';

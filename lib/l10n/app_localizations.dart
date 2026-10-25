@@ -8322,7 +8322,7 @@ abstract class AppLocalizations {
   /// No description provided for @legal930c8cba.
   ///
   /// In en, this message translates to:
-  /// **'Legal information and support'**
+  /// **'Terms & Privacy'**
   String get legal930c8cba;
 
   /// No description provided for @legalcb822418.

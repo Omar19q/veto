@@ -24,6 +24,35 @@ void main() {
   });
 
   testWidgets(
+    'VetoLegalCenterScreen root displays "الشروط والخصوصية" as title',
+    (tester) async {
+      final router = GoRouter(
+        initialLocation: '/legal',
+        routes: [
+          GoRoute(
+            path: '/legal',
+            builder: (_, __) => const VetoLegalCenterScreen(pageKey: null),
+          ),
+        ],
+      );
+
+      await tester.pumpWidget(
+        MaterialApp.router(
+          routerConfig: router,
+          locale: const Locale('ar'),
+          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('الشروط والخصوصية'), findsOneWidget);
+
+      router.dispose();
+    },
+  );
+
+  testWidgets(
     'VetoLegalCenterScreen (safety) back button pops back to previous screen in stack',
     (tester) async {
       final router = GoRouter(
