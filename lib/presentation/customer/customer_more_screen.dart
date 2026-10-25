@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../l10n/strings.dart';
 import '../../routes/app_routes.dart';
 import '../../services/staff_access_v16.dart';
 import '../../services/supabase_service.dart';
@@ -25,7 +24,6 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
   bool _staffVerifierV21 = false;
   String _customerName = '';
   String _customerPhone = '';
-  String _supportPhone = '';
   String _supportWhatsapp = '';
   String? _profilePhotoUrl;
   bool _loading = false;
@@ -79,14 +77,10 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
           _profilePhotoUrl = customer['profile_photo_url'] as String?;
         }
       }
-      final phone = await SupabaseService.instance.getSetting(
-        'customer_service_phone',
-      );
       final wa = await SupabaseService.instance.getSetting(
         'customer_service_whatsapp',
       );
       if (mounted) {
-        if (phone != null && phone.isNotEmpty) _supportPhone = phone;
         if (wa != null && wa.isNotEmpty) _supportWhatsapp = wa;
       }
     } catch (_) {
@@ -191,10 +185,11 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                         ),
                       ),
                       onPressed: () async {
+                        final router = GoRouter.of(context);
                         Navigator.pop(ctx);
                         await SupabaseService.instance.signOut();
                         if (mounted) {
-                          context.go('/sign-up-login-screen');
+                          router.go('/sign-up-login-screen');
                         }
                       },
                       child: const Text('تأكيد الخروج'),
@@ -283,21 +278,6 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                   borderColor: borderColor,
                   children: [
                     _buildMenuItem(
-                      icon: Icons.person_outline_rounded,
-                      title: 'الملف الشخصي والولاء',
-                      subtitle: 'نقاطك ومستواك في برنامج ولاء فيتو',
-                      titleColor: titleColor,
-                      subtitleColor: subtitleColor,
-                      iconColor: goldColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const CustomerLoyaltyPanelV29(),
-                        ),
-                      ),
-                    ),
-                    _buildDivider(borderColor),
-                    _buildMenuItem(
                       icon: Icons.bookmark_outline_rounded,
                       title: 'العناوين المحفوظة',
                       subtitle: 'المنزل، العمل، والأماكن المفضلة',
@@ -343,20 +323,16 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                   cardColor: cardColor,
                   borderColor: borderColor,
                   children: [
-                    _buildMenuItem(
-                      icon: Icons.directions_car_filled_rounded,
-                      title: _approvedCaptainV21
-                          ? 'التبديل إلى وضع الكابتن'
-                          : 'اشتغل كابتن مع فيتو ثانية',
-                      subtitle: _approvedCaptainV21
-                          ? 'الانتقال لواجهة القيادة واستقبال الطلبات'
-                          : 'انضم لأسطول الكباتن وابدأ بزيادة دخلك اليومي',
-                      titleColor: titleColor,
-                      subtitleColor: subtitleColor,
-                      iconColor: goldColor,
-                      isProminent: true,
-                      onTap: () async {
-                        if (_approvedCaptainV21) {
+                    if (_approvedCaptainV21) ...[
+                      _buildMenuItem(
+                        icon: Icons.directions_car_filled_rounded,
+                        title: 'التبديل إلى وضع الكابتن',
+                        subtitle: 'الانتقال لواجهة القيادة واستقبال الطلبات',
+                        titleColor: titleColor,
+                        subtitleColor: subtitleColor,
+                        iconColor: goldColor,
+                        isProminent: true,
+                        onTap: () async {
                           final id = SupabaseService.instance.currentUser?.id;
                           if (id != null) {
                             await VetoModeV21.openCaptain(
@@ -364,12 +340,10 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                               id,
                             );
                           }
-                        } else {
-                          context.push(AppRoutes.captainRegistration);
-                        }
-                      },
-                    ),
-                    _buildDivider(borderColor),
+                        },
+                      ),
+                      _buildDivider(borderColor),
+                    ],
                     _buildMenuItem(
                       icon: Icons.card_giftcard_rounded,
                       title: 'العروض والمكافآت',

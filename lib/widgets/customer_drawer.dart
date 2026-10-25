@@ -28,8 +28,9 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
     if (owner == null) return;
     try {
       final approved = await VetoModeV21.canUseCaptain(owner);
-      if (mounted && owner == SupabaseService.instance.currentUser?.id)
+      if (mounted && owner == SupabaseService.instance.currentUser?.id) {
         setState(() => _captain = approved);
+      }
     } catch (_) {
       /* Do not infer captain approval on failure. */
     }
@@ -134,12 +135,6 @@ class _CustomerDrawerState extends State<CustomerDrawer> {
             ),
             item(Icons.policy_outlined, l.menuLegal, () => _route('/legal')),
             Divider(color: c.outlineVariant, height: 1),
-            item(
-              Icons.badge_outlined,
-              l.menuCaptainApply,
-              () => _route('/captain-registration'),
-              color: isDark ? const Color(0xFFFFC107) : const Color(0xFFE5A800),
-            ),
             if (_captain)
               item(Icons.drive_eta_outlined, l.menuCaptainMode, () async {
                 final id = SupabaseService.instance.currentUser?.id;

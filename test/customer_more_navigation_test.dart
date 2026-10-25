@@ -50,6 +50,11 @@ void main() {
       expect(find.text('الحساب والمشاوير'), findsOneWidget);
       expect(find.text('الخدمات والعروض'), findsOneWidget);
 
+      // Verify removed buttons do not exist
+      expect(find.text('إطاراتي ومكافآتي'), findsNothing);
+      expect(find.text('اقتراحات عناويني'), findsNothing);
+      expect(find.textContaining('اشتغل كابتن'), findsNothing);
+
       // Scroll to view subsequent sections
       await tester.scrollUntilVisible(
         find.text('تسجيل الخروج'),

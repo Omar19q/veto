@@ -40,10 +40,10 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
 
   void _toggle() {
     if (!_sheet.isAttached) return;
-    final expand = _sheet.size < .6;
+    final expand = _sheet.size < .8;
     setState(() => _expanded = expand);
     _sheet.animateTo(
-      expand ? .94 : .38,
+      expand ? .94 : .34,
       duration: MediaQuery.disableAnimationsOf(context)
           ? Duration.zero
           : const Duration(milliseconds: 220),
@@ -58,7 +58,7 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
     return LayoutBuilder(
       builder: (context, bounds) {
         final largeText = MediaQuery.textScalerOf(context).scale(16) > 22;
-        final initial = bounds.maxHeight < 560 || largeText ? .70 : .38;
+        final initial = bounds.maxHeight < 560 || largeText ? .70 : .34;
         return Stack(
           fit: StackFit.expand,
           children: [
@@ -154,7 +154,7 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
             ),
             NotificationListener<DraggableScrollableNotification>(
               onNotification: (n) {
-                final expanded = n.extent > .6;
+                final expanded = n.extent > .8;
                 if (_extent != n.extent || _expanded != expanded) {
                   setState(() {
                     _expanded = expanded;
@@ -166,10 +166,10 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
               child: DraggableScrollableSheet(
                 controller: _sheet,
                 initialChildSize: initial,
-                minChildSize: .32,
+                minChildSize: .30,
                 maxChildSize: .94,
                 snap: true,
-                snapSizes: const [.32, .38, .70, .94],
+                snapSizes: const [.30, .34, .70, .94],
                 builder: (context, scroll) => Material(
                   color: c.surface,
                   elevation: 8,
@@ -203,31 +203,40 @@ class _CustomerMapHomeState extends State<CustomerMapHome> {
                                   ),
                                 ),
                                 const SizedBox(height: 6),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      _expanded
-                                          ? Icons.keyboard_arrow_down_rounded
-                                          : Icons.keyboard_arrow_up_rounded,
-                                      size: 18,
-                                      color: c.onSurfaceVariant,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                  ),
+                                  child: FittedBox(
+                                    fit: BoxFit.scaleDown,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          _expanded
+                                              ? Icons.keyboard_arrow_down_rounded
+                                              : Icons.keyboard_arrow_up_rounded,
+                                          size: 18,
+                                          color: c.onSurfaceVariant,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          _expanded
+                                              ? l.collapseBooking
+                                              : l.expandBooking,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium
+                                              ?.copyWith(
+                                                color: c.onSurfaceVariant,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
                                     ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      _expanded
-                                          ? l.collapseBooking
-                                          : l.expandBooking,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .labelMedium
-                                          ?.copyWith(
-                                            color: c.onSurfaceVariant,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ],
                             ),
