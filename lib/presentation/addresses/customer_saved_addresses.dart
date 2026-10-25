@@ -5,6 +5,7 @@ import '../../services/booking_address_seed.dart';
 import '../../services/customer_location_state.dart';
 import '../../theme/app_theme.dart';
 import '../../l10n/strings.dart';
+import '../../routes/app_routes.dart';
 import 'address_suggestion_history.dart';
 
 class CustomerSavedAddresses extends StatefulWidget {
@@ -194,15 +195,35 @@ class _CustomerSavedAddressesState extends State<CustomerSavedAddresses> {
     }
   }
 
+  void _handleBack() {
+    if (context.canPop()) {
+      context.pop();
+    } else if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go(AppRoutes.homeScreen);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l = context.strings;
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l.savedPlaces),
-        actions: [
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _handleBack();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(l.savedPlaces),
+          leading: IconButton(
+            tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+            icon: const Icon(Icons.arrow_back_rounded),
+            onPressed: _handleBack,
+          ),
+          actions: [
           IconButton(
             key: const Key('add_address_appbar_button'),
             icon: const Icon(Icons.add_rounded),
@@ -385,6 +406,7 @@ class _CustomerSavedAddressesState extends State<CustomerSavedAddresses> {
                 const SizedBox(height: 80),
               ],
             ),
+      ),
     );
   }
 }

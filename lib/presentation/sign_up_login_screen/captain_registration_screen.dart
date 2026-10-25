@@ -7,8 +7,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../services/captain_application_v16.dart';
+import '../../routes/app_routes.dart';
 
 class CaptainRegistrationScreen extends StatefulWidget {
   const CaptainRegistrationScreen({super.key, this.applicationApi});
@@ -1088,17 +1090,37 @@ class _CaptainRegistrationScreenState extends State<CaptainRegistrationScreen> {
       ),
     ],
   );
+  void _handleBack() {
+    if (context.canPop()) {
+      context.pop();
+    } else if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go(AppRoutes.homeScreen);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final status = _application?['status'] as String?;
     final locked = status != null && status != 'needs_info';
-    return Directionality(
-      textDirection: Directionality.of(context),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          title: Text(context.strings.registrationb44d35b0),
-          actions: [
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _handleBack();
+      },
+      child: Directionality(
+        textDirection: Directionality.of(context),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            title: Text(context.strings.registrationb44d35b0),
+            leading: IconButton(
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              icon: const Icon(Icons.arrow_back_rounded),
+              onPressed: _handleBack,
+            ),
+            actions: [
             IconButton(
               onPressed: _busy ? null : _restore,
               icon: const Icon(Icons.refresh),
@@ -1321,6 +1343,7 @@ class _CaptainRegistrationScreenState extends State<CaptainRegistrationScreen> {
                   ),
                 ),
               ),
+        ),
       ),
     );
   }
