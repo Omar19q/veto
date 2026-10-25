@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:go_router/go_router.dart';
 import '../../l10n/strings.dart';
 import 'package:flutter/material.dart';
+import '../../routes/app_routes.dart';
 import '../../services/supabase_service.dart';
 import '../../theme/app_theme.dart';
 
@@ -106,33 +108,51 @@ class _CustomerNotificationsScreenState
     }
   }
 
+  void _handleBack(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go(AppRoutes.homeScreen);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: Directionality.of(context),
-      child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          title: Text(
-            context.strings.notificationTitle,
-            style: TextStyle(
-              
-              color: Theme.of(context).colorScheme.onSurface,
-              fontWeight: FontWeight.w800,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        _handleBack(context);
+      },
+      child: Directionality(
+        textDirection: Directionality.of(context),
+        child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            leading: IconButton(
+              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+              icon: const Icon(Icons.arrow_back_rounded),
+              onPressed: () => _handleBack(context),
             ),
-          ),
-          actions: [
-            if (_items.any((n) => n['is_read'] != true))
-              TextButton(
-                onPressed: _markAllRead,
-                child: Text(
-                  context.strings.notificationReadAll,
-                  style: TextStyle( color: AppTheme.gold),
-                ),
+            title: Text(
+              context.strings.notificationTitle,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.w800,
               ),
-          ],
-        ),
+            ),
+            actions: [
+              if (_items.any((n) => n['is_read'] != true))
+                TextButton(
+                  onPressed: _markAllRead,
+                  child: Text(
+                    context.strings.notificationReadAll,
+                    style: const TextStyle(color: AppTheme.gold),
+                  ),
+                ),
+            ],
+          ),
         body: _loading
             ? const Center(
                 child: CircularProgressIndicator(color: AppTheme.gold),
@@ -230,6 +250,7 @@ class _CustomerNotificationsScreenState
                   },
                 ),
               ),
+        ),
       ),
     );
   }
