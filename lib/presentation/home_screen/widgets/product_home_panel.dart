@@ -139,7 +139,6 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
     final colors = theme.colorScheme;
     final scale = MediaQuery.textScalerOf(context).scale(14);
     final isDark = theme.brightness == Brightness.dark;
-    final onFilledColor = isDark ? const Color(0xFF111827) : Colors.white;
     final compactLabels = scale <= 19;
     final pickupName = _pickup?.label ?? widget.pickupCaption;
     final isEnglish = l.localeName.startsWith('en');
@@ -151,68 +150,180 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
       (id: 'market', label: l.market),
     ];
 
-    // Only the two actions needed to start booking are permanently visible.
+    // Only the primary unified route action and categories are permanently visible.
     // Destinations and saved places are accessible inside the booking flow.
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // 1. Unified Uber-style Route Search Card (Where to + Pickup in one card)
         Material(
           color: colors.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(16),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(16),
-            onTap: () => _start(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Row(
-                children: [
-                  const Icon(Icons.person_pin_circle_outlined, size: 24),
-                  const SizedBox(width: 9),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(l.pickup, style: theme.textTheme.labelSmall),
-                        Text(
-                          pickupName,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w700,
+          borderRadius: BorderRadius.circular(20),
+          clipBehavior: Clip.antiAlias,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(
+                color: colors.outlineVariant.withAlpha(isDark ? 100 : 70),
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Primary "Where to?" action (Hero bar)
+                Semantics(
+                  button: true,
+                  child: InkWell(
+                    onTap: () {
+                      HapticFeedback.lightImpact();
+                      _start();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(14, 12, 14, 11),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 38,
+                            height: 38,
+                            decoration: BoxDecoration(
+                              color: isDark
+                                  ? const Color(0xFFFFC107).withAlpha(35)
+                                  : const Color(0xFFFFC107).withAlpha(45),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.search_rounded,
+                              size: 21,
+                              color: isDark
+                                  ? const Color(0xFFFFC107)
+                                  : const Color(0xFFD97706),
+                            ),
                           ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              l.whereTo,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16.5,
+                              ),
+                            ),
+                          ),
+                          ExcludeSemantics(
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: isDark
+                                    ? const Color(0xFF1E2540)
+                                    : colors.surface,
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: colors.outlineVariant.withAlpha(80),
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.near_me_rounded,
+                                    size: 13,
+                                    color: isDark
+                                        ? const Color(0xFFFFC107)
+                                        : const Color(0xFFD97706),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    isEnglish ? 'Now' : 'طلب الآن',
+                                    style: TextStyle(
+                                      fontSize: 11.5,
+                                      fontWeight: FontWeight.w700,
+                                      color: theme.colorScheme.onSurface,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                // Subtle internal divider
+                Divider(
+                  height: 1,
+                  thickness: 1,
+                  indent: 14,
+                  endIndent: 14,
+                  color: colors.outlineVariant.withAlpha(isDark ? 80 : 50),
+                ),
+
+                // Pickup location info row (compact, clear, editable)
+                InkWell(
+                  onTap: () {
+                    HapticFeedback.lightImpact();
+                    _start();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 9,
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF10B981),
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                        const SizedBox(width: 9),
+                        Text(
+                          isEnglish ? 'From: ' : 'من: ',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            color: colors.onSurfaceVariant,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            pickupName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          isEnglish ? 'Change' : 'تغيير',
+                          style: TextStyle(
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w700,
+                            color: isDark
+                                ? const Color(0xFFFFC107)
+                                : const Color(0xFFD97706),
+                          ),
+                        ),
+                        const SizedBox(width: 2),
+                        Icon(
+                          Icons.chevron_left_rounded,
+                          size: 16,
+                          color: isDark
+                              ? const Color(0xFFFFC107)
+                              : const Color(0xFFD97706),
                         ),
                       ],
                     ),
-                  ),
-                  const Icon(Icons.edit_location_alt_outlined, size: 22),
-                ],
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          height: 52,
-          child: FilledButton(
-            onPressed: () {
-              HapticFeedback.lightImpact();
-              _start();
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.search_rounded,
-                  size: 21,
-                  color: isDark ? onFilledColor : const Color(0xFFFFC107),
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  l.whereTo,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    color: onFilledColor,
-                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ],
@@ -260,9 +371,9 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
             ),
           ),
         ],
-        const SizedBox(height: 10),
+        const SizedBox(height: 12),
         SizedBox(
-          height: 58 + MediaQuery.textScalerOf(context).scale(14) * 2.5,
+          height: 64 + MediaQuery.textScalerOf(context).scale(14) * 2.2,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -274,12 +385,15 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                     label: services[i].label,
                     child: Material(
                       color: _service == services[i].id
-                          ? colors.primaryContainer
+                          ? (isDark
+                              ? const Color(0xFFFFC107).withAlpha(35)
+                              : colors.primaryContainer)
                           : colors.surfaceContainerLow,
-                      borderRadius: BorderRadius.circular(13),
+                      borderRadius: BorderRadius.circular(16),
                       child: InkWell(
-                        borderRadius: BorderRadius.circular(13),
+                        borderRadius: BorderRadius.circular(16),
                         onTap: () {
+                          HapticFeedback.lightImpact();
                           if (services[i].id == 'market') {
                             widget.onMarket();
                           } else {
@@ -287,31 +401,51 @@ class _ProductHomePanelState extends State<ProductHomePanel> {
                             _start();
                           }
                         },
-                        child: Padding(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              color: _service == services[i].id
+                                  ? (isDark
+                                      ? const Color(0xFFFFC107)
+                                      : const Color(0xFFD97706))
+                                  : colors.outlineVariant.withAlpha(isDark ? 60 : 40),
+                              width: _service == services[i].id ? 1.5 : 1,
+                            ),
+                          ),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 2,
-                            vertical: 7,
+                            vertical: 8,
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                'assets/vehicles/${const {'car': 'veto_economy', 'motorcycle': 'veto_moto', 'ladies': 'veto_ladies', 'package': 'veto_parcel', 'market': 'veto_market'}[services[i].id]}.webp',
-                                width: 54,
-                                height: 36,
-                                fit: BoxFit.contain,
-                                cacheWidth: 128,
-                                semanticLabel: services[i].label,
+                              Expanded(
+                                child: Center(
+                                  child: Image.asset(
+                                    'assets/vehicles/${const {'car': 'veto_economy', 'motorcycle': 'veto_moto', 'ladies': 'veto_ladies', 'package': 'veto_parcel', 'market': 'veto_market'}[services[i].id]}.webp',
+                                    fit: BoxFit.contain,
+                                    cacheWidth: 128,
+                                    semanticLabel: services[i].label,
+                                  ),
+                                ),
                               ),
-                              const SizedBox(height: 3),
-                              Text(
-                                services[i].label,
-                                maxLines: 2,
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.labelSmall?.copyWith(
-                                  fontSize: compactLabels ? 12 : null,
-                                  fontWeight: FontWeight.w700,
+                              const SizedBox(height: 4),
+                              FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  services[i].label,
+                                  maxLines: 1,
+                                  textAlign: TextAlign.center,
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    fontSize: compactLabels ? 11.5 : null,
+                                    fontWeight: _service == services[i].id
+                                        ? FontWeight.w800
+                                        : FontWeight.w600,
+                                    color: _service == services[i].id && isDark
+                                        ? const Color(0xFFFFC107)
+                                        : theme.colorScheme.onSurface,
+                                  ),
                                 ),
                               ),
                             ],
