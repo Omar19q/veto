@@ -32,3 +32,7 @@ output/phase2_tools/
 /env.production.private.json
 /env.json
 .flutter-plugins
+
+*.apk
+*.pdf
+VETO_ALL_CHANGES_REPORT.html
