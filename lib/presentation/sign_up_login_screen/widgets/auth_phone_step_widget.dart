@@ -48,7 +48,11 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
       );
       final googleSignIn = GoogleSignIn(
         serverClientId: serverClientId.isNotEmpty ? serverClientId : null,
+        scopes: const ['email', 'profile', 'openid'],
       );
+      try {
+        await googleSignIn.signOut();
+      } catch (_) {}
       final googleUser = await googleSignIn.signIn();
       if (googleUser == null) {
         // User cancelled account picker
@@ -58,18 +62,15 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
       final idToken = googleAuth.idToken;
       final accessToken = googleAuth.accessToken;
 
-      if (idToken != null) {
-        await SupabaseService.instance.client.auth.signInWithIdToken(
-          provider: OAuthProvider.google,
-          idToken: idToken,
-          accessToken: accessToken,
-        );
-      } else {
-        await SupabaseService.instance.client.auth.signInWithOAuth(
-          OAuthProvider.google,
-          redirectTo: 'com.vetosanya.app://login-callback',
-        );
+      if (idToken == null || idToken.isEmpty) {
+        throw Exception('لم يُرجع حساب جوجل رمز تأكيد (ID Token فارغ)');
       }
+
+      await SupabaseService.instance.client.auth.signInWithIdToken(
+        provider: OAuthProvider.google,
+        idToken: idToken,
+        accessToken: accessToken,
+      );
     } on AuthException catch (e) {
       if (mounted) {
         setState(() {
