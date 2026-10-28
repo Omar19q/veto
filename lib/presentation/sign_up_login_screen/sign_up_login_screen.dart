@@ -11,6 +11,7 @@ import '../../theme/app_theme.dart';
 import './widgets/auth_logo_widget.dart';
 import './widgets/auth_otp_step_widget.dart';
 import './widgets/auth_phone_step_widget.dart';
+import './widgets/google_phone_link_sheet.dart';
 
 enum _AuthStep { phone, otp }
 
@@ -81,10 +82,30 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
       } catch (_) {}
     }
 
-    final resolvedCustomer = customer;
-    if (resolvedCustomer != null) {
+    var activeCustomer = customer;
+    if (activeCustomer != null) {
+      final user = SupabaseService.instance.currentUser;
+      final metadata = user?.userMetadata;
+      final bool hasRealPhone = _phone.trim().isNotEmpty ||
+          (metadata?['phone_provided'] == true) ||
+          (user?.phone != null && user!.phone!.isNotEmpty);
+
+      if (!hasRealPhone && mounted) {
+        final didUpdate = await GooglePhoneLinkSheet.show(
+          context,
+          userId: userId,
+          customerId: activeCustomer['id'] as String,
+          userName: activeCustomer['full_name']?.toString(),
+        );
+        if (didUpdate == true) {
+          activeCustomer =
+              await SupabaseService.instance.getCustomerByUserId(userId) ??
+                  activeCustomer;
+        }
+      }
+
       final activeTrip = await SupabaseService.instance.getActiveTrip(
-        resolvedCustomer['id'] as String,
+        activeCustomer['id'] as String,
       );
       final status = activeTrip?['trip_status']?.toString();
       final hasLiveTrip =

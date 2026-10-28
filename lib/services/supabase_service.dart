@@ -338,6 +338,13 @@ class SupabaseService {
           .insert(insertData)
           .select()
           .single();
+      if (phone != null && phone.trim().isNotEmpty) {
+        try {
+          await client.auth.updateUser(
+            UserAttributes(data: {'phone_provided': true, 'phone': customerPhone}),
+          );
+        } catch (_) {}
+      }
       return res;
     } catch (e) {
       final timestampSuffix = DateTime.now().millisecondsSinceEpoch.toString();
@@ -350,6 +357,55 @@ class SupabaseService {
           .single();
       return res;
     }
+  }
+
+  /// Update and link a real phone number to a customer account (e.g. after Google Sign-In)
+  Future<void> linkAndSavePhoneForUser({
+    required String userId,
+    required String customerId,
+    required String phone,
+  }) async {
+    final normalized = _normalizePhone(phone);
+    if (normalized.isEmpty) return;
+
+    // 1. Check if an existing customer profile already exists with this phone
+    final existingByPhone = await getCustomerByPhone(normalized);
+    if (existingByPhone != null && existingByPhone['id'] != customerId) {
+      // Link the existing customer record to this user_id
+      await client
+          .from('customers')
+          .update({'user_id': userId})
+          .eq('id', existingByPhone['id'] as String);
+
+      // Deactivate or remove the temporary placeholder row if it has no trips
+      try {
+        await client
+            .from('customers')
+            .delete()
+            .eq('id', customerId);
+      } catch (_) {}
+    } else {
+      // Update the current customer row with the real phone
+      await client
+          .from('customers')
+          .update({'phone': normalized})
+          .eq('id', customerId);
+    }
+
+    // 2. Also update user_profiles if present
+    try {
+      await client
+          .from('user_profiles')
+          .update({'phone': normalized})
+          .eq('id', userId);
+    } catch (_) {}
+
+    // 3. Mark in user metadata that a real phone has been provided
+    try {
+      await client.auth.updateUser(
+        UserAttributes(data: {'phone_provided': true, 'phone': normalized}),
+      );
+    } catch (_) {}
   }
 
   /// Mark that the name onboarding screen was shown (so we don't show it again
