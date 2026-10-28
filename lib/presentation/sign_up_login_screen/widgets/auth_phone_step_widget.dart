@@ -44,7 +44,7 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
       const serverClientId = String.fromEnvironment(
         'GOOGLE_WEB_CLIENT_ID',
         defaultValue:
-            '292708296634-evbd33bemnnpd5s0sml9ubkmvjsjkc8f.apps.googleusercontent.com',
+            '292708296634-hmo84p3o2db399id24367p00asio9gef.apps.googleusercontent.com',
       );
       final googleSignIn = GoogleSignIn(
         serverClientId: serverClientId.isNotEmpty ? serverClientId : null,
