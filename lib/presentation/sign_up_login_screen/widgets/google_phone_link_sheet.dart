@@ -8,28 +8,28 @@ import '../../../theme/app_theme.dart';
 
 class GooglePhoneLinkSheet extends StatefulWidget {
   final String userId;
-  final String customerId;
+  final String? customerId;
   final String? userName;
 
   const GooglePhoneLinkSheet({
     super.key,
     required this.userId,
-    required this.customerId,
+    this.customerId,
     this.userName,
   });
 
   static Future<bool> show(
     BuildContext context, {
     required String userId,
-    required String customerId,
+    String? customerId,
     String? userName,
   }) async {
     final result = await showModalBottomSheet<bool>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      isDismissible: true,
-      enableDrag: true,
+      isDismissible: false,
+      enableDrag: false,
       builder: (_) => GooglePhoneLinkSheet(
         userId: userId,
         customerId: customerId,
@@ -91,11 +91,19 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
       );
       final phone = identity.legacyLookup;
 
-      await SupabaseService.instance.linkAndSavePhoneForUser(
-        userId: widget.userId,
-        customerId: widget.customerId,
-        phone: phone,
-      );
+      if (widget.customerId != null && widget.customerId!.isNotEmpty) {
+        await SupabaseService.instance.linkAndSavePhoneForUser(
+          userId: widget.userId,
+          customerId: widget.customerId!,
+          phone: phone,
+        );
+      } else {
+        await SupabaseService.instance.ensureCustomerProfile(
+          userId: widget.userId,
+          phone: phone,
+          fullName: widget.userName,
+        );
+      }
 
       if (mounted) {
         Navigator.of(context).pop(true);
@@ -122,7 +130,9 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
         ? 'أهلاً بك يا $displayName 👋'
         : 'أهلاً بك في فيتو ثانية 👋';
 
-    return Container(
+    return PopScope(
+      canPop: false,
+      child: Container(
       decoration: BoxDecoration(
         color: isDark ? const Color(0xFF1E293B) : Colors.white,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
@@ -168,7 +178,7 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
 
               // Subtitle
               Text(
-                'أدخل رقم هاتفك لتتمكن من حجز الرحلات والتواصل مع الكباتن',
+                'رقم الهاتف مطلوب لتفعيل حسابك وحجز الرحلات والتواصل مع الكباتن',
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: colors.onSurfaceVariant,
@@ -289,15 +299,15 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
 
               const SizedBox(height: 8),
 
-              // Skip button
+              // Cancel & Sign out button (mandatory flow)
               TextButton(
                 onPressed: _isLoading
                     ? null
                     : () => Navigator.of(context).pop(false),
                 child: Text(
-                  'لاحقاً (تخطي الآن)',
+                  'إلغاء وتسجيل الخروج',
                   style: TextStyle(
-                    color: colors.onSurfaceVariant,
+                    color: colors.error,
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
                   ),
@@ -307,6 +317,7 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }

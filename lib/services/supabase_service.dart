@@ -276,6 +276,11 @@ class SupabaseService {
     String? phone,
     String? fullName,
   }) async {
+    // 0. Ensure V25 session is active so database triggers will not reject writes
+    try {
+      await activateSessionV25();
+    } catch (_) {}
+
     // 1. Check if customer already exists for this user_id
     final existing = await getCustomerByUserId(userId);
     if (existing != null) {
@@ -365,6 +370,10 @@ class SupabaseService {
     required String customerId,
     required String phone,
   }) async {
+    try {
+      await activateSessionV25();
+    } catch (_) {}
+
     final normalized = _normalizePhone(phone);
     if (normalized.isEmpty) return;
 

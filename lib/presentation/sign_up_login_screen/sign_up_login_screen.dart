@@ -61,11 +61,48 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
   /// Route an authenticated customer directly to Home or their active trip.
   /// Customer name is optional profile data and is never part of authentication.
   Future<bool> _routeCustomer(String userId) async {
+    final user = SupabaseService.instance.currentUser;
+    final metadata = user?.userMetadata;
     var customer = await SupabaseService.instance.getCustomerByUserId(userId);
 
+    final bool hasRealPhone = _phone.trim().isNotEmpty ||
+        (metadata?['phone_provided'] == true) ||
+        (user?.phone != null && user!.phone!.isNotEmpty);
+
+    if (!hasRealPhone && mounted) {
+      final fullName = (metadata?['full_name'] ??
+              metadata?['name'] ??
+              user?.email?.split('@').first ??
+              customer?['full_name'] ??
+              '')
+          .toString()
+          .trim();
+
+      final didUpdate = await GooglePhoneLinkSheet.show(
+        context,
+        userId: userId,
+        customerId: customer?['id'] as String?,
+        userName: fullName,
+      );
+
+      if (didUpdate != true) {
+        // User cancelled or chose not to provide their phone number.
+        // Sign out cleanly to prevent unauthenticated/placeholder state.
+        await SupabaseService.instance.signOut();
+        if (mounted) {
+          setState(() {
+            _currentStep = _AuthStep.phone;
+            _isCheckingSession = false;
+          });
+        }
+        return false;
+      }
+
+      // Re-fetch customer profile linked/created with the real phone
+      customer = await SupabaseService.instance.getCustomerByUserId(userId);
+    }
+
     if (customer == null) {
-      final user = SupabaseService.instance.currentUser;
-      final metadata = user?.userMetadata;
       final fullName = (metadata?['full_name'] ??
               metadata?['name'] ??
               user?.email?.split('@').first ??
@@ -82,28 +119,8 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
       } catch (_) {}
     }
 
-    var activeCustomer = customer;
+    final activeCustomer = customer;
     if (activeCustomer != null) {
-      final user = SupabaseService.instance.currentUser;
-      final metadata = user?.userMetadata;
-      final bool hasRealPhone = _phone.trim().isNotEmpty ||
-          (metadata?['phone_provided'] == true) ||
-          (user?.phone != null && user!.phone!.isNotEmpty);
-
-      if (!hasRealPhone && mounted) {
-        final didUpdate = await GooglePhoneLinkSheet.show(
-          context,
-          userId: userId,
-          customerId: activeCustomer['id'] as String,
-          userName: activeCustomer['full_name']?.toString(),
-        );
-        if (didUpdate == true) {
-          activeCustomer =
-              await SupabaseService.instance.getCustomerByUserId(userId) ??
-                  activeCustomer;
-        }
-      }
-
       final activeTrip = await SupabaseService.instance.getActiveTrip(
         activeCustomer['id'] as String,
       );
