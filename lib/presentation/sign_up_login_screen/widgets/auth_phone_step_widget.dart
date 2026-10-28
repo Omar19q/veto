@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../services/phone_identity.dart';
 import '../../../l10n/strings.dart';
 
@@ -40,10 +41,35 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
       _errorMessage = null;
     });
     try {
-      await SupabaseService.instance.client.auth.signInWithOAuth(
-        OAuthProvider.google,
-        redirectTo: 'com.vetosanya.app://login-callback',
+      const serverClientId = String.fromEnvironment(
+        'GOOGLE_WEB_CLIENT_ID',
+        defaultValue:
+            '292708296634-evbd33bemnnpd5s0sml9ubkmvjsjkc8f.apps.googleusercontent.com',
       );
+      final googleSignIn = GoogleSignIn(
+        serverClientId: serverClientId.isNotEmpty ? serverClientId : null,
+      );
+      final googleUser = await googleSignIn.signIn();
+      if (googleUser == null) {
+        // User cancelled account picker
+        return;
+      }
+      final googleAuth = await googleUser.authentication;
+      final idToken = googleAuth.idToken;
+      final accessToken = googleAuth.accessToken;
+
+      if (idToken != null) {
+        await SupabaseService.instance.client.auth.signInWithIdToken(
+          provider: OAuthProvider.google,
+          idToken: idToken,
+          accessToken: accessToken,
+        );
+      } else {
+        await SupabaseService.instance.client.auth.signInWithOAuth(
+          OAuthProvider.google,
+          redirectTo: 'com.vetosanya.app://login-callback',
+        );
+      }
     } catch (e) {
       if (mounted) {
         setState(() {
