@@ -70,12 +70,16 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
           redirectTo: 'com.vetosanya.app://login-callback',
         );
       }
+    } on AuthException catch (e) {
+      if (mounted) {
+        setState(() {
+          _errorMessage = 'خطأ سوبابيز: ${e.message}';
+        });
+      }
     } catch (e) {
       if (mounted) {
         setState(() {
-          _errorMessage = context.strings.localeName.startsWith('en')
-              ? 'Google Sign-In failed. Please try again.'
-              : 'تعذر تسجيل الدخول باستخدام Google. حاول مرة أخرى.';
+          _errorMessage = '$e';
         });
       }
     } finally {
