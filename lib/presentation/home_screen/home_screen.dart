@@ -289,18 +289,40 @@ class _HomeScreenState extends State<HomeScreen>
         return;
       }
 
-      final customer = await SupabaseService.instance
+      var customer = await SupabaseService.instance
           .getCustomerByUserId(user.id)
           .timeout(const Duration(seconds: 8));
 
       if (customer == null) {
+        final metadata = user.userMetadata;
+        final fullName = (metadata?['full_name'] ??
+                metadata?['name'] ??
+                user.email?.split('@').first ??
+                '')
+            .toString()
+            .trim();
+        final phone = user.phone ?? '';
+        try {
+          customer = await SupabaseService.instance.ensureCustomerProfile(
+            userId: user.id,
+            phone: phone,
+            fullName: fullName,
+          );
+        } catch (_) {}
+      }
+
+      if (customer == null) {
         if (mounted) {
-          context.go(AppRoutes.signUpLoginScreen);
+          setState(() {
+            _isLoading = false;
+            _homeLoadFailed = true;
+          });
         }
         return;
       }
 
-      final cid = customer['id'] as String;
+      final resolvedCustomer = customer;
+      final cid = resolvedCustomer['id'] as String;
       if (!mounted ||
           revision != _homeDataRevision ||
           SupabaseService.instance.currentUser?.id != user.id)
@@ -390,9 +412,9 @@ class _HomeScreenState extends State<HomeScreen>
 
 
         _walletBalance =
-            (customer['wallet_balance'] as num?)?.toDouble() ?? 0.0;
+            (resolvedCustomer['wallet_balance'] as num?)?.toDouble() ?? 0.0;
 
-        _completedTrips = (customer['total_completed_trips'] as int?) ?? 0;
+        _completedTrips = (resolvedCustomer['total_completed_trips'] as int?) ?? 0;
 
         _activeTrip = activeTrip;
 
@@ -417,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen>
             return;
           GrowthGiftSheet.maybeShow(
             context,
-            customer: Map<String, dynamic>.from(customer),
+            customer: Map<String, dynamic>.from(resolvedCustomer),
             onNameSaved: (updatedName) {
               if (mounted && _customerId == cid) {
               }

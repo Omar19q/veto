@@ -60,25 +60,41 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
   /// Route an authenticated customer directly to Home or their active trip.
   /// Customer name is optional profile data and is never part of authentication.
   Future<bool> _routeCustomer(String userId) async {
-    final customer = await SupabaseService.instance.getCustomerByUserId(userId);
+    var customer = await SupabaseService.instance.getCustomerByUserId(userId);
 
     if (customer == null) {
-      // No customer profile yet. The OTP flow is responsible for creating it.
-      if (mounted) context.go(AppRoutes.homeScreen);
-      return true;
+      final user = SupabaseService.instance.currentUser;
+      final metadata = user?.userMetadata;
+      final fullName = (metadata?['full_name'] ??
+              metadata?['name'] ??
+              user?.email?.split('@').first ??
+              '')
+          .toString()
+          .trim();
+      final phone = user?.phone ?? _phone;
+      try {
+        customer = await SupabaseService.instance.ensureCustomerProfile(
+          userId: userId,
+          phone: phone,
+          fullName: fullName,
+        );
+      } catch (_) {}
     }
 
-    final activeTrip = await SupabaseService.instance.getActiveTrip(
-      customer['id'] as String,
-    );
-    final status = activeTrip?['trip_status']?.toString();
-    final hasLiveTrip =
-        activeTrip != null &&
-        activeTrip['captain_id'] != null &&
-        const {'accepted', 'arriving', 'arrived', 'started'}.contains(status);
-    if (hasLiveTrip && mounted) {
-      context.go('${AppRoutes.liveTrip}?tripId=${activeTrip['id']}');
-      return true;
+    final resolvedCustomer = customer;
+    if (resolvedCustomer != null) {
+      final activeTrip = await SupabaseService.instance.getActiveTrip(
+        resolvedCustomer['id'] as String,
+      );
+      final status = activeTrip?['trip_status']?.toString();
+      final hasLiveTrip =
+          activeTrip != null &&
+          activeTrip['captain_id'] != null &&
+          const {'accepted', 'arriving', 'arrived', 'started'}.contains(status);
+      if (hasLiveTrip && mounted) {
+        context.go('${AppRoutes.liveTrip}?tripId=${activeTrip['id']}');
+        return true;
+      }
     }
 
     if (mounted) context.go(AppRoutes.homeScreen);

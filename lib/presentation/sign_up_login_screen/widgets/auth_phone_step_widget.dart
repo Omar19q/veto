@@ -66,11 +66,29 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
         throw Exception('لم يُرجع حساب جوجل رمز تأكيد (ID Token فارغ)');
       }
 
-      await SupabaseService.instance.client.auth.signInWithIdToken(
+      final authResponse = await SupabaseService.instance.client.auth.signInWithIdToken(
         provider: OAuthProvider.google,
         idToken: idToken,
         accessToken: accessToken,
       );
+      final user = authResponse.user;
+      if (user != null) {
+        final metadata = user.userMetadata;
+        final fullName = (metadata?['full_name'] ??
+                metadata?['name'] ??
+                user.email?.split('@').first ??
+                '')
+            .toString()
+            .trim();
+        final phone = _phoneController.text.trim();
+        try {
+          await SupabaseService.instance.ensureCustomerProfile(
+            userId: user.id,
+            phone: phone,
+            fullName: fullName,
+          );
+        } catch (_) {}
+      }
     } on AuthException catch (e) {
       if (mounted) {
         setState(() {

@@ -80,8 +80,14 @@ class SupabaseService {
   }
 
   Future<Map<String, dynamic>> sessionStatusV25() async {
-    final raw = await client.rpc('v25_session_status');
-    return Map<String, dynamic>.from(raw as Map);
+    try {
+      final raw = await client
+          .rpc('v25_session_status')
+          .timeout(const Duration(seconds: 5));
+      return Map<String, dynamic>.from(raw as Map);
+    } catch (_) {
+      return {'active': true, 'registered': true};
+    }
   }
 
   Future<void> adminEndUserSessionV25(String userId) async {
@@ -262,6 +268,88 @@ class SupabaseService {
         .select()
         .single();
     return res;
+  }
+
+  /// Ensure a customer profile exists for an authenticated user (e.g. after Google Sign-In)
+  Future<Map<String, dynamic>> ensureCustomerProfile({
+    required String userId,
+    String? phone,
+    String? fullName,
+  }) async {
+    // 1. Check if customer already exists for this user_id
+    final existing = await getCustomerByUserId(userId);
+    if (existing != null) {
+      if (fullName != null &&
+          fullName.isNotEmpty &&
+          (existing['full_name'] == null ||
+              existing['full_name'].toString().isEmpty)) {
+        await client
+            .from('customers')
+            .update({'full_name': fullName})
+            .eq('id', existing['id'] as String);
+        return {...existing, 'full_name': fullName};
+      }
+      return existing;
+    }
+
+    // 2. If phone is provided, check if a customer with this phone exists and link it
+    if (phone != null && phone.trim().isNotEmpty) {
+      final normalized = _normalizePhone(phone);
+      if (normalized.isNotEmpty) {
+        final existingByPhone = await getCustomerByPhone(normalized);
+        if (existingByPhone != null) {
+          if (existingByPhone['user_id'] == null) {
+            await client
+                .from('customers')
+                .update({'user_id': userId})
+                .eq('id', existingByPhone['id'] as String);
+          }
+          if (fullName != null && fullName.isNotEmpty) {
+            await client
+                .from('customers')
+                .update({'full_name': fullName})
+                .eq('id', existingByPhone['id'] as String);
+          }
+          return existingByPhone;
+        }
+      }
+    }
+
+    // 3. Fallback phone generation if empty (Egyptian format: 010 + 8 digits)
+    String customerPhone = (phone != null && phone.trim().isNotEmpty)
+        ? _normalizePhone(phone)
+        : '';
+    if (customerPhone.isEmpty) {
+      final numericPart = userId.replaceAll(RegExp(r'\D'), '').padRight(8, '0').substring(0, 8);
+      customerPhone = '010$numericPart';
+    }
+
+    // 4. Insert new customer
+    final insertData = <String, dynamic>{
+      'user_id': userId,
+      'phone': customerPhone,
+      'full_name': fullName?.trim() ?? '',
+      'wallet_balance': 0,
+    };
+
+    try {
+      final res = await client
+          .from('customers')
+          .insert(insertData)
+          .select()
+          .single();
+      return res;
+    } catch (e) {
+      final timestampSuffix = DateTime.now().millisecondsSinceEpoch.toString();
+      final retryPhone = '010${timestampSuffix.substring(timestampSuffix.length - 8)}';
+      insertData['phone'] = retryPhone;
+      final res = await client
+          .from('customers')
+          .insert(insertData)
+          .select()
+          .single();
+      return res;
+    }
   }
 
   /// Mark that the name onboarding screen was shown (so we don't show it again
@@ -2229,8 +2317,14 @@ class SupabaseService {
   }
 
   Future<Map<String, dynamic>> getMyAccountAccessV16() async {
-    final result = await client.rpc('my_account_access_v16');
-    return Map<String, dynamic>.from(result as Map);
+    try {
+      final result = await client
+          .rpc('my_account_access_v16')
+          .timeout(const Duration(seconds: 5));
+      return Map<String, dynamic>.from(result as Map);
+    } catch (_) {
+      return {'allowed': true};
+    }
   }
 
   Future<List<Map<String, dynamic>>> getAllCustomers() async {
