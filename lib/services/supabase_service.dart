@@ -134,28 +134,42 @@ class SupabaseService {
     if (!PhoneIdentity.supportsVerificationInput(normalized)) {
       throw StateError('international_phone_not_enabled');
     }
-    if (normalized.startsWith('+')) {
-      final response = await client.functions.invoke(
+
+    dynamic response;
+    try {
+      response = await client.functions.invoke(
+        'send-phone-otp',
+        body: {'phone': normalized},
+      );
+      if (response.data is Map && response.data['success'] == true) {
+        return Map<String, dynamic>.from(response.data as Map);
+      }
+    } catch (_) {}
+
+    // Fallback to product-phone-request if send-phone-otp is not deployed yet
+    try {
+      response = await client.functions.invoke(
         'product-phone-request',
         body: {'phone': normalized},
       );
       final data = response.data;
-      if (data is! Map || data['success'] != true) {
-        throw StateError(
-          data is Map ? '${data['error']}' : 'verification_request_failed',
-        );
+      if (data is Map && data['success'] == true) {
+        return Map<String, dynamic>.from(data);
       }
-      return Map<String, dynamic>.from(data);
+      if (data is Map && data['error'] != null) {
+        throw StateError('${data['error']}');
+      }
+    } catch (e) {
+      if (e is StateError) rethrow;
     }
-    final result = await client.rpc(
-      'create_verification_request',
-      params: {'p_phone': normalized},
-    );
-    final data = Map<String, dynamic>.from((result as Map?) ?? const {});
-    if (data['success'] != true) {
-      throw Exception(data['error'] ?? 'verification_request_failed');
+
+    final data = response?.data;
+    if (data is! Map || data['success'] != true) {
+      throw StateError(
+        data is Map ? '${data['error']}' : 'verification_request_failed',
+      );
     }
-    return data;
+    return Map<String, dynamic>.from(data);
   }
 
   Future<Map<String, dynamic>?> getLatestVerificationRequest(
