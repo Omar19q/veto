@@ -172,6 +172,51 @@ class SupabaseService {
     return Map<String, dynamic>.from(data);
   }
 
+  /// Verify a 4-digit OTP code against the server without logging out an existing session
+  Future<bool> verifyPhoneOtp(String phone, String code) async {
+    final res = await verifyPhoneOtpWithResult(phone, code);
+    return res['success'] == true && res['verified'] == true;
+  }
+
+  /// Verify a 4-digit OTP code against the server and return full response data
+  Future<Map<String, dynamic>> verifyPhoneOtpWithResult(String phone, String code) async {
+    final normalized = _normalizePhone(phone);
+    if (normalized.isEmpty || code.trim().length != 4) {
+      return {'success': false, 'error': 'invalid_code'};
+    }
+
+    try {
+      final response = await client.functions.invoke(
+        'send-phone-otp',
+        body: {'phone': normalized, 'code': code.trim(), 'action': 'verify'},
+      );
+      final data = response.data;
+      if (data is Map && data['success'] == true && data['verified'] == true) {
+        return {'success': true, 'verified': true};
+      }
+      if (data is Map && data['error'] != null) {
+        return {'success': false, 'error': data['error']};
+      }
+    } catch (_) {
+      try {
+        final response = await client.functions.invoke(
+          'product-phone-request',
+          body: {'phone': normalized, 'code': code.trim(), 'action': 'verify'},
+        );
+        final data = response.data;
+        if (data is Map && data['success'] == true && data['verified'] == true) {
+          return {'success': true, 'verified': true};
+        }
+        if (data is Map && data['error'] != null) {
+          return {'success': false, 'error': data['error']};
+        }
+      } catch (e) {
+        return {'success': false, 'error': '$e'};
+      }
+    }
+    return {'success': false, 'error': 'verification_failed'};
+  }
+
   Future<Map<String, dynamic>?> getLatestVerificationRequest(
     String phone,
   ) async {
@@ -431,6 +476,53 @@ class SupabaseService {
     } catch (_) {}
   }
 
+  /// Link Google OAuth account to the currently logged in user
+  Future<AuthResponse> linkGoogleAccount({
+    required String idToken,
+    String? accessToken,
+  }) async {
+    final response = await client.auth.linkIdentityWithIdToken(
+      provider: OAuthProvider.google,
+      idToken: idToken,
+      accessToken: accessToken,
+    );
+    return response;
+  }
+
+  /// Check whether the current authenticated user has a linked Google account
+  bool isGoogleLinked() {
+    final user = currentUser;
+    if (user == null) return false;
+    final identities = user.identities ?? [];
+    final hasGoogle = identities.any((i) => i.provider.toLowerCase() == 'google');
+    final providers = user.appMetadata['providers'];
+    final hasGoogleInProviders = (providers is List && providers.contains('google')) ||
+        (providers is String && providers.contains('google'));
+    final isGoogleEmail = user.email != null && user.email!.endsWith('@gmail.com');
+    final metadataGoogle = user.userMetadata?['google_linked'] == true;
+    return hasGoogle || hasGoogleInProviders || isGoogleEmail || metadataGoogle;
+  }
+
+  /// Get the email address of the linked Google account (if any)
+  String? getLinkedGoogleEmail() {
+    final user = currentUser;
+    if (user == null) return null;
+    final identities = user.identities ?? [];
+    for (final identity in identities) {
+      if (identity.provider.toLowerCase() == 'google') {
+        final email = identity.identityData?['email'];
+        if (email != null && email.toString().isNotEmpty) {
+          return email.toString();
+        }
+      }
+    }
+    if (user.email != null && user.email!.isNotEmpty) {
+      return user.email;
+    }
+    return user.userMetadata?['google_email']?.toString() ??
+        user.userMetadata?['email']?.toString();
+  }
+
   /// Mark that the name onboarding screen was shown (so we don't show it again
   /// even if the customer chose "لاحقًا")
   Future<void> markNameOnboardingShown(String customerId) async {
@@ -448,11 +540,38 @@ class SupabaseService {
         .eq('id', customerId);
   }
 
-  Future<void> updateCustomerName(String customerId, String fullName) async {
+  Future<void> updateCustomerName(
+    String customerId,
+    String fullName, {
+    String? userId,
+  }) async {
+    final trimmed = fullName.trim();
+    if (trimmed.isEmpty) return;
+
+    try {
+      await activateSessionV25();
+    } catch (_) {}
+
     await client
         .from('customers')
-        .update({'full_name': fullName, 'name_onboarding_completed': true})
+        .update({'full_name': trimmed, 'name_onboarding_completed': true})
         .eq('id', customerId);
+
+    final resolvedUserId = userId ?? currentUser?.id;
+    if (resolvedUserId != null) {
+      try {
+        await client
+            .from('user_profiles')
+            .update({'full_name': trimmed})
+            .eq('id', resolvedUserId);
+      } catch (_) {}
+    }
+
+    try {
+      await client.auth.updateUser(
+        UserAttributes(data: {'full_name': trimmed, 'name': trimmed}),
+      );
+    } catch (_) {}
   }
 
   // ─── CAPTAINS ────────────────────────────────────────────────────────────────

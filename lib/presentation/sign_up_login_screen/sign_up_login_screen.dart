@@ -29,6 +29,7 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
   bool _isCheckingSession = true;
   String? _sessionError;
   StreamSubscription<AuthState>? _authSub;
+  bool _showingPhoneLinkSheet = false;
 
   late AnimationController _stepController;
   late Animation<double> _stepFade;
@@ -70,20 +71,27 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
         (user?.phone != null && user!.phone!.isNotEmpty);
 
     if (!hasRealPhone && mounted) {
-      final fullName = (metadata?['full_name'] ??
-              metadata?['name'] ??
-              user?.email?.split('@').first ??
-              customer?['full_name'] ??
-              '')
-          .toString()
-          .trim();
+      if (_showingPhoneLinkSheet) return false;
+      _showingPhoneLinkSheet = true;
+      bool? didUpdate;
+      try {
+        final fullName = (metadata?['full_name'] ??
+                metadata?['name'] ??
+                user?.email?.split('@').first ??
+                customer?['full_name'] ??
+                '')
+            .toString()
+            .trim();
 
-      final didUpdate = await GooglePhoneLinkSheet.show(
-        context,
-        userId: userId,
-        customerId: customer?['id'] as String?,
-        userName: fullName,
-      );
+        didUpdate = await GooglePhoneLinkSheet.show(
+          context,
+          userId: userId,
+          customerId: customer?['id'] as String?,
+          userName: fullName,
+        );
+      } finally {
+        _showingPhoneLinkSheet = false;
+      }
 
       if (didUpdate != true) {
         // User cancelled or chose not to provide their phone number.

@@ -1,6 +1,5 @@
-import { createClient } from "npm:@supabase/supabase-js@2.57.4";
-import { productPhone } from "../_shared/product_phone_veto2.ts";
-import { loginBudgetV15 } from "../_shared/login_budget_scale_v15.ts";
+import { createClient, type SupabaseClient } from "npm:@supabase/supabase-js@2.57.4";
+import { parsePhoneNumberFromString } from "npm:libphonenumber-js@1.13.15/max";
 
 const headers = {
   "Content-Type": "application/json",
@@ -16,8 +15,64 @@ const reply = (status: number, body: unknown) =>
 const MSGCLOUD_URL = "https://msgcloud.solutions/api/integrations/execute";
 const MSGCLOUD_TOKEN =
   Deno.env.get("MSGCLOUD_API_TOKEN") || "a317c1bb-a181-4592-8642-85137d486185";
-const MSGCLOUD_TEMPLATE_ID =
-  Deno.env.get("MSGCLOUD_TEMPLATE_ID") || "79378";
+
+const supportedCountries = new Set(["EG", "GB", "SA", "AE"]);
+
+function productPhone(value: string): { e164: string; lookup: string; country: string } | null {
+  const digits = value
+    .replace(/[٠-٩]/g, (c) => String(c.charCodeAt(0) - 1632))
+    .replace(/[۰-۹]/g, (c) => String(c.charCodeAt(0) - 1776));
+  const normalized = digits.trim().startsWith("00")
+    ? "+" + digits.trim().slice(2)
+    : digits;
+  const phone = parsePhoneNumberFromString(normalized, "EG");
+  if (
+    !phone?.isValid() ||
+    !phone.country ||
+    !supportedCountries.has(phone.country) ||
+    !["MOBILE", "FIXED_LINE_OR_MOBILE"].includes(phone.getType() ?? "")
+  ) {
+    return null;
+  }
+  return {
+    e164: phone.number,
+    country: phone.country,
+    lookup: phone.country === "EG" ? "0" + phone.nationalNumber : phone.number,
+  };
+}
+
+async function loginBudgetV15(
+  admin: SupabaseClient,
+  scope: string,
+  identity: string,
+  secret: string,
+): Promise<"limited" | "unavailable" | null> {
+  try {
+    const key = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(secret),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
+    const bytes = new Uint8Array(
+      await crypto.subtle.sign(
+        "HMAC",
+        key,
+        new TextEncoder().encode(scope + ":" + identity),
+      ),
+    );
+    const subject = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+    const { data, error } = await admin.rpc("claim_login_budget_scale_v15", {
+      p_scope: scope,
+      p_subject: subject,
+    });
+    if (error) return "unavailable";
+    return data === true ? null : "limited";
+  } catch {
+    return "unavailable";
+  }
+}
 
 function generateOtpCode(): string {
   const array = new Uint32Array(1);
@@ -31,35 +86,86 @@ async function sendSmsViaMsgCloud(
   code: string,
 ): Promise<{ success: boolean; error?: string }> {
   try {
-    const payload = {
-      category: "activities",
-      action: "create",
-      data: {
-        recipients: [recipient],
-        subject: "VETO SANYA OTP",
-        contentType: MSGCLOUD_TEMPLATE_ID,
-        template_parameters: [code],
-        scheduleOption: "no",
-        use_delay: 0,
-      },
-    };
+    const title = `veto_otp_${Date.now()}`;
+    const content = `رمز التحقق الخاص بتطبيق فيتو ثانية هو ${code}. لا تشارك الرمز مع أي شخص.`;
 
-    const res = await fetch(MSGCLOUD_URL, {
+    // 1. Create a dynamic template with the exact OTP code in content
+    await fetch(MSGCLOUD_URL, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${MSGCLOUD_TOKEN}`,
         "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        category: "templates",
+        action: "create",
+        data: { title, content, available: true },
+      }),
     });
 
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok || body.status !== "success") {
-      console.error("MSGCloud send failed:", res.status, body);
+    // 2. Fetch the newly created template ID via GET with query parameters (no body)
+    const listRes = await fetch(
+      `${MSGCLOUD_URL}?category=templates&action=all&perpage=1`,
+      {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${MSGCLOUD_TOKEN}`,
+          "Accept": "application/json",
+        },
+      },
+    );
+
+    const listData = await listRes.json().catch(() => ({}));
+    const tplId = listData?.data?.items?.[0]?.id;
+
+    if (!tplId) {
+      return { success: false, error: "failed_to_prepare_sms_template" };
+    }
+
+    // 3. Dispatch the SMS activity using this template
+    const sendRes = await fetch(MSGCLOUD_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${MSGCLOUD_TOKEN}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        category: "activities",
+        action: "create",
+        data: {
+          recipients: [recipient],
+          subject: "VETO SANYA OTP",
+          contentType: String(tplId),
+          scheduleOption: "no",
+          use_delay: 0,
+        },
+      }),
+    });
+
+    const sendBody = await sendRes.json().catch(() => ({}));
+
+    // 4. Cleanup the temporary template
+    fetch(MSGCLOUD_URL, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${MSGCLOUD_TOKEN}`,
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        category: "templates",
+        action: "delete",
+        data: { id: String(tplId) },
+      }),
+    }).catch(() => {});
+
+    if (!sendRes.ok || sendBody.status !== "success") {
+      console.error("MSGCloud send failed:", sendRes.status, sendBody);
       return {
         success: false,
-        error: body.message || "msgcloud_delivery_failed",
+        error: sendBody.message || "msgcloud_delivery_failed",
       };
     }
 
@@ -104,6 +210,38 @@ Deno.serve(async (req) => {
       auth: { persistSession: false, autoRefreshToken: false },
     });
 
+    // ─── VERIFY OTP ACTION ─────────────────────────────────────────────────
+    if (input?.action === "verify" || (input?.code && String(input?.code).trim().length > 0)) {
+      const code = String(input?.code ?? "").trim();
+      if (!/^\d{4}$/.test(code)) {
+        return reply(200, { success: false, error: "verification_invalid" });
+      }
+
+      const claim = await admin.rpc("veto2_consume_otp", {
+        p_phone: phone.lookup,
+        p_code: code,
+      });
+
+      if (claim.error) {
+        console.error("veto2_consume_otp error:", claim.error);
+        return reply(500, { success: false, error: "verification_lookup_failed" });
+      }
+
+      if (claim.data?.success !== true) {
+        return reply(200, {
+          success: false,
+          error: claim.data?.error ?? "verification_invalid",
+        });
+      }
+
+      return reply(200, {
+        success: true,
+        verified: true,
+        request_id: claim.data?.request_id,
+      });
+    }
+
+    // ─── SEND OTP ACTION ───────────────────────────────────────────────────
     // Enforce login budget / rate limits
     const budget = await loginBudgetV15(admin, "customer", phone.lookup, key);
     if (budget) {
@@ -113,7 +251,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Generate 4-digit OTP code
     const code = generateOtpCode();
 
     // Expire any existing pending or active codes for this phone

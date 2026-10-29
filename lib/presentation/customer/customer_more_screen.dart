@@ -424,16 +424,19 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
                     _buildMenuItem(
                       icon: Icons.settings_outlined,
                       title: 'إعدادات التطبيق',
-                      subtitle: 'اللغة، المظهر، والوضع التلقائي للجهاز',
+                      subtitle: 'الحساب، اللغة، والمظهر',
                       titleColor: titleColor,
                       subtitleColor: subtitleColor,
                       iconColor: goldColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const ProductSettingsScreen(),
-                        ),
-                      ),
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ProductSettingsScreen(),
+                          ),
+                        );
+                        if (mounted) _loadProfile();
+                      },
                     ),
                     _buildDivider(borderColor),
                     _buildMenuItem(
