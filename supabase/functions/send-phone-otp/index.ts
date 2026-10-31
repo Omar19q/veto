@@ -210,6 +210,33 @@ Deno.serve(async (req) => {
       auth: { persistSession: false, autoRefreshToken: false },
     });
 
+    // ─── CHECK AVAILABILITY ACTION ─────────────────────────────────────────
+    if (input?.action === "check_availability") {
+      let customerQuery = admin
+        .from("customers")
+        .select("id, phone")
+        .eq("phone", phone.lookup);
+
+      if (input?.exclude_customer_id) {
+        customerQuery = customerQuery.neq("id", String(input.exclude_customer_id));
+      }
+
+      const existingCustomer = await customerQuery.maybeSingle();
+
+      const existingCaptain = await admin
+        .from("captains")
+        .select("id, phone")
+        .eq("phone", phone.lookup)
+        .maybeSingle();
+
+      const isTaken = !!(existingCustomer.data || existingCaptain.data);
+      return reply(200, {
+        success: true,
+        available: !isTaken,
+        role: existingCaptain.data ? "captain" : (existingCustomer.data ? "customer" : null),
+      });
+    }
+
     // ─── VERIFY OTP ACTION ─────────────────────────────────────────────────
     if (input?.action === "verify" || (input?.code && String(input?.code).trim().length > 0)) {
       const code = String(input?.code ?? "").trim();

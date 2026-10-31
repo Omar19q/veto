@@ -121,6 +121,20 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
       final phone = identity.legacyLookup;
       _targetPhone = phone;
 
+      // Check if this phone is already registered to another account
+      final available = await SupabaseService.instance.isPhoneAvailable(
+        phone,
+        excludeCustomerId: widget.customerId,
+      );
+      if (!available) {
+        setState(() {
+          _isLoading = false;
+          _errorMessage =
+              'هذا الرقم مسجل بالفعل بحساب آخر على فيتو ثانية. يرجى تسجيل الدخول برقم الهاتف مباشرة، ثم ربط حساب Google من شاشة الإعدادات.';
+        });
+        return;
+      }
+
       // Send SMS OTP via MSGCloud via Supabase Edge Function
       await SupabaseService.instance.createVerificationRequest(phone);
 
@@ -225,9 +239,15 @@ class _GooglePhoneLinkSheetState extends State<GooglePhoneLinkSheet> {
       }
     } catch (e) {
       if (mounted) {
+        final errStr = e.toString();
+        final isConflict = errStr.contains('customers_phone_key') ||
+            errStr.contains('23505') ||
+            errStr.contains('duplicate key');
         setState(() {
           _isLoading = false;
-          _errorMessage = 'تعذر إتمام الربط. حاول مرة أخرى.';
+          _errorMessage = isConflict
+              ? 'هذا الرقم مسجل بالفعل بحساب آخر على فيتو ثانية. يرجى استخدام رقم آخر.'
+              : 'تعذر إتمام الربط. حاول مرة أخرى.';
         });
       }
     }

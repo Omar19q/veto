@@ -123,12 +123,41 @@ class _ChangePhoneSheetState extends State<ChangePhoneSheet> {
       );
       final phone = identity.legacyLookup;
 
+      // Check if user entered their own current phone
+      if (widget.currentPhone.trim().isNotEmpty) {
+        bool isCurrent = false;
+        try {
+          final currentParsed = PhoneIdentity.parse(
+            widget.currentPhone.trim(),
+            IsoCode.values.byName(_country.countryCode),
+          );
+          if (currentParsed.legacyLookup == phone) {
+            isCurrent = true;
+          }
+        } catch (_) {
+          if (phone == widget.currentPhone.trim()) {
+            isCurrent = true;
+          }
+        }
+        if (isCurrent) {
+          setState(() {
+            _isLoading = false;
+            _errorMessage = 'هذا هو رقم هاتفك الحالي بالفعل.';
+          });
+          return;
+        }
+      }
+
       // Check if another customer is already using this phone
-      final existing = await SupabaseService.instance.getCustomerByPhone(phone);
-      if (existing != null && existing['id'] != widget.customerId) {
+      final available = await SupabaseService.instance.isPhoneAvailable(
+        phone,
+        excludeCustomerId: widget.customerId,
+      );
+      if (!available) {
         setState(() {
           _isLoading = false;
-          _errorMessage = 'هذا الرقم مسجل بالفعل بحساب عميل آخر.';
+          _errorMessage =
+              'هذا الرقم مسجل بالفعل بحساب آخر على فيتو ثانية. إذا كان هذا حسابك، يرجى تسجيل الدخول به مباشرة.';
         });
         return;
       }
@@ -227,9 +256,15 @@ class _ChangePhoneSheetState extends State<ChangePhoneSheet> {
       }
     } catch (e) {
       if (mounted) {
+        final errStr = e.toString();
+        final isConflict = errStr.contains('customers_phone_key') ||
+            errStr.contains('23505') ||
+            errStr.contains('duplicate key');
         setState(() {
           _isLoading = false;
-          _errorMessage = 'تعذر تحديث رقم الهاتف: $e';
+          _errorMessage = isConflict
+              ? 'هذا الرقم مسجل بالفعل بحساب آخر على فيتو ثانية. يرجى استخدام رقم آخر.'
+              : 'تعذر تحديث رقم الهاتف. يرجى المحاولة مرة أخرى.';
         });
       }
     }

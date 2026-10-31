@@ -251,6 +251,54 @@ class SupabaseService {
 
   // ─── CUSTOMERS ───────────────────────────────────────────────────────────────
 
+  /// Checks whether a phone number is available for registration or phone change.
+  /// Returns false if the phone is already registered to an existing customer or captain.
+  Future<bool> isPhoneAvailable(String phone, {String? excludeCustomerId}) async {
+    final normalized = _normalizePhone(phone);
+    if (normalized.isEmpty) return false;
+
+    // 1. Check via backend function with service_role permissions
+    try {
+      final res = await client.functions.invoke(
+        'send-phone-otp',
+        body: {
+          'phone': normalized,
+          'action': 'check_availability',
+          if (excludeCustomerId != null && excludeCustomerId.isNotEmpty)
+            'exclude_customer_id': excludeCustomerId,
+        },
+      );
+      if (res.data is Map && res.data['success'] == true) {
+        return res.data['available'] == true;
+      }
+    } catch (_) {
+      try {
+        final res = await client.functions.invoke(
+          'product-phone-request',
+          body: {
+            'phone': normalized,
+            'action': 'check_availability',
+            if (excludeCustomerId != null && excludeCustomerId.isNotEmpty)
+              'exclude_customer_id': excludeCustomerId,
+          },
+        );
+        if (res.data is Map && res.data['success'] == true) {
+          return res.data['available'] == true;
+        }
+      } catch (_) {}
+    }
+
+    // 2. Fallback to get_login_role_by_phone RPC
+    try {
+      final role = await getLoginRoleByPhone(normalized);
+      if (role != null && role.isNotEmpty) {
+        return false;
+      }
+    } catch (_) {}
+
+    return true;
+  }
+
   Future<Map<String, dynamic>?> getCustomerByPhone(String phone) async {
     final normalized = _normalizePhone(phone);
     final res = await client
