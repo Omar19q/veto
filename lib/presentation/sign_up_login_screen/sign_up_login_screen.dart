@@ -66,9 +66,28 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
     final metadata = user?.userMetadata;
     var customer = await SupabaseService.instance.getCustomerByUserId(userId);
 
+    final customerPhone = (customer?['phone'] as String?)?.trim() ?? '';
+    final metaPhone = (metadata?['phone'] as String?)?.trim() ?? '';
+    final authPhone = (user?.phone ?? '').trim();
+
+    final numericPart =
+        userId.replaceAll(RegExp(r'\D'), '').padRight(8, '0').substring(0, 8);
+    final isPlaceholder =
+        customerPhone.isEmpty || customerPhone == '010$numericPart';
+
     final bool hasRealPhone = _phone.trim().isNotEmpty ||
         (metadata?['phone_provided'] == true) ||
-        (user?.phone != null && user!.phone!.isNotEmpty);
+        authPhone.isNotEmpty ||
+        (metaPhone.isNotEmpty && metaPhone != '010$numericPart') ||
+        (customerPhone.isNotEmpty && !isPlaceholder);
+
+    if (hasRealPhone && customerPhone.isNotEmpty && metadata?['phone_provided'] != true) {
+      try {
+        await SupabaseService.instance.client.auth.updateUser(
+          UserAttributes(data: {'phone_provided': true, 'phone': customerPhone}),
+        );
+      } catch (_) {}
+    }
 
     if (!hasRealPhone && mounted) {
       if (_showingPhoneLinkSheet) return false;

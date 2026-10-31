@@ -145,7 +145,13 @@ class _ProductSettingsScreenState extends State<ProductSettingsScreen> {
         accessToken: accessToken,
       );
 
-      // Save email in user metadata for display
+      // Immediately activate the new session slot on the server so AppSessionGuard
+      // will recognize this updated session as active and not eject it.
+      try {
+        await SupabaseService.instance.activateSessionV25();
+      } catch (_) {}
+
+      // Save email and phone status in user metadata for display and persistence
       final user = SupabaseService.instance.currentUser;
       if (user != null) {
         try {
@@ -154,6 +160,8 @@ class _ProductSettingsScreenState extends State<ProductSettingsScreen> {
               data: {
                 'google_linked': true,
                 'google_email': googleUser.email,
+                'phone_provided': true,
+                if (_customerPhone.isNotEmpty) 'phone': _customerPhone,
               },
             ),
           );

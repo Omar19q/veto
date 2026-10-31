@@ -31,9 +31,11 @@ class _AppSessionGuardState extends State<AppSessionGuard>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _authSubscription = SupabaseService.instance.authStateChanges.listen((state) {
-      if (state.event == AuthChangeEvent.signedIn) {
-        // The OTP screen registers the brand-new session immediately after
-        // sign-in. Do not mistake this temporary gap for a displaced session.
+      if (state.event == AuthChangeEvent.signedIn ||
+          state.event == AuthChangeEvent.userUpdated ||
+          state.event == AuthChangeEvent.tokenRefreshed) {
+        // The OTP screen or account linking registers the brand-new session.
+        // Do not mistake this temporary gap for a displaced session.
         _newLoginGrace = DateTime.now().add(const Duration(seconds: 30));
       }
     });
