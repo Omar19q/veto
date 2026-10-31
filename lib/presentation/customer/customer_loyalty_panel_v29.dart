@@ -5,6 +5,7 @@ import '../../l10n/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../settings/widgets/change_phone_sheet.dart';
 import '../../services/customer_profile_backend.dart';
 import '../../widgets/customer_identity_v29.dart';
 
@@ -184,6 +185,186 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
     }
   }
 
+  Future<ImageSource?> _showPhotoSourceSheet() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final sheetBg = isDark ? const Color(0xFF162032) : Colors.white;
+    final itemBg = isDark ? const Color(0xFF1F2C44) : const Color(0xFFF3F4F6);
+    final textPrimary = isDark ? Colors.white : const Color(0xFF111827);
+    final textSecondary =
+        isDark ? const Color(0xFF94A3B8) : const Color(0xFF6B7280);
+
+    return showModalBottomSheet<ImageSource>(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => Container(
+        decoration: BoxDecoration(
+          color: sheetBg,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withAlpha(isDark ? 80 : 30),
+              blurRadius: 20,
+              offset: const Offset(0, -4),
+            ),
+          ],
+        ),
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 28),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Handle bar
+            Center(
+              child: Container(
+                width: 44,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: isDark ? Colors.white24 : Colors.black12,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 18),
+
+            // Sheet Title
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: gold.withAlpha(30),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.add_a_photo_rounded, color: gold, size: 20),
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  'تغيير صورة الملف الشخصي',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w900,
+                    color: textPrimary,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+
+            // Option 1: Camera
+            Material(
+              color: itemBg,
+              borderRadius: BorderRadius.circular(16),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () => Navigator.of(ctx).pop(ImageSource.camera),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: gold.withAlpha(35),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Icon(
+                          Icons.camera_alt_rounded,
+                          color: gold,
+                          size: 22,
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'التقاط صورة بالكاميرا',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                color: textPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'استخدم الكاميرا لالتقاط صورة جديدة الآن',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: textSecondary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(Icons.chevron_left_rounded, color: textSecondary),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Option 2: Gallery
+            Material(
+              color: itemBg,
+              borderRadius: BorderRadius.circular(16),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () => Navigator.of(ctx).pop(ImageSource.gallery),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: gold.withAlpha(35),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Icon(
+                          Icons.photo_library_rounded,
+                          color: gold,
+                          size: 22,
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'اختيار من المعرض',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                color: textPrimary,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'اختر صورة محفوظة على هاتفك',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: textSecondary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(Icons.chevron_left_rounded, color: textSecondary),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Future<void> _changePhoto() async {
     final accountId = _backend.accountId;
     if (!_ownsAccount(accountId)) return;
@@ -192,8 +373,12 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
       widget.onPhotoEdit!();
       return;
     }
+
+    final source = await _showPhotoSourceSheet();
+    if (source == null || !mounted || !_ownsAccount(accountId)) return;
+
     final image = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
+      source: source,
       imageQuality: 82,
       maxWidth: 900,
     );
@@ -212,6 +397,33 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
         setState(() => _error = CustomerProfileError.photo);
     } finally {
       if (_ownsAccount(accountId)) setState(() => _saving = false);
+    }
+  }
+
+  Future<void> _changePhone() async {
+    final accountId = _backend.accountId;
+    if (!_ownsAccount(accountId)) return;
+    if (_saving || _customer == null) return;
+    final customerId = _customer!['id'].toString();
+    final currentPhone = _customer?['phone']?.toString() ?? '';
+
+    final updated = await ChangePhoneSheet.show(
+      context,
+      userId: accountId!,
+      customerId: customerId,
+      currentPhone: currentPhone,
+    );
+
+    if (updated != null && mounted) {
+      if (_ownsAccount(accountId)) await _refresh();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('تم تأكيد وتحديث رقم الهاتف بنجاح!'),
+            backgroundColor: Color(0xFF10B981),
+          ),
+        );
+      }
     }
   }
 
@@ -352,6 +564,7 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
         context.strings.profile0b9ef884;
     final image =
         _customer?['profile_photo_url']?.toString() ?? p?['photo']?.toString();
+    final phone = _customer?['phone']?.toString().trim() ?? '';
     final gender = _customer?['gender']?.toString() ?? '';
     final currentTrips = (p?['completed_trips'] as num?)?.toInt() ?? 0;
 
@@ -455,6 +668,25 @@ class _CustomerLoyaltyPanelV29State extends State<CustomerLoyaltyPanelV29> {
                             label: Text(
                               context.strings.profile9cb77234,
                               style: TextStyle(),
+                            ),
+                            style: TextButton.styleFrom(
+                              foregroundColor: Theme.of(
+                                context,
+                              ).colorScheme.onSurface,
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: _saving ? null : _changePhone,
+                            icon: Icon(
+                              Icons.phone_android_rounded,
+                              size: 18,
+                              color: goldInk,
+                            ),
+                            label: Text(
+                              phone.isNotEmpty
+                                  ? 'تعديل الرقم ($phone)'
+                                  : 'تعديل رقم الهاتف',
+                              style: const TextStyle(),
                             ),
                             style: TextButton.styleFrom(
                               foregroundColor: Theme.of(

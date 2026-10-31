@@ -558,108 +558,116 @@ class _CustomerMoreScreenState extends State<CustomerMoreScreen> {
           ),
         ],
       ),
-      padding: const EdgeInsets.all(18),
-      child: Row(
-        children: [
-          // Avatar
-          Container(
-            width: 66,
-            height: 66,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: goldColor, width: 2),
-            ),
-            child: ClipOval(
-              child: _profilePhotoUrl != null && _profilePhotoUrl!.isNotEmpty
-                  ? Image.network(
-                      _profilePhotoUrl!,
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => _buildFallbackAvatar(goldColor),
-                    )
-                  : _buildFallbackAvatar(goldColor),
-            ),
-          ),
-
-          const SizedBox(width: 14),
-
-          // User Info
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  displayName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    color: titleColor,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  displayPhone,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: subtitleColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF10B981).withAlpha(22),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.verified_rounded,
-                          color: Color(0xFF10B981),
-                          size: 13,
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          'حساب نشط وموثق',
-                          style: TextStyle(
-                            color: Color(0xFF10B981),
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          // Edit Profile Icon Button
-          IconButton(
-            tooltip: 'تعديل الملف الشخصي',
-            onPressed: () => Navigator.push(
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(22),
+          onTap: () async {
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (_) => const CustomerLoyaltyPanelV29(),
               ),
-            ),
-            icon: Icon(
-              Icons.chevron_left_rounded,
-              color: goldColor,
-              size: 26,
+            );
+            if (mounted) _loadProfile();
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: Row(
+              children: [
+                // Avatar
+                Container(
+                  width: 66,
+                  height: 66,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: goldColor, width: 2),
+                  ),
+                  child: ClipOval(
+                    child: _profilePhotoUrl != null && _profilePhotoUrl!.isNotEmpty
+                        ? Image.network(
+                            _profilePhotoUrl!,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => _buildFallbackAvatar(goldColor),
+                          )
+                        : _buildFallbackAvatar(goldColor),
+                  ),
+                ),
+
+                const SizedBox(width: 14),
+
+                // User Info
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        displayName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
+                          color: titleColor,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        displayPhone,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: subtitleColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF10B981).withAlpha(22),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.verified_rounded,
+                                color: Color(0xFF10B981),
+                                size: 13,
+                              ),
+                              SizedBox(width: 4),
+                              Text(
+                                'حساب نشط وموثق',
+                                style: TextStyle(
+                                  color: Color(0xFF10B981),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Arrow icon
+                Icon(
+                  Icons.chevron_left_rounded,
+                  color: goldColor,
+                  size: 26,
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
