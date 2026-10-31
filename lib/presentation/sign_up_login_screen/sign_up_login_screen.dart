@@ -54,7 +54,7 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
     _checkExistingSession();
     _authSub = SupabaseService.instance.client.auth.onAuthStateChange.listen((data) {
       if (data.event == AuthChangeEvent.signedIn && mounted) {
-        _checkExistingSession();
+        _handleFreshSignIn();
       }
     });
   }
@@ -310,7 +310,22 @@ class _SignUpLoginScreenState extends State<SignUpLoginScreen>
     // Existing accounts continue to their original role/active-trip flow.
     // Gift eligibility remains server-side; the Home gate uses the claimed
     // enrollment and never treats this local boolean as financial authority.
-    _routeAfterLogin();
+    _handleFreshSignIn();
+  }
+
+  Future<void> _handleFreshSignIn() async {
+    if (_isCheckingSession) return;
+    setState(() {
+      _isCheckingSession = true;
+      _sessionError = null;
+    });
+    try {
+      await SupabaseService.instance.activateSessionV25();
+    } catch (_) {}
+    await _routeAfterLogin();
+    if (mounted) {
+      setState(() => _isCheckingSession = false);
+    }
   }
 
   Future<void> _routeAfterLogin() async {

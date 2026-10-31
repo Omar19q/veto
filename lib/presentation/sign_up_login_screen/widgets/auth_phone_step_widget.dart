@@ -73,6 +73,9 @@ class _AuthPhoneStepWidgetState extends State<AuthPhoneStepWidget> {
       );
       final user = authResponse.user;
       if (user != null) {
+        try {
+          await SupabaseService.instance.activateSessionV25();
+        } catch (_) {}
         final metadata = user.userMetadata;
         final fullName = (metadata?['full_name'] ??
                 metadata?['name'] ??
